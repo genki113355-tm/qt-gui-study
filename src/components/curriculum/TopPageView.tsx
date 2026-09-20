@@ -171,7 +171,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
 
         <div className="flex items-start gap-4 my-4 flex-row">
           <div className="flex flex-col items-center flex-shrink-0">
-            <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full overflow-hidden shadow-lg border-2 border-cyan-400 shadow-cyan-900/60 ring-2 ring-cyan-500/20 bg-[#0a0f18]">
+            <div className="relative inline-flex items-center justify-center w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden shadow-lg border-2 border-cyan-400 shadow-cyan-900/60 ring-2 ring-cyan-500/20 bg-[#0a0f18]">
               <img src="/images/polar-bear-guide.png" alt="シロクマ先生" className="w-full h-full object-cover" />
             </div>
             <span className="text-xs font-semibold mt-1.5 px-3 py-0.5 rounded-full border whitespace-nowrap bg-cyan-950/60 text-cyan-300 border-cyan-500/30 shadow">
@@ -339,3 +339,4 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
     </div>
   );
 };
+

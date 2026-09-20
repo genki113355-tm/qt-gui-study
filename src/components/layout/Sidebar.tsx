@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ALL_CHAPTERS } from '../../data/chapters';
 
 interface SidebarProps {
@@ -75,6 +75,85 @@ export const Sidebar: React.FC<SidebarProps> = ({
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* 姉妹メディア・相互リンク */}
+        <div className="p-3 border-t border-slate-800/80 bg-slate-950/40 space-y-2 shrink-0">
+          <div className="text-[10px] font-mono text-slate-400 font-bold mb-1 flex items-center justify-between">
+            <span className="flex items-center gap-1">
+              <span>🔗</span>
+              <span>姉妹学習サイト</span>
+            </span>
+          </div>
+
+          {/* 1. シロクマC++ラボ */}
+          <a
+            href="https://www.shirokuma-cpp.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 transition shadow-sm"
+          >
+            <div className="min-w-0 pr-2">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs">👾</span>
+                <div className="text-xs font-bold text-slate-200 group-hover:text-cyan-300 font-sans truncate">
+                  シロクマC++ラボ
+                </div>
+              </div>
+              <div className="text-[10px] text-slate-400 mt-0.5 truncate font-sans">
+                ゲーム開発で学ぶC++設計
+              </div>
+            </div>
+            <span className="text-xs text-slate-500 group-hover:text-cyan-400 font-mono flex-shrink-0">
+              ↗
+            </span>
+          </a>
+
+          {/* 2. シロクマC++自動化ラボ */}
+          <a
+            href="https://shirokuma-auto-cpp.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 transition shadow-sm"
+          >
+            <div className="min-w-0 pr-2">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs">⚡</span>
+                <div className="text-xs font-bold text-slate-200 group-hover:text-cyan-300 font-sans truncate">
+                  シロクマC++自動化ラボ
+                </div>
+              </div>
+              <div className="text-[10px] text-slate-400 mt-0.5 truncate font-sans">
+                Docker / pybind11 / 自動評価
+              </div>
+            </div>
+            <span className="text-xs text-slate-500 group-hover:text-cyan-400 font-mono flex-shrink-0">
+              ↗
+            </span>
+          </a>
+
+          {/* 3. 水中音響・ソナー技術入門 */}
+          <a
+            href="https://sonar-guide.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/40 transition shadow-sm"
+          >
+            <div className="min-w-0 pr-2">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs">🌊</span>
+                <div className="text-xs font-bold text-slate-200 group-hover:text-cyan-300 font-sans truncate">
+                  水中音響・ソナー技術入門
+                </div>
+              </div>
+              <div className="text-[10px] text-slate-400 mt-0.5 truncate font-sans">
+                波の物理 / FFT / 音響解析
+              </div>
+            </div>
+            <span className="text-xs text-slate-500 group-hover:text-cyan-400 font-mono flex-shrink-0">
+              ↗
+            </span>
+          </a>
         </div>
       </aside>
     </>

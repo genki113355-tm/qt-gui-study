@@ -29,7 +29,12 @@ export const chapter11: Chapter = {
           filename: 'Terminal',
           language: 'bash',
           description: 'linuxdeployqt を使ったパッケージング',
-          code: `# 1. ツールをダウンロードして実行権限を付与\nwget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"\nchmod a+x linuxdeployqt-continuous-x86_64.AppImage\n\n# 2. パッケージングを実行\n./linuxdeployqt-continuous-x86_64.AppImage ./bin/QtDashboard -appimage`
+          code: `# 1. ツールをダウンロードして実行権限を付与
+wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+chmod a+x linuxdeployqt-continuous-x86_64.AppImage
+
+# 2. パッケージングを実行
+./linuxdeployqt-continuous-x86_64.AppImage ./bin/QtDashboard -appimage`
         }
       ]
     },

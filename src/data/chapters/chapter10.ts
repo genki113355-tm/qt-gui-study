@@ -29,7 +29,11 @@ export const chapter10: Chapter = {
           filename: 'Terminal',
           language: 'bash',
           description: 'Valgrindを使ったメモリ解析コマンド',
-          code: `# インストール\nsudo apt install valgrind\n\n# Memcheckツールを使ってQtアプリを起動\nvalgrind --leak-check=full --show-leak-kinds=all ./QtDashboard`
+          code: `# インストール
+sudo apt install valgrind
+
+# Memcheckツールを使ってQtアプリを起動
+valgrind --leak-check=full --show-leak-kinds=all ./QtDashboard`
         }
       ]
     },

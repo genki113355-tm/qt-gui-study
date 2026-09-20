@@ -29,7 +29,38 @@ export const chapter9: Chapter = {
           filename: 'TestSensorParser.cpp',
           language: 'cpp',
           description: 'QCOMPARE や QVERIFY マクロを使ったテストの基本',
-          code: `#include <QtTest>\n#include "SensorParser.h"\n\nclass TestSensorParser : public QObject {\n    Q_OBJECT\n\nprivate slots:\n    // 最初に1回だけ呼ばれる\n    void initTestCase() {\n        qDebug("テストを開始します");\n    }\n\n    // 各テストケース\n    void testValidData() {\n        SensorParser parser;\n        bool ok = parser.parse("TEMP:45.5");\n        \n        QVERIFY(ok == true); // 成功するか\n        QCOMPARE(parser.getTemperature(), 45.5); // 値が正しいか\n    }\n\n    void testInvalidData() {\n        SensorParser parser;\n        bool ok = parser.parse("ERROR_DATA");\n        \n        QVERIFY(ok == false);\n    }\n};\n\n// テストのメイン関数を自動生成\nQTEST_MAIN(TestSensorParser)\n#include "TestSensorParser.moc"`
+          code: `#include <QtTest>
+#include "SensorParser.h"
+
+class TestSensorParser : public QObject {
+    Q_OBJECT
+
+private slots:
+    // 最初に1回だけ呼ばれる
+    void initTestCase() {
+        qDebug("テストを開始します");
+    }
+
+    // 各テストケース
+    void testValidData() {
+        SensorParser parser;
+        bool ok = parser.parse("TEMP:45.5");
+        
+        QVERIFY(ok == true); // 成功するか
+        QCOMPARE(parser.getTemperature(), 45.5); // 値が正しいか
+    }
+
+    void testInvalidData() {
+        SensorParser parser;
+        bool ok = parser.parse("ERROR_DATA");
+        
+        QVERIFY(ok == false);
+    }
+};
+
+// テストのメイン関数を自動生成
+QTEST_MAIN(TestSensorParser)
+#include "TestSensorParser.moc"`
         }
       ]
     },
@@ -42,7 +73,23 @@ export const chapter9: Chapter = {
           filename: 'TestLoginWindow.cpp',
           language: 'cpp',
           description: 'QTest::mouseClick を使ったUIイベントのテスト',
-          code: `void TestLoginWindow::testLoginButtonClick() {\n    LoginWindow window;\n    // ウィンドウを生成（表示はしなくてもよい）\n    \n    // 初期状態の確認\n    QCOMPARE(window.getStatusText(), QString("Please Login"));\n\n    // UI部品を取得\n    QPushButton *loginBtn = window.findChild<QPushButton*>("loginButton");\n    QVERIFY(loginBtn != nullptr);\n\n    // マウスクリックをシミュレート\n    QTest::mouseClick(loginBtn, Qt::LeftButton);\n\n    // クリック後の状態遷移を確認\n    QCOMPARE(window.getStatusText(), QString("Connecting..."));\n}`
+          code: `void TestLoginWindow::testLoginButtonClick() {
+    LoginWindow window;
+    // ウィンドウを生成（表示はしなくてもよい）
+    
+    // 初期状態の確認
+    QCOMPARE(window.getStatusText(), QString("Please Login"));
+
+    // UI部品を取得
+    QPushButton *loginBtn = window.findChild<QPushButton*>("loginButton");
+    QVERIFY(loginBtn != nullptr);
+
+    // マウスクリックをシミュレート
+    QTest::mouseClick(loginBtn, Qt::LeftButton);
+
+    // クリック後の状態遷移を確認
+    QCOMPARE(window.getStatusText(), QString("Connecting..."));
+}`
         }
       ]
     },

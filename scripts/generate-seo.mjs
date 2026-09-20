@@ -7,8 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const distDir = path.resolve(rootDir, 'dist');
-const baseUrl = 'https://shirokuma-cpp.jp';
-const siteTitle = 'シロクマC++ラボ 〜ゲーム開発で学ぶオブジェクト指向開発 レガシー設計からモダン設計まで〜';
+const baseUrl = 'https://shirokuma-qt-cpp.jp';
+const siteTitle = 'シロクマQt×C++ラボ 〜ゲーム開発で学ぶオブジェクト指向開発 レガシー設計からモダン設計まで〜';
 const siteDesc = '1本のインベーダーゲームを10段階でリファクタリングしながら学ぶ！レガシー生ポインタからモダンC++17、ECS設計、TDD、UML設計書、C++基本文法総覧まで完全網羅したオブジェクト指向実践学習メディア。';
 const ogImage = `${baseUrl}/images/characters_mission.jpg`;
 
@@ -47,7 +47,7 @@ async function generateSEO() {
       fs.mkdirSync(articleDir, { recursive: true });
     }
 
-    const pageTitle = `${article.title} | シロクマC++ラボ`;
+    const pageTitle = `${article.title} | シロクマQt×C++ラボ`;
     const pageDesc = `${article.subtitle}。${article.description.slice(0, 130)}...`;
     const pageUrl = `${baseUrl}/${article.slug}`;
 
@@ -63,12 +63,12 @@ async function generateSEO() {
         'image': ogImage,
         'author': {
           '@type': 'Organization',
-          'name': 'シロクマC++ラボ',
+          'name': 'シロクマQt×C++ラボ',
           'url': baseUrl
         },
         'publisher': {
           '@type': 'Organization',
-          'name': 'シロクマC++ラボ',
+          'name': 'シロクマQt×C++ラボ',
           'logo': {
             '@type': 'ImageObject',
             'url': ogImage
@@ -130,7 +130,7 @@ async function generateSEO() {
         <p style="font-size: 16px; color: #94a3b8; margin-bottom: 30px;">${article.description}</p>
         <hr style="border: 0; border-top: 1px solid #1e293b; margin: 30px 0;" />
         <div style="background: #040810; padding: 20px; border-radius: 12px; border: 1px solid #0ea5e9;">
-          <h2 style="font-size: 20px; color: #38bdf8; margin-top: 0;">🐻‍❄️ シロクマC++ラボ インタラクティブ学習システム</h2>
+          <h2 style="font-size: 20px; color: #38bdf8; margin-top: 0;">🐻‍❄️ シロクマQt×C++ラボ インタラクティブ学習システム</h2>
           <p style="color: #cbd5e1;">JavaScriptを実行すると、ブラウザ内インベーダーゲームエミュレータ、メモリマップ可視化、UMLクラス図、対話型解説、理解度クイズが起動します。</p>
           <p><a href="/#${article.slug}" style="display: inline-block; padding: 10px 20px; background: #0284c7; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">インタラクティブ学習を開始する →</a></p>
         </div>
@@ -276,3 +276,4 @@ generateSEO().catch((err) => {
   console.error('❌ Error generating SEO:', err);
   process.exit(1);
 });
+

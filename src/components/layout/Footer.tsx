@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PrivacyPolicyModal } from './PrivacyPolicyModal';
-import { Shield, Cpu, Waves } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState<boolean>(false);

@@ -1,0 +1,82 @@
+﻿import React from 'react';
+import { ALL_CHAPTERS } from '../../data/chapters';
+
+interface SidebarProps {
+  currentChapterSlug: string;
+  onSelectChapter: (slug: string) => void;
+  isOpen: boolean;
+  onClose: () => void;
+  completedChapters: number[];
+  onToggleComplete: (id: number) => void;
+  onOpenMilestoneModal?: () => void;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({
+  currentChapterSlug,
+  onSelectChapter,
+  isOpen,
+  onClose,
+  // completedChapters,
+  // onToggleComplete,
+  // onOpenMilestoneModal
+}) => {
+  return (
+    <>
+      {isOpen && (
+        <div className="fixed inset-0 bg-black/60 z-30 lg:hidden backdrop-blur-sm" onClick={onClose} />
+      )}
+      <aside
+        className={`fixed lg:static top-0 left-0 h-full w-72 bg-[#0a0f18] border-r border-slate-800/60 z-40 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} flex flex-col`}
+      >
+        <div className="h-16 flex items-center px-6 border-b border-slate-800/60 bg-gradient-to-r from-[#0d121c] to-[#0a0f18]">
+          <span className="font-sans font-bold text-slate-100 flex items-center gap-2">
+            <span className="text-xl">🐻‍❄️</span> シロクマQt×C++ラボ
+          </span>
+        </div>
+        <div className="flex-1 overflow-y-auto py-4 custom-scrollbar">
+          
+          <div className="px-4 mb-2 mt-2">
+            <button
+              onClick={() => {
+                onSelectChapter('top');
+                onClose();
+              }}
+              className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center gap-3 ${
+                currentChapterSlug === 'top'
+                  ? 'bg-cyan-950/40 text-cyan-300 border border-cyan-500/30 shadow-[0_0_15px_rgba(34,211,238,0.1)]'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+              サイトTOPへ戻る
+            </button>
+          </div>
+          <div className="px-4 mb-4 mt-2">
+
+            <div className="text-xs font-bold text-cyan-500/80 uppercase tracking-wider mb-2 px-2">カリキュラム</div>
+            <ul className="space-y-1">
+              {ALL_CHAPTERS.map(ch => (
+                <li key={ch.id}>
+                  <button
+                    onClick={() => {
+                      onSelectChapter(ch.slug);
+                      onClose();
+                    }}
+                    className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all flex flex-col gap-1 ${
+                      currentChapterSlug === ch.slug
+                        ? 'bg-cyan-950/40 text-cyan-300 border border-cyan-500/30 shadow-[0_0_15px_rgba(34,211,238,0.1)]'
+                        : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                    }`}
+                  >
+                    <span className="font-mono text-[10px] text-slate-500">CHAPTER {ch.id}</span>
+                    <span className="font-bold line-clamp-2 leading-snug">{ch.title}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </>
+  );
+};

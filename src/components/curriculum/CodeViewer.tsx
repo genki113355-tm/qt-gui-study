@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+﻿import React, { useState, useMemo, useEffect } from 'react';
 import { Copy, Check, FileText, FileCode, Sparkles, AlertTriangle } from 'lucide-react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-c';
@@ -241,7 +241,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
 
       {/* コード表示エリア（行番号 ＆ 核心行ハイライト付き） */}
       <div className="relative overflow-x-auto max-h-[700px] scrollbar-thin py-3">
-        <pre className="!m-0 !p-0 !bg-transparent text-xs sm:text-sm md:text-base font-mono leading-relaxed">
+        <pre className="!m-0 !p-0 !bg-transparent text-xs sm:text-sm md:text-base font-mono leading-relaxed min-w-full float-left">
           {processedLines.map((line) => {
             const isHighlighted = highlightCoreLines && line.isCore;
             const isBlinking = blinkLineNumber === line.lineNumber;
@@ -249,7 +249,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
               <div
                 id={`code-line-${activeTab}-${line.lineNumber}`}
                 key={line.lineNumber}
-                className={`flex items-stretch transition-all duration-300 ${
+                className={`flex items-stretch transition-all duration-300 min-w-full \${
                   isBlinking
                     ? 'bg-amber-500/30 border-l-4 border-amber-400 pl-3 pr-4 shadow-lg shadow-amber-500/20'
                     : isHighlighted
@@ -291,3 +291,4 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
     </div>
   );
 };
+

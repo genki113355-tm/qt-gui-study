@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
+﻿import React, { useState, useEffect, useMemo } from 'react';
 import { Chapter, CodeHighlightTarget, CodeFile } from '../../types/curriculum';
-import { CLASSIC_CHAPTERS, MODERN_CHAPTERS, READING_CHAPTERS } from '../../data/chapters';
 import { DialogueBubble } from './DialogueBubble';
 import { CodeViewer } from './CodeViewer';
 import { ConceptDiagram } from './ConceptDiagram';
@@ -78,10 +77,6 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
       onComplete(chapter.id);
     }
   };
-
-  const isClassic = chapter.courseTrack === 'classic';
-  const isReading = chapter.courseTrack === 'reading';
-  const isGuide = chapter.courseTrack === 'guide' || chapter.category === 'guide' || chapter.category === 'column';
   const code = chapter.courseChapterCode || `Ch.${chapter.id}`;
 
     const getTrackBadge = () => {
@@ -533,7 +528,11 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                   <Lightbulb className="w-5 h-5" />
                   <span>シロクマ先生の重要ポイントまとめ</span>
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className={`grid grid-cols-1 gap-4 ${
+                  section.takeaways.length === 1 ? 'md:grid-cols-1' :
+                  section.takeaways.length === 2 ? 'md:grid-cols-2' :
+                  'md:grid-cols-3'
+                }`}>
                 {section.takeaways.map((takeaway, idx) => (
                   <div
                     key={idx}
@@ -542,7 +541,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                     <div className="text-sm sm:text-base font-bold text-slate-100">
                       {takeaway.title}
                     </div>
-                    <div className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                    <div className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans whitespace-pre-line">
                       {takeaway.description}
                     </div>
                   </div>
@@ -688,13 +687,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
         {chapter.nextChapterSlug ? (
           <button
             onClick={() => onNavigate(chapter.nextChapterSlug!)}
-            className={`flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base font-mono transition shadow-xl active:scale-95 ml-auto text-slate-950 ${
-              isReading
-                ? 'bg-purple-500 hover:bg-purple-400 shadow-purple-500/30'
-                : isClassic
-                ? 'bg-amber-500 hover:bg-amber-400 shadow-amber-500/20'
-                : 'bg-cyan-500 hover:bg-cyan-400 shadow-cyan-500/30'
-            }`}
+            className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base font-mono transition shadow-xl active:scale-95 ml-auto text-slate-950 bg-cyan-500 hover:bg-cyan-400 shadow-cyan-500/30"
           >
             <span>次の章へ進む</span>
             <ArrowRight className="w-5 h-5" />
@@ -703,49 +696,11 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
           <div className="flex items-center gap-3 ml-auto flex-wrap">
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-950 border border-emerald-500/40 text-emerald-400 text-xs sm:text-sm font-mono font-bold">
               <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>
-                {isGuide
-                  ? `🎉 本ガイド・コラムの読了お疲れ様でした！実践・学習にお役立てください！`
-                  : isReading
-                  ? `🧭 コード読解演習トラック（全${READING_CHAPTERS.length}ステップ）読了！現場鑑識の基礎を制覇しました！🎓`
-                  : isClassic
-                  ? `🏛️ レガシーC++コース（現行${CLASSIC_CHAPTERS.length}章）読破！お疲れ様でした！🎓`
-                  : `🚀 モダンコース（現行${MODERN_CHAPTERS.length}章）読破！お疲れ様でした！🎓`}
-              </span>
+              <span>🎉 カリキュラム読破お疲れ様でした！実践に活かしましょう！</span>
             </span>
-
-            {/* ガイド以外の場合は他コースへの誘導ボタン */}
-            {!isGuide && (
-              isClassic ? (
-                <button
-                  onClick={() => onNavigate('chapter-5-smart-pointers-raii')}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold font-mono text-xs sm:text-sm transition shadow-lg shadow-cyan-500/30 active:scale-95"
-                >
-                  <span>🚀 モダン【M】第1章へ挑戦する</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              ) : isReading ? (
-                <button
-                  onClick={() => onNavigate('chapter-1-spaghetti-to-oop')}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold font-mono text-xs sm:text-sm transition shadow-lg shadow-amber-500/20 active:scale-95"
-                >
-                  <span>🏛️ レガシー【L】第1章へ挑戦する</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => onNavigate('chapter-1-spaghetti-to-oop')}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold font-mono text-xs sm:text-sm transition shadow-lg shadow-amber-500/20 active:scale-95"
-                >
-                  <span>🏛️ レガシー【L】第1章へ挑戦する</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              )
-            )}
-
             <button
-              onClick={() => onNavigate('top')}
-              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold font-mono text-xs sm:text-sm transition border border-slate-700 active:scale-95"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold font-mono text-xs sm:text-sm transition border border-slate-700 active:scale-95 ml-auto sm:ml-0"
             >
               <span>TOPへ戻る</span>
             </button>
@@ -755,3 +710,4 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
     </div>
   );
 };
+

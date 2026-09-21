@@ -1,4 +1,4 @@
-﻿import { Chapter, CourseTrack } from '../types/curriculum';
+﻿import { Chapter } from '../types/curriculum';
 import { chapter0 } from './chapters/chapter0';
 import { chapter1 } from './chapters/chapter1';
 import { chapter2 } from './chapters/chapter2';
@@ -14,22 +14,16 @@ import { chapter11 } from './chapters/chapter11';
 import { chapter12 } from './chapters/chapter12';
 import { guiFrameworkComparison } from './guides/guiFrameworkComparison';
 
-export const CLASSIC_CHAPTERS: Chapter[] = [
+export const QT_CHAPTERS: Chapter[] = [
   chapter0,
   chapter1,
   chapter2,
   chapter3,
-  chapter4
-];
-
-export const MODERN_CHAPTERS: Chapter[] = [
+  chapter4,
   chapter5,
   chapter6,
   chapter7,
-  chapter8
-];
-
-export const READING_CHAPTERS: Chapter[] = [
+  chapter8,
   chapter9,
   chapter10,
   chapter11,
@@ -40,17 +34,20 @@ export const SPECIAL_GUIDES: Chapter[] = [
   guiFrameworkComparison
 ];
 
-export const ALL_CHAPTERS: Chapter[] = [...CLASSIC_CHAPTERS, ...MODERN_CHAPTERS, ...READING_CHAPTERS, ...SPECIAL_GUIDES];
-export const ALL_ARTICLES: Chapter[] = [...CLASSIC_CHAPTERS, ...MODERN_CHAPTERS, ...READING_CHAPTERS, ...SPECIAL_GUIDES];
+// 動的に prev/next を設定する
+for (let i = 0; i < QT_CHAPTERS.length; i++) {
+  if (i > 0) {
+    QT_CHAPTERS[i].prevChapterSlug = QT_CHAPTERS[i - 1].slug;
+  }
+  if (i < QT_CHAPTERS.length - 1) {
+    QT_CHAPTERS[i].nextChapterSlug = QT_CHAPTERS[i + 1].slug;
+  }
+}
+
+export const ALL_CHAPTERS: Chapter[] = [...QT_CHAPTERS, ...SPECIAL_GUIDES];
+export const ALL_ARTICLES: Chapter[] = [...QT_CHAPTERS, ...SPECIAL_GUIDES];
 
 export const UPCOMING_CHAPTERS: any[] = [];
-
-export function getChaptersByCourse(track: CourseTrack): Chapter[] {
-  if (track === 'classic') return CLASSIC_CHAPTERS;
-  if (track === 'modern') return MODERN_CHAPTERS;
-  if (track === 'reading') return READING_CHAPTERS;
-  return [];
-}
 
 export function getChapterBySlug(slug: string): Chapter | undefined {
   return ALL_ARTICLES.find(c => c.slug === slug);

@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { CLASSIC_CHAPTERS } from '../../data/chapters';
+import { QT_CHAPTERS } from '../../data/chapters';
 
 interface TopPageViewProps {
   onSelectChapter: (slug: string) => void;
@@ -241,7 +241,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {CLASSIC_CHAPTERS.map((chapter) => (
+          {QT_CHAPTERS.map((chapter) => (
             <div key={chapter.id} className="group relative block p-6 bg-[#0c121e] rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:bg-[#0f1725] transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] hover:-translate-y-1 overflow-hidden cursor-pointer flex flex-col h-full" onClick={() => onSelectChapter(chapter.slug)}>
               <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-800 group-hover:bg-cyan-400 transition-colors"></div>
               <div className="flex flex-col gap-1 mb-4">
@@ -262,3 +262,4 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
     </div>
   );
 };
+

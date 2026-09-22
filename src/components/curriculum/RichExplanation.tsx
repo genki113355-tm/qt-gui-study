@@ -289,8 +289,8 @@ function renderFormattedText(text: string, isHeading: boolean = false): React.Re
   const brSegments = text.split(/<br\s*\/?>/gi);
 
   return brSegments.map((segment, segIdx) => {
-    // 2. **太字**、`コード`、*斜体* で分割
-    const parts = segment.split(/(\*\*.*?\*\*|`.*?`|\*.*?\*)/g);
+    // 2. **太字**、`コード`、[リンク](url)、*斜体* で分割
+    const parts = segment.split(/(\*\*.*?\*\*|`.*?`|\[.*?\]\(.*?\)|\*.*?\*)/g);
     const content = parts.map((part, i) => {
       if (part.startsWith("**") && part.endsWith("**")) {
         return (
@@ -312,6 +312,24 @@ function renderFormattedText(text: string, isHeading: boolean = false): React.Re
             {part.slice(1, -1)}
           </code>
         );
+      }
+      if (part.startsWith("[") && part.includes("](") && part.endsWith(")")) {
+        const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+        if (linkMatch) {
+          const [, linkText, href] = linkMatch;
+          const isExternal = href.startsWith("http");
+          return (
+            <a
+              key={i}
+              href={href}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+              className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 font-semibold transition-colors mx-0.5"
+            >
+              {linkText}
+            </a>
+          );
+        }
       }
       if (part.startsWith("*") && part.endsWith("*") && !part.startsWith("**")) {
         return (

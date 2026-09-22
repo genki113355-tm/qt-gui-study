@@ -1,4 +1,4 @@
-﻿import { Chapter } from '../../types/curriculum';
+import { Chapter } from '../../types/curriculum';
 
 export const chapter0: Chapter = {
   id: 0,
@@ -64,7 +64,7 @@ export const chapter0: Chapter = {
     {
       id: 'sec-0-5',
       title: '0.5 VSCodeとCMake Toolsのセットアップ',
-      explanationText: '次に、コードエディタとしてVisual Studio Code (VSCode) を設定します。\n\nVSCodeを開き、以下の拡張機能をインストールしてください。\n\n1. **WSL** (Microsoft) - WindowsからWSLに接続するため\n2. **C/C++** (Microsoft)\n3. **CMake Tools** (Microsoft)\n4. **QML** (シンタックスハイライト用)',
+      explanationText: '次に、コードエディタとしてVisual Studio Code (VSCode) を設定します。\n\nVSCodeを開き、以下の拡張機能をインストールしてください。\n\n1. **WSL** (Microsoft) - WindowsからWSLに接続するため\n2. **C/C++** (Microsoft)\n3. **CMake Tools** (Microsoft)\n4. **QML** (シンタックスハイライト用)\n\n※実務において「開発者ごとのPC環境差」を完全に撲滅し、CI/CDでヘッドレス自動ビルドを行う場合はDockerコンテナ化が鉄則です。コンテナ環境の構築手順は、姉妹メディア[シロクマC++開発自動化ラボ 第2章（Docker環境構築）](https://shirokuma-auto-cpp.jp/chapter/2)をご参照ください。',
       processSteps: [
         {
           stepNumber: 1,

@@ -1,9 +1,10 @@
-﻿import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Chapter, CodeHighlightTarget, CodeFile } from '../../types/curriculum';
 import { DialogueBubble } from './DialogueBubble';
 import { CodeViewer } from './CodeViewer';
 import { ConceptDiagram } from './ConceptDiagram';
 import { ParadigmComparisonView } from './ParadigmComparisonView';
+import { ChapterVisualPreview } from './ChapterVisualPreview';
 
 
 import { MemoryVisualizer } from './MemoryVisualizer';
@@ -139,8 +140,8 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
               </nav>
 
               <ShareButtons
-                title={`${chapter.title} - ${chapter.subtitle} | シロクマC++ラボ`}
-                text={`C++オブジェクト指向設計カリキュラム：${chapter.description.slice(0, 60)}...`}
+                title={`${chapter.title} - ${chapter.subtitle} | シロクマQt×C++ラボ`}
+                text={`Qt/QML×C++産業用GUI開発カリキュラム：${chapter.description.slice(0, 60)}...`}
                 variant="compact"
               />
             </div>
@@ -150,20 +151,8 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
             </p>
           </div>
 
-          {/* 司令室のシロクマ先生＆ペンギン生徒イラストバナー */}
-          <div className="w-full lg:w-96 h-56 rounded-2xl overflow-hidden border-2 border-emerald-500/40 shadow-2xl shadow-emerald-950/60 flex-shrink-0 relative group">
-            <img
-              src="/images/characters_mission.jpg"
-              alt="シロクマ先生とペンギン生徒の作戦司令室"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-3.5">
-              <span className="text-xs sm:text-sm font-mono text-emerald-300 flex items-center gap-2 font-bold">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                POLAR FLEET HQ : MISSION BRIEFING
-              </span>
-            </div>
-          </div>
+          {/* 章のテーマに連動したリアルタイム動的HMIプレビュー */}
+          <ChapterVisualPreview chapterId={chapter.id} slug={chapter.slug} />
         </div>
       </div>
 

@@ -58,6 +58,10 @@ export const chapter0: Chapter = {
         {
           title: '【コラム】実務でRedHat系（AlmaLinux / Rocky Linux）を使いたい場合',
           description: '実務のターゲット機器がRedHat系の場合、開発環境もそちらに合わせたいことがあります。Microsoft StoreからAlmaLinux等をWSL2にインストール可能ですが、以下の違いに注意してください。\n\n1. コマンドとパッケージ名の違い: `sudo dnf install gcc-c++ qt5-qtbase-devel qt5-qtdeclarative-devel` のように読み替えます。\n2. Qtバージョンの罠: RedHat系の標準リポジトリはQtが古い(Qt5.9等)ことが多いです。最新のQtを使う場合は「EPELリポジトリ」を追加するか、Qt公式サイトのインストーラー(.run)を使って直接インストールする工夫が必要です。'
+        },
+        {
+          title: '【重要コラム】実務における Qt 5 と Qt 6 の違い・移行ポイント',
+          description: '本カリキュラムではUbuntu標準リポジトリで最も安定して導入できる Qt 5.15系 を基準に解説していますが、実務で最新の Qt 6 を扱う場合もアーキテクチャの根幹は共通です。以下の違いだけ頭に入れておけばスムーズに移行できます。\n\n1. **CMakeターゲット名**: Qt5では `Qt5::Widgets Qt5::Quick` と書きますが、Qt6では `Qt6::Widgets Qt6::Quick`（または `Qt::Widgets`）と記述します。\n2. **QMLのバージョン記述**: Qt5では `import QtQuick 2.15` のように明示しますが、Qt6ではバージョン番号を省略した `import QtQuick` が標準になります。\n3. **グラフィックスAPI**: Qt5はOpenGLが主軸でしたが、Qt6ではVulkan/Metal/DirectXを抽象化する「RHI (Rendering Hardware Interface)」が導入され、より高効率にGPUを活用できます。'
         }
       ]
     },

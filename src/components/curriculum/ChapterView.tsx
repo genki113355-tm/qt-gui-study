@@ -11,13 +11,10 @@ import { MemoryVisualizer } from './MemoryVisualizer';
 import { VariableInspector } from './VariableInspector';
 import { RichExplanation } from './RichExplanation';
 import { UmlDiagramViewer } from './UmlDiagramViewer';
-import { CheckCircle, AlertCircle, ArrowRight, ArrowLeft, Lightbulb, HelpCircle, GitCommit, Gamepad2, Terminal } from 'lucide-react';
+import { CheckCircle, AlertCircle, ArrowRight, ArrowLeft, Lightbulb, HelpCircle, GitCommit } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 import { ShareButtons } from '../common/ShareButtons';
-
-
-import { getChapterEvolution } from '../../data/chapterEvolution';
 
 type ViewMode = 'all' | 'learn' | 'code' | 'practice';
 
@@ -37,8 +34,6 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, number>>({});
   const [showExplanations, setShowExplanations] = useState<Record<string, boolean>>({});
   const [codeHighlight, setCodeHighlight] = useState<CodeHighlightTarget | undefined>();
-  const [isGameModalOpen, setIsGameModalOpen] = useState<boolean>(false);
-  const [showInlineGame, setShowInlineGame] = useState<boolean>(false);
   const [viewMode, setViewMode] = useState<ViewMode>('all');
 
   // 章切り替え時に表示モードをデフォルト（すべて表示）にリセット
@@ -78,7 +73,6 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
       onComplete(chapter.id);
     }
   };
-  const code = chapter.courseChapterCode || `Ch.${chapter.id}`;
 
     const getTrackBadge = () => {
     return (
@@ -205,7 +199,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                   : 'text-slate-400 hover:text-white hover:bg-slate-800'
               }`}
             >
-              <span>🎮 ゲーム・演習</span>
+              <span>🧪 演習・クイズ</span>
               {chapter.quiz && chapter.quiz.length > 0 && (
                 <span className="text-[10px] opacity-75">(クイズ{chapter.quiz.length}問)</span>
               )}
@@ -218,136 +212,11 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
               {viewMode === 'all' && '全セクションを通読中'}
               {viewMode === 'learn' && '概念解説・UML設計図・メモリ図に集中'}
               {viewMode === 'code' && 'C++実装コードと差分のみ表示'}
-              {viewMode === 'practice' && '実機ゲーム・理解度クイズ・演習道場'}
+              {viewMode === 'practice' && '理解度チェッククイズ・演習道場'}
             </span>
           </div>
         </div>
       </div>
-
-      {/* 🚀 実機ゲームステーション（大画面ポップアップ起動 ＆ インライン切替） */}
-      {(viewMode === 'all' || viewMode === 'practice') && chapter.gameVersion && chapter.gameVersion !== 'none' && (() => {
-        const evolution = getChapterEvolution(code, chapter.gameVersion);
-        const isFirstChapter = Boolean(
-          evolution.isFirstChapter ||
-          code === 'L1' ||
-          code === 'C1' ||
-          chapter.gameVersion === 'v1_spaghetti' ||
-          evolution.previousChapter.includes('なし')
-        );
-
-        return (
-          <section className="space-y-3">
-            <div className="rounded-2xl border-2 border-cyan-500/40 bg-gradient-to-br from-slate-900 via-[#070e1b] to-slate-950 p-4 sm:p-6 shadow-2xl relative overflow-hidden">
-              {/* 背景の淡いグリッド ＆ ネオングロー */}
-              <div className="absolute inset-0 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
-              <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-
-              <div className="relative z-10 flex flex-col items-center text-center space-y-5">
-                {/* 上部ヘッダー情報 */}
-                <div className="space-y-2.5 max-w-2xl flex flex-col items-center">
-                  <div className="flex items-center gap-2 flex-wrap justify-center">
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-950/90 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5">
-                      <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>{code} 収録：インベーダーゲーム風シューティング</span>
-                    </span>
-                    <span className="text-xs text-slate-400 font-mono">
-                      C++プログラム実行環境
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg sm:text-2xl font-black text-white font-mono flex items-center justify-center gap-2">
-                    <span className="text-cyan-400">👾</span>
-                    <span>RETRO SPACE SHOOTER : {code} {chapter.title}</span>
-                  </h3>
-
-                  {/* L1以外の章のみ「前章からの進化点」を表示 */}
-                  {!isFirstChapter ? (
-                    <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono bg-slate-900/90 px-3.5 py-2 rounded-xl border border-amber-500/30 text-slate-300 max-w-xl text-left">
-                      <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-300 font-bold border border-amber-500/40 flex-shrink-0 text-xs">
-                        🔄 前章からの進化
-                      </span>
-                      <span className="leading-snug text-amber-100 font-medium">
-                        {evolution.headline}
-                      </span>
-                    </div>
-                  ) : (
-                    <div className="text-xs sm:text-sm text-slate-300 font-mono bg-slate-900/80 px-3.5 py-2 rounded-xl border border-cyan-500/30 max-w-xl">
-                      🚀 <span className="text-cyan-300 font-bold">原点の固定画面シューティング：</span>1ファイル・グローバル変数・単発射撃から始まるC++オブジェクト指向への旅！
-                    </div>
-                  )}
-                </div>
-
-                {/* 中央：縦4cm × 横5cm (約150px × 200px) の超目立つ起動ボタン */}
-                <div className="flex flex-col items-center justify-center gap-3 my-1">
-                  <button
-                    onClick={() => setIsGameModalOpen(true)}
-                    className="w-[200px] h-[150px] rounded-2xl bg-gradient-to-br from-cyan-500 via-sky-500 to-emerald-500 hover:from-cyan-400 hover:via-sky-400 hover:to-emerald-400 text-slate-950 font-mono font-black transition-all duration-300 shadow-[0_0_35px_rgba(6,182,212,0.45)] hover:shadow-[0_0_55px_rgba(6,182,212,0.7)] hover:scale-105 active:scale-95 flex flex-col items-center justify-center gap-2.5 group cursor-pointer border-2 border-cyan-200/50"
-                    title="ゲームを起動する"
-                  >
-                    <div className="w-14 h-14 rounded-xl bg-slate-950/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform">
-                      <Gamepad2 className="w-10 h-10 text-slate-950" />
-                    </div>
-                    <div className="flex flex-col items-center leading-tight">
-                      <span className="text-base sm:text-lg font-black tracking-wide text-slate-950">ゲームを起動する</span>
-                      <span className="text-xs font-bold text-slate-900/80 font-mono tracking-wider mt-0.5">▶ PLAY GAME</span>
-                    </div>
-                  </button>
-
-                  <div className="flex items-center gap-3 text-xs text-slate-400 font-mono pt-1 flex-wrap justify-center">
-                    <span className="flex items-center gap-1 text-emerald-400">
-                      <span>🎨 2Dグラフィック</span>
-                    </span>
-                    <span>•</span>
-                    <span className="flex items-center gap-1 text-cyan-400">
-                      <span>📟 CUI文字切替</span>
-                    </span>
-                    <span>•</span>
-                    <span className="text-slate-300">キーボード/タッチ対応</span>
-                  </div>
-                </div>
-
-                {/* 下部：インライン表示の切り替え */}
-                <div className="pt-2 border-t border-slate-800/80 w-full flex justify-center">
-                  <button
-                    onClick={() => setShowInlineGame((prev) => !prev)}
-                    className="text-xs text-slate-400 hover:text-cyan-300 font-mono transition flex items-center gap-1.5 py-1 px-3 rounded hover:bg-slate-800/60 cursor-pointer"
-                  >
-                    <span>{showInlineGame ? '▲ ページ内表示を閉じる' : '▼ ページ内にインライン表示する'}</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* ページ内インライン展開（ユーザーが希望した場合のみ） */}
-            {showInlineGame && (
-              <div className="pt-2 animate-fadeIn">
-                <React.Suspense fallback={
-                  <div className="flex items-center justify-center p-12 rounded-2xl bg-slate-950 border border-cyan-500/30 text-cyan-400 font-mono text-sm gap-3">
-                    <div className="w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
-                    <span>アーケードエミュレータを準備中...</span>
-                  </div>
-                }>
-                  
-                </React.Suspense>
-              </div>
-            )}
-
-            {/* 🎮 大画面ポップアップモーダル */}
-            {isGameModalOpen && (
-              <React.Suspense fallback={
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md">
-                  <div className="flex items-center gap-3 p-6 rounded-2xl bg-slate-900 border border-cyan-500/50 text-cyan-400 font-mono text-sm shadow-2xl">
-                    <div className="w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
-                    <span>RETRO SPACE SHOOTER 起動中...</span>
-                  </div>
-                </div>
-              }>
-                
-              </React.Suspense>
-            )}
-          </section>
-        );
-      })()}
 
       {/* 📐 この章のプログラムに対応する公式UML設計書 */}
       {(viewMode === 'all' || viewMode === 'learn') && chapter.umlDiagram && (

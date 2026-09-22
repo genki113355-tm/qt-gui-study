@@ -1,4 +1,4 @@
-﻿import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createServer } from 'vite';
@@ -8,9 +8,9 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const distDir = path.resolve(rootDir, 'dist');
 const baseUrl = 'https://shirokuma-qt-cpp.jp';
-const siteTitle = 'シロクマQt×C++ラボ 〜ゲーム開発で学ぶオブジェクト指向開発 レガシー設計からモダン設計まで〜';
-const siteDesc = '1本のインベーダーゲームを10段階でリファクタリングしながら学ぶ！レガシー生ポインタからモダンC++17、ECS設計、TDD、UML設計書、C++基本文法総覧まで完全網羅したオブジェクト指向実践学習メディア。';
-const ogImage = `${baseUrl}/images/characters_mission.jpg`;
+const siteTitle = 'シロクマQt×C++ラボ 〜Linuxで動くリアルタイム計器・産業用GUI開発〜';
+const siteDesc = 'Qt/QMLとモダンC++を駆使し、Linux環境で動くリアルタイム波形描画・計器HMIダッシュボードを構築する実践型エンジニアリング学習メディア。';
+const ogImage = `${baseUrl}/images/ogp.jpg`;
 
 async function generateSEO() {
   console.log('🚀 Starting SEO Prerender & Sitemap/Feed Generator...');
@@ -247,11 +247,11 @@ ${rssItems}
   fs.writeFileSync(publicFeedPath, rssFeed, 'utf8');
   console.log('✅ Generated feed.xml (RSS 2.0)');
 
-  // 4. 最新の sitemap.xml を完全生成（L11含む）
+  const today = new Date().toISOString().split('T')[0];
   const sitemapUrls = [
     `  <url>
     <loc>${baseUrl}/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>`,
@@ -260,7 +260,7 @@ ${rssItems}
       const priority = isGuide ? '0.9' : '0.8';
       return `  <url>
     <loc>${baseUrl}/${a.slug}</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${priority}</priority>
   </url>`;

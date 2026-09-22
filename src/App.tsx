@@ -29,22 +29,25 @@ const PageLoadingFallback: React.FC = () => (
   </div>
 );
 
+const getSlugFromUrl = (): string => {
+  let path = window.location.pathname.replace(/^\/+/, '').replace(/\/+$/, '');
+  if (path === 'qt') return 'top';
+  if (path.startsWith('qt/')) path = path.slice(3);
+
+  if (path && getChapterBySlug(path)) return path;
+
+  const hash = window.location.hash.replace('#', '');
+  if (hash && getChapterBySlug(hash)) return hash;
+
+  return 'top';
+};
+
 export const App: React.FC = () => {
-  const [currentSlug, setCurrentSlug] = useState<string>(() => {
-    // 1. パスルーティングを優先（例: /chapter-1-spaghetti-to-oop）
-    const pathSlug = window.location.pathname.replace(/^\/+/, '').replace(/\/+$/, '');
-    if (pathSlug && getChapterBySlug(pathSlug)) return pathSlug;
-
-    // 2. 後方互換性のためハッシュもフォールバック判定
-    const hash = window.location.hash.replace('#', '');
-    if (hash && getChapterBySlug(hash)) return hash;
-
-    return 'top';
-  });
+  const [currentSlug, setCurrentSlug] = useState<string>(getSlugFromUrl);
 
   const [completedChapters, setCompletedChapters] = useState<number[]>(() => {
     try {
-      const saved = localStorage.getItem('cpp_completed_chapters');
+      const saved = localStorage.getItem('qt_completed_chapters') || localStorage.getItem('cpp_completed_chapters');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -58,28 +61,20 @@ export const App: React.FC = () => {
 
   // 初回ロード時のURL正規化（旧ハッシュURLで訪問された場合にクリーンパスへ補正）
   useEffect(() => {
+    const isSub = window.location.pathname.startsWith('/qt');
+    const prefix = isSub ? '/qt' : '';
     const hash = window.location.hash.replace('#', '');
     if (hash && getChapterBySlug(hash)) {
-      window.history.replaceState(null, '', `/${hash}`);
+      window.history.replaceState(null, '', `${prefix}/${hash}`);
     } else if (currentSlug === 'top' && window.location.hash) {
-      window.history.replaceState(null, '', '/');
+      window.history.replaceState(null, '', prefix || '/');
     }
   }, []);
 
   // ブラウザの「戻る」「進む」キー操作（popstate）対応
   useEffect(() => {
     const handlePopState = () => {
-      const pathSlug = window.location.pathname.replace(/^\/+/, '').replace(/\/+$/, '');
-      if (pathSlug && getChapterBySlug(pathSlug)) {
-        setCurrentSlug(pathSlug);
-      } else {
-        const hash = window.location.hash.replace('#', '');
-        if (hash && getChapterBySlug(hash)) {
-          setCurrentSlug(hash);
-        } else {
-          setCurrentSlug('top');
-        }
-      }
+      setCurrentSlug(getSlugFromUrl());
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -114,7 +109,7 @@ export const App: React.FC = () => {
         ? prev.filter((item) => item !== id)
         : [...prev, id];
       try {
-        localStorage.setItem('cpp_completed_chapters', JSON.stringify(next));
+        localStorage.setItem('qt_completed_chapters', JSON.stringify(next));
       } catch (e) {
         console.error(e);
       }
@@ -127,7 +122,7 @@ export const App: React.FC = () => {
       if (prev.includes(id)) return prev;
       const next = [...prev, id];
       try {
-        localStorage.setItem('cpp_completed_chapters', JSON.stringify(next));
+        localStorage.setItem('qt_completed_chapters', JSON.stringify(next));
       } catch (e) {
         console.error(e);
       }
@@ -138,10 +133,12 @@ export const App: React.FC = () => {
   const activeChapter = currentChapter || ALL_CHAPTERS[0];
   const currentChapterId = currentSlug === 'top' ? 0 : activeChapter.id;
 
-  // 章選択時のクリーンURL遷移（HTML5 pushState）
+  // 章選択時のクリーンURL遷移（HTML5 pushState、/qt/ サブディレクトリを自動考慮）
   const handleSelectChapter = (slug: string) => {
     setCurrentSlug(slug);
-    const targetPath = slug === 'top' ? '/' : `/${slug}`;
+    const isSub = window.location.pathname.startsWith('/qt');
+    const prefix = isSub ? '/qt' : '';
+    const targetPath = slug === 'top' ? (prefix || '/') : `${prefix}/${slug}`;
     if (window.location.pathname !== targetPath) {
       window.history.pushState(null, '', targetPath);
     }

@@ -23,7 +23,7 @@ export const chapter0: Chapter = {
     {
       id: 'sec-0-2',
       title: '0.2 【重要】Windows上のLinux環境構築（WSL2 + WSLg）',
-      explanationText: '「LinuxのGUIアプリを作るなら、VirtualBoxなどの重い仮想マシンを入れるか、デュアルブートにしないといけないのでは？」……それは数年前の常識です。\n\n現在は **WSLg (Windows Subsystem for Linux GUI)** という強力な機能がWindows 10/11に標準搭載されています。これにより、WindowsのターミナルからUbuntuを立ち上げ、そこでQtアプリをビルドして実行するだけで、**Windowsのデスクトップ上にポンッと直接GUI画面が表示されます**。さらにGPUアクセラレーションも効くため、高速な波形描画もサクサク動きます。',
+      explanationText: '「LinuxのGUIアプリを作るなら、VirtualBoxなどの重い仮想マシンを入れるか、デュアルブートにしないといけないのでは？」……それは数年前の常識です。\n\n現在は **WSLg (Windows Subsystem for Linux GUI)** という強力な機能がWindows 10/11に標準搭載されています。これにより、WindowsのターミナルからUbuntuを立ち上げ、そこでQtアプリをビルドして実行するだけで、**Windowsのデスクトップ上にポンッと直接GUI画面が表示されます**。さらにGPUアクセラレーションも効くため、高速な波形描画もサクサク動きます。\n\n> 🐧 ペンギン生徒: 昔LinuxでGUIを動かそうとしたらX11転送やVNCの設定で丸一日溶けました…！WSLgならコマンドを叩くだけでWindowsのネイティブウィンドウとして画面が出るんですね！\n\n> 🐻‍❄️ シロクマ先生: うむ！面倒なディスプレイサーバー設定はすべてWSLgが自動で面倒を見てくれるぞ。まずはUbuntuのターミナルを立ち上げて、GUI開発の第一歩を踏み出すのじゃ！',
       takeaways: [
         {
           title: 'WSL2 + VSCode (Remote-WSL) が現代のデファクトスタンダード',

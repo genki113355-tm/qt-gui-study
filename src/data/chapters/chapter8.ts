@@ -1,4 +1,4 @@
-﻿import { Chapter } from '../../types/curriculum';
+import { Chapter } from '../../types/curriculum';
 
 export const chapter8: Chapter = {
   id: 8,
@@ -12,7 +12,7 @@ export const chapter8: Chapter = {
     {
       id: 'sec8-1',
       title: 'Qtのメモリ管理モデル（Parent-Child）とスマートポインタ',
-      explanationText: 'Qtの `QObject` 派生クラスは「親（Parent）」を指定してインスタンス化すると、親が破棄されたときに子供も自動的に `delete` されるという強力なメモリ管理モデルを持っています。\n\nしかし、ネットワークから次々と飛んでくる「波形データ」のような単なるデータ構造（プレーンなC++構造体）にはこの仕組みは適用されません。このようなデータをスレッド間でシグナルを通してやり取りする場合、C++標準の `std::shared_ptr`（またはQtの `QSharedPointer`）を使って、参照カウントによる確実なメモリ解放を行う必要があります。'
+      explanationText: 'Qtの `QObject` 派生クラスは「親（Parent）」を指定してインスタンス化すると、親が破棄されたときに子供も自動的に `delete` されるという強力なメモリ管理モデルを持っています。\n\nしかし、ネットワークから次々と飛んでくる「波形データ」のような単なるデータ構造（プレーンなC++構造体）にはこの仕組みは適用されません。このようなデータをスレッド間でシグナルを通してやり取りする場合、C++標準の `std::shared_ptr`（またはQtの `QSharedPointer`）を使って、参照カウントによる確実なメモリ解放を行う必要があります。\n\n> 🐧 ペンギン生徒: QObjectの親子関係があるから全部お任せでいいや！と思っていたら、波形データでメモリリークしてフリーズしました…！\n\n> 🐻‍❄️ シロクマ先生: 典型的な初心者の罠じゃな！GUI部品（QObject）は親子関係で寿命管理し、通信・計測データ（非QObject）は `std::shared_ptr` で管理する。この境界線を明確に分けるのがプロの設計じゃ！'
     }
   ]
 };

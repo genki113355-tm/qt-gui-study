@@ -645,13 +645,36 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
 
       {/* 記事シェアカード */}
       <ShareButtons
-        title={`${chapter.title} - ${chapter.subtitle} | シロクマC++ラボ`}
-        text={`インベーダーゲーム風シューティング（RETRO SPACE SHOOTER）開発を通じて学ぶC++オブジェクト指向設計カリキュラム！\n${chapter.description.slice(0, 80)}...`}
+        title={`${chapter.title} - ${chapter.subtitle} | シロクマQt×C++ラボ`}
+        text={`Qt/QMLとモダンC++で産業用GUI・60fps計器ダッシュボードを構築する実践カリキュラム！\n${chapter.description.slice(0, 80)}...`}
         variant="card"
       />
 
-      {/* 学習完了・達成のご褒美PRバナー（最下部） */}
-      
+      {/* 4ラボ循環バトンタッチカード（最終章完了時） */}
+      {!chapter.nextChapterSlug && (
+        <div className="my-8 p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-blue-950/80 via-slate-900 to-[#071328] border border-blue-500/40 flex flex-col md:flex-row items-center justify-between gap-5 shadow-2xl relative overflow-hidden">
+          <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="space-y-2 text-center md:text-left relative z-10">
+            <div className="flex items-center justify-center md:justify-start gap-2 text-xs font-mono text-blue-300 font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-blue-950 border border-blue-500/40">NEXT STAGE 🌊</span>
+              <span>シロクマ技術探検隊・第4ステージ</span>
+            </div>
+            <h4 className="text-lg sm:text-xl font-black text-white">
+              Qt GUIを極めたら、次は【ソナー入門】で物理波形・FFTに挑む！
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+              画面描画の次は信号処理の極限へ。Web Audio音響シミュレータ、FFT、LOFAR解析、絵本シアターで学ぶ水中音響の最高峰メディア。
+            </p>
+          </div>
+          <a
+            href="/sonar/"
+            className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-500 to-sky-400 hover:from-blue-400 hover:to-sky-300 text-slate-950 font-black text-sm whitespace-nowrap shadow-xl hover:shadow-blue-500/25 transition transform hover:scale-105 active:scale-95 flex items-center gap-2 flex-shrink-0 relative z-10"
+          >
+            <span>ソナー入門へ進む</span>
+            <span>➔</span>
+          </a>
+        </div>
+      )}
 
       {/* 章ナビゲーションフッター */}
       <div className="pt-8 border-t border-slate-800 flex items-center justify-between gap-4 flex-wrap">

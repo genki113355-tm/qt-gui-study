@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Copy, Check, Share2 } from 'lucide-react';
 
 interface ShareButtonsProps {
@@ -14,7 +14,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
   title,
   url,
   text,
-  hashtags = ['シロクマcpp', 'cpp', 'オブジェクト指向', 'ゲーム開発'],
+  hashtags = ['シロクマQt', 'Qt', 'Cpp', 'QML', 'GUI開発'],
   variant = 'inline',
   className = '',
 }) => {
@@ -25,7 +25,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
     if (typeof window !== 'undefined') {
       return window.location.href;
     }
-    return 'https://shirokuma-cpp.jp';
+    return 'https://shirokuma-tech.jp/qt';
   };
 
   const finalUrl = getShareUrl();

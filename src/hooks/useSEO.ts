@@ -10,12 +10,12 @@ export const useSEO = ({ currentSlug, chapter }: UseSEOProps) => {
   useEffect(() => {
     const siteBaseTitle = 'シロクマQt×C++ラボ 〜Linuxで動くリアルタイム計器・GUI開発〜';
     const siteBaseDesc = 'Linux環境で動くプロフェッショナルなHMIやリアルタイム計器・GUIをQt C++で構築するための実践学習メディア。シグナル＆スロット、マルチスレッド、QMLフロントエンド分離などを体系的に学べます。';
-    const baseUrl = 'https://shirokuma-cpp.jp';
+    const baseUrl = 'https://shirokuma-tech.jp/qt';
 
     // 1. タイトルと概要の決定
     const pageTitle = currentSlug === 'top' || !chapter
       ? siteBaseTitle
-      : `${chapter.title} | シロクマC++ラボ`;
+      : `${chapter.title} | シロクマQt×C++ラボ`;
     const pageDesc = currentSlug === 'top' || !chapter
       ? siteBaseDesc
       : `${chapter.subtitle}。${chapter.description.slice(0, 120)}...`;
@@ -83,15 +83,15 @@ export const useSEO = ({ currentSlug, chapter }: UseSEOProps) => {
           'url': pageUrl,
           'author': {
             '@type': 'Organization',
-            'name': 'シロクマC++ラボ',
+            'name': 'シロクマQt×C++ラボ',
             'url': baseUrl
           },
           'publisher': {
             '@type': 'Organization',
-            'name': 'シロクマC++ラボ',
+            'name': 'シロクマQt×C++ラボ',
             'logo': {
               '@type': 'ImageObject',
-              'url': `${baseUrl}/images/characters_mission.jpg`
+              'url': `${baseUrl}/images/characters/shirokuma_sensei.png`
             }
           },
           'image': `${baseUrl}/images/characters_mission.jpg`,

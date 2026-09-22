@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { X, Award, CheckCircle2, Share2, Sparkles, Shield, ChevronRight, Lock } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { QT_CHAPTERS } from '../../data/chapters';
@@ -239,7 +239,7 @@ export const MilestoneModal: React.FC<MilestoneModalProps> = ({
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <a
-                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(selectedMilestone.shareMessage)}&url=${encodeURIComponent('https://shirokuma-qt-cpp.jp')}`}
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(selectedMilestone.shareMessage)}&url=${encodeURIComponent('https://shirokuma-tech.jp/qt')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 bg-[#1DA1F2] hover:bg-[#1a91da] text-white font-bold py-4 rounded-xl transition shadow-lg active:scale-95"

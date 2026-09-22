@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { X } from 'lucide-react';
 import { ALL_CHAPTERS } from '../../data/chapters';
 
@@ -31,7 +31,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
       >
         <div className="h-16 flex items-center justify-between px-6 border-b border-slate-800/60 bg-gradient-to-r from-[#0d121c] to-[#0a0f18]">
           <span className="font-sans font-bold text-slate-100 flex items-center gap-2">
-            <span className="text-xl">🐻‍❄️</span> シロクマQt×C++ラボ
+            <img src="/images/characters/shirokuma_sensei.png" alt="シロクマ先生" className="w-6 h-6 rounded-full object-cover border border-cyan-400/50 shadow inline-block" />
+            <span>シロクマQt×C++ラボ</span>
           </span>
           <button
             onClick={onClose}
@@ -86,20 +87,39 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </div>
           </div>
 
-          {/* 姉妹メディア・相互リンク */}
+          {/* 総合ポータル ＆ 姉妹メディア・相互リンク */}
           <div className="p-3 border-t border-slate-800/80 bg-slate-950/40 space-y-2 mt-4">
             <div className="text-[10px] font-mono text-slate-400 font-bold mb-1 flex items-center justify-between">
               <span className="flex items-center gap-1">
                 <span>🔗</span>
-                <span>姉妹学習サイト</span>
+                <span>技術学習エコシステム</span>
               </span>
             </div>
 
+            {/* 0. 総合トップ */}
+            <a
+              href="/"
+              className="group flex items-center justify-between p-2 rounded-xl bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-500/30 hover:border-cyan-400/60 transition shadow-sm"
+            >
+              <div className="min-w-0 pr-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs">🏛️</span>
+                  <div className="text-xs font-bold text-cyan-300 group-hover:text-white font-sans truncate">
+                    総合ポータル
+                  </div>
+                </div>
+                <div className="text-[10px] text-slate-400 mt-0.5 truncate font-sans">
+                  全4ラボの学習記録を集約
+                </div>
+              </div>
+              <span className="text-xs text-cyan-400 group-hover:text-white font-mono flex-shrink-0">
+                ➔
+              </span>
+            </a>
+
             {/* 1. シロクマC++ラボ */}
             <a
-              href="https://www.shirokuma-cpp.jp/"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
+              href="/cpp/"
               className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 transition shadow-sm"
             >
               <div className="min-w-0 pr-2">
@@ -120,15 +140,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
             {/* 2. シロクマC++自動化ラボ */}
             <a
-              href="https://shirokuma-auto-cpp.jp/"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 transition shadow-sm"
+              href="/auto/"
+              className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/40 transition shadow-sm"
             >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs">⚡</span>
-                  <div className="text-xs font-bold text-slate-200 group-hover:text-cyan-300 font-sans truncate">
+                  <div className="text-xs font-bold text-slate-200 group-hover:text-amber-300 font-sans truncate">
                     シロクマC++自動化ラボ
                   </div>
                 </div>
@@ -136,30 +154,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   Docker / pybind11 / 自動評価
                 </div>
               </div>
-              <span className="text-xs text-slate-500 group-hover:text-cyan-400 font-mono flex-shrink-0">
+              <span className="text-xs text-slate-500 group-hover:text-amber-400 font-mono flex-shrink-0">
                 ↗
               </span>
             </a>
 
             {/* 3. 水中音響・ソナー技術入門 */}
             <a
-              href="https://sonar-guide.jp/"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
+              href="/sonar/"
               className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/40 transition shadow-sm"
             >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs">🌊</span>
-                  <div className="text-xs font-bold text-slate-200 group-hover:text-cyan-300 font-sans truncate">
-                    水中音響・ソナー技術入門
+                  <div className="text-xs font-bold text-slate-200 group-hover:text-blue-300 font-sans truncate">
+                    水中音響・ソナー入門
                   </div>
                 </div>
                 <div className="text-[10px] text-slate-400 mt-0.5 truncate font-sans">
                   波の物理 / FFT / 音響解析
                 </div>
               </div>
-              <span className="text-xs text-slate-500 group-hover:text-cyan-400 font-mono flex-shrink-0">
+              <span className="text-xs text-slate-500 group-hover:text-blue-400 font-mono flex-shrink-0">
                 ↗
               </span>
             </a>

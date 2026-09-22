@@ -1,5 +1,6 @@
-﻿import React from 'react';
+import React from 'react';
 import { QT_CHAPTERS } from '../../data/chapters';
+import { Rocket, Award, ArrowRight } from 'lucide-react';
 
 interface TopPageViewProps {
   onSelectChapter: (slug: string) => void;
@@ -10,6 +11,8 @@ interface TopPageViewProps {
 
 export const TopPageView: React.FC<TopPageViewProps> = ({
   onSelectChapter,
+  completedChapters,
+  onOpenMilestoneModal,
 }) => {
   return (
     <div className="w-full max-w-[90rem] mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-12 space-y-16">
@@ -38,10 +41,80 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
             Linux環境で動くHMI（ダッシュボード）を題材に、C++のマルチスレッド設計やQMLによる滑らかな描画を実践的に学びましょう。
           </p>
 
-          <div className="flex flex-wrap gap-3 pt-2 text-sm font-mono text-slate-300">
+          <div className="flex flex-wrap gap-3 pt-1 text-sm font-mono text-slate-300">
             <span className="px-4 py-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-300">全12章構成</span>
             <span className="px-4 py-1.5 rounded-lg bg-slate-950/80 border border-cyan-500/30 text-cyan-300">専用 Qt / QML</span>
             <span className="px-4 py-1.5 rounded-lg bg-slate-950/80 border border-emerald-500/30 text-emerald-300">対象 Linux (Ubuntu)</span>
+          </div>
+
+          {/* メインアクションボタングループ */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
+            <button
+              onClick={() => onSelectChapter('chapter-0')}
+              className="px-7 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-slate-950 font-black text-base shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:shadow-[0_0_45px_rgba(34,211,238,0.6)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3 cursor-pointer group"
+            >
+              <Rocket className="w-5 h-5 text-slate-950 group-hover:animate-bounce" />
+              <span>最初から学ぶ（第0章 環境構築へ）</span>
+              <ArrowRight className="w-5 h-5 text-slate-950 group-hover:translate-x-1 transition-transform" />
+            </button>
+
+            {onOpenMilestoneModal && (
+              <button
+                onClick={onOpenMilestoneModal}
+                className="px-6 py-4 rounded-2xl bg-slate-900/90 hover:bg-slate-850 text-slate-200 hover:text-white border border-slate-700/80 hover:border-amber-400/50 font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2.5 shadow-lg cursor-pointer"
+              >
+                <Award className="w-5 h-5 text-amber-400" />
+                <span>公式修了証・進捗確認</span>
+                {completedChapters.length > 0 && (
+                  <span className="px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">
+                    {completedChapters.length}/13章
+                  </span>
+                )}
+              </button>
+            )}
+          </div>
+
+          {/* 初学者・学習者への安心ガイダンス会話バブル */}
+          <div className="pt-2 max-w-xl space-y-2.5">
+            <div className="flex items-start gap-3 bg-slate-950/70 p-3 rounded-2xl border border-slate-800">
+              <img src="/images/characters/penguin_student.jpg" alt="ペンギン生徒" className="w-9 h-9 rounded-full object-cover border-2 border-amber-400/80 flex-shrink-0 mt-0.5 shadow" />
+              <div className="text-xs text-slate-300 leading-relaxed font-sans">
+                <span className="font-bold text-amber-400 block text-[11px] mb-0.5">ペンギン生徒（初学者）</span>
+                「LinuxでのGUI開発って環境構築やマルチスレッドで挫折しそうで不安です…！」
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-cyan-950/40 p-3 rounded-2xl border border-cyan-500/40 shadow-inner">
+              <img src="/images/characters/shirokuma_sensei.png" alt="シロクマ先生" className="w-9 h-9 rounded-full object-cover border-2 border-cyan-400/80 flex-shrink-0 mt-0.5 shadow" />
+              <div className="text-xs text-slate-200 leading-relaxed font-sans">
+                <span className="font-bold text-cyan-300 block text-[11px] mb-0.5">シロクマ先生（シニアアーキテクト）</span>
+                「案ずるな！WSLgを使えばWindows上で一瞬でネイティブGUIが立ち上がるぞ。まずは第0章から、針が動き波形が流れる計器画面を一緒に作っていこう！」
+              </div>
+            </div>
+          </div>
+
+          {/* ペルソナ別おすすめ開始章 */}
+          <div className="pt-1">
+            <span className="text-xs font-mono text-slate-400 block mb-2">🎯 あなたのレベルに合わせて選ぶ：</span>
+            <div className="flex flex-wrap gap-2 text-xs font-mono">
+              <button
+                onClick={() => onSelectChapter('chapter-0')}
+                className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-cyan-300 border border-slate-700/60 hover:border-cyan-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm"
+              >
+                <span className="text-cyan-400 font-bold">【未経験】</span>第0章 環境構築 ➔
+              </button>
+              <button
+                onClick={() => onSelectChapter('chapter-3')}
+                className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-sky-300 border border-slate-700/60 hover:border-sky-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm"
+              >
+                <span className="text-sky-400 font-bold">【C++既習】</span>第3章 シグナル＆スロット ➔
+              </button>
+              <button
+                onClick={() => onSelectChapter('chapter-5')}
+                className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-emerald-300 border border-slate-700/60 hover:border-emerald-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm"
+              >
+                <span className="text-emerald-400 font-bold">【マルチスレッド】</span>第5章 スレッド設計 ➔
+              </button>
+            </div>
           </div>
         </div>
         
@@ -187,13 +260,13 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
       {/* キャラクター紹介 */}
       <section className="max-w-5xl mx-auto space-y-6">
         <div className="flex items-start gap-6 my-8 flex-row-reverse max-w-5xl mx-auto">
-          {/* ペンギン */}
+          {/* ペンギン生徒 */}
           <div className="flex flex-col items-center flex-shrink-0 mt-2">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-[0_0_15px_rgba(251,191,36,0.15)] bg-[#040810]">
-              <img src="/images/penguin-guide.jpg" alt="ペンギン" className="w-full h-full object-cover" />
+            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-amber-400/80 shadow-[0_0_20px_rgba(251,191,36,0.25)] bg-[#040810]">
+              <img src="/images/characters/penguin_student.jpg" alt="ペンギン生徒" className="w-full h-full object-cover" />
             </div>
-            <span className="text-xs font-bold mt-3 px-3 py-1 rounded-full bg-amber-950/40 text-amber-400 border border-amber-500/20">
-              ペンギン
+            <span className="text-xs font-bold mt-3 px-3 py-1 rounded-full bg-amber-950/60 text-amber-300 border border-amber-400/50 shadow-sm">
+              ペンギン生徒
             </span>
           </div>
 
@@ -213,12 +286,13 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
         </div>
 
         <div className="flex items-start gap-4 my-4 flex-row">
+          {/* シロクマ先生 */}
           <div className="flex flex-col items-center flex-shrink-0">
-            <div className="relative inline-flex items-center justify-center w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden shadow-lg border-2 border-cyan-400 shadow-cyan-900/60 ring-2 ring-cyan-500/20 bg-[#0a0f18]">
-              <img src="/images/polar-bear-guide.png" alt="シロクマ教官" className="w-full h-full object-cover" />
+            <div className="relative inline-flex items-center justify-center w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden shadow-xl border-2 border-cyan-400 shadow-cyan-900/60 ring-2 ring-cyan-500/30 bg-[#0a0f18]">
+              <img src="/images/characters/shirokuma_sensei.png" alt="シロクマ先生" className="w-full h-full object-cover" />
             </div>
-            <span className="text-xs font-semibold mt-1.5 px-3 py-0.5 rounded-full border whitespace-nowrap bg-cyan-950/60 text-cyan-300 border-cyan-500/30 shadow">
-              シロクマ教官
+            <span className="text-xs font-bold mt-2 px-3.5 py-1 rounded-full border whitespace-nowrap bg-cyan-950/80 text-cyan-300 border-cyan-400/50 shadow-md">
+              シロクマ先生
             </span>
           </div>
           <div className="relative flex-1 max-w-4xl rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur-md border border-cyan-500/40 bg-gradient-to-br from-[#0c1424] to-[#080d18] text-slate-100 shadow-cyan-950/20">

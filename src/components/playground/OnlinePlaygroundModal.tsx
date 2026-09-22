@@ -77,9 +77,11 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
         {/* モーダルヘッダー */}
         <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-slate-900/90 border-b border-slate-800 flex-wrap gap-3 select-none">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-600 to-blue-500 flex items-center justify-center text-white shadow-md text-base">
-              🐻‍❄️
-            </div>
+            <img
+              src="/images/characters/shirokuma_sensei.png"
+              alt="シロクマ先生"
+              className="w-8 h-8 rounded-xl object-cover border border-cyan-400/50 shadow-md flex-shrink-0"
+            />
             <div>
               <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-2 font-sans leading-tight">
                 <span>C++オンライン実行ラボ</span>
@@ -292,7 +294,11 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
         {/* モーダルフッター（シロクマ先生のひとこと） */}
         <div className="px-4 sm:px-6 py-2.5 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 font-sans">
           <div className="flex items-center gap-2">
-            <span>🐻‍❄️</span>
+            <img
+              src="/images/characters/shirokuma_sensei.png"
+              alt="シロクマ指導官"
+              className="w-5 h-5 rounded-full object-cover border border-cyan-400/50 shadow flex-shrink-0"
+            />
             <span className="text-slate-300">
               <b className="text-cyan-300 font-mono">シロクマ指導官 : </b>
               どんな実験をしても壊れない安全な環境じゃ！どんどんコードを書き換えてC++の挙動を体感するがよい！

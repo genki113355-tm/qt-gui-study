@@ -509,7 +509,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
             <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 space-y-4 my-6 flex flex-col sm:flex-row gap-6 items-start">
               <div className="hidden sm:flex flex-col items-center flex-shrink-0">
                 <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-full overflow-hidden shadow-lg border-2 border-cyan-400/80 shadow-cyan-900/60 ring-2 ring-cyan-500/20 bg-[#0a0f18]">
-                  <img src="/images/polar-bear-guide.png" alt="シロクマ先生" className="w-full h-full object-cover scale-110" />
+                  <img src="/images/characters/shirokuma_sensei.png" alt="シロクマ先生" className="w-full h-full object-cover scale-110" />
                 </div>
               </div>
               <div className="flex-1 space-y-4 w-full">
@@ -627,8 +627,8 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                           <div className="pt-2 flex items-center gap-2 flex-wrap">
                             <span className="text-xs text-emerald-300 font-mono font-bold">正解成果をシェア:</span>
                             <ShareButtons
-                              title={`【正解クリア！】シロクマC++ラボ「${chapter.title}」のクイズを突破しました！`}
-                              text={`シロクマ先生＆先輩ペンギンと一緒にオブジェクト指向ゲーム開発を修行中！`}
+                              title={`【正解クリア！】シロクマQt×C++ラボ「${chapter.title}」のクイズを突破しました！`}
+                              text={`シロクマ先生＆ペンギン生徒と一緒にQt/QMLリアルタイム計器ダッシュボード開発を修行中！`}
                               variant="compact"
                             />
                           </div>

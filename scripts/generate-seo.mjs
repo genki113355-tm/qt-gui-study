@@ -74,10 +74,26 @@ async function generateSEO() {
             'url': ogImage
           }
         },
-        'about': {
-          '@type': 'ComputerLanguage',
-          'name': 'C++'
-        }
+        'about': [
+          {
+            '@type': 'ComputerLanguage',
+            'name': 'C++'
+          },
+          {
+            '@type': 'Thing',
+            'name': 'Qt'
+          },
+          {
+            '@type': 'Thing',
+            'name': 'QML'
+          },
+          {
+            '@type': 'Thing',
+            'name': 'Linux HMI'
+          }
+        ],
+        'keywords': 'Qt, C++, Linux, QML, GUI, HMI, リアルタイム, CMake',
+        'proficiencyLevel': 'Beginner',
       },
       {
         '@type': 'BreadcrumbList',
@@ -276,4 +292,5 @@ generateSEO().catch((err) => {
   console.error('❌ Error generating SEO:', err);
   process.exit(1);
 });
+
 

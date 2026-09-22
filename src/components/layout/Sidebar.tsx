@@ -180,6 +180,32 @@ export const Sidebar: React.FC<SidebarProps> = ({
               </span>
             </a>
           </div>
+
+          {/* キャラクター紹介（シロクマ先生 & ペンギン生徒） */}
+          <div className="border-t border-cyan-500/20 p-4 pb-6 bg-[#080d1a]/80 space-y-3 shrink-0 mt-2">
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/characters/shirokuma_sensei.png"
+                alt="シロクマ先生"
+                className="w-10 h-10 rounded-full border-2 border-cyan-500 object-cover bg-slate-900 shadow-[0_0_10px_rgba(6,182,212,0.3)]"
+              />
+              <div>
+                <p className="text-sm font-bold text-white leading-none mb-1">シロクマ先生 (Sensei)</p>
+                <p className="text-[10px] text-slate-400">低レイヤ・数理アルゴリズム専門家</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/characters/penguin_student.jpg"
+                alt="ペンギン生徒"
+                className="w-10 h-10 rounded-full border-2 border-slate-500 object-cover bg-slate-900 shadow"
+              />
+              <div>
+                <p className="text-sm font-bold text-white leading-none mb-1">ペンギン生徒 (Student)</p>
+                <p className="text-[10px] text-slate-400">手動評価に苦しむ若手エンジニア</p>
+              </div>
+            </div>
+          </div>
         </div>
       </aside>
     </>

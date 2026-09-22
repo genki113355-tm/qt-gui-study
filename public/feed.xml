@@ -5,7 +5,7 @@
     <link>https://shirokuma-tech.jp/qt/</link>
     <description><![CDATA[Qt/QMLとモダンC++を駆使し、Linux環境で動くリアルタイム波形描画・計器HMIダッシュボードを構築する実践型エンジニアリング学習メディア。]]></description>
     <language>ja</language>
-    <lastBuildDate>Tue, 22 Sep 2026 16:57:03 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 23:59:10 GMT</lastBuildDate>
     <atom:link href="https://shirokuma-tech.jp/qt/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title><![CDATA[事前準備：LinuxにおけるQt・CMake開発環境の構築]]></title>
@@ -13,7 +13,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-0</guid>
       <description><![CDATA[産業用GUI開発のための堅牢なC++環境セットアップ - Qtを使った本格的なC++ GUI開発を始める前に、Linux上でモダンなビルドシステム (CMake) とコーディング環境 (VSCode) を構築する手順を解説します。]]></description>
       <category><![CDATA[第0部：環境構築]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第1章：モダンQtとC++で作る、次世代の産業用GUI・HMI]]></title>
@@ -21,7 +21,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-1</guid>
       <description><![CDATA[Qtの全体像と完成形のイメージ共有 - HMI（Human Machine Interface）開発になぜQtが選ばれるのか。全体像と完成形のイメージ共有。]]></description>
       <category><![CDATA[第1部：Qtアーキテクチャ]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第2章：ダッシュボードのメイン画面（TOPページ）を設計する]]></title>
@@ -29,7 +29,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-2</guid>
       <description><![CDATA[QMLによるUIモックアップの作成 - 空のウィンドウから脱却し、産業用ダッシュボードの骨組みとなる最初のメイン画面（TOPページ）をQMLで構築します。]]></description>
       <category><![CDATA[第1部：Qtアーキテクチャ]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第3章：Qtの根幹「シグナル＆スロット」とオブジェクト指向設計]]></title>
@@ -37,7 +37,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-3</guid>
       <description><![CDATA[コールバック地獄を解消する疎結合アーキテクチャ - コールバック地獄を解消するQt最大の発明。コンポーネント間の疎結合なイベント駆動アーキテクチャを学びます。]]></description>
       <category><![CDATA[第1部：Qtアーキテクチャ]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第4章：ロジック（C++）と画面（QML）の美しい分離アーキテクチャ]]></title>
@@ -45,7 +45,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-4</guid>
       <description><![CDATA[バックエンドとフロントエンドの分離 (MVC/MVVM) - バックエンド（計算・データ処理）とフロントエンド（描画）を明確に分離するMVC/MVVM設計を学びます。]]></description>
       <category><![CDATA[第1部：Qtアーキテクチャ]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第5章：マルチスレッド設計：信号処理スレッドからGUIへの安全なデータ転送]]></title>
@@ -53,7 +53,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-5</guid>
       <description><![CDATA[フリーズさせない非同期処理 - GUIをフリーズさせない！ワーカースレッドの構築と、スレッド間でのシグナル・スロットを通じた安全なデータ受け渡しを学びます。]]></description>
       <category><![CDATA[第2部：マルチスレッド]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第6章：QCustomPlot / Qt Graphs を使った高速リアルタイム波形描画]]></title>
@@ -61,7 +61,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-6</guid>
       <description><![CDATA[60fpsを維持するリングバッファと間引き描画テクニック - オシロスコープやレーダー波形など、毎秒数千点の高頻度ストリームをGUIフリーズを起こさずに滑らかな60fpsでリアルタイム描画するアーキテクチャを習得します。]]></description>
       <category><![CDATA[第2部：マルチスレッド]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第7章：Linuxのソケット通信（UDP/TCP）をQtのイベントループでスマートに受ける]]></title>
@@ -69,7 +69,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-7</guid>
       <description><![CDATA[QUdpSocketによる非同期データ受信とALARM判定の実装 - 外部センサーや制御機器から届く高速なUDPバイナリパケットを、GUIを一切フリーズさせずに非同期受信し、温度異常や通信断絶を即座に検知するアラーム機能を実装します。]]></description>
       <category><![CDATA[第2部：マルチスレッド]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第8章：大容量データのメモリ管理：Qtアプリでのスマートポインタの正しい使い方]]></title>
@@ -77,7 +77,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-8</guid>
       <description><![CDATA[QObject親子ツリーとC++スマートポインタの協調設計 - Qt独自のQObject親子ツリー所有権と、C++標準のスマートポインタ（std::shared_ptr / std::unique_ptr / QPointer）の境界線を明確化し、二重解放（Double-Free）やメモリリークのない堅牢なシステムを設計します。]]></description>
       <category><![CDATA[第2部：マルチスレッド]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第9章：Qtアプリのテスト：Qt TestフレームワークとUIの自動テスト]]></title>
@@ -85,7 +85,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-9</guid>
       <description><![CDATA[単体テストとGUIシミュレート - ロジックの単体テスト（Unit Test）と、GUIのボタンクリックなどをシミュレートする自動テストの実装。]]></description>
       <category><![CDATA[第3部：品質・デプロイ]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第10章：Linux環境でのパフォーマンス・プロファイリング]]></title>
@@ -93,7 +93,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-10</guid>
       <description><![CDATA[ボトルネックの解析とフレーム安定化 - アプリが重い・メモリを食う時の原因特定。ボトルネックの解析とフレームレート安定化の手法。]]></description>
       <category><![CDATA[第3部：品質・デプロイ]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第11章：LinuxでのQtアプリのデプロイ（linuxdeployqt）]]></title>
@@ -101,7 +101,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-11</guid>
       <description><![CDATA[パッケージング技術と.soの同梱 - 依存する共有ライブラリ（.so）を一つのパッケージにまとめ、別のLinux PCでもそのまま動くようにするパッケージング技術。]]></description>
       <category><![CDATA[第3部：品質・デプロイ]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[第12章：実践：産業用ダッシュボードを完成させる]]></title>
@@ -109,7 +109,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/chapter-12</guid>
       <description><![CDATA[全知識を結集した統合システム - これまで学んだQML宣言的レイアウト、シグナル＆スロット、マルチスレッド、60fps波形描画、UDP非同期通信、アラーム判定の全知識を結集し、産業用ダッシュボードシステムを完成させます。]]></description>
       <category><![CDATA[第3部：品質・デプロイ]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[【付録】代表的なGUIフレームワーク徹底比較：なぜいまQtなのか？]]></title>
@@ -117,7 +117,7 @@
       <guid isPermaLink="true">https://shirokuma-tech.jp/qt/gui-framework-comparison</guid>
       <description><![CDATA[Electron, WPF, ImGui と Qt の違い - Web技術（Electron等）や最新のRust/Tauriが台頭する現代において、なぜミッションクリティカルな現場では依然としてC++とQtが使われ続けるのか？パフォーマンスと用途から徹底比較します。]]></description>
       <category><![CDATA[特別コラム]]></category>
-      <pubDate>Tue, 22 Sep 2026 16:57:03 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 23:59:10 GMT</pubDate>
     </item>
   </channel>
 </rss>

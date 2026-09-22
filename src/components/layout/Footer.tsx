@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { PrivacyPolicyModal } from './PrivacyPolicyModal';
 import { Shield } from 'lucide-react';
 
@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
             <a
               href="https://www.shirokuma-cpp.jp/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="group flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-[#0f1522] hover:bg-[#131b2c] border border-slate-800 hover:border-cyan-500/30 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.1)] text-left"
             >
               <div className="flex items-center gap-3 min-w-0">
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
             <a
               href="https://shirokuma-auto-cpp.jp/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="group flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-[#0f1522] hover:bg-[#131b2c] border border-slate-800 hover:border-cyan-500/30 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.1)] text-left"
             >
               <div className="flex items-center gap-3 min-w-0">
@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
             <a
               href="https://sonar-guide.jp/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="group flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-[#0f1522] hover:bg-[#131b2c] border border-slate-800 hover:border-cyan-500/30 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.1)] text-left"
             >
               <div className="flex items-center gap-3 min-w-0">
@@ -140,3 +140,4 @@ export const Footer: React.FC = () => {
     </>
   );
 };
+

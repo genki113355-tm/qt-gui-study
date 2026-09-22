@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { X } from 'lucide-react';
 import { ALL_CHAPTERS } from '../../data/chapters';
 
@@ -99,7 +99,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <a
               href="https://www.shirokuma-cpp.jp/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 transition shadow-sm"
             >
               <div className="min-w-0 pr-2">
@@ -122,7 +122,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <a
               href="https://shirokuma-auto-cpp.jp/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 transition shadow-sm"
             >
               <div className="min-w-0 pr-2">
@@ -145,7 +145,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <a
               href="https://sonar-guide.jp/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/40 transition shadow-sm"
             >
               <div className="min-w-0 pr-2">
@@ -169,3 +169,4 @@ export const Sidebar: React.FC<SidebarProps> = ({
     </>
   );
 };
+

@@ -4,9 +4,35 @@ export const chapter11: Chapter = {
   id: 11,
   slug: 'chapter-11',
   courseTrack: 'reading',
+  courseChapterCode: 'Ch.11',
   title: '第11章：LinuxでのQtアプリのデプロイ（linuxdeployqt）',
   subtitle: 'パッケージング技術と.soの同梱',
   badge: '第3部：品質・デプロイ',
+  seoDescription: 'LinuxにおけるQtアプリケーションの依存関係解決とデプロイ技術。linuxdeployqtによる共有ライブラリ（.so）同梱、AppImage作成、Docker運用を解説。',
+  githubSnapshot: {
+    tagOrBranch: 'ch11-deploy',
+    folderPath: 'examples/ch11-deployment',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch11-deployment',
+    description: '第11章のデプロイスクリプトとAppImage生成設定例',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch11-deployment',
+  },
+  prerequisites: [
+    {
+      title: '動的リンク（.so）と共有ライブラリの仕組み',
+      term: '動的リンク（.so）',
+      description: 'Linuxの共有ライブラリ形式。実行時にOSのローダーによってリンクされるため、ターゲット環境での依存解決が必要です。',
+    },
+    {
+      title: 'linuxdeployqtによる自動依存関係収集',
+      term: 'linuxdeployqt',
+      description: 'Qtバイナリが依存するプラグインやライブラリを再帰的に収集・バンドルするデプロイ自動化ツール。',
+    },
+    {
+      title: 'AppImageポータブルバイナリのパッケージング',
+      term: 'AppImage',
+      description: '依存ライブラリを1ファイルにパッケージ化し、どのLinuxディストリビューションでも即実行可能にするポータブル形式。',
+    },
+  ],
   description: '依存する共有ライブラリ（.so）を一つのパッケージにまとめ、別のLinux PCでもそのまま動くようにするパッケージング技術。',
   sections: [
     {

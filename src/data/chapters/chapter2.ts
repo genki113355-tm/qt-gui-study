@@ -1,13 +1,25 @@
-﻿import { Chapter } from '../../types/curriculum';
+import { Chapter } from '../../types/curriculum';
 
 export const chapter2: Chapter = {
   id: 2,
   slug: 'chapter-2',
   courseTrack: 'classic',
+  courseChapterCode: 'Ch.2',
   title: '第2章：ダッシュボードのメイン画面（TOPページ）を設計する',
   subtitle: 'QMLによるUIモックアップの作成',
   badge: '第1部：Qtアーキテクチャ',
   description: '空のウィンドウから脱却し、産業用ダッシュボードの骨組みとなる最初のメイン画面（TOPページ）をQMLで構築します。',
+  seoDescription: 'QMLによるダッシュボードメイン画面の設計。RowLayoutやGridLayoutを駆使したレスポンシブなHMIモックアップ構築手法を習得。',
+  githubSnapshot: {
+    tagOrBranch: 'ch02-signals',
+    folderPath: 'examples/ch02-signals-slots',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch02-signals-slots',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch02-signals-slots'
+  },
+  prerequisites: [
+    { title: 'QMLの基本構文（Item, Rectangle, Text）の理解' },
+    { title: 'Anchorレイアウトと親子階層の座標系' }
+  ],
   sections: [
     {
       id: 'sec2-1',

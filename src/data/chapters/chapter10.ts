@@ -4,9 +4,47 @@ export const chapter10: Chapter = {
   id: 10,
   slug: 'chapter-10',
   courseTrack: 'reading',
+  courseChapterCode: 'Ch.10',
   title: '第10章：Linux環境でのパフォーマンス・プロファイリング',
   subtitle: 'ボトルネックの解析とフレーム安定化',
   badge: '第3部：品質・デプロイ',
+  seoDescription: 'Linux環境におけるQtアプリケーションのパフォーマンスプロファイリング。Valgrind Memcheck、Linux perf、Hotspotフレームグラフ、QML Profilerの活用法を解説。',
+  githubSnapshot: {
+    tagOrBranch: 'ch10-profiling',
+    folderPath: 'examples/ch10-performance-profiling',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch10-performance-profiling',
+    description: '第10章のプロファイリング対象サンプルプロジェクト（負荷シミュレーション付き）',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch10-performance-profiling',
+  },
+  prerequisites: [
+    {
+      title: 'Valgrind Memcheckによるヒープ解析',
+      term: 'Valgrind Memcheck',
+      description: 'Linuxでヒープメモリリークや未初期化メモリ参照を行番号付きで特定する動的解析ツール。',
+    },
+    {
+      title: 'Linux perf & Hotspotフレームグラフ',
+      term: 'Linux perf & Hotspot',
+      description: 'CPUボトルネックを特定するプロファイラ。Flame Graph（炎グラフ）で重い関数コールを可視化。',
+    },
+    {
+      title: 'QML Profilerによるバインディング最適化',
+      term: 'QML Profiler',
+      description: 'Qt Creator付属のプロファイラ。QMLバインディングの実行時間やフレームドロップ（Animation落ち）を秒刻みで追跡。',
+      labLink: '/auto/chapter-4',
+      labLabel: 'Autoラボ第4章で復習',
+    },
+  ],
+  relatedLabs: [
+    {
+      title: 'GitHub ActionsによるCI/CD自動化実践',
+      labName: 'シロクマC++自動化ラボ',
+      badge: 'Chap 4',
+      url: '/auto/chapter-4',
+      description: 'CIパイプラインで自動テストと静的・動的解析を走らせる自動化ワークフローを構築します。',
+      icon: '🚀',
+    },
+  ],
   description: 'アプリが重い・メモリを食う時の原因特定。ボトルネックの解析とフレームレート安定化の手法。',
   sections: [
     {

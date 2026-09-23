@@ -4,10 +4,33 @@ export const chapter0: Chapter = {
   id: 0,
   slug: 'chapter-0',
   courseTrack: 'classic',
-  title: '事前準備：LinuxにおけるQt・CMake開発環境の構築',
-  subtitle: '産業用GUI開発のための堅牢なC++環境セットアップ',
-  badge: '第0部：環境構築',
-  description: 'Qtを使った本格的なC++ GUI開発を始める前に、Linux上でモダンなビルドシステム (CMake) とコーディング環境 (VSCode) を構築する手順を解説します。',
+  courseChapterCode: '準備編',
+  title: '🔰 準備編：開発環境セットアップとモダンQtワークフロー',
+  subtitle: 'Qt 6、モダンCMake、Ninja、Qt Creator / VS Code の完全導入',
+  badge: '🔰 準備編',
+  description: 'Qtを使った本格的なC++ GUI開発を始める前に、Linux/WSL2環境でモダンなビルドシステム (CMake + Ninja) とコーディング環境 (VSCode/Qt Creator) を構築する手順を解説します。',
+  seoDescription: 'Qt 6、モダンCMake、Ninja、Qt Creator/VS Codeの開発環境セットアップ手順。Linux/WSL2環境でのビルド設定とQt 5からの移行ポイントを徹底解説。',
+  githubSnapshot: {
+    tagOrBranch: 'ch00-setup',
+    folderPath: 'examples/ch00-env-setup',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch00-env-setup',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch00-env-setup'
+  },
+  prerequisites: [
+    { title: 'C++17の基本文法（auto, 構造体, 参照）' },
+    { title: 'LinuxターミナルまたはWSLの基本コマンド操作（cd, ls, mkdir）' },
+    { title: 'CMakeのビルドターゲットとリンクの基礎概念', labLink: '/auto/chapter/2', labLabel: 'Autoラボ第2章で復習' }
+  ],
+  relatedLabs: [
+    {
+      title: 'モダンCMakeとビルド自動化',
+      labName: 'シロクマC++自動化ラボ',
+      url: '/auto/chapter/2',
+      badge: 'Chap 2',
+      description: 'Docker環境でのCMakeLists.txt記述、Ninja高速ビルド、依存ライブラリのリンク手法を体系的に学習できます。',
+      icon: '⚡'
+    }
+  ],
   sections: [
     {
       id: 'sec-0-1',

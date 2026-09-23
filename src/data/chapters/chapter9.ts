@@ -4,9 +4,55 @@ export const chapter9: Chapter = {
   id: 9,
   slug: 'chapter-9',
   courseTrack: 'reading',
+  courseChapterCode: 'Ch.9',
   title: '第9章：Qtアプリのテスト：Qt TestフレームワークとUIの自動テスト',
   subtitle: '単体テストとGUIシミュレート',
   badge: '第3部：品質・デプロイ',
+  seoDescription: 'Qt Test（QTest）フレームワークを用いたC++単体テストとGUIシミュレート自動テスト。QCOMPARE、QSignalSpy、QTest::mouseClickの使い方を解説。',
+  githubSnapshot: {
+    tagOrBranch: 'ch09-test',
+    folderPath: 'examples/ch09-test-automation',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch09-test-automation',
+    description: '第9章の完成コード（Qt Testによる単体テスト・QSignalSpy・GUIシミュレーション）',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch09-test-automation',
+  },
+  prerequisites: [
+    {
+      title: 'Qt Testフレームワークとテスト駆動開発',
+      term: 'Qt Test (QTest)',
+      description: 'Qt公式の単体テスト・GUI統合テストフレームワーク。private slotsが自動的に各テストケースとして実行されます。',
+      labLink: '/auto/chapter-3',
+      labLabel: 'Autoラボ第3章で復習',
+    },
+    {
+      title: 'QSignalSpyによる非同期シグナル検証',
+      term: 'QSignalSpy',
+      description: 'Qtシグナルの発火回数や引数の値を記録・検証できるテスト用ヘルパークラス。',
+    },
+    {
+      title: 'QVERIFY / QCOMPAREによるアサーション',
+      term: 'アサーションマクロ',
+      description: 'QVERIFY（条件判定）やQCOMPARE（値一致検証）などのテスト判定マクロ。',
+    },
+  ],
+  relatedLabs: [
+    {
+      title: 'pytestによるPythonテスト自動化の基礎',
+      labName: 'シロクマC++自動化ラボ',
+      badge: 'Chap 3',
+      url: '/auto/chapter-3',
+      description: 'テスト駆動開発（TDD）の基礎とフィクスチャを用いた単体テスト構築手法を学びます。',
+      icon: '🧪',
+    },
+    {
+      title: 'PlaywrightによるWeb UI自動テストの実践',
+      labName: 'シロクマC++自動化ラボ',
+      badge: 'Chap 5',
+      url: '/auto/chapter-5',
+      description: 'GUI自動テストとCIパイプライン統合のノウハウを深掘りします。',
+      icon: '🎭',
+    },
+  ],
   description: 'ロジックの単体テスト（Unit Test）と、GUIのボタンクリックなどをシミュレートする自動テストの実装。',
   sections: [
     {

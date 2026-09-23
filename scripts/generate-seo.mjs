@@ -48,7 +48,7 @@ async function generateSEO() {
     }
 
     const pageTitle = `${article.title} | シロクマQt×C++ラボ`;
-    const pageDesc = `${article.subtitle}。${article.description.slice(0, 130)}...`;
+    const pageDesc = article.seoDescription || `${article.subtitle}。${article.description.slice(0, 130)}...`;
     const pageUrl = `${baseUrl}/${article.slug}`;
 
     // 構造化データグラフの構築

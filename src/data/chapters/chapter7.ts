@@ -4,9 +4,55 @@ export const chapter7: Chapter = {
   id: 7,
   slug: 'chapter-7',
   courseTrack: 'modern',
+  courseChapterCode: 'Ch.7',
   title: '第7章：Linuxのソケット通信（UDP/TCP）をQtのイベントループでスマートに受ける',
   subtitle: 'QUdpSocketによる非同期データ受信とALARM判定の実装',
   badge: '第2部：マルチスレッド',
+  seoDescription: 'QUdpSocketとQtイベントループ（readyRead）による非同期UDPソケット通信。1バイトアライメント構造体パケット処理とリアルタイムアラーム検知を解説。',
+  githubSnapshot: {
+    tagOrBranch: 'ch07-udp',
+    folderPath: 'examples/ch07-udp-receiver',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch07-udp-receiver',
+    description: '第7章の完成コード（QUdpSocket非同期受信・バイナリパケットパーサー・アラーム監視）',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch07-udp-receiver',
+  },
+  prerequisites: [
+    {
+      title: 'QUdpSocketとイベント駆動受信',
+      term: 'QUdpSocket',
+      description: 'QtのUDP通信クラス。readyRead()シグナルによりイベントループ駆動で非同期受信可能。',
+    },
+    {
+      title: 'パケット構造体のアライメント制御',
+      term: '構造体アライメント',
+      description: '#pragma pack(1) 等でコンパイラのメモリパディングを抑制し、ネットワークパケットと完全一致させる手法。',
+    },
+    {
+      title: 'GUIをフリーズさせないノンブロッキング通信',
+      term: 'ノンブロッキング通信',
+      description: '受信待ちでスレッドを止めず、データ到着イベントを待つことでGUIのフリーズを防ぐプログラミング手法。',
+      labLink: '/cpp/classic/chapter-19',
+      labLabel: 'C++ラボ第19章で復習',
+    },
+  ],
+  relatedLabs: [
+    {
+      title: '通信ソケットプログラミング',
+      labName: 'シロクマC++ラボ',
+      badge: 'Classic 19',
+      url: '/cpp/classic/chapter-19',
+      description: 'POSIXソケットAPI（socket, bind, select/epoll）の基本と低レイヤ通信の仕組みを学びます。',
+      icon: '🌐',
+    },
+    {
+      title: 'Pythonによるハードウェア・ネットワーク監視スクリプト',
+      labName: 'シロクマC++自動化ラボ',
+      badge: 'Chap 1',
+      url: '/auto/chapter-1',
+      description: 'Pythonスクリプトを用いてUDPパケットをモック送信し、Qt側の受信テストを自動化する手法を習得します。',
+      icon: '🐍',
+    },
+  ],
   description: '外部センサーや制御機器から届く高速なUDPバイナリパケットを、GUIを一切フリーズさせずに非同期受信し、温度異常や通信断絶を即座に検知するアラーム機能を実装します。',
   sections: [
     {

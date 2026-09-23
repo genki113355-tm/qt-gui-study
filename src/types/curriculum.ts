@@ -180,6 +180,31 @@ export type CourseTrack = 'classic' | 'modern' | 'reading' | 'guide';
 
 export type ContentCategory = 'architecture' | 'reading' | 'guide' | 'column';
 
+export interface PrerequisiteItem {
+  title: string;
+  term?: string;
+  description?: string;
+  labLink?: string;
+  labLabel?: string;
+}
+
+export interface GithubSnapshot {
+  tagOrBranch: string;
+  folderPath?: string;
+  url: string;
+  cloneCommand: string;
+  description?: string;
+}
+
+export interface RelatedLabItem {
+  title: string;
+  labName: string;
+  url: string;
+  badge: string;
+  description: string;
+  icon: string;
+}
+
 export interface Chapter {
   id: number;
   slug: string;
@@ -190,10 +215,15 @@ export interface Chapter {
   subtitle: string;
   badge: string;
   description: string;
+  seoDescription?: string;
   gameVersion?: 'v1_spaghetti' | 'v2_classes' | 'v3_dynamic' | 'v4_polymorphism' | 'v5_smart_pointers' | 'v6_patterns' | 'v7_ecs_final' | 'none';
+  githubSnapshot?: GithubSnapshot;
+  prerequisites?: PrerequisiteItem[];
+  relatedLabs?: RelatedLabItem[];
   umlDiagram?: UmlDiagramDoc;
   sections: SectionContent[];
   quiz?: QuizQuestion[];
   nextChapterSlug?: string;
   prevChapterSlug?: string;
 }
+

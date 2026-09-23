@@ -1,12 +1,40 @@
-﻿import { Chapter } from '../../types/curriculum';
+import { Chapter } from '../../types/curriculum';
 
 export const chapter4: Chapter = {
   id: 4,
   slug: 'chapter-4',
   courseTrack: 'classic',
+  courseChapterCode: 'Ch.4',
   title: '第4章：ロジック（C++）と画面（QML）の美しい分離アーキテクチャ',
   subtitle: 'バックエンドとフロントエンドの分離 (MVC/MVVM)',
   badge: '第1部：Qtアーキテクチャ',
+  seoDescription: 'Qt 6のQ_PROPERTYとデータバインディングによるC++ロジックとQML UIの疎結合MVVMアーキテクチャ設計を解説。READ/WRITE/NOTIFYの仕組みを学びます。',
+  githubSnapshot: {
+    tagOrBranch: 'ch04-gauges',
+    folderPath: 'examples/ch04-gauges',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch04-gauges',
+    description: '第4章の完成コード（Q_PROPERTYによるMVVM分離・CPU負荷ゲージUI）',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch04-gauges',
+  },
+  prerequisites: [
+    {
+      title: 'Q_PROPERTYマクロによるデータバインディング',
+      term: 'Q_PROPERTY',
+      description: 'Qtメタオブジェクトシステムに変数をプロパティとして登録し、QMLからの参照や双方向バインドを可能にするマクロ。',
+    },
+    {
+      title: 'シグナル＆スロットによる変更通知',
+      term: 'シグナル＆スロット',
+      description: '第3章で学習したQtの疎結合通信。プロパティ更新時のNOTIFYシグナルでUIの自動再描画が駆動されます。',
+      labLink: '/cpp/classic/chapter-8',
+      labLabel: 'C++ラボ第8章で復習',
+    },
+    {
+      title: 'MVVMパターン（ロジックと画面の疎結合）',
+      term: 'MVVMパターン',
+      description: 'Model（データ・ロジック）とView（画面描画）の間にViewModelを挟み、データバインディングで接続する設計思想。',
+    },
+  ],
   description: 'バックエンド（計算・データ処理）とフロントエンド（描画）を明確に分離するMVC/MVVM設計を学びます。',
   sections: [
     {
@@ -35,6 +63,7 @@ export const chapter4: Chapter = {
 class SystemMonitor : public QObject
 {
     Q_OBJECT
+    // WHY: Q_PROPERTYにREADとNOTIFYを登録することで、QML側はポーリング不要で値の変化を検知し自動再描画します。
     // Q_PROPERTY(型 名前 READ ゲッター WRITE セッター NOTIFY 変更通知シグナル)
     Q_PROPERTY(int cpuLoad READ cpuLoad NOTIFY cpuLoadChanged)
 
@@ -45,6 +74,7 @@ public:
 
 public slots:
     void updateLoad(int newLoad) {
+        // WHY: 前回の値と異なる場合のみ代入してシグナルを発行（ガード節）。無用なQMLの再バインド・再描画ループを防ぐQtの必須プラクティスです。
         if (m_cpuLoad != newLoad) {
             m_cpuLoad = newLoad;
             emit cpuLoadChanged(); // 値が変わったことをQMLに知らせる！

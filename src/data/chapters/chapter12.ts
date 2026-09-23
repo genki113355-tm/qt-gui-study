@@ -4,9 +4,103 @@ export const chapter12: Chapter = {
   id: 12,
   slug: 'chapter-12',
   courseTrack: 'reading',
+  courseChapterCode: 'Ch.12',
   title: '第12章：実践：産業用ダッシュボードを完成させる',
   subtitle: '全知識を結集した統合システム',
   badge: '第3部：品質・デプロイ',
+  seoDescription: 'Qt 6とQMLによる産業用ダッシュボードの完全実装。QQuickPaintedItemの60fps波形描画、QUdpSocket非同期受信、アラーム監視、CMake構成を統合。',
+  githubSnapshot: {
+    tagOrBranch: 'ch12-complete-dashboard',
+    folderPath: 'examples/ch12-complete-dashboard',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch12-complete-dashboard',
+    description: '第12章の完成コード（全章統合産業用ダッシュボード完全版）',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch12-complete-dashboard',
+  },
+  prerequisites: [
+    {
+      title: 'QQuickPaintedItemによるカスタムGPU波形描画',
+      term: 'QQuickPaintedItem',
+      description: '第6章で実装した高速波形描画カスタムアイテム。リングバッファから最新サンプルを取り出して直接描画します。',
+    },
+    {
+      title: 'QUdpSocketとイベントループ統合による非同期受信',
+      term: 'QUdpSocket',
+      description: '第7章で実装した非同期UDPソケット受信クラス。イベント駆動でパケットをパースしシグナルを発行します。',
+    },
+    {
+      title: 'Q_PROPERTYとリアクティブバインディング',
+      term: 'Q_PROPERTYバインディング',
+      description: '第4章で学んだC++ ViewModelとQML UIのリアクティブ連携。アラーム状態や現在値をリアルタイム反映します。',
+    },
+  ],
+  umlDiagram: {
+    diagramType: 'sequence',
+    title: '産業用テレメトリダッシュボード 完全ライフサイクル シーケンス図',
+    subtitle: 'UDPパケット受信からワーカースレッド解析、メインスレッドViewModel更新、60fps波形描画までの全フロー',
+    description: 'センサーからのUDPブロードキャスト受信、バックエンドでのバイナリパース、QueuedConnectionによるスレッド間安全転送、Q_PROPERTYによるQMLバインド、およびQQuickPaintedItemによるカスタムGPU波形描画の循環ライフサイクルを示します。',
+    sequenceParticipants: [
+      'External Sensor (UDP)',
+      'UdpReceiver (Worker Thread)',
+      'DashboardViewModel (Main Thread)',
+      'QML UI (Gauges / Alarms)',
+      'WaveformItem (Render Thread 60fps)'
+    ],
+    sequenceMessages: [
+      {
+        from: 'External Sensor (UDP)',
+        to: 'UdpReceiver (Worker Thread)',
+        message: 'Send Binary Packet (SensorPacket)',
+        cppCodeSnippet: 'recvfrom() / QUdpSocket::readyRead'
+      },
+      {
+        from: 'UdpReceiver (Worker Thread)',
+        to: 'UdpReceiver (Worker Thread)',
+        message: 'Verify Magic & Parse Floats',
+        cppCodeSnippet: 'parsePacket(buffer)'
+      },
+      {
+        from: 'UdpReceiver (Worker Thread)',
+        to: 'DashboardViewModel (Main Thread)',
+        message: 'emit packetReceived(packet)',
+        cppCodeSnippet: 'emit dataReady(pkt) [QueuedConnection]'
+      },
+      {
+        from: 'DashboardViewModel (Main Thread)',
+        to: 'DashboardViewModel (Main Thread)',
+        message: 'Check Thresholds (>85℃ ALARM)',
+        cppCodeSnippet: 'if (temp > 85.0f) setAlarm(true)'
+      },
+      {
+        from: 'DashboardViewModel (Main Thread)',
+        to: 'QML UI (Gauges / Alarms)',
+        message: 'emit temperatureChanged() / alarmChanged()',
+        cppCodeSnippet: 'emit temperatureChanged()'
+      },
+      {
+        from: 'QML UI (Gauges / Alarms)',
+        to: 'QML UI (Gauges / Alarms)',
+        message: 'Reactive Property Binding Update (Red Alert)',
+        cppCodeSnippet: 'color: vm.isAlarm ? "red" : "green"'
+      },
+      {
+        from: 'DashboardViewModel (Main Thread)',
+        to: 'WaveformItem (Render Thread 60fps)',
+        message: 'ringBuffer.push(packet.pressure)',
+        cppCodeSnippet: 'm_ringBuffer.push(pressure)'
+      },
+      {
+        from: 'WaveformItem (Render Thread 60fps)',
+        to: 'WaveformItem (Render Thread 60fps)',
+        message: 'paint() Timer 60Hz Draw Waveform',
+        cppCodeSnippet: 'QPainter::drawPolyline(points)'
+      }
+    ],
+    codeMappingNotes: [
+      'ネットワーク受信とパケット解析はワーカースレッド（UdpReceiver）で完結し、GUIスレッドの描画ループ（60fps）を一切阻害しません。',
+      'スレッド間の通信はQt::QueuedConnectionによってイベントキューに積まれ、ミューテックスの奪い合いによるデッドロックを防ぎます。',
+      '波形描画はリングバッファからの固定メモリ読み出しとQQuickPaintedItemによる自律タイマー（16.6ms）駆動により、滑らかでカクつきのないプロットを実現しています。'
+    ]
+  },
   description: 'これまで学んだQML宣言的レイアウト、シグナル＆スロット、マルチスレッド、60fps波形描画、UDP非同期通信、アラーム判定の全知識を結集し、産業用ダッシュボードシステムを完成させます。',
   sections: [
     {

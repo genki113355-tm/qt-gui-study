@@ -18,7 +18,7 @@ export const useSEO = ({ currentSlug, chapter }: UseSEOProps) => {
       : `${chapter.title} | シロクマQt×C++ラボ`;
     const pageDesc = currentSlug === 'top' || !chapter
       ? siteBaseDesc
-      : `${chapter.subtitle}。${chapter.description.slice(0, 120)}...`;
+      : chapter.seoDescription || `${chapter.subtitle}。${chapter.description.slice(0, 120)}...`;
     const pageUrl = currentSlug === 'top' || !chapter
       ? `${baseUrl}/`
       : `${baseUrl}/${chapter.slug}`;

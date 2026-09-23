@@ -54,7 +54,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
               className="px-7 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-slate-950 font-black text-base shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:shadow-[0_0_45px_rgba(34,211,238,0.6)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3 cursor-pointer group"
             >
               <Rocket className="w-5 h-5 text-slate-950 group-hover:animate-bounce" />
-              <span>最初から学ぶ（第0章 環境構築へ）</span>
+              <span>最初から学ぶ（🔰 準備編：環境セットアップへ）</span>
               <ArrowRight className="w-5 h-5 text-slate-950 group-hover:translate-x-1 transition-transform" />
             </button>
 
@@ -100,7 +100,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
                 onClick={() => onSelectChapter('chapter-0')}
                 className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-cyan-300 border border-slate-700/60 hover:border-cyan-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm"
               >
-                <span className="text-cyan-400 font-bold">【未経験】</span>第0章 環境構築 ➔
+                <span className="text-cyan-400 font-bold">【未経験】</span>🔰 準備編 環境セットアップ ➔
               </button>
               <button
                 onClick={() => onSelectChapter('chapter-3')}
@@ -224,7 +224,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
                 <li>Webフロントエンド技術ではない、ネイティブGUIの王道なアーキテクチャを学びたい方</li>
               </ul>
               <p className="mt-4 p-3 bg-emerald-950/20 border border-emerald-900/50 rounded-lg text-emerald-400/90 text-xs">
-                ※QtやCMakeに触れたことがなくても、第0章の環境構築から順を追って学習できるように構成されています。
+                ※QtやCMakeに触れたことがなくても、🔰 準備編の開発環境セットアップから順を追って学習できるように構成されています。
               </p>
             </div>
           </div>

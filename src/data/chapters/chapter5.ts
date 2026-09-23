@@ -1,12 +1,50 @@
-﻿import { Chapter } from '../../types/curriculum';
+import { Chapter } from '../../types/curriculum';
 
 export const chapter5: Chapter = {
   id: 5,
   slug: 'chapter-5',
   courseTrack: 'modern',
+  courseChapterCode: 'Ch.5',
   title: '第5章：マルチスレッド設計：信号処理スレッドからGUIへの安全なデータ転送',
   subtitle: 'フリーズさせない非同期処理',
   badge: '第2部：マルチスレッド',
+  seoDescription: 'Qt 6におけるマルチスレッドプログラミングとQueuedConnection、QThread::moveToThreadパターン、GUIスレッドをフリーズさせない安全な非同期データ転送を解説。',
+  githubSnapshot: {
+    tagOrBranch: 'ch05-multithread',
+    folderPath: 'examples/ch05-multithreading',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch05-multithreading',
+    description: '第5章の完成コード（QThread::moveToThreadによる非同期ワーカースレッド設計）',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch05-multithreading',
+  },
+  prerequisites: [
+    {
+      title: 'QueuedConnection（スレッド間シグナル＆スロット）',
+      term: 'QueuedConnection',
+      description: 'スレッドをまたぐシグナル＆スロットで自動適用される通信方式。引数はイベントキューを介して受信側スレッドで安全にディスパッチされます。',
+    },
+    {
+      title: 'スレッドアフィニティとmoveToThread',
+      term: 'スレッドアフィニティ',
+      description: 'QObjectが属するスレッド。moveToThread()により、そのオブジェクトのスロットが実行されるスレッドを変更できます。',
+    },
+    {
+      title: 'GUIスレッド（メインスレッド）の非ブロッキング原則',
+      term: 'メイン（GUI）スレッド',
+      description: 'UIイベントループを処理するスレッド。ここで重い処理を行うと画面フリーズ（応答なし）が発生します。',
+      labLink: '/cpp/classic/chapter-17',
+      labLabel: 'C++ラボ第17章で復習',
+    },
+  ],
+  relatedLabs: [
+    {
+      title: 'std::threadと並行処理の基礎',
+      labName: 'シロクマC++ラボ',
+      badge: 'Classic 17',
+      url: '/cpp/classic/chapter-17',
+      description: '標準C++のstd::threadやstd::mutex、レースコンディションの回避方法を体系的に学びます。',
+      icon: '🧵',
+    },
+  ],
   description: 'GUIをフリーズさせない！ワーカースレッドの構築と、スレッド間でのシグナル・スロットを通じた安全なデータ受け渡しを学びます。',
   sections: [
     {
@@ -55,12 +93,14 @@ signals:
 QThread* thread = new QThread();
 Worker* worker = new Worker();
 
+// WHY: QThreadのサブクラス化ではなくQObjectワーカー＋moveToThreadを使うことで、スレッドのライフサイクル管理とロジックを疎結合に保てます（Qt推奨パターン）。
 // ワーカーを別スレッドに移動させる
 worker->moveToThread(thread);
 
 // 1. スレッドが開始されたら、重い処理を始める
 connect(thread, &QThread::started, worker, &Worker::doHeavyWork);
 
+// WHY: 送信側(Worker)と受信側(this)が異なるスレッドに存在するため、Qtは自動でQueuedConnectionを適用します。ミューテックス不要でGUIスレッドへ安全にメッセージが配送されます。
 // 2. 処理が終わったシグナルを受け取り、GUIスレッドで結果を処理する
 connect(worker, &Worker::workFinished, this, [](const QString &result){
     qDebug() << "GUI更新:" << result;
@@ -74,3 +114,4 @@ thread->start();`
     }
   ]
 };
+

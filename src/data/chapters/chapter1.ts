@@ -4,10 +4,22 @@ export const chapter1: Chapter = {
   id: 1,
   slug: 'chapter-1',
   courseTrack: 'classic',
+  courseChapterCode: 'Ch.1',
   title: '第1章：モダンQtとC++で作る、次世代の産業用GUI・HMI',
   subtitle: 'Qtの全体像と完成形のイメージ共有',
   badge: '第1部：Qtアーキテクチャ',
   description: 'HMI（Human Machine Interface）開発になぜQtが選ばれるのか。全体像と完成形のイメージ共有。',
+  seoDescription: 'Qt/QMLクイックスタート。QML宣言型シーングラフとC++命令型ビジネスロジックの役割分担、プロパティバインディングのメンタルモデルを習得。',
+  githubSnapshot: {
+    tagOrBranch: 'ch01-qml',
+    folderPath: 'examples/ch01-qml-basics',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch01-qml-basics',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch01-qml-basics'
+  },
+  prerequisites: [
+    { title: 'C++のクラスとオブジェクト指向の基本概念' },
+    { title: 'JSONライクな宣言的記法（プロパティ: 値）への理解' }
+  ],
   sections: [
     {
       id: 'sec-1-1',

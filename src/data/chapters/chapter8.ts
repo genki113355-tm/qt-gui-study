@@ -4,9 +4,47 @@ export const chapter8: Chapter = {
   id: 8,
   slug: 'chapter-8',
   courseTrack: 'modern',
+  courseChapterCode: 'Ch.8',
   title: '第8章：大容量データのメモリ管理：Qtアプリでのスマートポインタの正しい使い方',
   subtitle: 'QObject親子ツリーとC++スマートポインタの協調設計',
   badge: '第2部：マルチスレッド',
+  seoDescription: 'QtにおけるQObject親子ツリー所有権とC++標準スマートポインタ（std::shared_ptr/unique_ptr/QPointer）の正しい使い分け、二重解放（Double-Free）防止を解説。',
+  githubSnapshot: {
+    tagOrBranch: 'ch08-memory',
+    folderPath: 'examples/ch08-memory-management',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch08-memory-management',
+    description: '第8章の完成コード（QObject親子関係・std::shared_ptr・qRegisterMetaType連携）',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch08-memory-management',
+  },
+  prerequisites: [
+    {
+      title: 'QObject所有権ツリーとライフサイクル',
+      term: 'QObject所有権ツリー',
+      description: '親オブジェクト破棄時に全子オブジェクトが自動解放される仕組み。C++スマートポインタとの二重管理に注意が必要です。',
+    },
+    {
+      title: 'std::shared_ptrによるゼロコピー転送',
+      term: 'std::shared_ptr',
+      description: '参照カウント型スマートポインタ。大容量波形データなど非QObjectクラスのスレッド間ゼロコピー転送に適します。',
+      labLink: '/cpp/modern/chapter-1',
+      labLabel: 'C++ラボModern第1章で復習',
+    },
+    {
+      title: 'qRegisterMetaTypeによる独自型のシグナル登録',
+      term: 'qRegisterMetaType',
+      description: '独自型やテンプレート型をQtのシグナル＆スロット（QueuedConnection）の引数として渡すために必要な登録関数。',
+    },
+  ],
+  relatedLabs: [
+    {
+      title: 'モダンC++のリソース管理（RAIIとスマートポインタ）',
+      labName: 'シロクマC++ラボ',
+      badge: 'Modern 1',
+      url: '/cpp/modern/chapter-1',
+      description: 'std::unique_ptr / std::shared_ptr の内部構造、カスタムデリータ、循環参照の防止策を深く学びます。',
+      icon: '🧠',
+    },
+  ],
   description: 'Qt独自のQObject親子ツリー所有権と、C++標準のスマートポインタ（std::shared_ptr / std::unique_ptr / QPointer）の境界線を明確化し、二重解放（Double-Free）やメモリリークのない堅牢なシステムを設計します。',
   sections: [
     {

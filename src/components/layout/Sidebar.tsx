@@ -78,7 +78,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
                       }`}
                     >
-                      <span className="font-mono text-[10px] text-slate-500">CHAPTER {ch.id}</span>
+                      {ch.id === 0 ? (
+                        <span className="font-mono text-[10px] text-amber-400 font-bold flex items-center gap-1">
+                          <span>🔰</span>
+                          <span>準備編（環境構築）</span>
+                        </span>
+                      ) : (
+                        <span className="font-mono text-[10px] text-slate-500">CHAPTER {ch.id}</span>
+                      )}
                       <span className="font-bold line-clamp-2 leading-snug">{ch.title}</span>
                     </button>
                   </li>

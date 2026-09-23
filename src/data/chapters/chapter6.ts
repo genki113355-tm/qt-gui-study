@@ -4,9 +4,47 @@ export const chapter6: Chapter = {
   id: 6,
   slug: 'chapter-6',
   courseTrack: 'modern',
+  courseChapterCode: 'Ch.6',
   title: '第6章：QCustomPlot / Qt Graphs を使った高速リアルタイム波形描画',
   subtitle: '60fpsを維持するリングバッファと間引き描画テクニック',
   badge: '第2部：マルチスレッド',
+  seoDescription: 'Qt 6 / QQuickPaintedItem / Qt Graphsによる60fpsリアルタイム波形描画。固定長リングバッファとタイマー駆動型デカップリング描画のC++実装を解説。',
+  githubSnapshot: {
+    tagOrBranch: 'ch06-waveform',
+    folderPath: 'examples/ch06-realtime-waveform',
+    url: 'https://github.com/genki113355-tm/qt-gui-study/tree/main/examples/ch06-realtime-waveform',
+    description: '第6章の完成コード（リングバッファ＋QQuickPaintedItemによる60fps波形プロット）',
+    cloneCommand: 'git clone https://github.com/genki113355-tm/qt-gui-study.git && cd qt-gui-study/examples/ch06-realtime-waveform',
+  },
+  prerequisites: [
+    {
+      title: '固定長リングバッファの循環メモリ構造',
+      term: 'リングバッファ',
+      description: '固定長メモリを循環再利用するデータ構造。リアルタイム信号処理でmalloc等のメモリ再確保を排除するために必須です。',
+      labLink: '/cpp/classic/chapter-11',
+      labLabel: 'C++ラボ第11章で復習',
+    },
+    {
+      title: 'QQuickPaintedItemによるカスタム描画',
+      term: 'QQuickPaintedItem',
+      description: 'QMLシーングラフ内でQPainterによるカスタム描画を行うための基底クラス。ハードウェアアクセラレーションと連携可能です。',
+    },
+    {
+      title: '描画周期（60Hz）とデータ受信周期のデカップリング',
+      term: '描画と受信の分離',
+      description: '高周波データ受信周期（例: 1000Hz）とUI更新周期（60Hz）をタイマー等で分離し、描画キュー溢れを防ぐアーキテクチャ。',
+    },
+  ],
+  relatedLabs: [
+    {
+      title: '動的メモリとポインタ基礎',
+      labName: 'シロクマC++ラボ',
+      badge: 'Classic 11',
+      url: '/cpp/classic/chapter-11',
+      description: 'ヒープ確保とスタックのコスト、固定サイズバッファがなぜ高速なのかをメモリ構造から理解します。',
+      icon: '📈',
+    },
+  ],
   description: 'オシロスコープやレーダー波形など、毎秒数千点の高頻度ストリームをGUIフリーズを起こさずに滑らかな60fpsでリアルタイム描画するアーキテクチャを習得します。',
   sections: [
     {

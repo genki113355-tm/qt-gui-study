@@ -1,6 +1,7 @@
 import React from 'react';
 import { X } from 'lucide-react';
 import { ALL_CHAPTERS } from '../../data/chapters';
+import { ThemeToggle } from '../common/ThemeToggle';
 
 interface SidebarProps {
   currentChapterSlug: string;
@@ -17,76 +18,109 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onSelectChapter,
   isOpen,
   onClose,
-  // completedChapters,
-  // onToggleComplete,
-  // onOpenMilestoneModal
 }) => {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-black/60 z-30 lg:hidden backdrop-blur-sm" onClick={onClose} />
+        <div
+          className="fixed inset-0 bg-slate-950/60 z-30 lg:hidden backdrop-blur-xs transition-opacity"
+          onClick={onClose}
+        />
       )}
       <aside
-        className={`fixed lg:static top-0 left-0 h-full w-72 max-w-[85vw] bg-[#0a0f18] border-r border-slate-800/60 z-40 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} flex flex-col`}
+        className={`fixed lg:static top-0 left-0 h-full w-72 max-w-[85vw] bg-white/95 dark:bg-[#0a0f18] text-slate-800 dark:text-slate-100 border-r border-slate-200 dark:border-slate-800/60 z-40 transform transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        } flex flex-col shadow-xl lg:shadow-none`}
       >
-        <div className="h-16 flex items-center justify-between px-6 border-b border-slate-800/60 bg-gradient-to-r from-[#0d121c] to-[#0a0f18]">
-          <span className="font-sans font-bold text-slate-100 flex items-center gap-2">
-            <img src="/images/characters/shirokuma_sensei.png" alt="シロクマ先生" className="w-6 h-6 rounded-full object-cover border border-cyan-400/50 shadow inline-block" />
-            <span>シロクマQt×C++ラボ</span>
+        {/* サイドバーヘッダー */}
+        <div className="h-16 flex items-center justify-between px-5 border-b border-slate-200 dark:border-slate-800/60 bg-gradient-to-r from-sky-50/80 to-white dark:from-[#0d121c] dark:to-[#0a0f18]">
+          <span className="font-sans font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+            <img
+              src="/images/characters/shirokuma_sensei.png"
+              alt="シロクマ先生"
+              className="w-7 h-7 rounded-full object-cover border border-sky-400/50 shadow-xs inline-block"
+            />
+            <span className="text-sm">シロクマQt×C++ラボ</span>
           </span>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white lg:hidden transition-colors"
+            className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white lg:hidden transition-colors"
             aria-label="メニューを閉じる"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
-        <div className="flex-1 overflow-y-auto py-4 custom-scrollbar flex flex-col justify-between">
-          
+
+        {/* スクロールエリア */}
+        <div className="flex-1 overflow-y-auto py-3 custom-scrollbar flex flex-col justify-between">
           <div>
-            <div className="px-4 mb-2 mt-2">
+            {/* モバイル用 テーマ切り替え & TOPリンク */}
+            <div className="px-3 mb-3 flex items-center justify-between gap-2 lg:hidden">
               <button
                 onClick={() => {
                   onSelectChapter('top');
                   onClose();
                 }}
-                className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center gap-3 ${
+                className={`flex-1 text-left px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                   currentChapterSlug === 'top'
-                    ? 'bg-cyan-950/40 text-cyan-300 border border-cyan-500/30 shadow-[0_0_15px_rgba(34,211,238,0.1)]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                    ? 'bg-sky-100 dark:bg-cyan-950/60 text-sky-800 dark:text-cyan-300 border border-sky-300 dark:border-cyan-500/40'
+                    : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                 }`}
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-                サイトTOPへ戻る
+                <span>🏠</span>
+                <span>サイトTOP</span>
+              </button>
+              <ThemeToggle showLabel={false} />
+            </div>
+
+            {/* PC用 TOPリンク */}
+            <div className="px-3 mb-3 hidden lg:block">
+              <button
+                onClick={() => {
+                  onSelectChapter('top');
+                  onClose();
+                }}
+                className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2.5 ${
+                  currentChapterSlug === 'top'
+                    ? 'bg-sky-100 dark:bg-cyan-950/60 text-sky-800 dark:text-cyan-300 border border-sky-300 dark:border-cyan-500/40 shadow-xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                }`}
+              >
+                <span>🏠</span>
+                <span>サイトTOPへ戻る</span>
               </button>
             </div>
-            <div className="px-4 mb-4 mt-2">
 
-              <div className="text-xs font-bold text-cyan-500/80 uppercase tracking-wider mb-2 px-2">カリキュラム</div>
+            {/* カリキュラム章一覧 */}
+            <div className="px-3 mb-4">
+              <div className="text-[11px] font-mono font-bold text-sky-600 dark:text-cyan-400/90 uppercase tracking-wider mb-2 px-2">
+                カリキュラム一覧
+              </div>
               <ul className="space-y-1">
-                {ALL_CHAPTERS.map(ch => (
+                {ALL_CHAPTERS.map((ch) => (
                   <li key={ch.id}>
                     <button
                       onClick={() => {
                         onSelectChapter(ch.slug);
                         onClose();
                       }}
-                      className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all flex flex-col gap-1 ${
+                      className={`w-full text-left px-3 py-2 rounded-xl text-xs sm:text-sm transition-all flex flex-col gap-1 cursor-pointer ${
                         currentChapterSlug === ch.slug
-                          ? 'bg-cyan-950/40 text-cyan-300 border border-cyan-500/30 shadow-[0_0_15px_rgba(34,211,238,0.1)]'
-                          : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                          ? 'bg-sky-100/90 dark:bg-cyan-950/60 text-sky-900 dark:text-cyan-200 border border-sky-300 dark:border-cyan-500/40 shadow-xs font-bold'
+                          : 'text-slate-700 dark:text-slate-300 hover:text-sky-700 dark:hover:text-white hover:bg-sky-50/70 dark:hover:bg-slate-800/50'
                       }`}
                     >
                       {ch.id === 0 ? (
-                        <span className="font-mono text-[10px] text-amber-400 font-bold flex items-center gap-1">
+                        <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">
                           <span>🔰</span>
                           <span>準備編（環境構築）</span>
                         </span>
                       ) : (
-                        <span className="font-mono text-[10px] text-slate-500">CHAPTER {ch.id}</span>
+                        <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                          CHAPTER {ch.id}
+                        </span>
                       )}
-                      <span className="font-bold line-clamp-2 leading-snug">{ch.title}</span>
+                      <span className="line-clamp-2 leading-snug">{ch.title}</span>
                     </button>
                   </li>
                 ))}
@@ -95,8 +129,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
 
           {/* 総合ポータル ＆ 姉妹メディア・相互リンク */}
-          <div className="p-3 border-t border-slate-800/80 bg-slate-950/40 space-y-2 mt-4">
-            <div className="text-[10px] font-mono text-slate-400 font-bold mb-1 flex items-center justify-between">
+          <div className="p-3 border-t border-slate-200 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-950/40 space-y-2 mt-2">
+            <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 font-bold mb-1 flex items-center justify-between">
               <span className="flex items-center gap-1">
                 <span>🔗</span>
                 <span>技術学習エコシステム</span>
@@ -106,110 +140,110 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {/* 0. 総合トップ */}
             <a
               href="/"
-              className="group flex items-center justify-between p-2 rounded-xl bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-500/30 hover:border-cyan-400/60 transition shadow-sm"
+              className="group flex items-center justify-between p-2 rounded-xl bg-sky-100/60 dark:bg-cyan-950/40 hover:bg-sky-100 dark:hover:bg-cyan-900/50 border border-sky-200 dark:border-cyan-500/30 transition shadow-xs"
             >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs">🏛️</span>
-                  <div className="text-xs font-bold text-cyan-300 group-hover:text-white font-sans truncate">
+                  <div className="text-xs font-bold text-sky-800 dark:text-cyan-300 group-hover:text-sky-950 dark:group-hover:text-white font-sans truncate">
                     総合ポータル
                   </div>
                 </div>
-                <div className="text-[10px] text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   全4ラボの学習記録を集約
                 </div>
               </div>
-              <span className="text-xs text-cyan-400 group-hover:text-white font-mono flex-shrink-0">
-                ➔
-              </span>
+              <span className="text-xs text-sky-600 dark:text-cyan-400 font-mono flex-shrink-0">➔</span>
             </a>
 
             {/* 1. シロクマC++ラボ */}
             <a
               href="/cpp/"
-              className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 transition shadow-sm"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-sky-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-cyan-500/40 transition shadow-xs"
             >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs">👾</span>
-                  <div className="text-xs font-bold text-slate-200 group-hover:text-cyan-300 font-sans truncate">
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-cyan-300 font-sans truncate">
                     シロクマC++ラボ
                   </div>
                 </div>
-                <div className="text-[10px] text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   ゲーム開発で学ぶC++設計
                 </div>
               </div>
-              <span className="text-xs text-slate-500 group-hover:text-cyan-400 font-mono flex-shrink-0">
-                ↗
-              </span>
+              <span className="text-xs text-slate-400 group-hover:text-sky-500 dark:group-hover:text-cyan-400 font-mono flex-shrink-0">↗</span>
             </a>
 
             {/* 2. シロクマC++自動化ラボ */}
             <a
               href="/auto/"
-              className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/40 transition shadow-sm"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-amber-50/50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-500/40 transition shadow-xs"
             >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs">⚡</span>
-                  <div className="text-xs font-bold text-slate-200 group-hover:text-amber-300 font-sans truncate">
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-amber-600 dark:group-hover:text-amber-300 font-sans truncate">
                     シロクマC++自動化ラボ
                   </div>
                 </div>
-                <div className="text-[10px] text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   Docker / pybind11 / 自動評価
                 </div>
               </div>
-              <span className="text-xs text-slate-500 group-hover:text-amber-400 font-mono flex-shrink-0">
-                ↗
-              </span>
+              <span className="text-xs text-slate-400 group-hover:text-amber-500 dark:group-hover:text-amber-400 font-mono flex-shrink-0">↗</span>
             </a>
 
             {/* 3. 水中音響・ソナー技術入門 */}
             <a
               href="/sonar/"
-              className="group flex items-center justify-between p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/40 transition shadow-sm"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-blue-50/50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-500/40 transition shadow-xs"
             >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs">🌊</span>
-                  <div className="text-xs font-bold text-slate-200 group-hover:text-blue-300 font-sans truncate">
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-300 font-sans truncate">
                     水中音響・ソナー入門
                   </div>
                 </div>
-                <div className="text-[10px] text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   波の物理 / FFT / 音響解析
                 </div>
               </div>
-              <span className="text-xs text-slate-500 group-hover:text-blue-400 font-mono flex-shrink-0">
-                ↗
-              </span>
+              <span className="text-xs text-slate-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 font-mono flex-shrink-0">↗</span>
             </a>
           </div>
 
           {/* キャラクター紹介（シロクマ先生 & ペンギン生徒） */}
-          <div className="border-t border-cyan-500/20 p-4 pb-6 bg-[#080d1a]/80 space-y-3 shrink-0 mt-2">
-            <div className="flex items-center gap-3">
+          <div className="border-t border-slate-200 dark:border-cyan-500/20 p-3.5 pb-5 bg-sky-50/60 dark:bg-[#080d1a]/80 space-y-2.5 shrink-0 mt-1">
+            <div className="flex items-center gap-2.5">
               <img
                 src="/images/characters/shirokuma_sensei.png"
                 alt="シロクマ先生"
-                className="w-10 h-10 rounded-full border-2 border-cyan-500 object-cover bg-slate-900 shadow-[0_0_10px_rgba(6,182,212,0.3)]"
+                className="w-9 h-9 rounded-full border border-sky-400 dark:border-cyan-500 object-cover shadow-xs"
               />
               <div>
-                <p className="text-sm font-bold text-white leading-none mb-1">シロクマ先生 (Sensei)</p>
-                <p className="text-[10px] text-slate-400">低レイヤ・数理アルゴリズム専門家</p>
+                <p className="text-xs font-bold text-slate-900 dark:text-white leading-none mb-0.5">
+                  シロクマ先生
+                </p>
+                <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                  シニアアーキテクト
+                </p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
               <img
                 src="/images/characters/penguin_student.jpg"
                 alt="ペンギン生徒"
-                className="w-10 h-10 rounded-full border-2 border-slate-500 object-cover bg-slate-900 shadow"
+                className="w-9 h-9 rounded-full border border-slate-300 dark:border-slate-600 object-cover shadow-xs"
               />
               <div>
-                <p className="text-sm font-bold text-white leading-none mb-1">ペンギン生徒 (Student)</p>
-                <p className="text-[10px] text-slate-400">手動評価に苦しむ若手エンジニア</p>
+                <p className="text-xs font-bold text-slate-900 dark:text-white leading-none mb-0.5">
+                  ペンギン生徒
+                </p>
+                <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                  新米エンジニア
+                </p>
               </div>
             </div>
           </div>
@@ -218,4 +252,3 @@ export const Sidebar: React.FC<SidebarProps> = ({
     </>
   );
 };
-

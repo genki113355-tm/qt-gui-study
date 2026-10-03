@@ -137,9 +137,9 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
   }, [targetHighlight, files]);
 
   return (
-    <div className="rounded-xl overflow-hidden border border-slate-800 bg-[#0c121e] shadow-2xl my-6">
+    <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-[#0c121e] shadow-xl my-6 transition-colors">
       {/* 上部ヘッダー：タブバー */}
-      <div className="flex items-center justify-between bg-slate-900/90 border-b border-slate-800 px-4 py-2.5 flex-wrap gap-2.5">
+      <div className="flex items-center justify-between bg-slate-100 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800 px-4 py-2.5 flex-wrap gap-2.5">
         <div className="flex items-center gap-1.5 overflow-x-auto max-w-full pb-1 sm:pb-0 no-scrollbar select-none">
           {files.map((file, idx) => {
             const isActive = idx === activeTab;
@@ -148,16 +148,16 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
               <button
                 key={file.filename}
                 onClick={() => setActiveTab(idx)}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-mono transition-all duration-150 flex-shrink-0 whitespace-nowrap ${
+                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-mono transition-all duration-150 flex-shrink-0 whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? 'bg-slate-800 text-cyan-400 border border-cyan-500/50 shadow-md font-bold'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                    ? 'bg-white dark:bg-slate-800 text-cyan-700 dark:text-cyan-400 border border-cyan-400/60 dark:border-cyan-500/50 shadow-sm font-bold'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800/50'
                 }`}
               >
                 {isHeader ? (
-                  <FileText className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                  <FileText className="w-4 h-4 text-purple-500 dark:text-purple-400 flex-shrink-0" />
                 ) : (
-                  <FileCode className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                  <FileCode className="w-4 h-4 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
                 )}
                 <span>{file.filename}</span>
                 {file.isMain && (
@@ -173,16 +173,16 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
           {coreLineCount > 0 && (
             <button
               onClick={() => setHighlightCoreLines(prev => !prev)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-xl font-mono transition border active:scale-95 ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-xl font-mono transition border active:scale-95 cursor-pointer ${
                 highlightCoreLines
-                  ? 'bg-cyan-950/80 text-cyan-300 border-cyan-500/40 shadow-inner'
-                  : 'bg-slate-800/80 text-slate-400 border-slate-700 hover:text-slate-200'
+                  ? 'bg-cyan-100 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 border-cyan-300 dark:border-cyan-500/40 shadow-inner font-semibold'
+                  : 'bg-white dark:bg-slate-800/80 text-slate-700 dark:text-slate-400 border-slate-300 dark:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
               title="設計の核心行をハイライト表示"
             >
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              <Sparkles className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
               <span>核心行ハイライト</span>
-              <span className="px-1.5 py-0.2 rounded bg-cyan-900/60 text-[10px] font-bold">
+              <span className="px-1.5 py-0.2 rounded bg-cyan-200 dark:bg-cyan-900/60 text-cyan-900 dark:text-cyan-200 text-[10px] font-bold">
                 {coreLineCount}
               </span>
             </button>
@@ -198,17 +198,17 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
 
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white transition border border-slate-700 active:scale-95 shadow-sm font-mono font-medium"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm rounded-xl bg-white dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 hover:text-black dark:hover:text-white transition border border-slate-300 dark:border-slate-700 active:scale-95 shadow-sm font-mono font-medium cursor-pointer"
             title="コードをクリップボードにコピー"
           >
             {copied ? (
               <>
-                <Check className="w-4 h-4 text-emerald-400" />
-                <span className="text-emerald-400 font-bold">コピー完了!</span>
+                <Check className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">コピー完了!</span>
               </>
             ) : (
               <>
-                <Copy className="w-4 h-4 text-slate-400" />
+                <Copy className="w-4 h-4 text-slate-500 dark:text-slate-400" />
                 <span>コピー</span>
               </>
             )}
@@ -218,8 +218,8 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
 
       {/* ファイルの簡易説明バー */}
       {currentFile.description && (
-        <div className="px-5 py-2 bg-slate-900/40 border-b border-slate-800/60 text-xs sm:text-sm text-slate-300 flex items-center gap-2.5 font-sans">
-          <span className="text-cyan-400 font-mono font-bold">▸</span>
+        <div className="px-5 py-2 bg-slate-50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800/60 text-xs sm:text-sm text-slate-700 dark:text-slate-300 flex items-center gap-2.5 font-sans">
+          <span className="text-cyan-600 dark:text-cyan-400 font-mono font-bold">▸</span>
           <span>{currentFile.description}</span>
         </div>
       )}
@@ -241,7 +241,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
 
       {/* コード表示エリア（行番号 ＆ 核心行ハイライト付き） */}
       <div className="relative overflow-x-auto max-h-[700px] scrollbar-thin py-3">
-        <pre className="!m-0 !p-0 !bg-transparent text-xs sm:text-sm md:text-base font-mono leading-relaxed inline-block min-w-full">
+        <pre className="!m-0 !p-0 !bg-transparent text-sm sm:text-[15px] font-mono leading-[1.7] inline-block min-w-full">
           {processedLines.map((line) => {
             const isHighlighted = highlightCoreLines && line.isCore;
             const isBlinking = blinkLineNumber === line.lineNumber;
@@ -253,12 +253,12 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
                   isBlinking
                     ? 'bg-amber-500/30 border-l-4 border-amber-400 pl-3 pr-4 shadow-lg shadow-amber-500/20'
                     : isHighlighted
-                    ? 'bg-cyan-500/10 border-l-4 border-cyan-400 pl-3 pr-4'
-                    : 'border-l-4 border-transparent pl-3 pr-4 hover:bg-slate-800/30'
+                    ? 'bg-cyan-500/15 border-l-4 border-cyan-400 pl-3 pr-4'
+                    : 'border-l-4 border-transparent pl-3 pr-4 hover:bg-slate-800/40'
                 }`}
               >
                 {/* 行番号 */}
-                <span className={`w-10 text-right pr-4 select-none flex-shrink-0 text-xs sm:text-sm font-mono ${
+                <span className={`w-11 text-right pr-4 select-none flex-shrink-0 text-xs sm:text-sm font-mono ${
                   isBlinking ? 'text-amber-400 font-black' : isHighlighted ? 'text-cyan-400 font-bold' : 'text-slate-600'
                 }`}>
                   {line.lineNumber}
@@ -276,11 +276,11 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
       </div>
 
       {/* 下部ステータス */}
-      <div className="px-5 py-1.5 bg-slate-950 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-400 font-mono">
+      <div className="px-5 py-1.5 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 font-mono">
         <div className="flex items-center gap-3">
-          <span className="font-bold text-slate-300">{currentFile.filename}</span>
+          <span className="font-bold text-slate-800 dark:text-slate-300">{currentFile.filename}</span>
           {highlightCoreLines && coreLineCount > 0 && (
-            <span className="text-cyan-400 text-[11px] flex items-center gap-1">
+            <span className="text-cyan-700 dark:text-cyan-400 text-[11px] flex items-center gap-1 font-semibold">
               <Sparkles className="w-3 h-3" />
               <span>設計核心行: {coreLineCount} 行強調中</span>
             </span>

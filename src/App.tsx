@@ -3,6 +3,8 @@ import { ALL_CHAPTERS, getChapterBySlug } from './data/chapters';
 import { Navbar } from './components/layout/Navbar';
 import { Sidebar } from './components/layout/Sidebar';
 import { Footer } from './components/layout/Footer';
+import { ArcticBackground } from './components/layout/ArcticBackground';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { useSEO } from './hooks/useSEO';
 
 // コード分割（Code Splitting）による初期読み込みの超軽量化
@@ -42,7 +44,7 @@ const getSlugFromUrl = (): string => {
   return 'top';
 };
 
-export const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [currentSlug, setCurrentSlug] = useState<string>(getSlugFromUrl);
 
   const [completedChapters, setCompletedChapters] = useState<number[]>(() => {
@@ -146,7 +148,10 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 flex flex-col font-sans overflow-x-clip">
+    <div className="min-h-screen bg-[#f8fafc] dark:bg-[#080d1a] text-slate-900 dark:text-slate-100 flex flex-col font-sans overflow-x-clip relative transition-colors duration-300">
+      {/* 🏔️ ほんのり薄い氷山＆オーロラ背景ビジュアル（ライト/ダーク両対応） */}
+      <ArcticBackground />
+
       {/* ナビゲーションバー */}
       <Navbar
         currentChapterId={currentChapterId}
@@ -156,8 +161,8 @@ export const App: React.FC = () => {
         onOpenPlaygroundModal={() => setIsPlaygroundModalOpen(true)}
       />
 
-      {/* メインエリア：サイドバー ＋ 広々としたカリキュラム本文 */}
-      <div className="flex-1 flex w-full min-w-0">
+      {/* メインエリア：サイドバー ＋ カリキュラム本文 */}
+      <div className="flex-1 flex w-full min-w-0 relative z-10">
         <Sidebar
           currentChapterSlug={currentSlug}
           onSelectChapter={handleSelectChapter}
@@ -168,7 +173,7 @@ export const App: React.FC = () => {
           onOpenMilestoneModal={() => setIsMilestoneModalOpen(true)}
         />
 
-        <main className="flex-1 min-w-0 pb-20 px-4 sm:px-8 lg:px-12 overflow-x-hidden">
+        <main className="flex-1 min-w-0 pb-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
           <React.Suspense fallback={<PageLoadingFallback />}>
             {currentSlug === 'top' ? (
               <TopPageView
@@ -223,6 +228,14 @@ export const App: React.FC = () => {
         </React.Suspense>
       )}
     </div>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 };
 export default App;

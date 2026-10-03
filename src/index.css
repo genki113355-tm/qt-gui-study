@@ -39,12 +39,14 @@ html.dark ::-webkit-scrollbar-thumb {
 
 /* Code block prism custom dark styling */
 code[class*="language-"],
-pre[class*="language-"] {
-  color: #e2e8f0;
+pre[class*="language-"],
+pre code,
+.code-dark {
+  color: #f1f5f9;
   text-shadow: none;
   font-family: 'Fira Code', 'JetBrains Mono', Consolas, monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-size: 0.925rem;
+  line-height: 1.7;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -59,12 +61,12 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #64748b;
+  color: #94a3b8;
   font-style: italic;
 }
 
 .token.punctuation {
-  color: #94a3b8;
+  color: #cbd5e1;
 }
 
 .token.property,
@@ -73,7 +75,7 @@ pre[class*="language-"] {
 .token.number,
 .token.constant,
 .token.symbol {
-  color: #f59e0b;
+  color: #fbbf24;
 }
 
 .token.selector,
@@ -81,7 +83,7 @@ pre[class*="language-"] {
 .token.string,
 .token.char,
 .token.builtin {
-  color: #10b981;
+  color: #34d399;
 }
 
 .token.operator,
@@ -96,19 +98,21 @@ pre[class*="language-"] {
 .token.attr-value,
 .token.keyword {
   color: #c084fc;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .token.function,
-.token.class-name {
-  color: #38bdf8;
+.token.class-name,
+.token.command {
+  color: #67e8f9;
   font-weight: 600;
 }
 
 .token.regex,
 .token.important,
-.token.variable {
-  color: #fb7185;
+.token.variable,
+.token.parameter {
+  color: #fca5a5;
 }
 
 /* CRT monitor scanline & glow effects for the retro emulator */

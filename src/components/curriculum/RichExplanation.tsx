@@ -333,7 +333,7 @@ export const RichExplanation: React.FC<RichExplanationProps> = ({ content }) => 
 };
 
 // **太字**、`インラインコード`、*イタリック*、および <br> 改行タグのレンダリングヘルパー
-function renderFormattedText(text: string, isHeading: boolean = false): React.ReactNode {
+export function renderFormattedText(text: string, isHeading: boolean = false): React.ReactNode {
   // 1. <br> または <br/> または <br /> で分割
   const brSegments = text.split(/<br\s*\/?>/gi);
 

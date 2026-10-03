@@ -9,7 +9,7 @@ import { ChapterVisualPreview } from './ChapterVisualPreview';
 
 import { MemoryVisualizer } from './MemoryVisualizer';
 import { VariableInspector } from './VariableInspector';
-import { RichExplanation } from './RichExplanation';
+import { RichExplanation, renderFormattedText } from './RichExplanation';
 import { UmlDiagramViewer } from './UmlDiagramViewer';
 import { CheckCircle, AlertCircle, ArrowRight, ArrowLeft, Lightbulb, HelpCircle, GitCommit, Copy, Check, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -459,18 +459,18 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                         </code>
                       )}
                     </div>
-                    <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed pl-10 font-sans">
+                    <p className="text-base sm:text-lg text-slate-800 dark:text-slate-200 leading-relaxed pl-10 font-sans">
                       {step.description}
                     </p>
                     
                     <div className="mt-3 pl-10 flex flex-col sm:flex-row gap-2.5 text-xs sm:text-sm font-mono">
-                      <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 py-2 px-3 rounded-xl border border-emerald-200 dark:border-emerald-500/20 flex-1">
-                        <span className="text-slate-600 dark:text-slate-400 font-sans font-bold">動作効果:</span>
+                      <div className="flex items-center gap-2 text-emerald-900 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/30 py-2.5 px-3.5 rounded-xl border border-emerald-300 dark:border-emerald-500/20 flex-1">
+                        <span className="text-emerald-800 dark:text-emerald-400 font-sans font-bold">動作効果:</span>
                         <span>{step.impact}</span>
                       </div>
                       {step.designIntent && (
-                        <div className="flex items-center gap-2 text-cyan-800 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/30 py-2 px-3 rounded-xl border border-cyan-200 dark:border-cyan-500/20 flex-1">
-                          <span className="text-slate-600 dark:text-slate-400 font-sans font-bold">設計意図:</span>
+                        <div className="flex items-center gap-2 text-cyan-900 dark:text-cyan-300 bg-cyan-100/70 dark:bg-cyan-950/30 py-2.5 px-3.5 rounded-xl border border-cyan-300 dark:border-cyan-500/20 flex-1">
+                          <span className="text-cyan-800 dark:text-cyan-400 font-sans font-bold">設計意図:</span>
                           <span>{step.designIntent}</span>
                         </div>
                       )}
@@ -517,36 +517,44 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
 
           {/* キーポイント・まとめ */}
           {(viewMode === 'all' || viewMode === 'learn') && section.takeaways && section.takeaways.length > 0 && (
-            <div className="rounded-2xl bg-white/95 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-6 space-y-4 my-6 flex flex-col sm:flex-row gap-6 items-start shadow-md transition-colors">
+            <div className="rounded-2xl bg-white/95 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-6 my-8 flex flex-col sm:flex-row gap-6 items-start shadow-md transition-colors">
               <div className="hidden sm:flex flex-col items-center flex-shrink-0">
-                <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-full overflow-hidden shadow-lg border-2 border-cyan-400/80 shadow-cyan-900/60 ring-2 ring-cyan-500/20 bg-[#0a0f18]">
+                <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-full overflow-hidden shadow-lg border-2 border-cyan-400/80 shadow-cyan-900/40 dark:shadow-cyan-900/60 ring-2 ring-cyan-500/20 bg-cyan-50 dark:bg-[#0a0f18]">
                   <img src="/images/characters/shirokuma_sensei.png" alt="シロクマ先生" className="w-full h-full object-cover scale-110" />
                 </div>
               </div>
-              <div className="flex-1 space-y-4 w-full">
-                <h3 className="text-base sm:text-lg font-mono font-bold text-cyan-800 dark:text-cyan-400 flex items-center gap-2.5">
-                  <Lightbulb className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+              <div className="flex-1 space-y-5 w-full min-w-0">
+                <h3 className="text-lg sm:text-xl font-mono font-bold text-cyan-800 dark:text-cyan-400 flex items-center gap-2.5 border-b border-slate-200 dark:border-slate-800 pb-3">
+                  <Lightbulb className="w-6 h-6 text-amber-500 dark:text-amber-400 flex-shrink-0" />
                   <span>シロクマ先生の重要ポイントまとめ</span>
                 </h3>
-                <div className={`grid grid-cols-1 gap-4 ${
-                  section.takeaways.length === 1 ? 'md:grid-cols-1' :
-                  section.takeaways.length === 2 ? 'md:grid-cols-2' :
-                  'md:grid-cols-3'
-                }`}>
-                {section.takeaways.map((takeaway, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 space-y-2"
-                  >
-                    <div className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100">
-                      {takeaway.title}
+                <div className="space-y-4">
+                  {section.takeaways.map((takeaway, idx) => (
+                    <div
+                      key={idx}
+                      className="p-5 sm:p-6 rounded-2xl bg-slate-50/90 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800/80 space-y-3 shadow-sm"
+                    >
+                      <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-cyan-300 flex items-center gap-2.5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 flex-shrink-0" />
+                        <span>{takeaway.title}</span>
+                      </div>
+                      <div className="text-base sm:text-[17px] leading-relaxed text-slate-700 dark:text-slate-200 font-sans space-y-2.5">
+                        {takeaway.description.split('\n\n').map((block, bIdx) => {
+                          const lines = block.split('\n');
+                          return (
+                            <div key={bIdx} className="space-y-1.5">
+                              {lines.map((line, lIdx) => (
+                                <p key={lIdx} className="leading-relaxed">
+                                  {renderFormattedText(line)}
+                                </p>
+                              ))}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                    <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-sans whitespace-pre-line">
-                      {takeaway.description}
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
               </div>
             </div>
           )}

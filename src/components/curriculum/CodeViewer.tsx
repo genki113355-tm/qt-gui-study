@@ -1,14 +1,38 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Copy, Check, FileText, FileCode, Sparkles, AlertTriangle } from 'lucide-react';
+import { Copy, Check, FileText, FileCode, Sparkles, AlertTriangle, Terminal } from 'lucide-react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-c';
 import 'prismjs/components/prism-cpp';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-cmake';
+import 'prismjs/components/prism-qml';
+import 'prismjs/components/prism-json';
 import { CodeFile, CodeHighlightTarget } from '../../types/curriculum';
 
 interface CodeViewerProps {
   files: CodeFile[];
   targetHighlight?: CodeHighlightTarget;
 }
+
+const getPrismMode = (filename: string): { grammar: Prism.Grammar; lang: string } => {
+  const lower = filename.toLowerCase();
+  if (lower === 'terminal' || lower.endsWith('.sh') || lower.endsWith('.bash') || lower.includes('command')) {
+    return { grammar: Prism.languages.bash || Prism.languages.cpp, lang: 'bash' };
+  }
+  if (lower === 'cmakelists.txt' || lower.endsWith('.cmake')) {
+    return { grammar: Prism.languages.cmake || Prism.languages.cpp, lang: 'cmake' };
+  }
+  if (lower.endsWith('.qml')) {
+    return { grammar: Prism.languages.qml || Prism.languages.javascript || Prism.languages.cpp, lang: 'qml' };
+  }
+  if (lower.endsWith('.json')) {
+    return { grammar: Prism.languages.json || Prism.languages.cpp, lang: 'json' };
+  }
+  if (lower.endsWith('.c')) {
+    return { grammar: Prism.languages.c || Prism.languages.cpp, lang: 'c' };
+  }
+  return { grammar: Prism.languages.cpp, lang: 'cpp' };
+};
 
 export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }) => {
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -49,16 +73,24 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
   };
 
   const getFileBadgeColor = (filename: string) => {
-    if (filename.endsWith('.h')) return 'bg-purple-950/70 text-purple-300 border-purple-500/40';
-    if (filename === 'main.cpp') return 'bg-cyan-950/70 text-cyan-300 border-cyan-500/40';
-    if (filename.endsWith('.cpp')) return 'bg-blue-950/70 text-blue-300 border-blue-500/40';
+    const lower = filename.toLowerCase();
+    if (lower === 'terminal' || lower.endsWith('.sh') || lower.endsWith('.bash')) return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/40';
+    if (lower === 'cmakelists.txt' || lower.endsWith('.cmake')) return 'bg-amber-950/80 text-amber-300 border-amber-500/40';
+    if (lower.endsWith('.qml')) return 'bg-teal-950/80 text-teal-300 border-teal-500/40';
+    if (lower.endsWith('.h')) return 'bg-purple-950/70 text-purple-300 border-purple-500/40';
+    if (lower === 'main.cpp') return 'bg-cyan-950/70 text-cyan-300 border-cyan-500/40';
+    if (lower.endsWith('.cpp')) return 'bg-blue-950/70 text-blue-300 border-blue-500/40';
     return 'bg-slate-800 text-slate-300 border-slate-700';
   };
 
   const getFileBadgeLabel = (filename: string) => {
-    if (filename.endsWith('.h')) return 'ヘッダ (宣言)';
-    if (filename === 'main.cpp') return 'エントリポイント';
-    if (filename.endsWith('.cpp')) return '実装 (定義)';
+    const lower = filename.toLowerCase();
+    if (lower === 'terminal' || lower.endsWith('.sh') || lower.endsWith('.bash')) return 'ターミナルコマンド';
+    if (lower === 'cmakelists.txt' || lower.endsWith('.cmake')) return 'CMakeビルド定義';
+    if (lower.endsWith('.qml')) return 'QML (UI画面)';
+    if (lower.endsWith('.h')) return 'ヘッダ (宣言)';
+    if (lower === 'main.cpp') return 'エントリポイント';
+    if (lower.endsWith('.cpp')) return '実装 (定義)';
     return 'ソース';
   };
 
@@ -79,11 +111,12 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
   // 各行をPrismでハイライトしてキャッシュ
   const processedLines = useMemo(() => {
     if (!currentFile?.code) return [];
+    const { grammar, lang } = getPrismMode(currentFile.filename);
     const lines = currentFile.code.split('\n');
     return lines.map((line, index) => {
       let html = '';
       try {
-        html = Prism.highlight(line || ' ', Prism.languages.cpp, 'cpp');
+        html = Prism.highlight(line || ' ', grammar, lang);
       } catch {
         html = line || ' ';
       }
@@ -144,6 +177,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
           {files.map((file, idx) => {
             const isActive = idx === activeTab;
             const isHeader = file.filename.endsWith('.h');
+            const isTerminal = file.filename.toLowerCase() === 'terminal' || file.filename.endsWith('.sh') || file.filename.endsWith('.bash');
             return (
               <button
                 key={file.filename}
@@ -156,6 +190,8 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
               >
                 {isHeader ? (
                   <FileText className="w-4 h-4 text-purple-500 dark:text-purple-400 flex-shrink-0" />
+                ) : isTerminal ? (
+                  <Terminal className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                 ) : (
                   <FileCode className="w-4 h-4 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
                 )}
@@ -240,8 +276,8 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
       )}
 
       {/* コード表示エリア（行番号 ＆ 核心行ハイライト付き） */}
-      <div className="relative overflow-x-auto max-h-[700px] scrollbar-thin py-3">
-        <pre className="!m-0 !p-0 !bg-transparent text-sm sm:text-[15px] font-mono leading-[1.7] inline-block min-w-full">
+      <div className="relative overflow-x-auto max-h-[700px] scrollbar-thin py-3.5 bg-[#060a14] text-[#f1f5f9] select-text">
+        <pre className="!m-0 !p-0 !bg-transparent text-sm sm:text-[15.5px] font-mono leading-[1.75] inline-block min-w-full text-[#f1f5f9]">
           {processedLines.map((line) => {
             const isHighlighted = highlightCoreLines && line.isCore;
             const isBlinking = blinkLineNumber === line.lineNumber;
@@ -249,24 +285,24 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
               <div
                 id={`code-line-${activeTab}-${line.lineNumber}`}
                 key={line.lineNumber}
-                className={`flex items-stretch transition-all duration-300 min-w-full \${
+                className={`flex items-stretch transition-all duration-300 min-w-full ${
                   isBlinking
                     ? 'bg-amber-500/30 border-l-4 border-amber-400 pl-3 pr-4 shadow-lg shadow-amber-500/20'
                     : isHighlighted
                     ? 'bg-cyan-500/15 border-l-4 border-cyan-400 pl-3 pr-4'
-                    : 'border-l-4 border-transparent pl-3 pr-4 hover:bg-slate-800/40'
+                    : 'border-l-4 border-transparent pl-3 pr-4 hover:bg-slate-800/50'
                 }`}
               >
                 {/* 行番号 */}
                 <span className={`w-11 text-right pr-4 select-none flex-shrink-0 text-xs sm:text-sm font-mono ${
-                  isBlinking ? 'text-amber-400 font-black' : isHighlighted ? 'text-cyan-400 font-bold' : 'text-slate-600'
+                  isBlinking ? 'text-amber-400 font-black' : isHighlighted ? 'text-cyan-400 font-bold' : 'text-slate-500'
                 }`}>
                   {line.lineNumber}
                 </span>
 
                 {/* コード本文 */}
                 <code
-                  className="flex-1 whitespace-pre"
+                  className="flex-1 whitespace-pre text-[#f1f5f9]"
                   dangerouslySetInnerHTML={{ __html: line.html }}
                 />
               </div>

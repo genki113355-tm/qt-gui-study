@@ -17,7 +17,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '', showLa
       className={`group relative inline-flex items-center gap-2 px-3 py-1.5 rounded-xl transition-all duration-300 active:scale-95 cursor-pointer shadow-sm border ${
         isLight
           ? 'bg-white hover:bg-sky-50 text-slate-700 hover:text-sky-600 border-slate-200 hover:border-sky-300 shadow-sky-950/5'
-          : 'bg-slate-900/90 hover:bg-slate-850 text-slate-300 hover:text-cyan-300 border-slate-700 hover:border-cyan-500/50'
+          : 'bg-white/90 dark:bg-slate-900/90 hover:bg-slate-850 text-slate-700 dark:text-slate-300 hover:text-cyan-300 border-slate-300 dark:border-slate-700 hover:border-cyan-500/50'
       } ${className}`}
       aria-label={`テーマを${isLight ? 'ダークモード' : 'ライトモード'}に切り替える`}
       title={`テーマ切替: 現在は【${isLight ? 'ライトモード（白銀）' : 'ダークモード（極夜）'}】です`}

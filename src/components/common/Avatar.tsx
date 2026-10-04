@@ -106,7 +106,7 @@ export const Avatar: React.FC<AvatarProps> = ({
 
       {/* 表情エモートバッジ（左上） */}
       {emote && (
-        <span className="absolute -top-1.5 -left-1.5 text-xs bg-slate-900/90 rounded-full w-5 h-5 flex items-center justify-center shadow border border-slate-700 animate-bounce">
+        <span className="absolute -top-1.5 -left-1.5 text-xs bg-white/90 dark:bg-slate-900/90 rounded-full w-5 h-5 flex items-center justify-center shadow border border-slate-300 dark:border-slate-700 animate-bounce">
           {emote}
         </span>
       )}

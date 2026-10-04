@@ -27,7 +27,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
             <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
             <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
-            <span className="text-[10px] text-slate-400 font-bold ml-1">Qt 6.x Window (Ubuntu 24.04)</span>
+            <span className="text-[10px] text-slate-600 dark:text-slate-400 font-bold ml-1">Qt 6.x Window (Ubuntu 24.04)</span>
           </div>
           <span className="text-[9px] px-1.5 py-0.5 rounded bg-cyan-950 border border-cyan-500/30 text-cyan-400">WSL2 / Native</span>
         </div>
@@ -35,10 +35,10 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
           <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
             <Activity className="w-6 h-6 animate-pulse" />
           </div>
-          <div className="text-xs font-bold text-slate-200">Industrial HMI Target Window</div>
-          <div className="text-[10px] text-slate-400">CMake ＋ Modern C++20 ＋ QML</div>
+          <div className="text-xs font-bold text-slate-800 dark:text-slate-200">Industrial HMI Target Window</div>
+          <div className="text-[10px] text-slate-600 dark:text-slate-400">CMake ＋ Modern C++20 ＋ QML</div>
         </div>
-        <div className="bg-slate-950/80 rounded px-2.5 py-1 text-[10px] text-emerald-400 border border-slate-800 flex justify-between">
+        <div className="bg-white/90 dark:bg-slate-950/80 rounded px-2.5 py-1 text-[10px] text-emerald-400 border border-slate-200 dark:border-slate-800 flex justify-between">
           <span>Engine: Ready</span>
           <span>OpenGL: Active</span>
         </div>
@@ -74,7 +74,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             </div>
           </div>
         </div>
-        <div className="text-[10px] text-slate-400 bg-slate-950/60 p-1.5 rounded border border-slate-800">
+        <div className="text-[10px] text-slate-600 dark:text-slate-400 bg-white/80 dark:bg-slate-950/60 p-1.5 rounded border border-slate-200 dark:border-slate-800">
           QObject::connect(sender, &amp;Signal, receiver, &amp;Slot);
         </div>
       </div>
@@ -91,7 +91,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
         </div>
         <div className="space-y-3 my-auto">
           <div className="flex justify-between items-center text-xs">
-            <span className="text-slate-400 text-[10px]">C++ Property:</span>
+            <span className="text-slate-600 dark:text-slate-400 text-[10px]">C++ Property:</span>
             <input 
               type="range" 
               min="0" 
@@ -102,7 +102,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             />
           </div>
           <div className="space-y-1">
-            <div className="flex justify-between text-[10px] text-slate-400">
+            <div className="flex justify-between text-[10px] text-slate-600 dark:text-slate-400">
               <span>QML Reactive Progress</span>
               <span className="text-cyan-400 font-bold">{sliderVal}%</span>
             </div>
@@ -114,7 +114,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             </div>
           </div>
         </div>
-        <div className="text-[10px] text-slate-400 bg-slate-950/60 p-1.5 rounded border border-slate-800 flex justify-between">
+        <div className="text-[10px] text-slate-600 dark:text-slate-400 bg-white/80 dark:bg-slate-950/60 p-1.5 rounded border border-slate-200 dark:border-slate-800 flex justify-between">
           <span>READ getVal</span>
           <span>NOTIFY valChanged</span>
         </div>
@@ -156,7 +156,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             <text x="50" y="58" fill="#64748b" fontSize="7" textAnchor="middle">RPM</text>
           </svg>
         </div>
-        <div className="flex justify-between items-center text-[10px] text-slate-400 bg-slate-950/60 p-1.5 rounded border border-slate-800">
+        <div className="flex justify-between items-center text-[10px] text-slate-600 dark:text-slate-400 bg-white/80 dark:bg-slate-950/60 p-1.5 rounded border border-slate-200 dark:border-slate-800">
           <span>QQuickPaintedItem / Canvas</span>
           <button 
             onClick={() => setSliderVal(prev => (prev + 15) % 100)} 
@@ -185,7 +185,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             </path>
           </svg>
         </div>
-        <div className="flex justify-between items-center text-[10px] text-slate-400 bg-slate-950/60 p-1.5 rounded border border-slate-800">
+        <div className="flex justify-between items-center text-[10px] text-slate-600 dark:text-slate-400 bg-white/80 dark:bg-slate-950/60 p-1.5 rounded border border-slate-200 dark:border-slate-800">
           <span>Buffer: 1024 samples</span>
           <span>Latency: &lt; 2ms</span>
         </div>
@@ -202,22 +202,22 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
           <span className="text-[10px] text-emerald-400 font-bold">UI Thread: No Freeze</span>
         </div>
         <div className="space-y-3 my-auto">
-          <div className="bg-slate-900/60 p-2 rounded border border-cyan-500/20 flex items-center justify-between">
+          <div className="bg-white/80 dark:bg-slate-900/60 p-2 rounded border border-cyan-500/20 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Cpu className="w-4 h-4 text-cyan-400" />
-              <span className="text-xs text-slate-200">Main GUI Thread</span>
+              <span className="text-xs text-slate-800 dark:text-slate-200">Main GUI Thread</span>
             </div>
             <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 font-bold">60.0 FPS</span>
           </div>
-          <div className="bg-slate-900/60 p-2 rounded border border-cyan-500/20 flex items-center justify-between">
+          <div className="bg-white/80 dark:bg-slate-900/60 p-2 rounded border border-cyan-500/20 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Activity className="w-4 h-4 text-amber-400 animate-spin" />
-              <span className="text-xs text-slate-200">Worker Thread (Heavy I/O)</span>
+              <span className="text-xs text-slate-800 dark:text-slate-200">Worker Thread (Heavy I/O)</span>
             </div>
             <span className="text-[10px] px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/30 font-bold">Processing...</span>
           </div>
         </div>
-        <div className="text-[10px] text-slate-400 bg-slate-950/60 p-1.5 rounded border border-slate-800 flex justify-between">
+        <div className="text-[10px] text-slate-600 dark:text-slate-400 bg-white/80 dark:bg-slate-950/60 p-1.5 rounded border border-slate-200 dark:border-slate-800 flex justify-between">
           <span>QThreadPool / moveToThread</span>
           <span>Zero Memory Leak</span>
         </div>
@@ -233,21 +233,21 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span className="text-[10px] text-cyan-300 font-bold">FINAL INTEGRATED HMI</span>
         </div>
-        <div className="flex items-center gap-2 text-[9px] text-slate-400">
+        <div className="flex items-center gap-2 text-[9px] text-slate-600 dark:text-slate-400">
           <span className="text-emerald-400">60 FPS</span>
           <span className="text-amber-400">NORMAL</span>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2 my-auto">
-        <div className="bg-slate-900/80 rounded-lg p-1.5 border border-cyan-500/20 flex flex-col items-center justify-center">
-          <span className="text-[8px] text-slate-400">MAIN PRESSURE</span>
+        <div className="bg-white/90 dark:bg-slate-900/80 rounded-lg p-1.5 border border-cyan-500/20 flex flex-col items-center justify-center">
+          <span className="text-[8px] text-slate-600 dark:text-slate-400">MAIN PRESSURE</span>
           <div className="text-lg font-black text-white mt-0.5">842 <span className="text-[9px] text-cyan-400 font-normal">kPa</span></div>
           <div className="w-full h-1.5 bg-slate-950 rounded-full mt-1 overflow-hidden">
             <div className="w-4/5 h-full bg-cyan-400 rounded-full"></div>
           </div>
         </div>
-        <div className="bg-slate-900/80 rounded-lg p-1.5 border border-cyan-500/20 flex flex-col items-center justify-center">
-          <span className="text-[8px] text-slate-400">SENSOR SIGNAL</span>
+        <div className="bg-white/90 dark:bg-slate-900/80 rounded-lg p-1.5 border border-cyan-500/20 flex flex-col items-center justify-center">
+          <span className="text-[8px] text-slate-600 dark:text-slate-400">SENSOR SIGNAL</span>
           <svg className="w-full h-7 mt-0.5" viewBox="0 0 50 20" preserveAspectRatio="none">
             <path d="M0,10 Q5,2 10,10 T20,10 T30,10 T40,10 T50,10" fill="none" stroke="#10b981" strokeWidth="1.5">
               <animate attributeName="d" values="M0,10 Q5,2 10,10 T20,10 T30,10 T40,10 T50,10; M0,10 Q5,18 10,10 T20,10 T30,10 T40,10 T50,10; M0,10 Q5,2 10,10 T20,10 T30,10 T40,10 T50,10" dur="1s" repeatCount="indefinite" />
@@ -255,8 +255,8 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
           </svg>
         </div>
       </div>
-      <div className="flex justify-between items-center bg-slate-950 p-1.5 rounded border border-slate-800 text-[9px]">
-        <span className="text-slate-400 flex items-center gap-1">
+      <div className="flex justify-between items-center bg-slate-950 p-1.5 rounded border border-slate-200 dark:border-slate-800 text-[9px]">
+        <span className="text-slate-600 dark:text-slate-400 flex items-center gap-1">
           <AlertTriangle className="w-3 h-3 text-emerald-400" /> All Systems Operational
         </span>
         <span className="text-cyan-400 font-bold">Linux Production Ready</span>

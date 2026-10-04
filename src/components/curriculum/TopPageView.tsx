@@ -138,7 +138,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
             
             <div className="flex flex-col sm:flex-row h-auto sm:h-[180px] relative z-10 p-3 gap-3">
               {/* メーターパネル */}
-              <div className="w-full sm:w-1/3 bg-slate-900/60 rounded-xl border border-cyan-500/10 p-2 flex flex-col items-center justify-center relative">
+              <div className="w-full sm:w-1/3 bg-white/80 dark:bg-slate-900/60 rounded-xl border border-cyan-500/10 p-2 flex flex-col items-center justify-center relative">
                 <span className="absolute top-2 left-2 font-mono text-cyan-500/50 text-[9px] font-bold">MAIN THRUST</span>
                 <svg viewBox="0 0 100 100" className="w-full max-w-[110px] mt-2 drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">
                   <path d="M20,80 A40,40 0 1,1 80,80" fill="none" stroke="rgba(34,211,238,0.1)" strokeWidth="8" strokeLinecap="round" />
@@ -156,7 +156,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
               </div>
 
               {/* 波形パネル */}
-              <div className="flex-1 bg-slate-900/60 rounded-xl border border-cyan-500/10 p-2 flex flex-col">
+              <div className="flex-1 bg-white/80 dark:bg-slate-900/60 rounded-xl border border-cyan-500/10 p-2 flex flex-col">
                 <span className="font-mono text-cyan-500/50 text-[9px] font-bold mb-1 block">REALTIME SIGNAL (Qt Graphs)</span>
                 <div className="flex-1 w-full bg-[#03060d] rounded-lg border border-cyan-500/20 relative overflow-hidden flex items-center justify-center p-1">
                    <svg className="w-full h-full opacity-90 drop-shadow-[0_0_5px_rgba(16,185,129,0.8)]" preserveAspectRatio="none" viewBox="0 0 100 100">

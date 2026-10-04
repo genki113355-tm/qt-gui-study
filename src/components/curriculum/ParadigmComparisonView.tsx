@@ -79,7 +79,7 @@ export const ParadigmComparisonView: React.FC<ParadigmComparisonViewProps> = ({ 
 
             {/* コードブロック */}
             <div className="relative group my-3">
-              <pre className="p-4 rounded-xl bg-slate-900/95 dark:bg-slate-900/90 text-sm sm:text-base font-mono text-rose-100 overflow-x-auto border border-rose-900/50 leading-relaxed">
+              <pre className="p-4 rounded-xl bg-white/95 dark:bg-slate-900/95 dark:bg-slate-900/90 text-sm sm:text-base font-mono text-rose-100 overflow-x-auto border border-rose-900/50 leading-relaxed">
                 <code>{data.cApproach.code}</code>
               </pre>
             </div>
@@ -137,7 +137,7 @@ export const ParadigmComparisonView: React.FC<ParadigmComparisonViewProps> = ({ 
 
             {/* コードブロック */}
             <div className="relative group my-3">
-              <pre className="p-4 rounded-xl bg-slate-900/95 dark:bg-slate-900/90 text-sm sm:text-base font-mono text-cyan-100 dark:text-cyan-200 overflow-x-auto border border-cyan-900/50 dark:border-cyan-500/35 leading-relaxed">
+              <pre className="p-4 rounded-xl bg-white/95 dark:bg-slate-900/95 dark:bg-slate-900/90 text-sm sm:text-base font-mono text-cyan-100 dark:text-cyan-200 overflow-x-auto border border-cyan-900/50 dark:border-cyan-500/35 leading-relaxed">
                 <code>{data.cppApproach.code}</code>
               </pre>
             </div>

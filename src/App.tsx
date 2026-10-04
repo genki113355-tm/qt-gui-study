@@ -27,7 +27,7 @@ const MilestoneModal = React.lazy(() =>
 const PageLoadingFallback: React.FC = () => (
   <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4 text-cyan-400 font-mono">
     <div className="w-10 h-10 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
-    <span className="text-sm tracking-widest text-slate-400">LOADING CURRICULUM...</span>
+    <span className="text-sm tracking-widest text-slate-600 dark:text-slate-400">LOADING CURRICULUM...</span>
   </div>
 );
 

@@ -25,9 +25,9 @@ export const RichExplanation: React.FC<RichExplanationProps> = ({ content }) => 
     if (codeBuffer.length > 0) {
       const codeText = codeBuffer.join("\n");
       renderedElements.push(
-        <div key={key} className="my-4 rounded-xl bg-slate-900 dark:bg-slate-950 border border-slate-700/80 dark:border-slate-800 p-4 font-mono text-sm sm:text-base text-cyan-300 overflow-x-auto shadow-inner">
+        <div key={key} className="my-4 rounded-xl bg-slate-900 dark:bg-slate-950 border border-slate-300 dark:border-slate-700/80 dark:border-slate-800 p-4 font-mono text-sm sm:text-base text-cyan-300 overflow-x-auto shadow-inner">
           {codeLang && (
-            <div className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 mb-2 border-b border-slate-700/80 dark:border-slate-800 pb-1">
+            <div className="text-[10px] uppercase font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500 mb-2 border-b border-slate-300 dark:border-slate-700/80 dark:border-slate-800 pb-1">
               {codeLang}
             </div>
           )}
@@ -56,7 +56,7 @@ export const RichExplanation: React.FC<RichExplanationProps> = ({ content }) => 
             </thead>
             <tbody className="divide-y divide-slate-200 dark:divide-slate-800/80 text-slate-700 dark:text-slate-300">
               {bodyRows.map((row, rIdx) => (
-                <tr key={rIdx} className="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors">
+                <tr key={rIdx} className="hover:bg-slate-50 dark:hover:bg-slate-50/80 dark:bg-slate-900/40 transition-colors">
                   {row.map((cell, cIdx) => (
                     <td key={cIdx} className="p-3 align-top leading-relaxed break-words">
                       {renderFormattedText(cell.trim())}

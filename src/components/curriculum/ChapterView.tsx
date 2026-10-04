@@ -136,7 +136,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                   <span>🏠</span>
                   <span>TOP</span>
                 </button>
-                <span className="text-slate-400 dark:text-slate-600">/</span>
+                <span className="text-slate-600 dark:text-slate-400 dark:text-slate-600">/</span>
                 {getTrackBadge()}
                 <span className="text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 font-semibold px-2.5 py-1 rounded-lg bg-white/80 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700">
                   {chapter.badge}
@@ -242,7 +242,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                   className={`flex items-start gap-2.5 p-2.5 rounded-xl border transition cursor-pointer select-none ${
                     isChecked
                       ? 'bg-cyan-50 dark:bg-cyan-950/30 border-cyan-300 dark:border-cyan-500/40 text-cyan-900 dark:text-cyan-100'
-                      : 'bg-slate-50 dark:bg-slate-950/40 border-slate-200 dark:border-slate-800/80 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-700'
+                      : 'bg-slate-50 dark:bg-slate-950/40 border-slate-200 dark:border-slate-800/80 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-300 dark:border-slate-700'
                   }`}
                 >
                   <input
@@ -595,7 +595,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                       } else if (isOptionSelected) {
                         btnStyle = 'bg-rose-50 dark:bg-rose-950/80 border-rose-300 dark:border-rose-500 text-rose-900 dark:text-rose-300';
                       } else {
-                        btnStyle = 'bg-slate-100/50 dark:bg-slate-900/40 border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500 opacity-60';
+                        btnStyle = 'bg-slate-100/50 dark:bg-slate-900/40 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 dark:text-slate-500 opacity-60';
                       }
                     }
 
@@ -738,7 +738,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                     {lab.description}
                   </p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 group-hover:translate-x-1 transition-all shrink-0 mt-3" />
+                <ArrowRight className="w-4 h-4 text-slate-600 dark:text-slate-400 dark:text-slate-500 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 group-hover:translate-x-1 transition-all shrink-0 mt-3" />
               </a>
             ))}
           </div>

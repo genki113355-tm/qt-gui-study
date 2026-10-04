@@ -80,7 +80,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
     if (lower.endsWith('.h')) return 'bg-purple-950/70 text-purple-300 border-purple-500/40';
     if (lower === 'main.cpp') return 'bg-cyan-950/70 text-cyan-300 border-cyan-500/40';
     if (lower.endsWith('.cpp')) return 'bg-blue-950/70 text-blue-300 border-blue-500/40';
-    return 'bg-slate-800 text-slate-300 border-slate-700';
+    return 'bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700';
   };
 
   const getFileBadgeLabel = (filename: string) => {
@@ -185,7 +185,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-mono transition-all duration-150 flex-shrink-0 whitespace-nowrap cursor-pointer ${
                   isActive
                     ? 'bg-white dark:bg-slate-800 text-cyan-700 dark:text-cyan-400 border border-cyan-400/60 dark:border-cyan-500/50 shadow-sm font-bold'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800/50'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-800 dark:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800/50'
                 }`}
               >
                 {isHeader ? (
@@ -212,7 +212,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
               className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-xl font-mono transition border active:scale-95 cursor-pointer ${
                 highlightCoreLines
                   ? 'bg-cyan-100 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 border-cyan-300 dark:border-cyan-500/40 shadow-inner font-semibold'
-                  : 'bg-white dark:bg-slate-800/80 text-slate-700 dark:text-slate-400 border-slate-300 dark:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200'
+                  : 'bg-white dark:bg-slate-800/80 text-slate-700 dark:text-slate-400 border-slate-300 dark:border-slate-700 hover:text-slate-900 dark:hover:text-slate-800 dark:text-slate-200'
               }`}
               title="設計の核心行をハイライト表示"
             >

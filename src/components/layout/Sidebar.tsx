@@ -23,7 +23,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-slate-950/60 z-30 lg:hidden backdrop-blur-xs transition-opacity"
+          className="fixed inset-0 bg-white/80 dark:bg-slate-950/60 z-30 lg:hidden backdrop-blur-xs transition-opacity"
           onClick={onClose}
         />
       )}
@@ -83,7 +83,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2.5 ${
                   currentChapterSlug === 'top'
                     ? 'bg-sky-100 dark:bg-cyan-950/60 text-sky-800 dark:text-cyan-300 border border-sky-300 dark:border-cyan-500/40 shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                 }`}
               >
                 <span>🏠</span>
@@ -172,7 +172,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   ゲーム開発で学ぶC++設計
                 </div>
               </div>
-              <span className="text-xs text-slate-400 group-hover:text-sky-500 dark:group-hover:text-cyan-400 font-mono flex-shrink-0">↗</span>
+              <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-sky-500 dark:group-hover:text-cyan-400 font-mono flex-shrink-0">↗</span>
             </a>
 
             {/* 2. シロクマC++自動化ラボ */}
@@ -191,7 +191,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   Docker / pybind11 / 自動評価
                 </div>
               </div>
-              <span className="text-xs text-slate-400 group-hover:text-amber-500 dark:group-hover:text-amber-400 font-mono flex-shrink-0">↗</span>
+              <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-amber-500 dark:group-hover:text-amber-400 font-mono flex-shrink-0">↗</span>
             </a>
 
             {/* 3. 水中音響・ソナー技術入門 */}
@@ -210,7 +210,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   波の物理 / FFT / 音響解析
                 </div>
               </div>
-              <span className="text-xs text-slate-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 font-mono flex-shrink-0">↗</span>
+              <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 font-mono flex-shrink-0">↗</span>
             </a>
           </div>
 

@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* ソースコード一括モーダル */}
         <button
           onClick={onOpenSourceModal}
-          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 cursor-pointer"
+          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-300 dark:border-slate-700 cursor-pointer"
           title="全章のソースコード一覧を見る"
         >
           <Code2 className="w-4 h-4 text-sky-500 dark:text-cyan-400" />
@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* C++ Playgroundモーダル */}
         <button
           onClick={onOpenPlaygroundModal}
-          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 cursor-pointer"
+          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-300 dark:border-slate-700 cursor-pointer"
           title="オンラインC++コード実行ラボ"
         >
           <Terminal className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />

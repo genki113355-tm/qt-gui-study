@@ -75,21 +75,21 @@ export const MilestoneModal: React.FC<MilestoneModalProps> = ({
   const selectedMilestone = milestones.find(m => m.id === selectedMilestoneId);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-slate-950/80">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-white/90 dark:bg-slate-950/80">
       <div 
-        className="bg-[#0b1120] border border-slate-800 rounded-3xl w-full max-w-4xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+        className="bg-[#0b1120] border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-4xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-4 sm:p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50 sticky top-0 z-10">
+        <div className="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-white/80 dark:bg-slate-900/50 sticky top-0 z-10">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-cyan-500/10 rounded-xl border border-cyan-500/20">
               <Award className="w-6 h-6 text-cyan-400" />
             </div>
-            <h2 className="text-xl sm:text-2xl font-black text-slate-100 tracking-tight">学習マイルストーン修了証</h2>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight">学習マイルストーン修了証</h2>
           </div>
           <button 
             onClick={onClose}
-            className="p-2 rounded-xl hover:bg-slate-800 text-slate-400 hover:text-white transition"
+            className="p-2 rounded-xl hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-white transition"
           >
             <X className="w-6 h-6" />
           </button>
@@ -98,9 +98,9 @@ export const MilestoneModal: React.FC<MilestoneModalProps> = ({
         <div className="p-4 sm:p-8 overflow-y-auto">
           {!selectedMilestone ? (
             <div className="space-y-8">
-              <div className="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
+              <div className="bg-white/80 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
                 <div className="flex justify-between items-end mb-4">
-                  <span className="text-slate-300 font-bold flex items-center gap-2">
+                  <span className="text-slate-700 dark:text-slate-300 font-bold flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-cyan-400" />
                     <span>カリキュラム進捗</span>
                     <span className="text-cyan-300">{totalCount} / {QT_CHAPTERS.length} 章完了</span>
@@ -109,7 +109,7 @@ export const MilestoneModal: React.FC<MilestoneModalProps> = ({
                     {Math.round((totalCount / QT_CHAPTERS.length) * 100)}% 達成
                   </span>
                 </div>
-                <div className="w-full h-3 rounded-full bg-slate-950 border border-slate-800 overflow-hidden">
+                <div className="w-full h-3 rounded-full bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-emerald-400 transition-all duration-500 rounded-full"
                     style={{ width: `${(totalCount / QT_CHAPTERS.length) * 100}%` }}
@@ -123,8 +123,8 @@ export const MilestoneModal: React.FC<MilestoneModalProps> = ({
                     key={m.id}
                     className={`relative p-6 rounded-2xl border transition-all duration-300 ${
                       m.isUnlocked 
-                        ? 'bg-slate-900/80 border-cyan-500/40 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] cursor-pointer group' 
-                        : 'bg-slate-950/50 border-slate-800 opacity-70 grayscale'
+                        ? 'bg-white/90 dark:bg-slate-900/80 border-cyan-500/40 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] cursor-pointer group' 
+                        : 'bg-white/80 dark:bg-slate-950/50 border-slate-200 dark:border-slate-800 opacity-70 grayscale'
                     }`}
                     onClick={() => {
                       if (m.isUnlocked) {
@@ -141,25 +141,25 @@ export const MilestoneModal: React.FC<MilestoneModalProps> = ({
                     
                     <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                       <div className={`text-5xl sm:text-6xl p-4 rounded-2xl flex-shrink-0 ${
-                        m.isUnlocked ? 'bg-slate-950 shadow-inner border border-slate-800' : 'bg-slate-900'
+                        m.isUnlocked ? 'bg-slate-950 shadow-inner border border-slate-200 dark:border-slate-800' : 'bg-slate-900'
                       }`}>
                         {m.icon}
                       </div>
                       
                       <div className="flex-1 text-center sm:text-left space-y-3">
                         <div>
-                          <div className="text-xs font-bold text-slate-400 mb-1">{m.trackName}</div>
-                          <h3 className="text-xl sm:text-2xl font-black text-slate-100">{m.shortTitle}</h3>
+                          <div className="text-xs font-bold text-slate-600 dark:text-slate-400 mb-1">{m.trackName}</div>
+                          <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100">{m.shortTitle}</h3>
                         </div>
                         
                         <div className="flex items-center justify-center sm:justify-start gap-3">
-                          <div className="w-32 h-2 rounded-full bg-slate-950 overflow-hidden border border-slate-800">
+                          <div className="w-32 h-2 rounded-full bg-slate-950 overflow-hidden border border-slate-200 dark:border-slate-800">
                             <div 
                               className={`h-full rounded-full ${m.isUnlocked ? 'bg-cyan-500' : 'bg-slate-600'}`}
                               style={{ width: `${(m.completedCount / m.total) * 100}%` }}
                             />
                           </div>
-                          <span className="text-xs font-mono font-bold text-slate-400">
+                          <span className="text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
                             {m.completedCount}/{m.total}
                           </span>
                         </div>
@@ -179,7 +179,7 @@ export const MilestoneModal: React.FC<MilestoneModalProps> = ({
             <div className="space-y-6">
               <button
                 onClick={() => setSelectedMilestoneId(null)}
-                className="text-slate-400 hover:text-white font-bold text-sm flex items-center gap-2 mb-4"
+                className="text-slate-600 dark:text-slate-400 hover:text-white font-bold text-sm flex items-center gap-2 mb-4"
               >
                 <span>← マイルストーン一覧に戻る</span>
               </button>
@@ -199,24 +199,24 @@ export const MilestoneModal: React.FC<MilestoneModalProps> = ({
                   </div>
 
                   <div className="py-6 w-full max-w-md">
-                    <div className="text-slate-400 font-bold mb-2 text-sm">授与対象者</div>
+                    <div className="text-slate-600 dark:text-slate-400 font-bold mb-2 text-sm">授与対象者</div>
                     <input 
                       type="text" 
                       value={userName}
                       onChange={(e) => setUserName(e.target.value)}
-                      className="w-full bg-slate-950/50 border-b-2 border-cyan-500/50 text-center text-2xl sm:text-3xl font-black text-white p-2 focus:outline-none focus:border-cyan-400 transition-colors"
+                      className="w-full bg-white/80 dark:bg-slate-950/50 border-b-2 border-cyan-500/50 text-center text-2xl sm:text-3xl font-black text-white p-2 focus:outline-none focus:border-cyan-400 transition-colors"
                       placeholder="あなたの名前"
                     />
                   </div>
 
-                  <div className="w-full max-w-lg bg-slate-900/60 p-5 rounded-2xl border border-slate-800 text-left">
-                    <div className="text-slate-400 text-xs font-bold mb-3 flex items-center gap-2">
+                  <div className="w-full max-w-lg bg-white/80 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 text-left">
+                    <div className="text-slate-600 dark:text-slate-400 text-xs font-bold mb-3 flex items-center gap-2">
                       <Shield className="w-4 h-4 text-emerald-400" />
                       獲得したコアスキル
                     </div>
                     <ul className="space-y-2.5">
                       {selectedMilestone.skills.map((skill, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-slate-200 font-bold">
+                        <li key={i} className="flex items-start gap-2 text-sm text-slate-800 dark:text-slate-200 font-bold">
                           <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                           <span className="leading-snug">{skill}</span>
                         </li>
@@ -224,14 +224,14 @@ export const MilestoneModal: React.FC<MilestoneModalProps> = ({
                     </ul>
                   </div>
 
-                  <div className="pt-6 w-full flex justify-between items-end border-t border-slate-800/60">
+                  <div className="pt-6 w-full flex justify-between items-end border-t border-slate-200 dark:border-slate-800/60">
                     <div className="text-left">
                       <div className="text-slate-500 font-bold text-xs">発行元</div>
-                      <div className="text-slate-300 font-black font-mono">シロクマQt×C++ラボ</div>
+                      <div className="text-slate-700 dark:text-slate-300 font-black font-mono">シロクマQt×C++ラボ</div>
                     </div>
                     <div className="text-right">
                       <div className="text-slate-500 font-bold text-xs">認定日</div>
-                      <div className="text-slate-300 font-black font-mono">{new Date().toLocaleDateString('ja-JP')}</div>
+                      <div className="text-slate-700 dark:text-slate-300 font-black font-mono">{new Date().toLocaleDateString('ja-JP')}</div>
                     </div>
                   </div>
                 </div>

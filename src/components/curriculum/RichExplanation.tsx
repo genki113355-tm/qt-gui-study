@@ -201,6 +201,29 @@ export const RichExplanation: React.FC<RichExplanationProps> = ({ content }) => 
       continue;
     }
 
+    // 画像 ![alt](src)
+    const imgMatch = trimmed.match(/^!\[(.*?)\]\((.*?)\)$/);
+    if (imgMatch) {
+      const [, alt, src] = imgMatch;
+      renderedElements.push(
+        <figure key={`img-${i}`} className="my-6 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 shadow-xl">
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-auto object-contain max-h-[650px] mx-auto rounded-t-2xl"
+            loading="lazy"
+          />
+          {alt && (
+            <figcaption className="px-4 py-2.5 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-mono text-center flex items-center justify-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-cyan-500 inline-block flex-shrink-0" />
+              <span>{alt}</span>
+            </figcaption>
+          )}
+        </figure>
+      );
+      continue;
+    }
+
     // 見出し ### (大見出し)
     if (trimmed.startsWith("###")) {
       const headingText = trimmed.replace(/^###\s*/, "").replace(/^[■\s]*/, "");

@@ -294,7 +294,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, targetHighlight }
                 }`}
               >
                 {/* 行番号 */}
-                <span className={`w-11 text-right pr-4 select-none flex-shrink-0 text-xs sm:text-sm font-mono ${
+                <span className={`w-12 sm:w-14 text-right pr-3 sm:pr-4 select-none flex-shrink-0 text-xs sm:text-sm font-mono ${
                   isBlinking ? 'text-amber-400 font-black' : isHighlighted ? 'text-cyan-400 font-bold' : 'text-slate-500'
                 }`}>
                   {line.lineNumber}

@@ -58,7 +58,7 @@ export const RichExplanation: React.FC<RichExplanationProps> = ({ content }) => 
               {bodyRows.map((row, rIdx) => (
                 <tr key={rIdx} className="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors">
                   {row.map((cell, cIdx) => (
-                    <td key={cIdx} className="p-3 align-top leading-relaxed">
+                    <td key={cIdx} className="p-3 align-top leading-relaxed break-words">
                       {renderFormattedText(cell.trim())}
                     </td>
                   ))}
@@ -377,8 +377,8 @@ export function renderFormattedText(text: string, isHeading: boolean = false): R
             key={i}
             className={
               isHeading
-                ? "px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-950/80 text-cyan-800 dark:text-cyan-200 font-mono text-[0.9em] border border-slate-300 dark:border-cyan-800/60 mx-1 align-baseline inline-block font-bold shadow-sm"
-                : "px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-950 text-cyan-800 dark:text-cyan-300 font-mono text-[0.88em] border border-slate-300 dark:border-slate-800 mx-0.5 align-baseline inline-block font-medium"
+                ? "px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-900 text-cyan-800 dark:text-cyan-200 font-mono text-[0.9em] border border-slate-300 dark:border-cyan-800/60 mx-1 align-baseline inline break-all font-bold shadow-sm"
+                : "px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-900 text-cyan-800 dark:text-cyan-300 font-mono text-[0.88em] border border-slate-300 dark:border-slate-800 mx-0.5 align-baseline inline break-all font-medium"
             }
           >
             {part.slice(1, -1)}

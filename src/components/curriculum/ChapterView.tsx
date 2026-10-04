@@ -117,11 +117,11 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div className="flex-1 space-y-4">
             {/* メインタイトル */}
-            <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight break-words sm:break-keep">
+            <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight break-words">
               {chapter.title}
             </h1>
 
-            <p className="text-base sm:text-xl md:text-2xl text-cyan-800 dark:text-cyan-300 font-semibold leading-snug break-words sm:break-keep">
+            <p className="text-base sm:text-xl md:text-2xl text-cyan-800 dark:text-cyan-300 font-semibold leading-snug break-words">
               {chapter.subtitle}
             </p>
 
@@ -463,15 +463,15 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                       {step.description}
                     </p>
                     
-                    <div className="mt-3 pl-10 flex flex-col sm:flex-row gap-2.5 text-xs sm:text-sm font-mono">
-                      <div className="flex items-center gap-2 text-emerald-900 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/30 py-2.5 px-3.5 rounded-xl border border-emerald-300 dark:border-emerald-500/20 flex-1">
-                        <span className="text-emerald-800 dark:text-emerald-400 font-sans font-bold">動作効果:</span>
-                        <span>{step.impact}</span>
+                    <div className="mt-3 pl-3 sm:pl-10 flex flex-col sm:flex-row gap-2.5 text-xs sm:text-sm font-mono">
+                      <div className="flex items-start gap-2 text-emerald-900 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/30 py-2.5 px-3.5 rounded-xl border border-emerald-300 dark:border-emerald-500/20 flex-1 min-w-0">
+                        <span className="text-emerald-800 dark:text-emerald-400 font-sans font-bold flex-shrink-0">動作効果:</span>
+                        <span className="break-words">{step.impact}</span>
                       </div>
                       {step.designIntent && (
-                        <div className="flex items-center gap-2 text-cyan-900 dark:text-cyan-300 bg-cyan-100/70 dark:bg-cyan-950/30 py-2.5 px-3.5 rounded-xl border border-cyan-300 dark:border-cyan-500/20 flex-1">
-                          <span className="text-cyan-800 dark:text-cyan-400 font-sans font-bold">設計意図:</span>
-                          <span>{step.designIntent}</span>
+                        <div className="flex items-start gap-2 text-cyan-900 dark:text-cyan-300 bg-cyan-100/70 dark:bg-cyan-950/30 py-2.5 px-3.5 rounded-xl border border-cyan-300 dark:border-cyan-500/20 flex-1 min-w-0">
+                          <span className="text-cyan-800 dark:text-cyan-400 font-sans font-bold flex-shrink-0">設計意図:</span>
+                          <span className="break-words">{step.designIntent}</span>
                         </div>
                       )}
                     </div>

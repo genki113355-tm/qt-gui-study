@@ -16,6 +16,7 @@ import confetti from 'canvas-confetti';
 
 import { ShareButtons } from '../common/ShareButtons';
 import { GlossaryTooltip } from '../common/GlossaryTooltip';
+import { AffiliatePromoBanner } from '../affiliate/AffiliatePromoBanner';
 
 type ViewMode = 'all' | 'learn' | 'code' | 'practice';
 
@@ -744,6 +745,9 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
           </div>
         </div>
       )}
+
+      {/* 関連おすすめ情報・PRプロモーションバナー（全デバイス共通・章末フォロー） */}
+      <AffiliatePromoBanner defaultCategory="school" limit={3} showTabs={true} />
 
       {/* 章ナビゲーションフッター */}
       <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-4 flex-wrap">

@@ -93,8 +93,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
             {/* カリキュラム章一覧 */}
             <div className="px-3 mb-4">
-              <div className="text-[11px] font-mono font-bold text-sky-600 dark:text-cyan-400/90 uppercase tracking-wider mb-2 px-2">
+              <div className="text-[11px] font-mono font-bold text-sky-600 dark:text-cyan-400/90 uppercase tracking-wider mb-1.5 px-2">
                 カリキュラム一覧
+              </div>
+              <div className="mb-2.5 mx-1 px-2.5 py-1.5 rounded-xl bg-sky-50 dark:bg-cyan-950/40 border border-sky-200/80 dark:border-cyan-500/30 text-[11px] text-sky-800 dark:text-cyan-300 leading-tight flex items-start gap-1.5 shadow-xs">
+                <span className="shrink-0 text-xs mt-0.5">💡</span>
+                <span>※ 自動化ラボ等の第1章構成と異なり、本ラボは環境構築を丁寧に行うため<strong>【第0章】</strong>から始まります。</span>
               </div>
               <ul className="space-y-1">
                 {ALL_CHAPTERS.map((ch) => (

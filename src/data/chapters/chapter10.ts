@@ -21,6 +21,8 @@ export const chapter10: Chapter = {
       title: 'Valgrind Memcheckによるヒープ解析',
       term: 'Valgrind Memcheck',
       description: 'Linuxでヒープメモリリークや未初期化メモリ参照を行番号付きで特定する動的解析ツール。',
+      labLink: '/auto/chapter/9',
+      labLabel: 'Autoラボ第9章(Sanitizer/Valgrind)で復習',
     },
     {
       title: 'Linux perf & Hotspotフレームグラフ',
@@ -31,16 +33,22 @@ export const chapter10: Chapter = {
       title: 'QML Profilerによるバインディング最適化',
       term: 'QML Profiler',
       description: 'Qt Creator付属のプロファイラ。QMLバインディングの実行時間やフレームドロップ（Animation落ち）を秒刻みで追跡。',
-      labLink: '/auto/chapter-4',
-      labLabel: 'Autoラボ第4章で復習',
     },
   ],
   relatedLabs: [
     {
+      title: 'SanitizerとValgrindによるメモリ解析自動化',
+      labName: 'シロクマC++自動化ラボ',
+      badge: 'Chap 9',
+      url: '/auto/chapter/9',
+      description: 'AddressSanitizer (ASan) や UndefinedBehaviorSanitizer、Valgrindによるメモリ破壊・リーク自動検出を学びます。',
+      icon: '🛡️',
+    },
+    {
       title: 'GitHub ActionsによるCI/CD自動化実践',
       labName: 'シロクマC++自動化ラボ',
-      badge: 'Chap 4',
-      url: '/auto/chapter-4',
+      badge: 'Chap 10',
+      url: '/auto/chapter/10',
       description: 'CIパイプラインで自動テストと静的・動的解析を走らせる自動化ワークフローを構築します。',
       icon: '🚀',
     },
@@ -61,7 +69,7 @@ export const chapter10: Chapter = {
     {
       id: 'sec-10-2',
       title: '10.2 Valgrind (Memcheck) によるメモリ解析',
-      explanationText: 'Linux環境には、メモリリークを検出するための最強のツール **Valgrind** が存在します。プログラムをValgrind経由で起動するだけで、終了時に「どこで確保されたメモリが解放されていないか」をソースコードの行番号付きで指摘してくれます。',
+      explanationText: 'Linux環境には、メモリリークを検出するための最強のツール **Valgrind** が存在します。プログラムをValgrind経由で起動するだけで、終了時に「どこで確保されたメモリが解放されていないか」をソースコードの行番号付きで指摘してくれます。\n\n※実務のCIパイプライン等でより高速にメモリ不正アクセスや未定義動作を自動検知するAddressSanitizer (ASan) の活用法は、姉妹メディア[シロクマC++開発自動化ラボ 第9章（Sanitizer）](/auto/chapter/9)でも詳しく解説されています。',
       codeFiles: [
         {
           filename: 'Terminal',

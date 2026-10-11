@@ -19,16 +19,24 @@ export const chapter0: Chapter = {
   prerequisites: [
     { title: 'C++17の基本文法（auto, 構造体, 参照）' },
     { title: 'LinuxターミナルまたはWSLの基本コマンド操作（cd, ls, mkdir）' },
-    { title: 'CMakeのビルドターゲットとリンクの基礎概念', labLink: '/auto/chapter/2', labLabel: 'Autoラボ第2章で復習' }
+    { title: 'CMakeのビルドターゲットとリンクの基礎概念', labLink: '/auto/chapter/3', labLabel: 'Autoラボ第3章(CMake)で復習' }
   ],
   relatedLabs: [
     {
-      title: 'モダンCMakeとビルド自動化',
+      title: 'モダンCMakeとビルド自動化（ターゲット・CTest）',
+      labName: 'シロクマC++自動化ラボ',
+      url: '/auto/chapter/3',
+      badge: 'Chap 3',
+      description: 'CMakeLists.txtのターゲット設計、Ninja高速ビルド、依存ライブラリのリンク手法を体系的に学習できます。',
+      icon: '⚡'
+    },
+    {
+      title: 'DockerによるC++開発環境のコンテナ化',
       labName: 'シロクマC++自動化ラボ',
       url: '/auto/chapter/2',
       badge: 'Chap 2',
-      description: 'Docker環境でのCMakeLists.txt記述、Ninja高速ビルド、依存ライブラリのリンク手法を体系的に学習できます。',
-      icon: '⚡'
+      description: 'マルチステージビルドを活用し、開発者ごとのPC環境差異ゼロで再現可能なC++ビルド環境を構築します。',
+      icon: '🐳'
     }
   ],
   sections: [

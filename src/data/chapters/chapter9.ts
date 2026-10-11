@@ -21,8 +21,8 @@ export const chapter9: Chapter = {
       title: 'Qt Testフレームワークとテスト駆動開発',
       term: 'Qt Test (QTest)',
       description: 'Qt公式の単体テスト・GUI統合テストフレームワーク。private slotsが自動的に各テストケースとして実行されます。',
-      labLink: '/auto/chapter-3',
-      labLabel: 'Autoラボ第3章で復習',
+      labLink: '/auto/chapter/4',
+      labLabel: 'Autoラボ第4章(GoogleTest)で復習',
     },
     {
       title: 'QSignalSpyによる非同期シグナル検証',
@@ -37,20 +37,28 @@ export const chapter9: Chapter = {
   ],
   relatedLabs: [
     {
-      title: 'pytestによるPythonテスト自動化の基礎',
+      title: 'GoogleTest（gtest）によるC++単体テスト自動化',
       labName: 'シロクマC++自動化ラボ',
-      badge: 'Chap 3',
-      url: '/auto/chapter-3',
-      description: 'テスト駆動開発（TDD）の基礎とフィクスチャを用いた単体テスト構築手法を学びます。',
+      badge: 'Chap 4',
+      url: '/auto/chapter/4',
+      description: 'C++ビジネスロジックの網羅的テスト、フィクスチャ、モック（gmock）による自動テスト構築を学びます。',
       icon: '🧪',
     },
     {
-      title: 'PlaywrightによるWeb UI自動テストの実践',
+      title: 'CMake & CTestによるテスト実行自動化',
       labName: 'シロクマC++自動化ラボ',
-      badge: 'Chap 5',
-      url: '/auto/chapter-5',
-      description: 'GUI自動テストとCIパイプライン統合のノウハウを深掘りします。',
-      icon: '🎭',
+      badge: 'Chap 3',
+      url: '/auto/chapter/3',
+      description: 'CMakeLists.txtでのテストターゲット登録と、ctestコマンドによるテスト一括自動実行の手法を習得します。',
+      icon: '⚡',
+    },
+    {
+      title: 'GitHub ActionsによるCI/CD自動テスト構築',
+      labName: 'シロクマC++自動化ラボ',
+      badge: 'Chap 10',
+      url: '/auto/chapter/10',
+      description: 'プッシュやPR時にCTestやビルドをGitHub Actions上で自動実行するCIパイプラインを構築します。',
+      icon: '🚀',
     },
   ],
   description: 'ロジックの単体テスト（Unit Test）と、GUIのボタンクリックなどをシミュレートする自動テストの実装。',
@@ -61,8 +69,8 @@ export const chapter9: Chapter = {
       explanationText: '産業用ソフトウェアにおいて「ボタンを押したら確実に意図した動作をするか」を保証する自動テストは必須です。Qtには標準で **Qt Test** という強力なテスティングフレームワークが組み込まれており、C++のビジネスロジックのテストだけでなく、GUIのイベント（マウスクリックやキーボード入力）のシミュレートまで一貫して行えます。',
       takeaways: [
         {
-          title: 'Google Testとの違い',
-          description: 'C++のロジック層だけならGoogle Testも強力ですが、Qtのシグナル＆スロットの検証や、QML/QWidgetの描画イベントを伴うテストには Qt Test が圧倒的に有利です。'
+          title: 'Google Testとの違いと実務での使い分け',
+          description: '純粋なC++ビジネスロジックやアルゴリズム層は、[シロクマC++開発自動化ラボ 第4章（GoogleTest）](/auto/chapter/4)で学ぶGoogleTestで網羅検証するのが実務の定番です。一方、Qtのシグナル＆スロットの検証や、QML/QWidgetの描画イベントを伴うGUIテストには Qt Test（QTest）が圧倒的に有利です。'
         }
       ]
     },
@@ -142,7 +150,7 @@ QTEST_MAIN(TestSensorParser)
     {
       id: 'sec-9-4',
       title: '9.4 CMakeとの統合 (CTest)',
-      explanationText: '作成したテストは、CMakeの標準テストツールである `CTest` に登録することで、コマンド一発で全テストを走らせることができます。',
+      explanationText: '作成したテストは、CMakeの標準テストツールである `CTest` に登録することで、コマンド一発で全テストを走らせることができます。\n\n※実務でのCMake/CTest詳細設定は[自動化ラボ 第3章（CMake/CTest）](/auto/chapter/3)を、GitHub Actionsと連携したPRごとのCI自動実行パイプラインの構築は[自動化ラボ 第10章（GitHub Actions CI/CD）](/auto/chapter/10)を合わせて参照してください。',
       processSteps: [
         {
           stepNumber: 1,

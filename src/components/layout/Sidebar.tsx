@@ -93,12 +93,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
             {/* カリキュラム章一覧 */}
             <div className="px-3 mb-4">
-              <div className="text-[11px] font-mono font-bold text-sky-600 dark:text-cyan-400/90 uppercase tracking-wider mb-1.5 px-2">
+              <div className="text-[11px] font-mono font-bold text-sky-600 dark:text-cyan-400/90 uppercase tracking-wider mb-2 px-2">
                 カリキュラム一覧
-              </div>
-              <div className="mb-2.5 mx-1 px-2.5 py-1.5 rounded-xl bg-sky-50 dark:bg-cyan-950/40 border border-sky-200/80 dark:border-cyan-500/30 text-[11px] text-sky-800 dark:text-cyan-300 leading-tight flex items-start gap-1.5 shadow-xs">
-                <span className="shrink-0 text-xs mt-0.5">💡</span>
-                <span>※ 自動化ラボ等の第1章構成と異なり、本ラボは環境構築を丁寧に行うため<strong>【第0章】</strong>から始まります。</span>
               </div>
               <ul className="space-y-1">
                 {ALL_CHAPTERS.map((ch) => (
@@ -117,14 +113,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       {ch.id === 0 ? (
                         <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">
                           <span>🔰</span>
-                          <span>準備編（環境構築）</span>
+                          <span>CHAPTER 0（環境構築・準備編）</span>
                         </span>
                       ) : (
                         <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
                           CHAPTER {ch.id}
                         </span>
                       )}
-                      <span className="line-clamp-2 leading-snug">{ch.title}</span>
+                      <span className="line-clamp-2 leading-snug">
+                        {ch.id === 0 ? '開発環境セットアップとモダンQtワークフロー' : ch.title}
+                      </span>
                     </button>
                   </li>
                 ))}

@@ -94,7 +94,7 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
   }
 
   return (
-    <div className="w-[316px] shrink-0 space-y-4 font-sans select-none">
+    <div className="w-[290px] xl:w-[300px] shrink-0 space-y-4 font-sans select-none">
       {/* 0. ヘッダー ＆ 折りたたみボタン */}
       <div className="flex items-center justify-between px-1">
         <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">

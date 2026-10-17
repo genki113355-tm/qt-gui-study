@@ -1,6 +1,7 @@
 import React from 'react';
 import { QT_CHAPTERS } from '../../data/chapters';
 import { Rocket, Award, ArrowRight } from 'lucide-react';
+import { AffiliatePromoBanner } from '../affiliate/AffiliatePromoBanner';
 
 interface TopPageViewProps {
   onSelectChapter: (slug: string) => void;
@@ -15,10 +16,10 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
   onOpenMilestoneModal,
 }) => {
   return (
-    <div className="w-full max-w-[90rem] mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-12 space-y-16">
+    <div className="w-full max-w-[90rem] mx-auto py-6 sm:py-10 px-2 sm:px-4 lg:px-6 space-y-16">
       
       {/* ヒーローセクション */}
-      <section className="relative rounded-3xl border border-cyan-300/80 dark:border-cyan-500/30 bg-gradient-to-b from-white/95 via-sky-50/70 to-slate-50/90 dark:from-slate-900/90 dark:via-[#070b14] dark:to-[#040810] p-8 sm:p-12 shadow-xl dark:shadow-2xl overflow-hidden flex flex-col lg:flex-row gap-10 items-center transition-colors">
+      <section className="relative rounded-3xl border border-cyan-300/80 dark:border-cyan-500/30 bg-gradient-to-b from-white/95 via-sky-50/70 to-slate-50/90 dark:from-slate-900/90 dark:via-[#070b14] dark:to-[#040810] p-6 sm:p-10 lg:p-12 shadow-xl dark:shadow-2xl overflow-hidden flex flex-col xl:flex-row gap-8 lg:gap-12 items-center transition-colors">
         <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -28,11 +29,14 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
             <span>Linux × C++ GUI開発カリキュラム</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white font-sans leading-tight">
-            シロクマ Qt×C++ラボ
+          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black tracking-tight text-slate-900 dark:text-white font-sans leading-[1.15] break-keep">
+            <span className="inline-block whitespace-nowrap">シロクマ</span>{' '}
+            <span className="inline-block whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 dark:from-cyan-300 dark:via-sky-200 dark:to-blue-300">
+              Qt×C++ラボ
+            </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-cyan-600 to-emerald-600 dark:from-amber-300 dark:via-cyan-300 dark:to-emerald-300 leading-snug">
+          <p className="text-lg sm:text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-cyan-600 to-emerald-600 dark:from-amber-300 dark:via-cyan-300 dark:to-emerald-300 leading-snug">
             C++で実用的なGUI/HMIを設計する。
           </p>
 
@@ -51,11 +55,11 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
             <button
               onClick={() => onSelectChapter('chapter-0')}
-              className="px-7 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-slate-950 font-black text-base shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_45px_rgba(34,211,238,0.5)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3 cursor-pointer group"
+              className="px-6 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-slate-950 font-black text-sm sm:text-base shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_45px_rgba(34,211,238,0.5)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 sm:gap-3 cursor-pointer group"
             >
-              <Rocket className="w-5 h-5 text-slate-950 group-hover:animate-bounce" />
-              <span>最初から学ぶ（🔰 準備編：環境セットアップへ）</span>
-              <ArrowRight className="w-5 h-5 text-slate-950 group-hover:translate-x-1 transition-transform" />
+              <Rocket className="w-5 h-5 text-slate-950 group-hover:animate-bounce shrink-0" />
+              <span className="whitespace-nowrap">最初から学ぶ（🔰 準備編へ）</span>
+              <ArrowRight className="w-5 h-5 text-slate-950 group-hover:translate-x-1 transition-transform shrink-0" />
             </button>
 
             {onOpenMilestoneModal && (
@@ -119,7 +123,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
         </div>
         
         {/* 右側: HMIダッシュボードのモックアップとMISSION */}
-        <div className="relative z-10 w-full lg:w-1/2 flex flex-col gap-6">
+        <div className="relative z-10 w-full xl:w-1/2 max-w-2xl xl:max-w-none flex flex-col gap-6">
           <div className="text-sm font-bold text-cyan-600 dark:text-cyan-400 font-mono flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
             TARGET: REALTIME DASHBOARD
@@ -343,6 +347,11 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
             </div>
           ))}
         </div>
+      </section>
+
+      {/* おすすめ学習リソース ＆ スクール（PR） */}
+      <section className="pt-4 border-t border-slate-200/80 dark:border-slate-800/80">
+        <AffiliatePromoBanner defaultCategory="school" limit={3} showTabs={true} />
       </section>
 
     </div>

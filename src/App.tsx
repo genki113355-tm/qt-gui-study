@@ -194,13 +194,15 @@ const AppContent: React.FC = () => {
           </React.Suspense>
         </main>
 
-        {/* 右サイドバー：おすすめ学習・転職・旅行バナー（PC大画面 xl: 以上で sticky 追従表示） */}
-        <aside className="hidden xl:block shrink-0 sticky top-14 self-start py-6 pl-3 pr-4 sm:pr-6 max-h-[calc(100vh-3.5rem)] overflow-y-auto custom-scrollbar border-l border-slate-200/60 dark:border-slate-800/60">
-          <RightSidebarBanners
-            currentChapterSlug={currentSlug}
-            onSelectChapter={handleSelectChapter}
-          />
-        </aside>
+        {/* 右サイドバー：章学習時のおすすめアドバイス・関連リンク・バナー（TOPページ以外、PC大画面 xl: 以上で表示） */}
+        {currentSlug !== 'top' && (
+          <aside className="hidden xl:block shrink-0 sticky top-14 self-start py-6 pl-2 pr-4 sm:pr-6 max-h-[calc(100vh-3.5rem)] overflow-y-auto custom-scrollbar border-l border-slate-200/60 dark:border-slate-800/60">
+            <RightSidebarBanners
+              currentChapterSlug={currentSlug}
+              onSelectChapter={handleSelectChapter}
+            />
+          </aside>
+        )}
       </div>
 
       {/* フッター */}

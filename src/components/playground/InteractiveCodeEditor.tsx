@@ -222,7 +222,7 @@ export const InteractiveCodeEditor: React.FC<InteractiveCodeEditorProps> = ({
           autoComplete="off"
           autoCorrect="off"
           rows={Math.max(12, lines.length + 2)}
-          className="flex-1 min-w-[500px] w-full pt-3 pb-6 px-3.5 bg-transparent text-cyan-100 font-mono resize-none outline-none whitespace-pre selection:bg-cyan-600/40 selection:text-white caret-cyan-400 focus:caret-cyan-300 border-none leading-none"
+          className="flex-1 min-w-0 w-full pt-3 pb-6 px-3.5 bg-transparent text-cyan-100 font-mono resize-none outline-none whitespace-pre selection:bg-cyan-600/40 selection:text-white caret-cyan-400 focus:caret-cyan-300 border-none leading-none"
           style={{ 
             fontSize: `${fontSizePx}px`, 
             lineHeight: `${rowHeight}px`,

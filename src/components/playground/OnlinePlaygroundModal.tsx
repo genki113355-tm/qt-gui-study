@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   X, 
   Play, 
@@ -27,6 +27,17 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
   const [showStdin, setShowStdin] = useState<boolean>(false);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [result, setResult] = useState<CompileResult | null>(null);
+
+  // モーダル表示時の背景スクロールロック
+  useEffect(() => {
+    if (isOpen) {
+      const original = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = original;
+      };
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -110,7 +121,7 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
               aria-label="閉じる"
             >
               <X className="w-5 h-5" />

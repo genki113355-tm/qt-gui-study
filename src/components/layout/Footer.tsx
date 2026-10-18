@@ -16,11 +16,11 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* 総合ポータル ＆ 姉妹メディア・相互リンク */}
-          <div className="pt-5 pb-2 max-w-4xl mx-auto space-y-4">
+          <div className="pt-5 pb-2 max-w-5xl mx-auto space-y-4">
             
             {/* 総合ポータルバナー */}
             <a
-              href="/"
+              href="https://shirokuma-tech.jp/"
               className="group flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-sky-50/90 via-cyan-50/80 to-blue-50/90 dark:from-[#0a1526] dark:via-[#0b1b33] dark:to-[#071324] border border-cyan-300/80 dark:border-cyan-500/40 hover:border-cyan-400 dark:hover:border-cyan-300 transition-all duration-300 shadow-sm dark:shadow-xl hover:shadow-[0_0_25px_rgba(34,211,238,0.2)] text-left"
             >
               <div className="flex items-center gap-3.5">
@@ -36,10 +36,10 @@ export const Footer: React.FC = () => {
                     <span className="text-xs font-mono text-cyan-700 dark:text-cyan-400">shirokuma-tech.jp</span>
                   </div>
                   <span className="font-bold text-slate-900 dark:text-white group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition text-sm sm:text-base font-sans mt-0.5 block">
-                    シロクマ技術総合ポータル（全4ラボの学習記録を集約）
+                    シロクマ技術総合ポータル（全ラボの学習記録を集約）
                   </span>
                   <p className="text-xs text-slate-600 dark:text-slate-400 font-sans mt-0.5">
-                    C++設計・開発自動化・Qt GUI・ソナー音響の4大ラボを横断学習
+                    C++設計・開発自動化・Qt GUI・ソナー音響・ネスペ対策・AIパスポートの総合学習プラットフォーム
                   </p>
                 </div>
               </div>
@@ -48,28 +48,28 @@ export const Footer: React.FC = () => {
               </span>
             </a>
 
-            {/* 3つの専門ラボカード */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* 5つの専門ラボカード */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
               {/* リンク1: シロクマC++ラボ */}
               <a
                 href="/cpp/"
-                className="group flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-cyan-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-cyan-400/60 dark:hover:border-cyan-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.1)] text-left"
+                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-cyan-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-cyan-400/60 dark:hover:border-cyan-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.1)] text-left"
               >
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-xl flex-shrink-0">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
                     👾
                   </div>
                   <div className="min-w-0">
-                    <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
+                    <div className="flex items-center gap-1 mb-0.5">
+                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
                         LAB 1
                       </span>
                     </div>
-                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition text-sm font-sans truncate block">
+                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition text-xs font-sans truncate block">
                       シロクマC++ラボ
                     </span>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
-                      ゲーム開発で学ぶC++設計
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                      ゲームで学ぶC++設計
                     </p>
                   </div>
                 </div>
@@ -78,23 +78,23 @@ export const Footer: React.FC = () => {
               {/* リンク2: シロクマC++自動化ラボ */}
               <a
                 href="/auto/"
-                className="group flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-amber-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-amber-400/60 dark:hover:border-amber-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(251,191,36,0.1)] text-left"
+                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-amber-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-amber-400/60 dark:hover:border-amber-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(251,191,36,0.1)] text-left"
               >
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-xl flex-shrink-0">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
                     ⚡
                   </div>
                   <div className="min-w-0">
-                    <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 text-amber-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700/50">
+                    <div className="flex items-center gap-1 mb-0.5">
+                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-amber-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700/50">
                         LAB 2
                       </span>
                     </div>
-                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition text-sm font-sans truncate block">
+                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition text-xs font-sans truncate block">
                       シロクマC++自動化ラボ
                     </span>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
-                      Docker / pybind11 / 自動評価
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                      Docker / CI / 自動評価
                     </p>
                   </div>
                 </div>
@@ -103,23 +103,73 @@ export const Footer: React.FC = () => {
               {/* リンク3: 水中音響・ソナー */}
               <a
                 href="/sonar/"
-                className="group flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-blue-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-blue-400/60 dark:hover:border-blue-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] text-left"
+                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-blue-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-blue-400/60 dark:hover:border-blue-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] text-left"
               >
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-xl flex-shrink-0">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
                     🌊
                   </div>
                   <div className="min-w-0">
-                    <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 text-blue-700 dark:text-blue-400 border border-slate-200 dark:border-slate-700/50">
+                    <div className="flex items-center gap-1 mb-0.5">
+                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-blue-700 dark:text-blue-400 border border-slate-200 dark:border-slate-700/50">
                         LAB 4
                       </span>
                     </div>
-                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition text-sm font-sans truncate block">
+                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition text-xs font-sans truncate block">
                       水中音響・ソナー入門
                     </span>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
-                      波の物理 / FFT / 音響解析
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                      波の物理 / FFT / 解析
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              {/* リンク4: ネスペ直前対策ナビ */}
+              <a
+                href="/nw/"
+                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-sky-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-sky-400/60 dark:hover:border-sky-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] text-left"
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
+                    🛡️
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1 mb-0.5">
+                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-sky-700 dark:text-sky-400 border border-slate-200 dark:border-slate-700/50">
+                        LAB 5
+                      </span>
+                    </div>
+                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition text-xs font-sans truncate block">
+                      ネスペ直前対策ナビ
+                    </span>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                      午後記述 / DNS / 要点まとめ
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              {/* リンク5: AIパスポートラボ */}
+              <a
+                href="/ai-passport/"
+                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-purple-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-purple-400/60 dark:hover:border-purple-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] text-left"
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
+                    🤖
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1 mb-0.5">
+                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-purple-700 dark:text-purple-400 border border-slate-200 dark:border-slate-700/50">
+                        LAB 6
+                      </span>
+                    </div>
+                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition text-xs font-sans truncate block">
+                      AIパスポートラボ
+                    </span>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                      生成AIシラバス / 過去問演習
                     </p>
                   </div>
                 </div>

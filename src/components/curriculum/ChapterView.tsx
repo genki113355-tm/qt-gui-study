@@ -171,16 +171,16 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
       {chapter.githubSnapshot && (
         <div className="rounded-2xl bg-gradient-to-r from-sky-50/90 via-cyan-50/60 to-white dark:from-slate-900/95 dark:via-[#0c1424] dark:to-slate-900/95 p-4 sm:p-5 border border-cyan-300 dark:border-cyan-500/40 shadow-md dark:shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="space-y-1">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-base">📦</span>
-              <span className="font-bold font-mono text-sm sm:text-base text-slate-900 dark:text-white">
+            <div className="flex items-center gap-2.5 flex-wrap">
+              <span className="text-lg">📦</span>
+              <span className="font-bold font-mono text-base sm:text-lg text-slate-900 dark:text-white">
                 この章の開始コード（GitHubスナップショット）
               </span>
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 border border-cyan-300 dark:bg-cyan-950 dark:text-cyan-300 dark:border-cyan-500/40">
+              <span className="text-xs sm:text-sm font-mono font-bold px-2.5 py-0.5 rounded-full bg-cyan-100 text-cyan-800 border border-cyan-300 dark:bg-cyan-950 dark:text-cyan-300 dark:border-cyan-500/40">
                 タグ: {chapter.githubSnapshot.tagOrBranch}
               </span>
             </div>
-            <p className="text-xs text-slate-600 dark:text-slate-400 font-sans">
+            <p className="text-sm text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
               {chapter.githubSnapshot.description || 'Qt/QMLプロジェクトはファイル数が多いため、途中で動かなくなった場合はこのスナップショットから再開できます。'}
             </p>
           </div>
@@ -190,26 +190,26 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
               href={chapter.githubSnapshot.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-cyan-100 dark:bg-cyan-500/10 hover:bg-cyan-200 dark:hover:bg-cyan-500/20 text-cyan-800 dark:text-cyan-300 hover:text-cyan-900 dark:hover:text-white border border-cyan-300 dark:border-cyan-500/40 text-xs font-mono font-bold transition shadow-sm"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-cyan-100 dark:bg-cyan-500/10 hover:bg-cyan-200 dark:hover:bg-cyan-500/20 text-cyan-800 dark:text-cyan-300 hover:text-cyan-900 dark:hover:text-white border border-cyan-300 dark:border-cyan-500/40 text-sm font-mono font-bold transition shadow-sm"
               aria-label="GitHubでこの章のソースコードを確認（新規タブで開く）"
             >
               <span>GitHubで見る</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-4 h-4" />
             </a>
 
             <button
               onClick={() => handleCopyClone(chapter.githubSnapshot!.cloneCommand)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 hover:text-black dark:hover:text-white border border-slate-300 dark:border-slate-700 text-xs font-mono font-bold transition shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 hover:text-black dark:hover:text-white border border-slate-300 dark:border-slate-700 text-sm font-mono font-bold transition shadow-sm cursor-pointer"
               aria-label="Git cloneコマンドをクリップボードにコピー"
             >
               {copiedClone ? (
                 <>
-                  <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span className="text-emerald-600 dark:text-emerald-400">コピー完了！</span>
                 </>
               ) : (
                 <>
-                  <Copy className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+                  <Copy className="w-4 h-4 text-slate-500 dark:text-slate-400" />
                   <span>Cloneコマンド</span>
                 </>
               )}
@@ -223,24 +223,24 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
         <div className="rounded-2xl bg-white/90 dark:bg-slate-900/60 p-4 sm:p-5 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-md space-y-3 transition-colors">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div className="flex items-center gap-2">
-              <span className="text-sm">📋</span>
-              <span className="font-bold font-mono text-xs sm:text-sm text-cyan-800 dark:text-cyan-300">
+              <span className="text-base">📋</span>
+              <span className="font-bold font-mono text-sm sm:text-base text-cyan-800 dark:text-cyan-300">
                 この章を始める前の前提知識チェック
               </span>
             </div>
-            <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-850 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">
+            <span className="text-xs font-mono text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-850 px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-700">
               チェックを付けて理解度を確認
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 pt-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 pt-1">
             {chapter.prerequisites.map((p, pIdx) => {
               const key = `${chapter.id}-${pIdx}`;
               const isChecked = !!checkedPrereqs[key];
               return (
                 <label
                   key={pIdx}
-                  className={`flex items-start gap-2.5 p-2.5 rounded-xl border transition cursor-pointer select-none ${
+                  className={`flex items-start gap-3 p-3 rounded-xl border transition cursor-pointer select-none ${
                     isChecked
                       ? 'bg-cyan-50 dark:bg-cyan-950/30 border-cyan-300 dark:border-cyan-500/40 text-cyan-900 dark:text-cyan-100'
                       : 'bg-slate-50 dark:bg-slate-950/40 border-slate-200 dark:border-slate-800/80 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-300 dark:border-slate-700'
@@ -253,7 +253,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                     className="mt-0.5 w-4 h-4 rounded text-cyan-600 focus:ring-cyan-400 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 cursor-pointer"
                     aria-label={p.term || p.title}
                   />
-                  <div className="text-xs leading-relaxed flex-1">
+                  <div className="text-sm leading-relaxed flex-1">
                     <span className={isChecked ? 'line-through opacity-75' : ''}>
                       {p.term ? (
                         <>
@@ -274,11 +274,11 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="ml-2 inline-flex items-center gap-0.5 text-[11px] text-cyan-700 dark:text-cyan-400 hover:text-cyan-900 dark:hover:text-cyan-300 underline font-mono"
+                        className="ml-2 inline-flex items-center gap-0.5 text-xs text-cyan-700 dark:text-cyan-400 hover:text-cyan-900 dark:hover:text-cyan-300 underline font-mono"
                         aria-label={`${p.labLabel || '復習'}（別タブで開く）`}
                       >
                         <span>{p.labLabel || '復習する'}</span>
-                        <ExternalLink className="w-2.5 h-2.5" />
+                        <ExternalLink className="w-3 h-3" />
                       </a>
                     )}
                   </div>
@@ -292,11 +292,11 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
       {/* 🧭 表示モード切替タブ（長大な縦スクロールを解消し、目的に応じて絞り込み） */}
       <div className="sticky top-18 z-30 -my-4 py-3 bg-white/90 dark:bg-[#090d16]/95 backdrop-blur-md border-y border-slate-200 dark:border-slate-800/80 shadow-sm transition-colors">
         <div className="flex items-center justify-between gap-3 flex-wrap">
-          <div className="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-900/90 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs font-mono">
+          <div className="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-900/90 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs sm:text-sm font-mono">
             <button
               onClick={() => setViewMode('all')}
               aria-label="全てのコンテンツを表示"
-              className={`px-3 py-2 rounded-xl font-bold transition flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3.5 py-2 rounded-xl font-bold transition flex items-center gap-1.5 cursor-pointer ${
                 viewMode === 'all'
                   ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
@@ -308,35 +308,35 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
             <button
               onClick={() => setViewMode('learn')}
               aria-label="解説・設計のみを表示"
-              className={`px-3 py-2 rounded-xl font-bold transition flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3.5 py-2 rounded-xl font-bold transition flex items-center gap-1.5 cursor-pointer ${
                 viewMode === 'learn'
                   ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
               }`}
             >
               <span>📝 解説・設計</span>
-              <span className="text-[10px] opacity-75">({chapter.sections.length}節)</span>
+              <span className="text-xs opacity-75">({chapter.sections.length}節)</span>
             </button>
 
             {allCodeFiles.length > 0 && (
               <button
                 onClick={() => setViewMode('code')}
                 aria-label="ソースコードのみを表示"
-                className={`px-3 py-2 rounded-xl font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                className={`px-3.5 py-2 rounded-xl font-bold transition flex items-center gap-1.5 cursor-pointer ${
                   viewMode === 'code'
                     ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
                 }`}
               >
                 <span>💻 コード</span>
-                <span className="text-[10px] opacity-75">({allCodeFiles.length}ファイル)</span>
+                <span className="text-xs opacity-75">({allCodeFiles.length}ファイル)</span>
               </button>
             )}
 
             <button
               onClick={() => setViewMode('practice')}
               aria-label="演習・クイズのみを表示"
-              className={`px-3 py-2 rounded-xl font-bold transition flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3.5 py-2 rounded-xl font-bold transition flex items-center gap-1.5 cursor-pointer ${
                 viewMode === 'practice'
                   ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
@@ -700,15 +700,15 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
       {chapter.relatedLabs && chapter.relatedLabs.length > 0 && (
         <div className="rounded-3xl bg-white/95 dark:bg-gradient-to-br dark:from-slate-900/90 dark:via-[#0a1120] dark:to-slate-950 p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md dark:shadow-xl space-y-4 transition-colors">
           <div className="flex items-center justify-between gap-3">
-            <h3 className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-white flex items-center gap-2">
+            <h3 className="text-lg sm:text-xl font-bold font-mono text-slate-900 dark:text-white flex items-center gap-2">
               <span>🔗</span>
               <span>関連ラボでさらに深める（シロクマ技術エコシステム）</span>
             </h3>
-            <span className="text-xs font-mono text-cyan-800 dark:text-cyan-400 bg-cyan-100 dark:bg-cyan-950/60 px-2.5 py-1 rounded-full border border-cyan-300 dark:border-cyan-500/30">
+            <span className="text-xs sm:text-sm font-mono text-cyan-800 dark:text-cyan-400 bg-cyan-100 dark:bg-cyan-950/60 px-2.5 py-1 rounded-full border border-cyan-300 dark:border-cyan-500/30 font-bold">
               相乗効果
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
             本章のテーマ（マルチスレッド、CMake、ソケット、テスト等）と深く連動する姉妹ラボのカリキュラムです。併せて学ぶことで実務実装力が何倍にも跳ね上がります。
           </p>
 
@@ -717,29 +717,29 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
               <a
                 key={lIdx}
                 href={lab.url}
-                className="group p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/60 hover:bg-cyan-50/50 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-400/60 dark:hover:border-cyan-500/40 transition shadow-sm flex items-start gap-3.5"
+                className="group p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-950/60 hover:bg-cyan-50/50 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-400/60 dark:hover:border-cyan-500/40 transition shadow-sm flex items-start gap-3.5"
                 aria-label={`${lab.labName}: ${lab.title} へ進む`}
               >
-                <span className="text-2xl p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 group-hover:scale-110 transition-transform shrink-0">
+                <span className="text-2xl sm:text-3xl p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 group-hover:scale-110 transition-transform shrink-0">
                   {lab.icon}
                 </span>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-mono text-cyan-700 dark:text-cyan-400 font-bold">
+                    <span className="text-xs sm:text-sm font-mono text-cyan-700 dark:text-cyan-400 font-bold">
                       {lab.labName}
                     </span>
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-850 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-850 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 font-semibold">
                       {lab.badge}
                     </span>
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition-colors truncate">
+                  <h4 className="text-base font-bold text-slate-900 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition-colors truncate">
                     {lab.title}
                   </h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 mt-1 leading-relaxed">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mt-1 leading-relaxed">
                     {lab.description}
                   </p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-600 dark:text-slate-400 dark:text-slate-500 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 group-hover:translate-x-1 transition-all shrink-0 mt-3" />
+                <ArrowRight className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 group-hover:translate-x-1 transition-all shrink-0 mt-3" />
               </a>
             ))}
           </div>

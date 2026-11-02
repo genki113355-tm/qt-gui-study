@@ -113,19 +113,19 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
       </div>
 
       {/* 1. シロクマ先生の直前エール & クイックナビ */}
-      <div className="rounded-2xl border border-cyan-200 dark:border-cyan-500/30 bg-gradient-to-br from-cyan-50/80 via-white to-sky-50/40 dark:from-slate-900/90 dark:via-[#0c121e] dark:to-slate-950 p-3.5 shadow-sm space-y-2.5">
-        <div className="flex items-start gap-2.5">
+      <div className="rounded-2xl border border-cyan-200 dark:border-cyan-500/30 bg-gradient-to-br from-cyan-50/80 via-white to-sky-50/40 dark:from-slate-900/90 dark:via-[#0c121e] dark:to-slate-950 p-4 shadow-sm space-y-3">
+        <div className="flex items-start gap-3">
           <img
             src="/images/characters/shirokuma_sensei.png"
             alt="シロクマ先生"
-            className="w-10 h-10 rounded-full object-cover border-2 border-cyan-400 shadow-xs shrink-0 mt-0.5"
+            className="w-11 h-11 rounded-full object-cover border-2 border-cyan-400 shadow-xs shrink-0 mt-0.5"
           />
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-cyan-900 dark:text-cyan-300">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0" />
+            <div className="flex items-center gap-1.5 text-sm font-bold text-cyan-900 dark:text-cyan-300">
+              <Sparkles className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
               <span>シロクマ学習アドバイス</span>
             </div>
-            <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug mt-1 font-sans">
+            <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed mt-1 font-sans">
               {getChapterMascotTip(currentChapterSlug)}
             </p>
           </div>
@@ -133,28 +133,28 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
 
         {/* 主要章へのショートカット */}
         {onSelectChapter && (
-          <div className="pt-2 border-t border-cyan-100 dark:border-slate-800 grid grid-cols-2 gap-1.5 text-xs">
+          <div className="pt-2.5 border-t border-cyan-100 dark:border-slate-800 grid grid-cols-2 gap-2 text-xs">
             <button
               onClick={() => onSelectChapter('chapter-0')}
-              className={`p-2 rounded-xl text-left transition-all font-semibold flex items-center justify-between cursor-pointer ${
+              className={`p-2.5 rounded-xl text-left transition-all font-semibold flex items-center justify-between cursor-pointer ${
                 currentChapterSlug === 'chapter-0'
                   ? 'bg-cyan-600 dark:bg-cyan-500 text-white font-bold shadow-xs'
                   : 'bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-cyan-50 dark:hover:bg-slate-700'
               }`}
             >
               <span>🔰 Chapter 0</span>
-              <span className="text-[10px] opacity-75 font-mono">環境</span>
+              <span className="text-[11px] opacity-75 font-mono">環境</span>
             </button>
             <button
               onClick={() => onSelectChapter('chapter-2')}
-              className={`p-2 rounded-xl text-left transition-all font-semibold flex items-center justify-between cursor-pointer ${
+              className={`p-2.5 rounded-xl text-left transition-all font-semibold flex items-center justify-between cursor-pointer ${
                 currentChapterSlug === 'chapter-2'
                   ? 'bg-cyan-600 dark:bg-cyan-500 text-white font-bold shadow-xs'
                   : 'bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-cyan-50 dark:hover:bg-slate-700'
               }`}
             >
               <span>⚡ Chapter 2</span>
-              <span className="text-[10px] opacity-75 font-mono">Signal</span>
+              <span className="text-[11px] opacity-75 font-mono">Signal</span>
             </button>
           </div>
         )}
@@ -162,13 +162,13 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
 
       {/* 2. ITスクール・プログラミング支援 PRバナー */}
       {schoolBanner && (
-        <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3 shadow-sm space-y-2 transition-all hover:border-cyan-300 dark:hover:border-cyan-500/40">
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3.5 shadow-sm space-y-2.5 transition-all hover:border-cyan-300 dark:hover:border-cyan-500/40">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-cyan-800 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
-              <Award className="w-3 h-3 text-cyan-600 dark:text-cyan-400" />
+            <span className="text-xs font-bold text-cyan-800 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+              <Award className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
               <span>{schoolBanner.badge || 'プログラミング学習'}</span>
             </span>
-            <span className="text-[10px] text-slate-600 dark:text-slate-400 font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
               PR
             </span>
           </div>
@@ -203,12 +203,12 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
               href={schoolBanner.linkUrl}
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="text-xs font-bold text-slate-900 dark:text-slate-100 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center justify-between gap-1"
+              className="text-sm font-bold text-slate-900 dark:text-slate-100 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center justify-between gap-1"
             >
               <span>{schoolBanner.name}</span>
-              <ExternalLink className="w-3 h-3 text-slate-600 dark:text-slate-400 shrink-0" />
+              <ExternalLink className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400 shrink-0" />
             </a>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed line-clamp-2">
               {schoolBanner.description}
             </p>
           </div>
@@ -217,13 +217,13 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
 
       {/* 3. エンジニア転職・キャリア支援 PRバナー */}
       {careerBanner && (
-        <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3 shadow-sm space-y-2 transition-all hover:border-purple-300 dark:hover:border-purple-500/40">
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3.5 shadow-sm space-y-2.5 transition-all hover:border-purple-300 dark:hover:border-purple-500/40">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-purple-800 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
-              <Briefcase className="w-3 h-3 text-purple-600 dark:text-purple-400" />
+            <span className="text-xs font-bold text-purple-800 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+              <Briefcase className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
               <span>{careerBanner.badge || 'IT転職・キャリア支援'}</span>
             </span>
-            <span className="text-[10px] text-slate-600 dark:text-slate-400 font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
               PR
             </span>
           </div>

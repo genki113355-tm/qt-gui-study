@@ -30,23 +30,23 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         <button
           onClick={() => onSelectChapter('top')}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-sky-50 dark:bg-cyan-950/50 border border-sky-200 dark:border-cyan-500/30 text-sky-700 dark:text-cyan-300 hover:bg-sky-100 dark:hover:bg-cyan-900/60 transition-all font-mono font-bold text-xs sm:text-sm shadow-xs cursor-pointer active:scale-95"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-sky-50 dark:bg-cyan-950/50 border border-sky-200 dark:border-cyan-500/30 text-sky-700 dark:text-cyan-300 hover:bg-sky-100 dark:hover:bg-cyan-900/60 transition-all font-mono font-bold text-sm shadow-xs cursor-pointer active:scale-95"
           aria-label="トップページへ戻る"
         >
           <Home className="w-4 h-4 text-sky-600 dark:text-cyan-400" />
           <span>TOP</span>
         </button>
 
-        <div className="hidden md:flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-slate-800">
+        <div className="hidden md:flex items-center gap-2.5 pl-2.5 border-l border-slate-200 dark:border-slate-800">
           <img
             src="/images/characters/shirokuma_sensei.png"
             alt="シロクマ先生"
-            className="w-6 h-6 rounded-full object-cover border border-sky-400/50 shadow-xs"
+            className="w-7 h-7 rounded-full object-cover border border-sky-400/50 shadow-xs"
           />
-          <span className="font-bold font-sans text-sm text-slate-800 dark:text-slate-200 tracking-tight">
+          <span className="font-bold font-sans text-base text-slate-800 dark:text-slate-200 tracking-tight">
             シロクマQt×C++ラボ
           </span>
-          <span className="text-[11px] font-mono font-semibold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-cyan-950 text-sky-700 dark:text-cyan-300 border border-sky-200 dark:border-cyan-500/30">
+          <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-cyan-950 text-sky-700 dark:text-cyan-300 border border-sky-200 dark:border-cyan-500/30">
             Qt 6 / C++17
           </span>
         </div>
@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* ソースコード一括モーダル */}
         <button
           onClick={onOpenSourceModal}
-          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-300 dark:border-slate-700 cursor-pointer"
+          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm font-mono font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-300 dark:border-slate-700 cursor-pointer"
           title="全章のソースコード一覧を見る"
         >
           <Code2 className="w-4 h-4 text-sky-500 dark:text-cyan-400" />
@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* C++ Playgroundモーダル */}
         <button
           onClick={onOpenPlaygroundModal}
-          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-300 dark:border-slate-700 cursor-pointer"
+          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm font-mono font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-300 dark:border-slate-700 cursor-pointer"
           title="オンラインC++コード実行ラボ"
         >
           <Terminal className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />

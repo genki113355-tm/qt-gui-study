@@ -17,10 +17,10 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
   onOpenMilestoneModal,
 }) => {
   return (
-    <div className="w-full max-w-[90rem] mx-auto py-6 sm:py-10 px-2 sm:px-4 lg:px-6 space-y-16">
+    <div className="w-full max-w-[90rem] mx-auto py-6 sm:py-10 px-3 sm:px-6 lg:px-8 space-y-16">
       
       {/* ヒーローセクション */}
-      <section className="relative rounded-3xl border border-cyan-300/80 dark:border-cyan-500/30 bg-gradient-to-b from-white/95 via-sky-50/70 to-slate-50/90 dark:from-slate-900/90 dark:via-[#070b14] dark:to-[#040810] p-6 sm:p-10 lg:p-12 shadow-xl dark:shadow-2xl overflow-hidden flex flex-col xl:flex-row gap-8 lg:gap-12 items-center transition-colors">
+      <section className="relative rounded-3xl border border-cyan-300/80 dark:border-cyan-500/30 bg-gradient-to-b from-white/95 via-sky-50/70 to-slate-50/90 dark:from-slate-900/90 dark:via-[#070b14] dark:to-[#040810] p-6 sm:p-8 lg:p-10 shadow-xl dark:shadow-2xl overflow-hidden flex flex-col 2xl:flex-row gap-8 lg:gap-10 items-stretch 2xl:items-center transition-colors">
         <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -30,7 +30,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
             <span>Linux × C++ GUI開発カリキュラム</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black tracking-tight text-slate-900 dark:text-white font-sans leading-[1.15] break-keep">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-black tracking-tight text-slate-900 dark:text-white font-sans leading-[1.15] break-keep">
             <span className="inline-block whitespace-nowrap">シロクマ</span>{' '}
             <span className="inline-block whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 dark:from-cyan-300 dark:via-sky-200 dark:to-blue-300">
               Qt×C++ラボ
@@ -38,7 +38,8 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
           </h1>
 
           <p className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-cyan-600 to-emerald-600 dark:from-amber-300 dark:via-cyan-300 dark:to-emerald-300 leading-snug">
-            C++で実用的なGUI/HMIを設計する。
+            <span className="inline-block whitespace-nowrap">C++で実用的な</span>{' '}
+            <span className="inline-block whitespace-nowrap">GUI/HMIを設計する。</span>
           </p>
 
           <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-sans max-w-2xl">
@@ -52,11 +53,11 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
             <span className="px-4 py-1.5 rounded-xl bg-emerald-50 dark:bg-slate-950/80 border border-emerald-300 dark:border-emerald-500/30 text-emerald-800 dark:text-emerald-300 shadow-sm font-semibold">対象 Linux (Ubuntu)</span>
           </div>
 
-          {/* メインアクションボタングループ */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
+          {/* メインアクションボタングループ（絶対に横潰れしないレスポンシブwrap設計） */}
+          <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-3">
             <button
               onClick={() => onSelectChapter('chapter-0')}
-              className="px-7 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-slate-950 font-black text-base sm:text-lg shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_45px_rgba(34,211,238,0.5)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3 cursor-pointer group"
+              className="px-6 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-slate-950 font-black text-sm sm:text-base shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_45px_rgba(34,211,238,0.5)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 sm:gap-3 cursor-pointer shrink-0 whitespace-nowrap"
             >
               <Rocket className="w-5 h-5 text-slate-950 group-hover:animate-bounce shrink-0" />
               <span className="whitespace-nowrap">最初から学ぶ（🔰 準備編へ）</span>
@@ -66,12 +67,12 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
             {onOpenMilestoneModal && (
               <button
                 onClick={onOpenMilestoneModal}
-                className="px-6 py-4 rounded-2xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-800 dark:text-slate-200 hover:text-black dark:hover:text-white border border-slate-300 dark:border-slate-700/80 hover:border-amber-400/50 font-bold text-sm sm:text-base transition-all duration-200 flex items-center justify-center gap-2.5 shadow-md cursor-pointer"
+                className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-800 dark:text-slate-200 hover:text-black dark:hover:text-white border border-slate-300 dark:border-slate-700/80 hover:border-amber-400/50 font-bold text-sm sm:text-base transition-all duration-200 flex items-center justify-center gap-2.5 shadow-md cursor-pointer shrink-0 whitespace-nowrap"
               >
-                <Award className="w-5 h-5 text-amber-500 dark:text-amber-400" />
-                <span>公式修了証・進捗確認</span>
+                <Award className="w-5 h-5 text-amber-500 dark:text-amber-400 shrink-0" />
+                <span className="whitespace-nowrap">公式修了証・進捗確認</span>
                 {completedChapters.length > 0 && (
-                  <span className="px-2.5 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/40 text-xs sm:text-sm font-mono font-bold">
+                  <span className="px-2.5 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/40 text-xs sm:text-sm font-mono font-bold shrink-0">
                     {completedChapters.length}/13章
                   </span>
                 )}
@@ -103,19 +104,19 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
             <div className="flex flex-wrap gap-2.5 text-xs sm:text-sm font-sans">
               <button
                 onClick={() => onSelectChapter('chapter-0')}
-                className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-700 dark:hover:text-cyan-300 border border-slate-300 dark:border-slate-700/60 hover:border-cyan-400 dark:hover:border-cyan-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm font-medium"
+                className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-700 dark:text-slate-300 hover:text-cyan-700 dark:hover:text-cyan-300 border border-slate-300 dark:border-slate-700/60 hover:border-cyan-400 dark:hover:border-cyan-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm font-medium"
               >
                 <span className="text-cyan-700 dark:text-cyan-400 font-bold">【未経験】</span>🔰 準備編 環境セットアップ ➔
               </button>
               <button
                 onClick={() => onSelectChapter('chapter-3')}
-                className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-sky-700 dark:hover:text-sky-300 border border-slate-300 dark:border-slate-700/60 hover:border-sky-400 dark:hover:border-sky-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm font-medium"
+                className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-700 dark:text-slate-300 hover:text-sky-700 dark:hover:text-sky-300 border border-slate-300 dark:border-slate-700/60 hover:border-sky-400 dark:hover:border-sky-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm font-medium"
               >
                 <span className="text-sky-700 dark:text-sky-400 font-bold">【C++既習】</span>第3章 シグナル＆スロット ➔
               </button>
               <button
                 onClick={() => onSelectChapter('chapter-5')}
-                className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-300 border border-slate-300 dark:border-slate-700/60 hover:border-emerald-400 dark:hover:border-emerald-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm font-medium"
+                className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-700 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-300 border border-slate-300 dark:border-slate-700/60 hover:border-emerald-400 dark:hover:border-emerald-500/40 transition flex items-center gap-1.5 cursor-pointer shadow-sm font-medium"
               >
                 <span className="text-emerald-700 dark:text-emerald-400 font-bold">【マルチスレッド】</span>第5章 スレッド設計 ➔
               </button>
@@ -124,7 +125,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
         </div>
         
         {/* 右側: HMIダッシュボードのモックアップとMISSION */}
-        <div className="relative z-10 w-full xl:w-1/2 max-w-2xl xl:max-w-none flex flex-col gap-6">
+        <div className="relative z-10 w-full 2xl:w-1/2 max-w-3xl 2xl:max-w-none flex flex-col gap-6">
           <div className="text-sm sm:text-base font-bold text-cyan-600 dark:text-cyan-400 font-mono flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
             TARGET: REALTIME DASHBOARD

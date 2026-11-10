@@ -99,6 +99,26 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
     return 'bg-cyan-500/10';
   };
 
+  // 章タイトルのコロン（：）で自然に分割して文節改行を最適化
+  const renderFormattedChapterTitle = (title: string) => {
+    const colonIndex = title.indexOf('：');
+    if (colonIndex !== -1) {
+      const prefix = title.slice(0, colonIndex + 1);
+      const mainTitle = title.slice(colonIndex + 1);
+      return (
+        <>
+          <span className="inline-block whitespace-nowrap text-cyan-700 dark:text-cyan-400 mr-2">
+            {prefix}
+          </span>
+          <span className="inline-block">
+            {mainTitle}
+          </span>
+        </>
+      );
+    }
+    return title;
+  };
+
   return (
     <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-12">
       {/* 章ヘッダーバナー（リアルタイムプレビュー付き） */}
@@ -140,11 +160,11 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
 
           {/* 2. メインタイトル ＆ サブタイトル（全幅で堂々と表示） */}
           <div className="space-y-3">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-snug break-words">
-              {chapter.title}
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-snug break-keep [word-break:auto-phrase]">
+              {renderFormattedChapterTitle(chapter.title)}
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl text-cyan-700 dark:text-cyan-300 font-bold leading-snug break-words">
+            <p className="text-base sm:text-xl md:text-2xl text-cyan-700 dark:text-cyan-300 font-bold leading-snug break-keep [word-break:auto-phrase]">
               {chapter.subtitle}
             </p>
           </div>
@@ -154,8 +174,18 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
             {chapter.description}
           </p>
 
-          {/* 4. 章のテーマに連動したリアルタイム動的HMIプレビュー（中央センタリング配置） */}
-          <div className="pt-2 flex justify-center w-full">
+          {/* 4. 章のテーマに連動したリアルタイム動的HMIプレビュー（明示的な見出し付き） */}
+          <div className="pt-2 space-y-2.5">
+            <div className="flex items-center justify-between flex-wrap gap-2 px-1">
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold font-mono text-cyan-800 dark:text-cyan-300">
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
+                <span>TARGET GUI MONITOR: 本章で理解・設計する完成画面イメージ</span>
+              </div>
+              <span className="text-xs font-mono text-slate-500 dark:text-slate-400 hidden sm:inline-block">
+                Qt 6.6 / QML ＋ Modern C++20
+              </span>
+            </div>
+
             <ChapterVisualPreview chapterId={chapter.id} slug={chapter.slug} />
           </div>
         </div>

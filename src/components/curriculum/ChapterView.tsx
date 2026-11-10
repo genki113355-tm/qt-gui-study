@@ -91,15 +91,6 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
     }
   };
 
-    const getTrackBadge = () => {
-    return (
-      <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full border flex items-center gap-2 shadow-sm bg-cyan-100 text-cyan-800 border-cyan-300 dark:bg-cyan-950/80 dark:text-cyan-300 dark:border-cyan-500/40">
-        <span className="w-2.5 h-2.5 rounded-full animate-ping inline-block bg-cyan-500 dark:bg-cyan-400" />
-        {chapter.badge || 'Qt / C++'}
-      </span>
-    );
-  };
-
     const getBorderColor = () => {
     return 'border-cyan-300/80 dark:border-cyan-500/30';
   };
@@ -111,59 +102,62 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
   return (
     <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-12">
       {/* 章ヘッダーバナー（リアルタイムプレビュー付き） */}
-      <div className={`relative rounded-3xl bg-gradient-to-br from-white via-sky-50/70 to-cyan-50/40 dark:from-slate-900 dark:via-[#0c121e] dark:to-slate-950 p-5 sm:p-8 md:p-10 border shadow-xl dark:shadow-2xl overflow-hidden transition-colors ${getBorderColor()}`}>
+      <div className={`relative rounded-3xl bg-gradient-to-br from-white via-sky-50/70 to-cyan-50/40 dark:from-slate-900 dark:via-[#0c121e] dark:to-slate-950 p-6 sm:p-8 md:p-10 border shadow-xl dark:shadow-2xl overflow-hidden transition-colors ${getBorderColor()}`}>
         {/* 背景の淡いグロー */}
         <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none ${getGlowColor()}`} />
 
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-          <div className="flex-1 space-y-4">
-            {/* メインタイトル */}
-            <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight break-words">
+        <div className="relative z-10 space-y-6">
+          {/* 1. パンくずリスト & シェアボタン（重複を解消） */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
+            <nav aria-label="パンくずリスト" className="flex items-center gap-2 text-xs sm:text-sm font-mono flex-wrap">
+              <button
+                onClick={() => onNavigate('top')}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-slate-700 transition shadow-xs cursor-pointer"
+                title="トップページへ戻る"
+              >
+                <span>🏠</span>
+                <span>TOP</span>
+              </button>
+              <span className="text-slate-400 dark:text-slate-600">/</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg font-mono font-bold text-xs sm:text-sm bg-cyan-100 text-cyan-800 border border-cyan-300 dark:bg-cyan-950/80 dark:text-cyan-300 dark:border-cyan-500/40 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 inline-block animate-pulse" />
+                {chapter.badge}
+              </span>
+              {isCompleted && (
+                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 dark:bg-emerald-950 dark:text-emerald-400 dark:border-emerald-500/40 font-bold shadow-xs">
+                  <CheckCircle className="w-4 h-4" />
+                  <span>完了済み</span>
+                </span>
+              )}
+            </nav>
+
+            <ShareButtons
+              title={`${chapter.title} - ${chapter.subtitle} | シロクマQt×C++ラボ`}
+              text={`Qt/QML×C++産業用GUI開発カリキュラム：${chapter.description.slice(0, 60)}...`}
+              variant="compact"
+            />
+          </div>
+
+          {/* 2. メインタイトル ＆ サブタイトル（全幅で堂々と表示） */}
+          <div className="space-y-3">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-snug break-words">
               {chapter.title}
             </h1>
 
-            <p className="text-base sm:text-xl md:text-2xl text-cyan-800 dark:text-cyan-300 font-semibold leading-snug break-words">
+            <p className="text-lg sm:text-xl md:text-2xl text-cyan-700 dark:text-cyan-300 font-bold leading-snug break-words">
               {chapter.subtitle}
-            </p>
-
-            {/* パンくずリスト & シェアボタン（タイトルの下に配置） */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
-              <nav aria-label="パンくずリスト" className="flex items-center gap-2 text-xs sm:text-sm font-mono flex-wrap">
-                <button
-                  onClick={() => onNavigate('top')}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-slate-700 transition shadow-sm cursor-pointer"
-                  title="トップページへ戻る"
-                >
-                  <span>🏠</span>
-                  <span>TOP</span>
-                </button>
-                <span className="text-slate-600 dark:text-slate-400 dark:text-slate-600">/</span>
-                {getTrackBadge()}
-                <span className="text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 font-semibold px-2.5 py-1 rounded-lg bg-white/80 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700">
-                  {chapter.badge}
-                </span>
-                {isCompleted && (
-                  <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 dark:bg-emerald-950 dark:text-emerald-400 dark:border-emerald-500/40 font-bold">
-                    <CheckCircle className="w-4 h-4" />
-                    <span>完了済み</span>
-                  </span>
-                )}
-              </nav>
-
-              <ShareButtons
-                title={`${chapter.title} - ${chapter.subtitle} | シロクマQt×C++ラボ`}
-                text={`Qt/QML×C++産業用GUI開発カリキュラム：${chapter.description.slice(0, 60)}...`}
-                variant="compact"
-              />
-            </div>
-
-            <p className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-300 pt-2 leading-relaxed font-sans">
-              {chapter.description}
             </p>
           </div>
 
-          {/* 章のテーマに連動したリアルタイム動的HMIプレビュー */}
-          <ChapterVisualPreview chapterId={chapter.id} slug={chapter.slug} />
+          {/* 3. 章の概要説明（全幅） */}
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-sans max-w-4xl">
+            {chapter.description}
+          </p>
+
+          {/* 4. 章のテーマに連動したリアルタイム動的HMIプレビュー（中央センタリング配置） */}
+          <div className="pt-2 flex justify-center w-full">
+            <ChapterVisualPreview chapterId={chapter.id} slug={chapter.slug} />
+          </div>
         </div>
       </div>
 

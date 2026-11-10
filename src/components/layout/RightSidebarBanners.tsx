@@ -136,25 +136,25 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
           <div className="pt-2.5 border-t border-cyan-100 dark:border-slate-800 grid grid-cols-2 gap-2 text-xs">
             <button
               onClick={() => onSelectChapter('chapter-0')}
-              className={`p-2.5 rounded-xl text-left transition-all font-semibold flex items-center justify-between cursor-pointer ${
+              className={`px-2.5 py-2 rounded-xl text-left transition-all flex flex-col gap-0.5 cursor-pointer ${
                 currentChapterSlug === 'chapter-0'
                   ? 'bg-cyan-600 dark:bg-cyan-500 text-white font-bold shadow-xs'
                   : 'bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-cyan-50 dark:hover:bg-slate-700'
               }`}
             >
-              <span>🔰 Chapter 0</span>
-              <span className="text-[11px] opacity-75 font-mono">環境</span>
+              <span className="font-bold text-[11px] truncate">🔰 Chapter 0</span>
+              <span className="text-[10px] opacity-75 font-mono truncate">環境セットアップ</span>
             </button>
             <button
               onClick={() => onSelectChapter('chapter-2')}
-              className={`p-2.5 rounded-xl text-left transition-all font-semibold flex items-center justify-between cursor-pointer ${
+              className={`px-2.5 py-2 rounded-xl text-left transition-all flex flex-col gap-0.5 cursor-pointer ${
                 currentChapterSlug === 'chapter-2'
                   ? 'bg-cyan-600 dark:bg-cyan-500 text-white font-bold shadow-xs'
                   : 'bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-cyan-50 dark:hover:bg-slate-700'
               }`}
             >
-              <span>⚡ Chapter 2</span>
-              <span className="text-[11px] opacity-75 font-mono">Signal</span>
+              <span className="font-bold text-[11px] truncate">⚡ Chapter 2</span>
+              <span className="text-[10px] opacity-75 font-mono truncate">シグナル＆スロット</span>
             </button>
           </div>
         )}

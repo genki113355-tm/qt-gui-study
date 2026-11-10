@@ -285,7 +285,7 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
               Qtの名前は聞いたことあるけど、C++で書くバックエンドとQMLの画面をどう結ぶのか、マルチスレッドによるGUIフリーズ回避...Linuxの組み込みGUI開発って謎だらけです！？
             </p>
             <div className="mt-5 pt-4 border-t border-amber-300/40 dark:border-amber-500/20 text-sm sm:text-base flex items-center gap-2.5 font-sans text-amber-900 dark:text-amber-300/90 bg-amber-100/70 dark:bg-amber-950/20 px-4 py-3 rounded-xl">
-              <span className="text-xl">🐧</span>
+              <img src="/images/characters/penguin_student.jpg" alt="ペンギン生徒" className="w-6 h-6 rounded-full object-cover border border-amber-400 shrink-0 inline-block align-middle" />
               <span className="italic">C++のポインタは分かるけど、イベントループとシグナル・スロット概念でつまづく...</span>
             </div>
           </div>

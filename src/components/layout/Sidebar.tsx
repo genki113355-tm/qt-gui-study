@@ -1,3 +1,4 @@
+import { SidebarBanners } from './SidebarBanners';
 import React from 'react';
 import { X } from 'lucide-react';
 import { ALL_CHAPTERS } from '../../data/chapters';
@@ -214,6 +215,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
               </div>
               <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 font-mono flex-shrink-0">↗</span>
             </a>
+          </div>
+
+                    {/* おすすめ・PRバナー（左サイドメニュー下） */}
+          <div className="px-3 mb-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+            <SidebarBanners currentChapterSlug={currentChapterSlug} />
           </div>
 
           {/* キャラクター紹介（シロクマ先生 & ペンギン生徒） */}

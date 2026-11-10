@@ -202,16 +202,16 @@ export const UmlDiagramViewer: React.FC<UmlDiagramViewerProps> = ({
 
         {/* ④ 設計書とC++コードの対応ポイント解説 (Code Mapping Notes) */}
         {data.codeMappingNotes && data.codeMappingNotes.length > 0 && (
-          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-cyan-950/40 via-slate-900/60 to-slate-950 border border-cyan-500/30 space-y-3">
+          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-cyan-950 via-slate-900 to-slate-950 border border-cyan-500/40 shadow-lg space-y-3">
             <div className="flex items-center gap-2 text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider">
               <Sparkles className="w-4 h-4 text-cyan-400" />
               <span>プロの視点：この設計書をC++コードに落とし込む際の着眼点</span>
             </div>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-sans">
+            <ul className="space-y-2.5 text-xs sm:text-sm font-sans">
               {data.codeMappingNotes.map((note, nIdx) => (
                 <li key={nIdx} className="flex items-start gap-2.5 leading-relaxed">
                   <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" />
-                  <span>{note}</span>
+                  <span className="text-slate-100 font-medium">{note}</span>
                 </li>
               ))}
             </ul>

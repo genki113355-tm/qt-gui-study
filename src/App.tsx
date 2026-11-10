@@ -4,7 +4,6 @@ import { Navbar } from './components/layout/Navbar';
 import { Sidebar } from './components/layout/Sidebar';
 import { Footer } from './components/layout/Footer';
 import { ArcticBackground } from './components/layout/ArcticBackground';
-import { RightSidebarBanners } from './components/layout/RightSidebarBanners';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { useSEO } from './hooks/useSEO';
 
@@ -194,15 +193,7 @@ const AppContent: React.FC = () => {
           </React.Suspense>
         </main>
 
-        {/* 右サイドバー：章学習時のおすすめアドバイス・関連リンク・バナー（TOPページ以外、PC大画面 xl: 以上で表示） */}
-        {currentSlug !== 'top' && (
-          <aside className="hidden xl:block shrink-0 sticky top-14 self-start py-6 pl-2 pr-4 sm:pr-6 max-h-[calc(100vh-3.5rem)] overflow-y-auto custom-scrollbar border-l border-slate-200/60 dark:border-slate-800/60">
-            <RightSidebarBanners
-              currentChapterSlug={currentSlug}
-              onSelectChapter={handleSelectChapter}
-            />
-          </aside>
-        )}
+
       </div>
 
       {/* フッター */}

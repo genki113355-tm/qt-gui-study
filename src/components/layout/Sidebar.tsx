@@ -1,7 +1,7 @@
 import { SidebarBanners } from './SidebarBanners';
 import React from 'react';
-import { X } from 'lucide-react';
-import { ALL_CHAPTERS } from '../../data/chapters';
+import { X, BookOpen } from 'lucide-react';
+import { QT_CHAPTERS, SPECIAL_GUIDES } from '../../data/chapters';
 import { ThemeToggle } from '../common/ThemeToggle';
 
 interface SidebarProps {
@@ -95,10 +95,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {/* カリキュラム章一覧 */}
             <div className="px-3 mb-4">
               <div className="text-xs sm:text-sm font-mono font-bold text-sky-600 dark:text-cyan-400/90 uppercase tracking-wider mb-2.5 px-2">
-                カリキュラム一覧
+                カリキュラム一覧（全13章）
               </div>
               <ul className="space-y-1">
-                {ALL_CHAPTERS.map((ch) => (
+                {QT_CHAPTERS.map((ch) => (
                   <li key={ch.id}>
                     <button
                       onClick={() => {
@@ -123,6 +123,40 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       )}
                       <span className="line-clamp-2 leading-snug font-medium text-sm sm:text-[15px]">
                         {ch.id === 0 ? '開発環境セットアップとモダンQtワークフロー' : ch.title}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* 特別付録・技術コラム */}
+            <div className="px-3 mb-4 pt-3 border-t border-slate-200/80 dark:border-slate-800/80">
+              <div className="text-xs sm:text-sm font-mono font-bold text-emerald-600 dark:text-emerald-400/90 uppercase tracking-wider mb-2.5 px-2 flex items-center gap-1.5">
+                <BookOpen className="w-4 h-4 text-emerald-500" />
+                <span>特別付録・専門コラム</span>
+              </div>
+              <ul className="space-y-1.5">
+                {SPECIAL_GUIDES.map((guide) => (
+                  <li key={guide.id}>
+                    <button
+                      onClick={() => {
+                        onSelectChapter(guide.slug);
+                        onClose();
+                      }}
+                      className={`w-full text-left px-3 py-2.5 rounded-xl text-xs sm:text-sm transition-all flex flex-col gap-1 cursor-pointer border ${
+                        currentChapterSlug === guide.slug
+                          ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-900 dark:text-emerald-200 border-emerald-300 dark:border-emerald-500/40 shadow-xs font-bold'
+                          : 'border-slate-200/80 dark:border-slate-800 bg-white/60 dark:bg-slate-900/40 text-slate-700 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-300 hover:border-emerald-300 dark:hover:border-emerald-500/30'
+                      }`}
+                    >
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                          {guide.badge || '特別付録'}
+                        </span>
+                      </div>
+                      <span className="line-clamp-2 leading-snug font-medium">
+                        {guide.title.replace('【付録】', '').replace('【特別付録】', '')}
                       </span>
                     </button>
                   </li>

@@ -1,4 +1,4 @@
-﻿import { Chapter } from '../types/curriculum';
+import { Chapter } from '../types/curriculum';
 import { chapter0 } from './chapters/chapter0';
 import { chapter1 } from './chapters/chapter1';
 import { chapter2 } from './chapters/chapter2';
@@ -13,6 +13,7 @@ import { chapter10 } from './chapters/chapter10';
 import { chapter11 } from './chapters/chapter11';
 import { chapter12 } from './chapters/chapter12';
 import { guiFrameworkComparison } from './guides/guiFrameworkComparison';
+import { x11LinuxGraphics } from './guides/x11LinuxGraphics';
 
 export const QT_CHAPTERS: Chapter[] = [
   chapter0,
@@ -31,7 +32,8 @@ export const QT_CHAPTERS: Chapter[] = [
 ];
 
 export const SPECIAL_GUIDES: Chapter[] = [
-  guiFrameworkComparison
+  guiFrameworkComparison,
+  x11LinuxGraphics
 ];
 
 // 動的に prev/next を設定する

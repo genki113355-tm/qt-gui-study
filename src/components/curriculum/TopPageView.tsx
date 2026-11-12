@@ -206,13 +206,20 @@ export const TopPageView: React.FC<TopPageViewProps> = ({
               <p>
                 本サイトは、C++のロジックと画面描画を分離（ViewとViewModelの分離）する基礎から始まり、最終的にマルチスレッドを用いた堅牢なダッシュボードを自力で構築できるようになることを目的としたハンズオン学習メディアです。
               </p>
-              <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2.5">
                 <button
                   onClick={() => onSelectChapter('gui-framework-comparison')}
-                  className="flex items-center gap-2 text-sm sm:text-base font-bold text-cyan-700 dark:text-cyan-400 hover:text-cyan-800 dark:hover:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 px-4 py-2.5 rounded-xl transition-colors border border-cyan-200 dark:border-cyan-500/20 hover:border-cyan-300 dark:hover:border-cyan-500/40 cursor-pointer"
+                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-cyan-700 dark:text-cyan-400 hover:text-cyan-800 dark:hover:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 px-3.5 py-2 rounded-xl transition-colors border border-cyan-200 dark:border-cyan-500/20 hover:border-cyan-300 dark:hover:border-cyan-500/40 cursor-pointer shadow-xs"
                 >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  【付録】代表的なGUIフレームワーク比較を読む
+                  <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <span>【付録1】GUI比較（Web/Qt）</span>
+                </button>
+                <button
+                  onClick={() => onSelectChapter('x11-wayland-linux-graphics')}
+                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-3.5 py-2 rounded-xl transition-colors border border-emerald-200 dark:border-emerald-500/20 hover:border-emerald-300 dark:hover:border-emerald-500/40 cursor-pointer shadow-xs"
+                >
+                  <span className="text-base">🖥️</span>
+                  <span>【付録2】X11・MotifとQPAの仕組み</span>
                 </button>
               </div>
             </div>

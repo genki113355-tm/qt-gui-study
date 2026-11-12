@@ -144,7 +144,8 @@ const AppContent: React.FC = () => {
     if (window.location.pathname !== targetPath) {
       window.history.pushState(null, '', targetPath);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // ページ遷移時は余計なスクロールアニメーションを挟まず瞬時にトップへ
+    window.scrollTo(0, 0);
   };
 
   return (

@@ -29,12 +29,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
         />
       )}
       <aside
-        className={`fixed lg:static top-0 left-0 h-full w-72 lg:w-80 max-w-[85vw] bg-white/95 dark:bg-[#0a0f18] text-slate-800 dark:text-slate-100 border-r border-slate-200 dark:border-slate-800/60 z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed lg:sticky top-0 lg:top-14 left-0 h-full lg:h-[calc(100vh-3.5rem)] lg:self-start w-72 lg:w-80 max-w-[85vw] bg-white/95 dark:bg-[#0a0f18] text-slate-800 dark:text-slate-100 border-r border-slate-200 dark:border-slate-800/60 z-40 transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        } flex flex-col shadow-xl lg:shadow-none`}
+        } flex flex-col shadow-xl lg:shadow-none shrink-0`}
       >
-        {/* サイドバーヘッダー */}
-        <div className="h-16 flex items-center justify-between px-5 border-b border-slate-200 dark:border-slate-800/60 bg-gradient-to-r from-sky-50/80 to-white dark:from-[#0d121c] dark:to-[#0a0f18]">
+        {/* サイドバーヘッダー（モバイルのドロワー時のみ表示） */}
+        <div className="h-16 flex items-center justify-between px-5 border-b border-slate-200 dark:border-slate-800/60 bg-gradient-to-r from-sky-50/80 to-white dark:from-[#0d121c] dark:to-[#0a0f18] lg:hidden shrink-0">
           <span className="font-sans font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2.5">
             <img
               src="/images/characters/shirokuma_sensei.png"
@@ -45,7 +45,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </span>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white lg:hidden transition-colors"
+            className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
             aria-label="メニューを閉じる"
           >
             <X className="w-5 h-5" />

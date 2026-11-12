@@ -119,6 +119,34 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
     return title;
   };
 
+  // ヘッダープレビューの見出し・バッジ情報の動的取得
+  const getPreviewHeaderInfo = () => {
+    if (chapter.slug === 'x11-wayland-linux-graphics') {
+      return {
+        badgeText: 'ARCHITECTURE STACK: Linuxグラフィックス階層 ＆ ソナー管制HMIの変遷',
+        subText: 'X11 ↔ QPA (xcb) ↔ Linux Kernel DRM/KMS',
+        colorClass: 'text-emerald-800 dark:text-emerald-300',
+        pulseClass: 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]',
+      };
+    }
+    if (chapter.slug === 'gui-framework-comparison') {
+      return {
+        badgeText: 'FRAMEWORK MATRIX: 産業用HMI・GUIフレームワーク選定マップ',
+        subText: 'Performance vs Resource vs UI Flexibility',
+        colorClass: 'text-sky-800 dark:text-cyan-300',
+        pulseClass: 'bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]',
+      };
+    }
+    return {
+      badgeText: 'TARGET GUI MONITOR: 本章で理解・設計する完成画面イメージ',
+      subText: 'Qt 6.6 / QML ＋ Modern C++20',
+      colorClass: 'text-cyan-800 dark:text-cyan-300',
+      pulseClass: 'bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]',
+    };
+  };
+
+  const previewHeader = getPreviewHeaderInfo();
+
   return (
     <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-12">
       {/* 章ヘッダーバナー（リアルタイムプレビュー付き） */}
@@ -174,15 +202,15 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
             {chapter.description}
           </p>
 
-          {/* 4. 章のテーマに連動したリアルタイム動的HMIプレビュー（明示的な見出し付き） */}
+          {/* 4. 章のテーマに連動したリアルタイム動的HMIプレビュー / コラムアーキテクチャ図解 */}
           <div className="pt-2 space-y-2.5">
             <div className="flex items-center justify-between flex-wrap gap-2 px-1">
-              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold font-mono text-cyan-800 dark:text-cyan-300">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
-                <span>TARGET GUI MONITOR: 本章で理解・設計する完成画面イメージ</span>
+              <div className={`flex items-center gap-2 text-xs sm:text-sm font-bold font-mono ${previewHeader.colorClass}`}>
+                <span className={`w-2.5 h-2.5 rounded-full animate-pulse ${previewHeader.pulseClass}`}></span>
+                <span>{previewHeader.badgeText}</span>
               </div>
               <span className="text-xs font-mono text-slate-500 dark:text-slate-400 hidden sm:inline-block">
-                Qt 6.6 / QML ＋ Modern C++20
+                {previewHeader.subText}
               </span>
             </div>
 

@@ -1,15 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Activity, Cpu, AlertTriangle, Radio, CheckCircle2, Layers } from 'lucide-react';
+import { 
+  Activity, 
+  Cpu, 
+  AlertTriangle, 
+  Radio, 
+  CheckCircle2, 
+  Layers, 
+  Server, 
+  Workflow, 
+  ShieldCheck,
+  Check
+} from 'lucide-react';
 
 interface ChapterVisualPreviewProps {
   chapterId: number;
   slug: string;
 }
 
-export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chapterId }) => {
+export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chapterId, slug }) => {
   const [sliderVal, setSliderVal] = useState<number>(65);
   const [lampOn, setLampOn] = useState<boolean>(false);
   const [clickCount, setClickCount] = useState<number>(42);
+  const [selectedPlugin, setSelectedPlugin] = useState<'xcb' | 'wayland' | 'eglfs'>('xcb');
 
   // 定期的な波形・ランプの点滅アニメーション
   useEffect(() => {
@@ -18,6 +30,258 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
     }, 1400);
     return () => clearInterval(interval);
   }, []);
+
+  // ==========================================================================
+  // 【特別付録2】X11・MotifとQPAアーキテクチャ（Linuxグラフィックススタック）
+  // ==========================================================================
+  if (slug === 'x11-wayland-linux-graphics') {
+    return (
+      <div className="w-full max-w-3xl mx-auto rounded-2xl bg-[#040810] border-2 border-emerald-500/40 p-3 sm:p-5 flex flex-col justify-between font-mono shadow-[0_0_35px_rgba(16,185,129,0.2)] relative overflow-hidden select-none">
+        {/* ウィンドウタイトルバー */}
+        <div className="flex items-center justify-between border-b border-emerald-500/20 pb-2.5">
+          <div className="flex items-center gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-rose-500/90 shadow-xs"></div>
+            <div className="w-3 h-3 rounded-full bg-amber-500/90 shadow-xs"></div>
+            <div className="w-3 h-3 rounded-full bg-emerald-500/90 shadow-xs"></div>
+            <span className="text-xs text-emerald-200 font-bold ml-1.5 truncate">
+              🖥️ Linux Graphics &amp; Sonar HMI Architecture Stack
+            </span>
+          </div>
+          <span className="text-[10px] px-2 py-0.5 rounded-md bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-bold shrink-0">
+            X11 / Wayland / DRM-KMS
+          </span>
+        </div>
+
+        {/* 2カラム構成：左＝Linuxグラフィックス階層スタック、右＝ソナー・防衛管制GUIの変遷史 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 my-3">
+          {/* 左カラム: QPAとOSウィンドウシステムの階層構造 */}
+          <div className="bg-[#080d1a] p-3 rounded-xl border border-emerald-500/20 flex flex-col justify-between space-y-2">
+            <div className="text-xs font-bold text-emerald-400 flex items-center justify-between border-b border-slate-800 pb-1.5">
+              <span className="flex items-center gap-1.5">
+                <Workflow className="w-3.5 h-3.5" />
+                <span>Linux Graphics Layers</span>
+              </span>
+              <span className="text-[9px] text-slate-400 font-normal">Data Flow ↓</span>
+            </div>
+
+            {/* 1. アプリケーション層 */}
+            <div className="p-2 rounded-lg bg-slate-900/90 border border-cyan-500/30 text-[11px] text-center">
+              <span className="text-cyan-300 font-bold block">1. Qt 6 Application (C++ / QML)</span>
+              <span className="text-[9px] text-slate-400">GUI Logic, Multithreading, Realtime Signal</span>
+            </div>
+
+            {/* 2. QPA層（インタラクティブ切替） */}
+            <div className="p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/40 text-[10px] space-y-1.5">
+              <div className="flex justify-between items-center text-emerald-300 font-bold">
+                <span>2. QPA (Qt Platform Abstraction)</span>
+                <span className="text-[8px] text-emerald-400 bg-emerald-900/50 px-1 rounded">動的プラグイン</span>
+              </div>
+              <div className="grid grid-cols-3 gap-1 text-[9px] text-center">
+                <button
+                  onClick={() => setSelectedPlugin('xcb')}
+                  className={`py-1 rounded border cursor-pointer transition ${
+                    selectedPlugin === 'xcb'
+                      ? 'bg-cyan-500 text-slate-950 font-bold border-cyan-400 shadow-xs'
+                      : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
+                  }`}
+                >
+                  xcb (X11)
+                </button>
+                <button
+                  onClick={() => setSelectedPlugin('wayland')}
+                  className={`py-1 rounded border cursor-pointer transition ${
+                    selectedPlugin === 'wayland'
+                      ? 'bg-emerald-500 text-slate-950 font-bold border-emerald-400 shadow-xs'
+                      : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
+                  }`}
+                >
+                  wayland
+                </button>
+                <button
+                  onClick={() => setSelectedPlugin('eglfs')}
+                  className={`py-1 rounded border cursor-pointer transition ${
+                    selectedPlugin === 'eglfs'
+                      ? 'bg-amber-500 text-slate-950 font-bold border-amber-400 shadow-xs'
+                      : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
+                  }`}
+                >
+                  eglfs (組込)
+                </button>
+              </div>
+            </div>
+
+            {/* 3. ディスプレイサーバー / OSカーネル層 */}
+            <div className="p-2 rounded-lg bg-[#02050c] border border-slate-800 text-[10px] space-y-1">
+              <span className="text-slate-300 font-bold block">3. Display Server &amp; Kernel</span>
+              {selectedPlugin === 'xcb' && (
+                <div className="text-[9px] text-cyan-300">
+                  ➔ X11 Server (/tmp/.X11-unix/X0, DISPLAY=:0) ネットワーク透過
+                </div>
+              )}
+              {selectedPlugin === 'wayland' && (
+                <div className="text-[9px] text-emerald-300">
+                  ➔ Wayland Compositor (共有バッファ直結・テアリングゼロ)
+                </div>
+              )}
+              {selectedPlugin === 'eglfs' && (
+                <div className="text-[9px] text-amber-300">
+                  ➔ Linux Kernel DRM/KMS 直接占有 (起動1秒未満・最速組込み)
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* 右カラム: ソナー・管制HMIの3世代進化系譜 */}
+          <div className="bg-[#080d1a] p-3 rounded-xl border border-emerald-500/20 flex flex-col justify-between space-y-2">
+            <div className="text-xs font-bold text-emerald-400 flex items-center justify-between border-b border-slate-800 pb-1.5">
+              <span className="flex items-center gap-1.5">
+                <Server className="w-3.5 h-3.5" />
+                <span>Sonar HMI Evolution</span>
+              </span>
+              <span className="text-[9px] text-amber-400 font-mono">1990s ➔ 2020s</span>
+            </div>
+
+            <div className="space-y-2 text-[10px]">
+              {/* 1990s */}
+              <div className="p-2 rounded-lg bg-slate-900/60 border border-slate-800">
+                <div className="flex justify-between items-center text-slate-300 font-bold">
+                  <span>🏛️ 1990s: UNIX ＋ OSF/Motif</span>
+                  <span className="text-[8px] text-slate-500">Solaris / IRIX</span>
+                </div>
+                <p className="text-[9px] text-slate-400 mt-0.5">
+                  無骨なグレー立体ボタン。XtCallbackProc による C言語コールバック地獄。
+                </p>
+              </div>
+
+              {/* 2000s */}
+              <div className="p-2 rounded-lg bg-slate-900/60 border border-cyan-900/40">
+                <div className="flex justify-between items-center text-cyan-300 font-bold">
+                  <span>🌊 2000s: Linux ＋ Xlib ＋ OpenGL</span>
+                  <span className="text-[8px] text-cyan-400">COTS化</span>
+                </div>
+                <p className="text-[9px] text-slate-400 mt-0.5">
+                  GLXサーフェス直結。LOFARウォーターフォール波形を毎秒数千ライン描画。
+                </p>
+              </div>
+
+              {/* 2020s */}
+              <div className="p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/40">
+                <div className="flex justify-between items-center text-emerald-300 font-bold">
+                  <span>🚀 2020s: Modern Linux ＋ Qt 6 QML</span>
+                  <span className="text-[8px] text-emerald-400 font-bold">現役標準</span>
+                </div>
+                <p className="text-[9px] text-slate-300 mt-0.5">
+                  QQuickPaintedItem ＋ Qt Graphs。C++20マルチスレッドと60fps GPU描画の完全融合。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 下部ステータスバー */}
+        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-[10px] text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
+          <span className="text-emerald-400 font-bold flex items-center gap-1">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            xcbエラー完全解剖：QT_DEBUG_PLUGINS=1 で依存欠落を特定
+          </span>
+          <span className="text-cyan-300 font-mono">QPA Plugin: libqxcb.so</span>
+        </div>
+      </div>
+    );
+  }
+
+  // ==========================================================================
+  // 【特別付録1】GUIフレームワーク比較（ポジショニングマップ）
+  // ==========================================================================
+  if (slug === 'gui-framework-comparison') {
+    return (
+      <div className="w-full max-w-3xl mx-auto rounded-2xl bg-[#040810] border-2 border-cyan-500/40 p-3 sm:p-5 flex flex-col justify-between font-mono shadow-[0_0_35px_rgba(6,182,212,0.2)] relative overflow-hidden select-none">
+        {/* ウィンドウタイトルバー */}
+        <div className="flex items-center justify-between border-b border-cyan-500/20 pb-2.5">
+          <div className="flex items-center gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-rose-500/90 shadow-xs"></div>
+            <div className="w-3 h-3 rounded-full bg-amber-500/90 shadow-xs"></div>
+            <div className="w-3 h-3 rounded-full bg-emerald-500/90 shadow-xs"></div>
+            <span className="text-xs text-cyan-200 font-bold ml-1.5 truncate">
+              📊 GUI Framework Positioning &amp; Performance Matrix
+            </span>
+          </div>
+          <span className="text-[10px] px-2 py-0.5 rounded-md bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold shrink-0">
+            Industrial vs Desktop
+          </span>
+        </div>
+
+        {/* 3大アプローチの比較マトリックスカード */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-3">
+          {/* 1. Web系 (Electron / Tauri) */}
+          <div className="bg-[#080d1a] p-3 rounded-xl border border-slate-800 flex flex-col justify-between space-y-2">
+            <div>
+              <div className="flex items-center justify-between border-b border-slate-800 pb-1">
+                <span className="text-xs font-bold text-slate-200">Web / Chromium</span>
+                <span className="text-[9px] text-slate-500">Electron</span>
+              </div>
+              <div className="mt-2 space-y-1 text-[10px] text-slate-400">
+                <div>開発速度: <span className="text-emerald-400 font-bold">★★★★★</span></div>
+                <div>メモリ効率: <span className="text-rose-400 font-bold">★☆☆☆☆ (150MB+)</span></div>
+                <div>60FPS安定性: <span className="text-amber-400 font-bold">★★☆☆☆ (GC遅延)</span></div>
+              </div>
+            </div>
+            <div className="text-[9px] text-slate-500 border-t border-slate-850 pt-1.5">
+              主な用途: Slack, VSCode, 一般業務Webツール
+            </div>
+          </div>
+
+          {/* 2. 即値モード (Dear ImGui) */}
+          <div className="bg-[#080d1a] p-3 rounded-xl border border-slate-800 flex flex-col justify-between space-y-2">
+            <div>
+              <div className="flex items-center justify-between border-b border-slate-800 pb-1">
+                <span className="text-xs font-bold text-slate-200">Immediate Mode</span>
+                <span className="text-[9px] text-slate-500">Dear ImGui</span>
+              </div>
+              <div className="mt-2 space-y-1 text-[10px] text-slate-400">
+                <div>超軽量性: <span className="text-emerald-400 font-bold">★★★★★ (数MB)</span></div>
+                <div>導入速度: <span className="text-emerald-400 font-bold">★★★★★</span></div>
+                <div>産業用画面: <span className="text-rose-400 font-bold">★★☆☆☆ (装飾不向き)</span></div>
+              </div>
+            </div>
+            <div className="text-[9px] text-slate-500 border-t border-slate-850 pt-1.5">
+              主な用途: ゲーム内デバッグ、社内ツール、プロトタイプ
+            </div>
+          </div>
+
+          {/* 3. 産業用ネイティブ (Qt 6 / C++) */}
+          <div className="bg-gradient-to-b from-cyan-950/40 to-[#080d1a] p-3 rounded-xl border-2 border-cyan-400/50 flex flex-col justify-between space-y-2 shadow-lg relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-cyan-500 text-slate-950 text-[8px] font-black px-2 py-0.5 rounded-bl">
+              現場標準
+            </div>
+            <div>
+              <div className="flex items-center justify-between border-b border-cyan-500/20 pb-1">
+                <span className="text-xs font-bold text-cyan-300">Qt 6 ＋ C++20</span>
+                <span className="text-[9px] text-cyan-400 font-mono">QML/Native</span>
+              </div>
+              <div className="mt-2 space-y-1 text-[10px] text-slate-300">
+                <div>リアルタイム性: <span className="text-cyan-300 font-bold">★★★★★ (低遅延)</span></div>
+                <div>60FPS安定性: <span className="text-emerald-400 font-bold">★★★★★ (GCなし)</span></div>
+                <div>ハード制御: <span className="text-cyan-300 font-bold">★★★★★ (C++直結)</span></div>
+              </div>
+            </div>
+            <div className="text-[9px] text-cyan-300 font-semibold border-t border-cyan-500/20 pt-1.5">
+              主な用途: 自動車コックピット、ソナー・防衛、医療、FA機器
+            </div>
+          </div>
+        </div>
+
+        {/* 下部ステータスバー */}
+        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-[10px] text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
+          <span className="text-cyan-300 font-bold flex items-center gap-1">
+            <Check className="w-3.5 h-3.5 text-cyan-400" />
+            ミッションクリティカルな60FPS保証とC++ハード制御なら「Qt」が唯一解
+          </span>
+          <span className="text-slate-400 font-mono">Multi-Platform (Linux/Win/Embedded)</span>
+        </div>
+      </div>
+    );
+  }
 
   // --------------------------------------------------------------------------
   // 0. Ch.0: 準備編（Qt Creator ＋ CMake ＋ 最初のGUIウィンドウ起動イメージ）
@@ -206,7 +470,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
     return (
       <div className="w-full max-w-2xl mx-auto rounded-2xl bg-[#040810] border-2 border-cyan-500/40 p-3 sm:p-4 flex flex-col justify-between font-mono shadow-2xl relative overflow-hidden select-none">
         <div className="flex items-center justify-between border-b border-cyan-500/20 pb-2">
-          <span className="text-xs text-cyan-300 font-bold">⚡ Signal & Slot Architecture Monitor</span>
+          <span className="text-xs text-cyan-300 font-bold">⚡ Signal &amp; Slot Architecture Monitor</span>
           <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${lampOn ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-slate-800 text-slate-500'}`}>
             {lampOn ? '● SIGNAL RECEIVED' : '○ IDLE (WAITING)'}
           </span>
@@ -293,7 +557,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
   }
 
   // --------------------------------------------------------------------------
-  // 4. Ch.5〜6: メーター・計器盤 (Gauge & Dial)
+  // 4. Ch.5〜6: メーター・計器盤 (Gauge &amp; Dial)
   // --------------------------------------------------------------------------
   if (chapterId <= 6) {
     const angle = (sliderVal / 100) * 180 - 90;
@@ -355,13 +619,13 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
   }
 
   // --------------------------------------------------------------------------
-  // 5. Ch.7〜8: リアルタイム波形描画 & ソケット通信 (QUdpSocket)
+  // 5. Ch.7〜8: リアルタイム波形描画 &amp; ソケット通信 (QUdpSocket)
   // --------------------------------------------------------------------------
   if (chapterId <= 8) {
     return (
       <div className="w-full max-w-2xl mx-auto rounded-2xl bg-[#040810] border-2 border-cyan-500/40 p-3 sm:p-4 flex flex-col justify-between font-mono shadow-2xl relative overflow-hidden select-none">
         <div className="flex items-center justify-between border-b border-cyan-500/20 pb-2">
-          <span className="text-xs text-cyan-300 font-bold">📡 QUdpSocket & Qt Graphs Stream</span>
+          <span className="text-xs text-cyan-300 font-bold">📡 QUdpSocket &amp; Qt Graphs Stream</span>
           <span className="text-[10px] px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-bold">
             1000Hz Non-blocking
           </span>
@@ -385,7 +649,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
   }
 
   // --------------------------------------------------------------------------
-  // 6. Ch.9〜10: マルチスレッド & パフォーマンス最適化
+  // 6. Ch.9〜10: マルチスレッド &amp; パフォーマンス最適化
   // --------------------------------------------------------------------------
   if (chapterId <= 10) {
     return (

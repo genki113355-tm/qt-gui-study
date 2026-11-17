@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
                     シロクマ技術総合ポータル（全ラボの学習記録を集約）
                   </span>
                   <p className="text-xs text-slate-600 dark:text-slate-400 font-sans mt-0.5">
-                    C++設計・開発自動化・Qt GUI・ソナー音響・ネスペ対策・AIパスポートの総合学習プラットフォーム
+                    C++設計・開発自動化・Qt GUI・ソナー音響・Linux/Git・ネスペ・組込みES・AIパスポートの総合学習プラットフォーム
                   </p>
                 </div>
               </div>
@@ -48,8 +48,8 @@ export const Footer: React.FC = () => {
               </span>
             </a>
 
-            {/* 5つの専門ラボカード */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+            {/* 8つの専門ラボカード */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {/* リンク1: シロクマC++ラボ */}
               <a
                 href="/cpp/"
@@ -62,7 +62,7 @@ export const Footer: React.FC = () => {
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
                       <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
-                        LAB 1
+                        C++
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition text-xs font-sans truncate block">
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
                       <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-amber-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700/50">
-                        LAB 2
+                        AUTO
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition text-xs font-sans truncate block">
@@ -100,7 +100,7 @@ export const Footer: React.FC = () => {
                 </div>
               </a>
 
-              {/* リンク3: 水中音響・ソナー */}
+              {/* リンク3: 水中音響・ソナー入門 */}
               <a
                 href="/sonar/"
                 className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-blue-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-blue-400/60 dark:hover:border-blue-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] text-left"
@@ -112,7 +112,7 @@ export const Footer: React.FC = () => {
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
                       <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-blue-700 dark:text-blue-400 border border-slate-200 dark:border-slate-700/50">
-                        LAB 4
+                        SONAR
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition text-xs font-sans truncate block">
@@ -125,19 +125,69 @@ export const Footer: React.FC = () => {
                 </div>
               </a>
 
-              {/* リンク4: ネスペ直前対策ナビ */}
+              {/* リンク4: 水中音響 ADVANCED */}
+              <a
+                href="/sonar-tech/"
+                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-cyan-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-cyan-400/60 dark:hover:border-cyan-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.1)] text-left"
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
+                    🐬
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1 mb-0.5">
+                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
+                        SONAR ADV
+                      </span>
+                    </div>
+                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition text-xs font-sans truncate block">
+                      水中音響 ADVANCED
+                    </span>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                      数理物理 / 空間フィルタ / MVDR
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              {/* リンク5: Linux・Git実践ラボ */}
+              <a
+                href="/linux/"
+                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-orange-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-orange-400/60 dark:hover:border-orange-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(249,115,22,0.1)] text-left"
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
+                    🐧
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1 mb-0.5">
+                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-orange-700 dark:text-orange-400 border border-slate-200 dark:border-slate-700/50">
+                        LINUX
+                      </span>
+                    </div>
+                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition text-xs font-sans truncate block">
+                      Linux・Git実践ラボ
+                    </span>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                      LinuC &amp; Git実践マスター
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              {/* リンク6: ネスペ直前対策ナビ */}
               <a
                 href="/nw/"
                 className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-sky-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-sky-400/60 dark:hover:border-sky-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] text-left"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
-                    🛡️
+                    🌐
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
                       <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-sky-700 dark:text-sky-400 border border-slate-200 dark:border-slate-700/50">
-                        LAB 5
+                        NW
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition text-xs font-sans truncate block">
@@ -150,10 +200,35 @@ export const Footer: React.FC = () => {
                 </div>
               </a>
 
-              {/* リンク5: AIパスポートラボ */}
+              {/* リンク7: 組込みES対策ラボ */}
+              <a
+                href="/es/"
+                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-teal-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-teal-400/60 dark:hover:border-teal-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(20,184,166,0.1)] text-left"
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
+                    💾
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1 mb-0.5">
+                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-teal-700 dark:text-teal-400 border border-slate-200 dark:border-slate-700/50">
+                        ES
+                      </span>
+                    </div>
+                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition text-xs font-sans truncate block">
+                      組込みES対策ラボ
+                    </span>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                      組込みスペシャリスト合格戦略
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              {/* リンク8: AIパスポートラボ */}
               <a
                 href="/ai-passport/"
-                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-purple-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-purple-400/60 dark:hover:border-purple-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] text-left"
+                className="group flex items-center justify-between gap-3 p-3 rounded-2xl bg-white/90 dark:bg-[#0f1522] hover:bg-cyan-50/50 dark:hover:bg-[#131b2c] border border-slate-200 dark:border-slate-800 hover:border-cyan-400/60 dark:hover:border-cyan-500/30 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.1)] text-left"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#0a0f18] border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-lg flex-shrink-0">
@@ -161,15 +236,15 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-purple-700 dark:text-purple-400 border border-slate-200 dark:border-slate-700/50">
-                        LAB 6
+                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
+                        AI
                       </span>
                     </div>
-                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition text-xs font-sans truncate block">
+                    <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition text-xs font-sans truncate block">
                       AIパスポートラボ
                     </span>
                     <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
-                      生成AIシラバス / 過去問演習
+                      生成AIシラバス / 400問演習
                     </p>
                   </div>
                 </div>

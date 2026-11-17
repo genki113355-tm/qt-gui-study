@@ -187,7 +187,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   </div>
                 </div>
                 <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
-                  全4ラボの学習記録を集約
+                  全専門ラボの学習記録を集約
                 </div>
               </div>
               <span className="text-xs text-sky-600 dark:text-cyan-400 font-mono flex-shrink-0">➔</span>
@@ -196,16 +196,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {/* 1. シロクマC++ラボ */}
             <a
               href="/cpp/"
-              className="group flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-sky-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-cyan-500/40 transition shadow-xs"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-sky-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-cyan-500/40 transition shadow-xs"
             >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-sm">👾</span>
-                  <div className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-cyan-300 font-sans truncate">
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-cyan-300 font-sans truncate">
                     シロクマC++ラボ
                   </div>
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   ゲーム開発で学ぶC++設計
                 </div>
               </div>
@@ -215,39 +215,134 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {/* 2. シロクマC++自動化ラボ */}
             <a
               href="/auto/"
-              className="group flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-amber-50/50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-500/40 transition shadow-xs"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-amber-50/50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-500/40 transition shadow-xs"
             >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-sm">⚡</span>
-                  <div className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-amber-600 dark:group-hover:text-amber-300 font-sans truncate">
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-amber-600 dark:group-hover:text-amber-300 font-sans truncate">
                     シロクマC++自動化ラボ
                   </div>
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   Docker / pybind11 / 自動評価
                 </div>
               </div>
               <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-amber-500 dark:group-hover:text-amber-400 font-mono flex-shrink-0">↗</span>
             </a>
 
-            {/* 3. 水中音響・ソナー技術入門 */}
+            {/* 3. 水中音響・ソナー入門 */}
             <a
               href="/sonar/"
-              className="group flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-blue-50/50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-500/40 transition shadow-xs"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-blue-50/50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-500/40 transition shadow-xs"
             >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-sm">🌊</span>
-                  <div className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-300 font-sans truncate">
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-300 font-sans truncate">
                     水中音響・ソナー入門
                   </div>
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   波の物理 / FFT / 音響解析
                 </div>
               </div>
               <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 font-mono flex-shrink-0">↗</span>
+            </a>
+
+            {/* 4. 水中音響ラボ ADVANCED */}
+            <a
+              href="/sonar-tech/"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-cyan-50/50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-cyan-300 dark:hover:border-cyan-500/40 transition shadow-xs"
+            >
+              <div className="min-w-0 pr-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm">🐬</span>
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 font-sans truncate">
+                    水中音響 ADVANCED
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                  数理物理 / 空間フィルタ / MVDR
+                </div>
+              </div>
+              <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 font-mono flex-shrink-0">↗</span>
+            </a>
+
+            {/* 5. Linux・Git実践ラボ */}
+            <a
+              href="/linux/"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-orange-50/50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-orange-300 dark:hover:border-orange-500/40 transition shadow-xs"
+            >
+              <div className="min-w-0 pr-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm">🐧</span>
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-orange-600 dark:group-hover:text-orange-300 font-sans truncate">
+                    Linux・Git実践ラボ
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                  LinuC &amp; Git実践マスター
+                </div>
+              </div>
+              <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-orange-500 dark:group-hover:text-orange-400 font-mono flex-shrink-0">↗</span>
+            </a>
+
+            {/* 6. ネスペ直前対策ラボ */}
+            <a
+              href="/nw/"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-sky-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-sky-500/40 transition shadow-xs"
+            >
+              <div className="min-w-0 pr-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm">🌐</span>
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-300 font-sans truncate">
+                    ネスペ直前対策ラボ
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                  NW試験対策 / 直前攻略
+                </div>
+              </div>
+              <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-sky-500 dark:group-hover:text-sky-400 font-mono flex-shrink-0">↗</span>
+            </a>
+
+            {/* 7. 組込みES対策ラボ */}
+            <a
+              href="/es/"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-teal-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-teal-300 dark:hover:border-teal-500/40 transition shadow-xs"
+            >
+              <div className="min-w-0 pr-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm">💾</span>
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-teal-600 dark:group-hover:text-teal-300 font-sans truncate">
+                    組込みES対策ラボ
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                  エンベデッドスペシャリスト対策
+                </div>
+              </div>
+              <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-teal-500 dark:group-hover:text-teal-400 font-mono flex-shrink-0">↗</span>
+            </a>
+
+            {/* 8. AIパスポート対策ラボ */}
+            <a
+              href="/ai-passport/"
+              className="group flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-cyan-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-cyan-300 dark:hover:border-cyan-500/40 transition shadow-xs"
+            >
+              <div className="min-w-0 pr-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm">🤖</span>
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 font-sans truncate">
+                    AIパスポートラボ
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                  生成AI試験 / 厳選400問演習
+                </div>
+              </div>
+              <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 font-mono flex-shrink-0">↗</span>
             </a>
           </div>
 

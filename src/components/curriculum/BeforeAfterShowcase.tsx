@@ -152,7 +152,7 @@ public:
       {/* 5大指標の対比テーブル */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-1">
-          <span className="text-[10px] font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">結合度 (Coupling)</span>
+          <span className="text-xs font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">結合度 (Coupling)</span>
           <div className="text-xs font-bold text-rose-400 line-through">超密結合 (Spaghetti)</div>
           <div className="text-xs font-bold text-emerald-400 flex items-center gap-1">
             <span>➔ 完全疎結合 (Decoupled)</span>
@@ -160,7 +160,7 @@ public:
         </div>
 
         <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-1">
-          <span className="text-[10px] font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">単一責任 (SRP)</span>
+          <span className="text-xs font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">単一責任 (SRP)</span>
           <div className="text-xs font-bold text-rose-400 line-through">1クラスが10個の仕事</div>
           <div className="text-xs font-bold text-emerald-400 flex items-center gap-1">
             <span>➔ 1クラス1責務に特化</span>
@@ -168,7 +168,7 @@ public:
         </div>
 
         <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-1">
-          <span className="text-[10px] font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">開閉原則 (OCP)</span>
+          <span className="text-xs font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">開閉原則 (OCP)</span>
           <div className="text-xs font-bold text-rose-400 line-through">新敵追加で既存switch破壊</div>
           <div className="text-xs font-bold text-emerald-400 flex items-center gap-1">
             <span>➔ 既存コード変更ゼロ拡張</span>
@@ -176,7 +176,7 @@ public:
         </div>
 
         <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-1">
-          <span className="text-[10px] font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">メモリ安全性</span>
+          <span className="text-xs font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">メモリ安全性</span>
           <div className="text-xs font-bold text-rose-400 line-through">二重解放・リークのリスク</div>
           <div className="text-xs font-bold text-emerald-400 flex items-center gap-1">
             <span>➔ RAIIでリーク率 0%</span>
@@ -184,7 +184,7 @@ public:
         </div>
 
         <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-1 col-span-2 md:col-span-1">
-          <span className="text-[10px] font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">テスト容易性</span>
+          <span className="text-xs font-mono font-bold text-slate-600 dark:text-slate-400 uppercase">テスト容易性</span>
           <div className="text-xs font-bold text-rose-400 line-through">手動キーボードプレイのみ</div>
           <div className="text-xs font-bold text-emerald-400 flex items-center gap-1">
             <span>➔ GoogleTest自動検証</span>
@@ -195,46 +195,46 @@ public:
       {/* コード対比ビュー */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {(viewMode === 'sideBySide' || viewMode === 'stage1') && (
-          <div className={`rounded-3xl border border-rose-500/40 bg-slate-950 overflow-hidden shadow-2xl ${
+          <div className={`rounded-3xl border border-rose-500/40 bg-slate-950 overflow-hidden shadow-2xl min-w-0 ${
             viewMode === 'stage1' ? 'lg:col-span-2' : ''
           }`}>
-            <div className="px-5 py-3.5 bg-gradient-to-r from-rose-950/80 to-slate-900 border-b border-rose-500/30 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-lg bg-rose-500 text-slate-950 flex items-center justify-center font-black text-xs">
+            <div className="px-5 py-3.5 bg-gradient-to-r from-rose-950/80 to-slate-900 border-b border-rose-500/30 flex items-center justify-between gap-2 flex-wrap">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="w-6 h-6 rounded-lg bg-rose-500 text-slate-950 flex items-center justify-center font-black text-xs shrink-0">
                   1
                 </span>
-                <span className="font-bold font-mono text-sm text-rose-200">
+                <span className="font-bold font-mono text-sm text-rose-200 truncate">
                   Stage 1: 最初期コード（全部入り神クラス）
                 </span>
               </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-500/30">
+              <span className="text-xs font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/30 shrink-0">
                 アンチパターンの温床
               </span>
             </div>
-            <pre className="p-5 text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto leading-relaxed max-h-[500px]">
+            <pre className="p-5 text-xs font-mono text-slate-200 w-full max-w-full overflow-x-auto leading-relaxed max-h-[500px]">
               <code>{stage1Code}</code>
             </pre>
           </div>
         )}
 
         {(viewMode === 'sideBySide' || viewMode === 'stage10') && (
-          <div className={`rounded-3xl border border-emerald-500/40 bg-slate-950 overflow-hidden shadow-2xl ${
+          <div className={`rounded-3xl border border-emerald-500/40 bg-slate-950 overflow-hidden shadow-2xl min-w-0 ${
             viewMode === 'stage10' ? 'lg:col-span-2' : ''
           }`}>
-            <div className="px-5 py-3.5 bg-gradient-to-r from-emerald-950/80 to-slate-900 border-b border-emerald-500/30 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-lg bg-emerald-400 text-slate-950 flex items-center justify-center font-black text-xs">
+            <div className="px-5 py-3.5 bg-gradient-to-r from-emerald-950/80 to-slate-900 border-b border-emerald-500/30 flex items-center justify-between gap-2 flex-wrap">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="w-6 h-6 rounded-lg bg-emerald-400 text-slate-950 flex items-center justify-center font-black text-xs shrink-0">
                   10
                 </span>
-                <span className="font-bold font-mono text-sm text-emerald-200">
+                <span className="font-bold font-mono text-sm text-emerald-200 truncate">
                   Stage 10: 最終完成形（ECS ＋ RAII ＋ クリーン設計）
                 </span>
               </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30">
+              <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30 shrink-0">
                 商用レベルの堅牢性
               </span>
             </div>
-            <pre className="p-5 text-xs font-mono text-emerald-200 overflow-x-auto leading-relaxed max-h-[500px]">
+            <pre className="p-5 text-xs font-mono text-emerald-200 w-full max-w-full overflow-x-auto leading-relaxed max-h-[500px]">
               <code>{stage10Code}</code>
             </pre>
           </div>

@@ -95,7 +95,7 @@ export const CodeChallengeRunner: React.FC<CodeChallengeRunnerProps> = ({ challe
             <span>【{challenge.chapterBadge} 実践ハンズオン演習】</span>
           </div>
 
-          <span className="text-[11px] font-mono text-emerald-400 px-2.5 py-1 rounded bg-slate-900 border border-emerald-500/30 font-bold">
+          <span className="text-xs font-mono text-emerald-400 px-2.5 py-1 rounded bg-slate-900 border border-emerald-500/30 font-bold">
             ⚡ 本物GCC (C++23) 即時実行
           </span>
         </div>
@@ -127,7 +127,7 @@ export const CodeChallengeRunner: React.FC<CodeChallengeRunnerProps> = ({ challe
         {/* 🔰 実践ハンズオン演習の進め方（3ステップ・ガイド） */}
         <div className="p-4 sm:p-5 rounded-2xl bg-cyan-950/30 border border-cyan-500/30 text-xs sm:text-sm text-cyan-200 shadow-inner">
           <div className="font-bold text-cyan-300 flex items-center gap-2 mb-2 flex-wrap">
-            <span className="px-2.5 py-0.5 rounded-full bg-cyan-900/90 text-cyan-200 border border-cyan-400/40 text-[11px] font-mono font-bold">
+            <span className="px-2.5 py-0.5 rounded-full bg-cyan-900/90 text-cyan-200 border border-cyan-400/40 text-xs font-mono font-bold">
               🔰 はじめての方へ：演習の進め方
             </span>
             <span className="text-xs text-slate-600 dark:text-slate-400 font-normal">（迷わず3ステップでクリアできます！）</span>
@@ -138,7 +138,7 @@ export const CodeChallengeRunner: React.FC<CodeChallengeRunnerProps> = ({ challe
               <span className="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 font-bold font-mono text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
               <div>
                 <span className="font-bold text-white block text-xs sm:text-sm">ミッションを確認</span>
-                <span className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed block mt-1">上の「課題」と「指導官の助言」を読んで達成目標を掴みます。</span>
+                <span className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed block mt-1">上の「課題」と「指導官の助言」を読んで達成目標を掴みます。</span>
               </div>
             </div>
 
@@ -147,9 +147,9 @@ export const CodeChallengeRunner: React.FC<CodeChallengeRunnerProps> = ({ challe
               <div>
                 <span className="font-bold text-cyan-300 block text-xs sm:text-sm flex items-center gap-1.5">
                   <span>コードを直接編集</span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold">文字入力OK</span>
+                  <span className="text-xs px-1.5 py-0.2 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold">文字入力OK</span>
                 </span>
-                <span className="text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed block mt-1">
+                <span className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed block mt-1">
                   下のエディタ内をクリックすると直接キーボード入力できます。<code className="text-amber-300 bg-slate-950 px-1.5 py-0.5 rounded font-mono">// TODO:</code> の箇所を修正しましょう！
                 </span>
               </div>
@@ -159,7 +159,7 @@ export const CodeChallengeRunner: React.FC<CodeChallengeRunnerProps> = ({ challe
               <span className="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 font-bold font-mono text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
               <div>
                 <span className="font-bold text-white block text-xs sm:text-sm">テストを実行！</span>
-                <span className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed block mt-1">下の「▶ コードをテスト実行する」を押すと本物のGCCコンパイラが自動判定します。</span>
+                <span className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed block mt-1">下の「▶ コードをテスト実行する」を押すと本物のGCCコンパイラが自動判定します。</span>
               </div>
             </div>
           </div>
@@ -270,12 +270,12 @@ export const CodeChallengeRunner: React.FC<CodeChallengeRunnerProps> = ({ challe
                 setCode(challenge.solutionCode);
                 setShowSolution(false);
               }}
-              className="text-[11px] text-cyan-400 hover:underline flex items-center gap-1"
+              className="text-xs text-cyan-400 hover:underline flex items-center gap-1"
             >
               <span>この解答をエディタにセットする</span>
             </button>
           </div>
-          <pre className="p-3 rounded-xl bg-slate-950 text-emerald-300 overflow-x-auto whitespace-pre font-mono text-xs">
+          <pre className="p-3 rounded-xl bg-slate-950 text-emerald-300 w-full max-w-full overflow-x-auto whitespace-pre font-mono text-xs">
             <code>{challenge.solutionCode}</code>
           </pre>
         </div>
@@ -289,7 +289,7 @@ export const CodeChallengeRunner: React.FC<CodeChallengeRunnerProps> = ({ challe
               <Terminal className="w-4 h-4 text-cyan-400" />
               <span>実行結果コンソール</span>
             </span>
-            <span className="text-[11px]">
+            <span className="text-xs">
               終了コード: <span className={result.status === 0 ? 'text-emerald-400' : 'text-rose-400'}>{result.status}</span>
               {result.executionTimeMs !== undefined && ` (${result.executionTimeMs}ms)`}
             </span>
@@ -300,7 +300,7 @@ export const CodeChallengeRunner: React.FC<CodeChallengeRunnerProps> = ({ challe
             {/* コンパイルエラー */}
             {result.compiler_error && (
               <div className="text-rose-400 whitespace-pre-wrap leading-relaxed pb-2">
-                <span className="px-2 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-[10px] font-bold text-rose-300 mr-2">
+                <span className="px-2 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-xs font-bold text-rose-300 mr-2">
                   COMPILER ERROR
                 </span>
                 {result.compiler_error}
@@ -330,7 +330,7 @@ export const CodeChallengeRunner: React.FC<CodeChallengeRunnerProps> = ({ challe
             {/* 実行時エラー */}
             {result.program_error && (
               <div className="text-rose-400 whitespace-pre-wrap leading-relaxed pt-2 border-t border-slate-200 dark:border-slate-800">
-                <span className="px-2 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-[10px] font-bold text-rose-300 mr-2">
+                <span className="px-2 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-xs font-bold text-rose-300 mr-2">
                   RUNTIME ERROR
                 </span>
                 {result.program_error}

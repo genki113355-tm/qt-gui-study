@@ -309,7 +309,7 @@ export const UmlCodeInspector: React.FC<UmlCodeInspectorProps> = ({
             e.stopPropagation();
             setIsMinimized(false);
           }}
-          className="px-2 py-0.5 rounded bg-cyan-950 hover:bg-cyan-900 border border-cyan-500/40 text-[11px] text-cyan-200 ml-1 transition-colors"
+          className="px-2 py-0.5 rounded bg-cyan-950 hover:bg-cyan-900 border border-cyan-500/40 text-xs text-cyan-200 ml-1 transition-colors"
         >
           展開 ⤢
         </button>
@@ -358,7 +358,7 @@ export const UmlCodeInspector: React.FC<UmlCodeInspectorProps> = ({
           <GripHorizontal className="w-4 h-4 text-cyan-400/70 shrink-0 mr-0.5" />
 
           <span
-            className={`px-1.5 py-0.5 rounded text-[10px] font-mono font-bold border ${vis.bg}`}
+            className={`px-1.5 py-0.5 rounded text-xs font-mono font-bold border ${vis.bg}`}
           >
             {vis.label}
           </span>
@@ -367,11 +367,11 @@ export const UmlCodeInspector: React.FC<UmlCodeInspectorProps> = ({
             <span className="text-cyan-400 font-bold">{cls.name}::</span>
             <span className="text-white font-bold truncate">{member.name}</span>
             <span className="text-slate-500">:</span>
-            <span className="text-emerald-300 text-[11px]">{member.type}</span>
+            <span className="text-emerald-300 text-xs">{member.type}</span>
           </div>
 
           {member.codeLineRef?.line && (
-            <span className="text-[10px] font-mono text-cyan-300 bg-cyan-950 px-1.5 py-0.5 rounded border border-cyan-500/40 shrink-0">
+            <span className="text-xs font-mono text-cyan-300 bg-cyan-950 px-1.5 py-0.5 rounded border border-cyan-500/40 shrink-0">
               L{member.codeLineRef.line}
             </span>
           )}
@@ -430,7 +430,7 @@ export const UmlCodeInspector: React.FC<UmlCodeInspectorProps> = ({
                 <button
                   key={file.filename}
                   onClick={() => setActiveFileIndex(idx)}
-                  className={`flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-mono transition-all ${
+                  className={`flex items-center gap-1 px-2.5 py-1 rounded text-xs font-mono transition-all ${
                     isActive
                       ? "bg-cyan-950 text-cyan-300 border border-cyan-500/60 font-bold shadow-sm"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200 hover:bg-slate-900"
@@ -451,7 +451,7 @@ export const UmlCodeInspector: React.FC<UmlCodeInspectorProps> = ({
           </div>
 
           {targetLineNumber && (
-            <span className="text-[10px] font-mono text-cyan-400/90 flex items-center gap-1 hidden sm:flex">
+            <span className="text-xs font-mono text-cyan-400/90 flex items-center gap-1 hidden sm:flex">
               <Sparkles className="w-3 h-3 text-cyan-400 animate-pulse" />
               <span>L{targetLineNumber} 該当行</span>
             </span>
@@ -466,7 +466,7 @@ export const UmlCodeInspector: React.FC<UmlCodeInspectorProps> = ({
         style={{ minHeight: "180px", maxHeight: "380px" }}
       >
         {currentFile ? (
-          <pre className="!bg-transparent !p-0 !m-0">
+          <pre className="w-full max-w-full overflow-x-auto !bg-transparent !p-0 !m-0">
             <code>
               {highlightedLines.map((line) => (
                 <div
@@ -511,12 +511,12 @@ export const UmlCodeInspector: React.FC<UmlCodeInspectorProps> = ({
       </div>
 
       {/* ポップアップフッター */}
-      <div className="p-2 bg-white/95 dark:bg-slate-950/90 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between flex-wrap gap-1.5 text-[11px] font-mono shrink-0">
+      <div className="p-2 bg-white/95 dark:bg-slate-950/90 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between flex-wrap gap-1.5 text-xs font-mono shrink-0">
         <div className="flex items-center gap-1.5">
           <button
             onClick={handleCopy}
             disabled={!currentFile}
-            className="flex items-center gap-1 px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-white transition-all disabled:opacity-50"
+            className="flex items-center gap-1 px-2 py-1 rounded bg-slate-100 dark:bg-slate-900 hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-white transition-all disabled:opacity-50"
           >
             {copied ? (
               <>
@@ -543,7 +543,7 @@ export const UmlCodeInspector: React.FC<UmlCodeInspectorProps> = ({
           )}
         </div>
 
-        <span className="text-[10px] text-slate-600 dark:text-slate-400 hidden sm:inline">
+        <span className="text-xs text-slate-600 dark:text-slate-400 hidden sm:inline">
           ドラッグ移動可 / ⇄ で左右切替
         </span>
       </div>

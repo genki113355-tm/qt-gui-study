@@ -100,7 +100,7 @@ export const SidebarBanners: React.FC<SidebarBannersProps> = ({
                   <Sparkles className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0" />
                   <span>シロクマ学習アドバイス</span>
                 </div>
-                <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed mt-1 font-sans">
+                <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed mt-1 font-sans">
                   {getChapterMascotTip(currentChapterSlug)}
                 </p>
               </div>
@@ -111,11 +111,11 @@ export const SidebarBanners: React.FC<SidebarBannersProps> = ({
           {schoolBanner && (
             <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3 shadow-xs space-y-2 transition-all hover:border-cyan-300 dark:hover:border-cyan-500/40">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-cyan-800 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
+                <span className="text-xs font-bold text-cyan-800 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
                   <Award className="w-3 h-3 text-cyan-600 dark:text-cyan-400" />
                   <span>{schoolBanner.badge || 'プログラミング学習'}</span>
                 </span>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
                   PR
                 </span>
               </div>
@@ -148,7 +148,7 @@ export const SidebarBanners: React.FC<SidebarBannersProps> = ({
                   <span className="truncate">{schoolBanner.name}</span>
                   <ExternalLink className="w-3 h-3 text-slate-500 shrink-0" />
                 </a>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
                   {schoolBanner.description}
                 </p>
               </div>
@@ -159,11 +159,11 @@ export const SidebarBanners: React.FC<SidebarBannersProps> = ({
           {careerBanner && (
             <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3 shadow-xs space-y-2 transition-all hover:border-purple-300 dark:hover:border-purple-500/40">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-purple-800 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
+                <span className="text-xs font-bold text-purple-800 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
                   <Briefcase className="w-3 h-3 text-purple-600 dark:text-purple-400" />
                   <span>{careerBanner.badge || 'IT転職・キャリア'}</span>
                 </span>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
                   PR
                 </span>
               </div>
@@ -196,7 +196,7 @@ export const SidebarBanners: React.FC<SidebarBannersProps> = ({
                   <span className="truncate">{careerBanner.name}</span>
                   <ExternalLink className="w-3 h-3 text-slate-500 shrink-0" />
                 </a>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
                   {careerBanner.description}
                 </p>
               </div>
@@ -207,11 +207,11 @@ export const SidebarBanners: React.FC<SidebarBannersProps> = ({
           {onstudyBanner && (
             <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3 shadow-xs space-y-2 transition-all hover:border-emerald-300 dark:hover:border-emerald-500/40">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
+                <span className="text-xs font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
                   <CalendarCheck2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
                   <span>{onstudyBanner.badge || '定額スキルアップ'}</span>
                 </span>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
                   PR
                 </span>
               </div>
@@ -244,7 +244,7 @@ export const SidebarBanners: React.FC<SidebarBannersProps> = ({
                   <span className="truncate">{onstudyBanner.name}</span>
                   <ExternalLink className="w-3 h-3 text-slate-500 shrink-0" />
                 </a>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
                   {onstudyBanner.description}
                 </p>
               </div>
@@ -255,11 +255,11 @@ export const SidebarBanners: React.FC<SidebarBannersProps> = ({
           {travelBanner && (
             <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3 shadow-xs space-y-2 transition-all hover:border-amber-300 dark:hover:border-amber-500/40">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
+                <span className="text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
                   <Building2 className="w-3 h-3 text-amber-600 dark:text-amber-400" />
                   <span>{travelBanner.badge || '宿泊・開発合宿'}</span>
                 </span>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
                   PR
                 </span>
               </div>
@@ -292,7 +292,7 @@ export const SidebarBanners: React.FC<SidebarBannersProps> = ({
                   <span className="truncate">{travelBanner.name}</span>
                   <ExternalLink className="w-3 h-3 text-slate-500 shrink-0" />
                 </a>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
                   {travelBanner.description}
                 </p>
               </div>

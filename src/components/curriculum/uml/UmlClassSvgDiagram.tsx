@@ -540,7 +540,7 @@ export const UmlClassSvgDiagram: React.FC<UmlClassSvgDiagramProps> = ({
 
               {/* 2段目：属性 (Attributes) */}
               <div className="p-2.5 border-b border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/60 space-y-1 shrink-0">
-                <span className="text-[9px] font-mono text-slate-500 uppercase tracking-wider block font-bold">
+                <span className="text-xs font-mono text-slate-500 uppercase tracking-wider block font-bold">
                   Attributes
                 </span>
                 {cls.attributes.length > 0 ? (
@@ -553,7 +553,7 @@ export const UmlClassSvgDiagram: React.FC<UmlClassSvgDiagramProps> = ({
                       <div
                         key={aIdx}
                         onClick={() => onSelectMember?.(attr, cls)}
-                        className={`text-[11px] font-mono flex items-center justify-between gap-1.5 px-1.5 py-1 rounded-lg cursor-pointer transition-all group ${
+                        className={`text-xs font-mono flex items-center justify-between gap-1.5 px-1.5 py-1 rounded-lg cursor-pointer transition-all group ${
                           isSelected
                             ? "bg-cyan-950/90 border border-cyan-400 text-white shadow-lg shadow-cyan-950/50 ring-1 ring-cyan-400"
                             : "hover:bg-cyan-950/80 hover:border-cyan-500/40 border border-transparent"
@@ -566,7 +566,7 @@ export const UmlClassSvgDiagram: React.FC<UmlClassSvgDiagramProps> = ({
                       >
                         <div className="flex items-center gap-1.5 min-w-0 flex-1">
                           <span
-                            className={`w-3.5 h-3.5 rounded flex items-center justify-center text-[9px] font-bold shrink-0 ${
+                            className={`w-3.5 h-3.5 rounded flex items-center justify-center text-xs font-bold shrink-0 ${
                               attr.visibility === "-"
                                 ? "text-red-400 bg-red-950/90 border border-red-800/50"
                                 : attr.visibility === "+"
@@ -592,7 +592,7 @@ export const UmlClassSvgDiagram: React.FC<UmlClassSvgDiagramProps> = ({
                         </div>
                         {attr.codeLineRef && (
                           <span
-                            className={`text-[9px] font-mono shrink-0 px-1.5 py-0.5 rounded border transition-all flex items-center gap-1 ${
+                            className={`text-xs font-mono shrink-0 px-1.5 py-0.5 rounded border transition-all flex items-center gap-1 ${
                               isSelected
                                 ? "bg-cyan-500 text-slate-950 font-bold border-cyan-400"
                                 : "bg-cyan-950/60 text-cyan-400 border-cyan-800/40 group-hover:bg-cyan-900 group-hover:border-cyan-400"
@@ -609,13 +609,13 @@ export const UmlClassSvgDiagram: React.FC<UmlClassSvgDiagramProps> = ({
                     );
                   })
                 ) : (
-                  <span className="text-[10px] text-slate-600 italic block py-0.5">（なし）</span>
+                  <span className="text-xs text-slate-600 italic block py-0.5">（なし）</span>
                 )}
               </div>
 
               {/* 3段目：操作 (Operations) */}
               <div className="p-2.5 bg-slate-50/50 dark:bg-slate-950/30 space-y-1 flex-1">
-                <span className="text-[9px] font-mono text-slate-500 uppercase tracking-wider block font-bold">
+                <span className="text-xs font-mono text-slate-500 uppercase tracking-wider block font-bold">
                   Operations
                 </span>
                 {cls.operations.length > 0 ? (
@@ -628,7 +628,7 @@ export const UmlClassSvgDiagram: React.FC<UmlClassSvgDiagramProps> = ({
                       <div
                         key={oIdx}
                         onClick={() => onSelectMember?.(op, cls)}
-                        className={`text-[11px] font-mono flex items-center justify-between gap-1.5 px-1.5 py-1 rounded-lg cursor-pointer transition-all group ${
+                        className={`text-xs font-mono flex items-center justify-between gap-1.5 px-1.5 py-1 rounded-lg cursor-pointer transition-all group ${
                           isSelected
                             ? "bg-cyan-950/90 border border-cyan-400 text-white shadow-lg shadow-cyan-950/50 ring-1 ring-cyan-400"
                             : "hover:bg-cyan-950/80 hover:border-cyan-500/40 border border-transparent"
@@ -641,7 +641,7 @@ export const UmlClassSvgDiagram: React.FC<UmlClassSvgDiagramProps> = ({
                       >
                         <div className="flex items-center gap-1.5 min-w-0 flex-1">
                           <span
-                            className={`w-3.5 h-3.5 rounded flex items-center justify-center text-[9px] font-bold shrink-0 ${
+                            className={`w-3.5 h-3.5 rounded flex items-center justify-center text-xs font-bold shrink-0 ${
                               op.visibility === "+"
                                 ? "text-emerald-400 bg-emerald-950/90 border border-emerald-800/50"
                                 : op.visibility === "-"
@@ -667,7 +667,7 @@ export const UmlClassSvgDiagram: React.FC<UmlClassSvgDiagramProps> = ({
                         </div>
                         {op.codeLineRef && (
                           <span
-                            className={`text-[9px] font-mono shrink-0 px-1.5 py-0.5 rounded border transition-all flex items-center gap-1 ${
+                            className={`text-xs font-mono shrink-0 px-1.5 py-0.5 rounded border transition-all flex items-center gap-1 ${
                               isSelected
                                 ? "bg-cyan-500 text-slate-950 font-bold border-cyan-400"
                                 : "bg-cyan-950/60 text-cyan-400 border-cyan-800/40 group-hover:bg-cyan-900 group-hover:border-cyan-400"
@@ -684,7 +684,7 @@ export const UmlClassSvgDiagram: React.FC<UmlClassSvgDiagramProps> = ({
                     );
                   })
                 ) : (
-                  <span className="text-[10px] text-slate-600 italic block py-0.5">（なし）</span>
+                  <span className="text-xs text-slate-600 italic block py-0.5">（なし）</span>
                 )}
               </div>
             </div>

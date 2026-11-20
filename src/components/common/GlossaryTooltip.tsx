@@ -76,14 +76,14 @@ export const GlossaryTooltip: React.FC<GlossaryTooltipProps> = ({
               {termData.term}
             </span>
             <span
-              className={`text-[9px] font-mono px-1.5 py-0.5 rounded border uppercase shrink-0 ${categoryColor}`}
+              className={`text-xs font-mono px-1.5 py-0.5 rounded border uppercase shrink-0 ${categoryColor}`}
             >
               {termData.category}
             </span>
           </span>
 
           {termData.reading && (
-            <span className="text-[10px] text-cyan-700 dark:text-cyan-400/90 font-mono mb-1 block">
+            <span className="text-xs text-cyan-700 dark:text-cyan-400/90 font-mono mb-1 block">
               読み: {termData.reading}
             </span>
           )}
@@ -92,7 +92,7 @@ export const GlossaryTooltip: React.FC<GlossaryTooltipProps> = ({
             {termData.summary}
           </span>
 
-          <span className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed block">
+          <span className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed block">
             {termData.description}
           </span>
 

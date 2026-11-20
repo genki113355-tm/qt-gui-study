@@ -111,11 +111,11 @@ export const NewsletterSection: React.FC = () => {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="space-y-2 max-w-xl">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-200 text-[11px] font-mono font-black border border-emerald-300 dark:border-emerald-700">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-200 text-xs font-mono font-black border border-emerald-300 dark:border-emerald-700">
                   <Mail className="w-3 h-3 text-emerald-700 dark:text-emerald-400" />
                   <span>【公式】無料メールマガジン</span>
                 </span>
-                <span className="text-[11px] text-emerald-700 dark:text-emerald-300 font-bold bg-white dark:bg-slate-800 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-700">
+                <span className="text-xs text-emerald-700 dark:text-emerald-300 font-bold bg-white dark:bg-slate-800 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-700">
                   毎朝 7:00 配信・完全無料
                 </span>
               </div>
@@ -168,7 +168,7 @@ export const NewsletterSection: React.FC = () => {
           {/* 実際の配信メール プレビュー枠 */}
           <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
             <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
-              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1 font-mono">
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1 font-mono">
                 <Sparkles className="w-3 h-3 text-amber-500" />
                 <span>実際の配信メール サンプルプレビュー（タップで切替）:</span>
               </span>
@@ -177,7 +177,7 @@ export const NewsletterSection: React.FC = () => {
                   <button
                     key={idx}
                     onClick={() => setSelectedDayIdx(idx)}
-                    className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors cursor-pointer font-mono ${
+                    className={`px-2 py-0.5 rounded text-xs font-medium transition-colors cursor-pointer font-mono ${
                       selectedDayIdx === idx
                         ? 'bg-emerald-600 text-white font-bold'
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
@@ -196,11 +196,11 @@ export const NewsletterSection: React.FC = () => {
                   <h5 className="font-black text-slate-900 dark:text-white text-sm sm:text-base font-mono">
                     {currentSample.previewSubject}
                   </h5>
-                  <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">
+                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">
                     毎朝 7:00 配信
                   </span>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+                <div className="text-xs text-slate-500 dark:text-slate-400 font-mono">
                   差出人: <span className="text-emerald-700 dark:text-emerald-400 font-semibold">{currentSample.sender}</span>
                 </div>
               </div>
@@ -223,7 +223,7 @@ export const NewsletterSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium flex items-center justify-between">
+              <div className="pt-1 text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center justify-between">
                 <span>※ このような実践Qt/Linuxノウハウが毎朝7:00に届きます（スキマ時間3分で読了）</span>
                 <span className="text-emerald-600 dark:text-emerald-400 font-bold">完全無料 • いつでも配信解除可能</span>
               </div>
@@ -261,7 +261,7 @@ export const NewsletterSection: React.FC = () => {
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-2xl">{service.icon}</span>
-                    <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                    <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
                       {service.badge}
                     </span>
                   </div>
@@ -271,8 +271,8 @@ export const NewsletterSection: React.FC = () => {
                   <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
                     {service.description}
                   </p>
-                  <div className="text-[11px] bg-slate-50 dark:bg-slate-900/50 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
-                    <span className="font-bold block text-[10px] text-slate-800 dark:text-slate-200 mb-0.5">💡 推奨ポイント:</span>
+                  <div className="text-xs bg-slate-50 dark:bg-slate-900/50 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
+                    <span className="font-bold block text-xs text-slate-800 dark:text-slate-200 mb-0.5">💡 推奨ポイント:</span>
                     {service.recommendPoint}
                   </div>
                 </div>

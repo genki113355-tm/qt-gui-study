@@ -93,7 +93,7 @@ export const UmlArrowGuideVisual: React.FC = () => {
             UML 5大関連矢印 ＆ C++メモリモデル完全リファレンス
           </h3>
         </div>
-        <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 hidden sm:inline">
+        <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 hidden sm:inline">
           SVG幾何ベクトル描画
         </span>
       </div>
@@ -114,7 +114,7 @@ export const UmlArrowGuideVisual: React.FC = () => {
                   />
                   <span>{spec.name}</span>
                 </h4>
-                <span className="text-[11px] font-mono text-slate-600 dark:text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-800">
+                <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-800">
                   {spec.umlName}
                 </span>
               </div>
@@ -306,7 +306,7 @@ export const UmlArrowGuideVisual: React.FC = () => {
               <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-200 dark:border-slate-800 font-mono text-xs text-emerald-400">
                 <code>{spec.cppCode}</code>
               </div>
-              <div className="text-[11px] font-sans text-slate-600 dark:text-slate-400 bg-white/80 dark:bg-slate-900/50 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800/60 flex items-start gap-1.5">
+              <div className="text-xs font-sans text-slate-600 dark:text-slate-400 bg-white/80 dark:bg-slate-900/50 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800/60 flex items-start gap-1.5">
                 <span className="text-cyan-400 font-bold shrink-0">?? メモリ:</span>
                 <span>{spec.memoryNote}</span>
               </div>

@@ -115,7 +115,7 @@ export const VariableInspector: React.FC<VariableInspectorProps> = ({ variables 
         <div className="w-full max-w-full overflow-x-auto">
           <table className="w-full text-left border-collapse table-fixed min-w-[900px]">
             <thead>
-              <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-950 text-slate-700 dark:text-slate-300 font-mono text-sm">
+              <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 font-mono text-sm">
                 <th className="py-4 px-4 w-[22%] font-bold">変数・メンバ名</th>
                 <th className="py-4 px-4 w-[16%] font-bold">型</th>
                 <th className="py-4 px-4 w-[18%] font-bold">スコープ / 状態</th>

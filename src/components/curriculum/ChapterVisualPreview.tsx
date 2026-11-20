@@ -47,7 +47,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
               🖥️ Linux Graphics &amp; Sonar HMI Architecture Stack
             </span>
           </div>
-          <span className="text-[10px] px-2 py-0.5 rounded-md bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-bold shrink-0">
+          <span className="text-xs px-2 py-0.5 rounded-md bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-bold shrink-0">
             X11 / Wayland / DRM-KMS
           </span>
         </div>
@@ -61,22 +61,22 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
                 <Workflow className="w-3.5 h-3.5" />
                 <span>Linux Graphics Layers</span>
               </span>
-              <span className="text-[9px] text-slate-400 font-normal">Data Flow ↓</span>
+              <span className="text-xs text-slate-400 font-normal">Data Flow ↓</span>
             </div>
 
             {/* 1. アプリケーション層 */}
-            <div className="p-2 rounded-lg bg-slate-900/90 border border-cyan-500/30 text-[11px] text-center">
+            <div className="p-2 rounded-lg bg-slate-900/90 border border-cyan-500/30 text-xs text-center">
               <span className="text-cyan-300 font-bold block">1. Qt 6 Application (C++ / QML)</span>
-              <span className="text-[9px] text-slate-400">GUI Logic, Multithreading, Realtime Signal</span>
+              <span className="text-xs text-slate-400">GUI Logic, Multithreading, Realtime Signal</span>
             </div>
 
             {/* 2. QPA層（インタラクティブ切替） */}
-            <div className="p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/40 text-[10px] space-y-1.5">
+            <div className="p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/40 text-xs space-y-1.5">
               <div className="flex justify-between items-center text-emerald-300 font-bold">
                 <span>2. QPA (Qt Platform Abstraction)</span>
-                <span className="text-[8px] text-emerald-400 bg-emerald-900/50 px-1 rounded">動的プラグイン</span>
+                <span className="text-xs text-emerald-400 bg-emerald-900/50 px-1 rounded">動的プラグイン</span>
               </div>
-              <div className="grid grid-cols-3 gap-1 text-[9px] text-center">
+              <div className="grid grid-cols-3 gap-1 text-xs text-center">
                 <button
                   onClick={() => setSelectedPlugin('xcb')}
                   className={`py-1 rounded border cursor-pointer transition ${
@@ -111,20 +111,20 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             </div>
 
             {/* 3. ディスプレイサーバー / OSカーネル層 */}
-            <div className="p-2 rounded-lg bg-[#02050c] border border-slate-800 text-[10px] space-y-1">
+            <div className="p-2 rounded-lg bg-[#02050c] border border-slate-800 text-xs space-y-1">
               <span className="text-slate-300 font-bold block">3. Display Server &amp; Kernel</span>
               {selectedPlugin === 'xcb' && (
-                <div className="text-[9px] text-cyan-300">
+                <div className="text-xs text-cyan-300">
                   ➔ X11 Server (/tmp/.X11-unix/X0, DISPLAY=:0) ネットワーク透過
                 </div>
               )}
               {selectedPlugin === 'wayland' && (
-                <div className="text-[9px] text-emerald-300">
+                <div className="text-xs text-emerald-300">
                   ➔ Wayland Compositor (共有バッファ直結・テアリングゼロ)
                 </div>
               )}
               {selectedPlugin === 'eglfs' && (
-                <div className="text-[9px] text-amber-300">
+                <div className="text-xs text-amber-300">
                   ➔ Linux Kernel DRM/KMS 直接占有 (起動1秒未満・最速組込み)
                 </div>
               )}
@@ -138,17 +138,17 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
                 <Server className="w-3.5 h-3.5" />
                 <span>Sonar HMI Evolution</span>
               </span>
-              <span className="text-[9px] text-amber-400 font-mono">1990s ➔ 2020s</span>
+              <span className="text-xs text-amber-400 font-mono">1990s ➔ 2020s</span>
             </div>
 
-            <div className="space-y-2 text-[10px]">
+            <div className="space-y-2 text-xs">
               {/* 1990s */}
               <div className="p-2 rounded-lg bg-slate-900/60 border border-slate-800">
                 <div className="flex justify-between items-center text-slate-300 font-bold">
                   <span>🏛️ 1990s: UNIX ＋ OSF/Motif</span>
-                  <span className="text-[8px] text-slate-500">Solaris / IRIX</span>
+                  <span className="text-xs text-slate-500">Solaris / IRIX</span>
                 </div>
-                <p className="text-[9px] text-slate-400 mt-0.5">
+                <p className="text-xs text-slate-400 mt-0.5">
                   無骨なグレー立体ボタン。XtCallbackProc による C言語コールバック地獄。
                 </p>
               </div>
@@ -157,9 +157,9 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
               <div className="p-2 rounded-lg bg-slate-900/60 border border-cyan-900/40">
                 <div className="flex justify-between items-center text-cyan-300 font-bold">
                   <span>🌊 2000s: Linux ＋ Xlib ＋ OpenGL</span>
-                  <span className="text-[8px] text-cyan-400">COTS化</span>
+                  <span className="text-xs text-cyan-400">COTS化</span>
                 </div>
-                <p className="text-[9px] text-slate-400 mt-0.5">
+                <p className="text-xs text-slate-400 mt-0.5">
                   GLXサーフェス直結。LOFARウォーターフォール波形を毎秒数千ライン描画。
                 </p>
               </div>
@@ -168,9 +168,9 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
               <div className="p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/40">
                 <div className="flex justify-between items-center text-emerald-300 font-bold">
                   <span>🚀 2020s: Modern Linux ＋ Qt 6 QML</span>
-                  <span className="text-[8px] text-emerald-400 font-bold">現役標準</span>
+                  <span className="text-xs text-emerald-400 font-bold">現役標準</span>
                 </div>
-                <p className="text-[9px] text-slate-300 mt-0.5">
+                <p className="text-xs text-slate-300 mt-0.5">
                   QQuickPaintedItem ＋ Qt Graphs。C++20マルチスレッドと60fps GPU描画の完全融合。
                 </p>
               </div>
@@ -179,7 +179,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
         </div>
 
         {/* 下部ステータスバー */}
-        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-[10px] text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
+        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-xs text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
           <span className="text-emerald-400 font-bold flex items-center gap-1">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
             xcbエラー完全解剖：QT_DEBUG_PLUGINS=1 で依存欠落を特定
@@ -206,7 +206,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
               📊 GUI Framework Positioning &amp; Performance Matrix
             </span>
           </div>
-          <span className="text-[10px] px-2 py-0.5 rounded-md bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold shrink-0">
+          <span className="text-xs px-2 py-0.5 rounded-md bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold shrink-0">
             Industrial vs Desktop
           </span>
         </div>
@@ -218,15 +218,15 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             <div>
               <div className="flex items-center justify-between border-b border-slate-800 pb-1">
                 <span className="text-xs font-bold text-slate-200">Web / Chromium</span>
-                <span className="text-[9px] text-slate-500">Electron</span>
+                <span className="text-xs text-slate-500">Electron</span>
               </div>
-              <div className="mt-2 space-y-1 text-[10px] text-slate-400">
+              <div className="mt-2 space-y-1 text-xs text-slate-400">
                 <div>開発速度: <span className="text-emerald-400 font-bold">★★★★★</span></div>
                 <div>メモリ効率: <span className="text-rose-400 font-bold">★☆☆☆☆ (150MB+)</span></div>
                 <div>60FPS安定性: <span className="text-amber-400 font-bold">★★☆☆☆ (GC遅延)</span></div>
               </div>
             </div>
-            <div className="text-[9px] text-slate-500 border-t border-slate-850 pt-1.5">
+            <div className="text-xs text-slate-500 border-t border-slate-850 pt-1.5">
               主な用途: Slack, VSCode, 一般業務Webツール
             </div>
           </div>
@@ -236,43 +236,43 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             <div>
               <div className="flex items-center justify-between border-b border-slate-800 pb-1">
                 <span className="text-xs font-bold text-slate-200">Immediate Mode</span>
-                <span className="text-[9px] text-slate-500">Dear ImGui</span>
+                <span className="text-xs text-slate-500">Dear ImGui</span>
               </div>
-              <div className="mt-2 space-y-1 text-[10px] text-slate-400">
+              <div className="mt-2 space-y-1 text-xs text-slate-400">
                 <div>超軽量性: <span className="text-emerald-400 font-bold">★★★★★ (数MB)</span></div>
                 <div>導入速度: <span className="text-emerald-400 font-bold">★★★★★</span></div>
                 <div>産業用画面: <span className="text-rose-400 font-bold">★★☆☆☆ (装飾不向き)</span></div>
               </div>
             </div>
-            <div className="text-[9px] text-slate-500 border-t border-slate-850 pt-1.5">
+            <div className="text-xs text-slate-500 border-t border-slate-850 pt-1.5">
               主な用途: ゲーム内デバッグ、社内ツール、プロトタイプ
             </div>
           </div>
 
           {/* 3. 産業用ネイティブ (Qt 6 / C++) */}
           <div className="bg-gradient-to-b from-cyan-950/40 to-[#080d1a] p-3 rounded-xl border-2 border-cyan-400/50 flex flex-col justify-between space-y-2 shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-cyan-500 text-slate-950 text-[8px] font-black px-2 py-0.5 rounded-bl">
+            <div className="absolute top-0 right-0 bg-cyan-500 text-slate-950 text-xs font-black px-2 py-0.5 rounded-bl">
               現場標準
             </div>
             <div>
               <div className="flex items-center justify-between border-b border-cyan-500/20 pb-1">
                 <span className="text-xs font-bold text-cyan-300">Qt 6 ＋ C++20</span>
-                <span className="text-[9px] text-cyan-400 font-mono">QML/Native</span>
+                <span className="text-xs text-cyan-400 font-mono">QML/Native</span>
               </div>
-              <div className="mt-2 space-y-1 text-[10px] text-slate-300">
+              <div className="mt-2 space-y-1 text-xs text-slate-300">
                 <div>リアルタイム性: <span className="text-cyan-300 font-bold">★★★★★ (低遅延)</span></div>
                 <div>60FPS安定性: <span className="text-emerald-400 font-bold">★★★★★ (GCなし)</span></div>
                 <div>ハード制御: <span className="text-cyan-300 font-bold">★★★★★ (C++直結)</span></div>
               </div>
             </div>
-            <div className="text-[9px] text-cyan-300 font-semibold border-t border-cyan-500/20 pt-1.5">
+            <div className="text-xs text-cyan-300 font-semibold border-t border-cyan-500/20 pt-1.5">
               主な用途: 自動車コックピット、ソナー・防衛、医療、FA機器
             </div>
           </div>
         </div>
 
         {/* 下部ステータスバー */}
-        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-[10px] text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
+        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-xs text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
           <span className="text-cyan-300 font-bold flex items-center gap-1">
             <Check className="w-3.5 h-3.5 text-cyan-400" />
             ミッションクリティカルな60FPS保証とC++ハード制御なら「Qt」が唯一解
@@ -299,7 +299,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
               Qt Creator 13 ＋ WSL2 (Ubuntu 24.04 LTS)
             </span>
           </div>
-          <span className="text-[10px] px-2 py-0.5 rounded-md bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold shrink-0">
+          <span className="text-xs px-2 py-0.5 rounded-md bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold shrink-0">
             WSLg OpenGL Active
           </span>
         </div>
@@ -307,12 +307,12 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
         {/* 開発環境と起動画面の2ペイン構成 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-3">
           {/* 左ペイン: CMakeプロジェクト構成 */}
-          <div className="bg-[#080d1a] p-2.5 rounded-xl border border-cyan-500/20 text-[11px] space-y-1.5">
+          <div className="bg-[#080d1a] p-2.5 rounded-xl border border-cyan-500/20 text-xs space-y-1.5">
             <div className="text-cyan-400 font-bold flex items-center gap-1 pb-1 border-b border-slate-800">
               <Layers className="w-3.5 h-3.5" />
               <span>Project: SonarDashboard</span>
             </div>
-            <div className="space-y-1 text-slate-300 text-[10px]">
+            <div className="space-y-1 text-slate-300 text-xs">
               <div className="flex items-center gap-1 text-emerald-400 font-semibold">
                 <span>📁</span> <span>CMakeLists.txt (Qt 6.6)</span>
               </div>
@@ -323,7 +323,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
                 <span>🎨</span> <span>MainDashboard.qml</span>
               </div>
             </div>
-            <div className="pt-1.5 border-t border-slate-800 text-[9px] text-emerald-400 flex items-center gap-1">
+            <div className="pt-1.5 border-t border-slate-800 text-xs text-emerald-400 flex items-center gap-1">
               <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
               <span>CMake Configuration Succeeded</span>
             </div>
@@ -331,7 +331,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
 
           {/* 右ペイン: 立ち上がったネイティブGUIウィンドウ */}
           <div className="bg-gradient-to-b from-slate-900 to-[#02050c] p-2.5 rounded-xl border-2 border-emerald-500/40 text-center flex flex-col justify-between shadow-lg relative overflow-hidden">
-            <div className="flex items-center justify-between text-[9px] text-slate-400 border-b border-slate-800 pb-1">
+            <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-1">
               <span className="font-bold text-slate-200">Qt 6.x Native Window</span>
               <span className="text-emerald-400 font-bold">PID: 48102</span>
             </div>
@@ -341,12 +341,12 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
                 <Activity className="w-4 h-4 animate-pulse" />
               </div>
               <div className="text-xs font-black text-white">Hello Qt 6.6 GUI!</div>
-              <div className="text-[10px] text-slate-400">WSLg Linux Native Window Running</div>
+              <div className="text-xs text-slate-400">WSLg Linux Native Window Running</div>
             </div>
 
             <button
               onClick={() => setClickCount(prev => prev + 1)}
-              className="w-full py-1 rounded bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-[10px] shadow cursor-pointer active:scale-95 transition"
+              className="w-full py-1 rounded bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-xs shadow cursor-pointer active:scale-95 transition"
             >
               Test Click (Counts: {clickCount})
             </button>
@@ -354,7 +354,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
         </div>
 
         {/* 下部ステータスバー */}
-        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-[10px] text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
+        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-xs text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
           <span className="text-emerald-400 font-bold flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block"></span>
             Build: 0.4s (Ninja)
@@ -383,10 +383,10 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950/90 border border-emerald-500/40 text-emerald-300 font-bold">
+            <span className="text-xs px-2 py-0.5 rounded bg-emerald-950/90 border border-emerald-500/40 text-emerald-300 font-bold">
               ● 60.0 FPS
             </span>
-            <span className="text-[10px] px-2 py-0.5 rounded bg-cyan-950/90 border border-cyan-500/40 text-cyan-300 font-bold hidden sm:inline-block">
+            <span className="text-xs px-2 py-0.5 rounded bg-cyan-950/90 border border-cyan-500/40 text-cyan-300 font-bold hidden sm:inline-block">
               CPU: 12%
             </span>
           </div>
@@ -396,7 +396,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-3">
           {/* 左側: アナログ＆デジタル複合タコメーター */}
           <div className="bg-gradient-to-b from-[#0a1224] to-[#040814] p-3 rounded-xl border border-cyan-500/30 flex flex-col items-center justify-center relative shadow-inner">
-            <span className="absolute top-2 left-2 text-[10px] font-bold text-cyan-400 tracking-wider">
+            <span className="absolute top-2 left-2 text-xs font-bold text-cyan-400 tracking-wider">
               MAIN THRUST (QML / Canvas)
             </span>
             <div className="relative mt-2">
@@ -416,7 +416,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
                 <text x="50" y="62" fill="#94a3b8" fontSize="7" textAnchor="middle">RPM / kPa</text>
               </svg>
             </div>
-            <div className="w-full flex justify-between text-[9px] text-slate-400 pt-1 border-t border-slate-800/80">
+            <div className="w-full flex justify-between text-xs text-slate-400 pt-1 border-t border-slate-800/80">
               <span>Limit: 200 RPM</span>
               <span className="text-emerald-400 font-bold">STATE: NOMINAL</span>
             </div>
@@ -424,9 +424,9 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
 
           {/* 右側: リアルタイム信号オシロスコープ波形（Qt Graphs） */}
           <div className="bg-gradient-to-b from-[#0a1224] to-[#040814] p-3 rounded-xl border border-cyan-500/30 flex flex-col justify-between shadow-inner">
-            <div className="flex items-center justify-between text-[10px] font-bold text-cyan-400">
+            <div className="flex items-center justify-between text-xs font-bold text-cyan-400">
               <span>REALTIME SIGNAL (Qt Graphs)</span>
-              <span className="text-emerald-400 text-[9px]">1000Hz STREAM</span>
+              <span className="text-emerald-400 text-xs">1000Hz STREAM</span>
             </div>
 
             <div className="flex-1 w-full bg-[#02050c] rounded-lg border border-cyan-500/20 my-2 relative overflow-hidden flex items-center justify-center p-1 min-h-[75px]">
@@ -440,7 +440,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
               </svg>
             </div>
 
-            <div className="flex justify-between items-center text-[9px] text-slate-400">
+            <div className="flex justify-between items-center text-xs text-slate-400">
               <span className="text-cyan-300">Buffer: 1024 samples (Zero-Copy)</span>
               <span className="text-emerald-400 font-bold">Latency: &lt; 1.5ms</span>
             </div>
@@ -448,7 +448,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
         </div>
 
         {/* 下部アーキテクチャステータスバー */}
-        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-[10px] text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
+        <div className="bg-[#02050c] rounded-lg px-3 py-1.5 text-xs text-slate-400 border border-slate-800 flex flex-wrap justify-between items-center gap-2">
           <span className="text-cyan-300 font-semibold flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
             C++ Worker Thread: 1000Hz UDP
@@ -471,14 +471,14 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
       <div className="w-full max-w-2xl mx-auto rounded-2xl bg-[#040810] border-2 border-cyan-500/40 p-3 sm:p-4 flex flex-col justify-between font-mono shadow-2xl relative overflow-hidden select-none">
         <div className="flex items-center justify-between border-b border-cyan-500/20 pb-2">
           <span className="text-xs text-cyan-300 font-bold">⚡ Signal &amp; Slot Architecture Monitor</span>
-          <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${lampOn ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-slate-800 text-slate-500'}`}>
+          <span className={`text-xs px-2 py-0.5 rounded-full font-bold transition-colors ${lampOn ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-slate-800 text-slate-500'}`}>
             {lampOn ? '● SIGNAL RECEIVED' : '○ IDLE (WAITING)'}
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 items-center gap-3 my-4">
           <div className="bg-[#0a1224] p-3 rounded-xl border border-cyan-500/30 text-center space-y-2">
-            <span className="text-[10px] text-cyan-400 font-bold block">1. C++ Backend</span>
+            <span className="text-xs text-cyan-400 font-bold block">1. C++ Backend</span>
             <button 
               onClick={() => setLampOn(true)}
               className="w-full px-3 py-1.5 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white rounded-lg text-xs font-black shadow transition active:scale-95 flex items-center justify-center gap-1 cursor-pointer"
@@ -489,20 +489,20 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
           </div>
 
           <div className="text-center text-cyan-400 text-sm font-bold flex flex-col items-center justify-center gap-0.5">
-            <span className="text-[9px] text-slate-400">Qt Event Queue</span>
+            <span className="text-xs text-slate-400">Qt Event Queue</span>
             <span>➔ ➔ ➔</span>
-            <span className="text-[8px] text-emerald-400 font-mono">Thread-Safe</span>
+            <span className="text-xs text-emerald-400 font-mono">Thread-Safe</span>
           </div>
 
           <div className="bg-[#0a1224] p-3 rounded-xl border border-cyan-500/30 text-center space-y-2">
-            <span className="text-[10px] text-emerald-400 font-bold block">2. QML Frontend</span>
+            <span className="text-xs text-emerald-400 font-bold block">2. QML Frontend</span>
             <div className={`w-9 h-9 mx-auto rounded-full flex items-center justify-center transition-all ${lampOn ? 'bg-emerald-400 text-slate-950 shadow-[0_0_20px_rgba(52,211,153,0.9)] animate-bounce' : 'bg-slate-800 text-slate-500'}`}>
               ⚡
             </div>
           </div>
         </div>
 
-        <div className="text-[10px] text-slate-300 bg-[#02050c] p-2 rounded-lg border border-slate-800 flex justify-between items-center">
+        <div className="text-xs text-slate-300 bg-[#02050c] p-2 rounded-lg border border-slate-800 flex justify-between items-center">
           <span className="text-cyan-400 font-mono">QObject::connect(sensor, &amp;Sensor::alarm, qmlRoot, &amp;QQuickItem::handleAlarm);</span>
           <span className="text-emerald-400 font-bold">Loose Coupling (疎結合)</span>
         </div>
@@ -548,7 +548,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
           </div>
         </div>
 
-        <div className="text-[10px] text-slate-400 bg-[#02050c] p-2 rounded-lg border border-slate-800 flex justify-between items-center">
+        <div className="text-xs text-slate-400 bg-[#02050c] p-2 rounded-lg border border-slate-800 flex justify-between items-center">
           <span className="text-cyan-400">Q_PROPERTY(int value READ getValue WRITE setValue NOTIFY valueChanged)</span>
           <span className="text-emerald-400 font-bold">Zero UI Glue Code</span>
         </div>
@@ -565,7 +565,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
       <div className="w-full max-w-2xl mx-auto rounded-2xl bg-[#040810] border-2 border-cyan-500/40 p-3 sm:p-4 flex flex-col justify-between font-mono shadow-2xl relative overflow-hidden select-none">
         <div className="flex items-center justify-between border-b border-cyan-500/20 pb-2">
           <span className="text-xs text-cyan-300 font-bold">🏎️ Custom QQuickPaintedItem Tachometer</span>
-          <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 font-bold">
+          <span className="text-xs px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 font-bold">
             Hardware 60 FPS
           </span>
         </div>
@@ -610,7 +610,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
           </div>
         </div>
 
-        <div className="flex justify-between items-center text-[10px] text-slate-400 bg-[#02050c] p-2 rounded-lg border border-slate-800">
+        <div className="flex justify-between items-center text-xs text-slate-400 bg-[#02050c] p-2 rounded-lg border border-slate-800">
           <span>Item: QQuickPaintedItem</span>
           <span className="text-cyan-400 font-bold">OpenGL Native Rendering</span>
         </div>
@@ -626,7 +626,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
       <div className="w-full max-w-2xl mx-auto rounded-2xl bg-[#040810] border-2 border-cyan-500/40 p-3 sm:p-4 flex flex-col justify-between font-mono shadow-2xl relative overflow-hidden select-none">
         <div className="flex items-center justify-between border-b border-cyan-500/20 pb-2">
           <span className="text-xs text-cyan-300 font-bold">📡 QUdpSocket &amp; Qt Graphs Stream</span>
-          <span className="text-[10px] px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-bold">
+          <span className="text-xs px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-bold">
             1000Hz Non-blocking
           </span>
         </div>
@@ -640,7 +640,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
           </svg>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 text-[10px] text-slate-300 bg-[#02050c] p-2 rounded-lg border border-slate-800">
+        <div className="grid grid-cols-2 gap-2 text-xs text-slate-300 bg-[#02050c] p-2 rounded-lg border border-slate-800">
           <div>Packet Loss: <span className="text-emerald-400 font-bold">0.00%</span></div>
           <div>Memory Management: <span className="text-cyan-400 font-bold">std::shared_ptr</span></div>
         </div>
@@ -656,7 +656,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
       <div className="w-full max-w-2xl mx-auto rounded-2xl bg-[#040810] border-2 border-cyan-500/40 p-3 sm:p-4 flex flex-col justify-between font-mono shadow-2xl relative overflow-hidden select-none">
         <div className="flex items-center justify-between border-b border-cyan-500/20 pb-2">
           <span className="text-xs text-cyan-300 font-bold">⚙️ Multithreading Architecture (QThread)</span>
-          <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 font-bold">
+          <span className="text-xs px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 font-bold">
             UI Thread: No Freeze
           </span>
         </div>
@@ -667,7 +667,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
               <Cpu className="w-4 h-4 text-cyan-400" />
               <span className="text-xs text-slate-200 font-bold">Main GUI Thread (Event Loop)</span>
             </div>
-            <span className="text-[10px] px-2.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 font-bold">
+            <span className="text-xs px-2.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 font-bold">
               60.0 FPS Steady
             </span>
           </div>
@@ -677,13 +677,13 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
               <Activity className="w-4 h-4 text-amber-400 animate-spin" />
               <span className="text-xs text-slate-200 font-bold">Worker Thread (UDP Parsing &amp; FFT)</span>
             </div>
-            <span className="text-[10px] px-2.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/30 font-bold">
+            <span className="text-xs px-2.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/30 font-bold">
               1000 Packets/sec
             </span>
           </div>
         </div>
 
-        <div className="flex justify-between items-center text-[10px] text-slate-400 bg-[#02050c] p-2 rounded-lg border border-slate-800">
+        <div className="flex justify-between items-center text-xs text-slate-400 bg-[#02050c] p-2 rounded-lg border border-slate-800">
           <span>CTest Unit Tests: <span className="text-emerald-400 font-bold">14/14 PASS</span></span>
           <span className="text-cyan-400 font-bold">Valgrind Leak: 0 bytes</span>
         </div>
@@ -701,7 +701,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
           <span className="text-xs text-cyan-200 font-bold">🚀 FINAL INTEGRATED PRODUCTION HMI</span>
         </div>
-        <div className="flex items-center gap-2 text-[10px]">
+        <div className="flex items-center gap-2 text-xs">
           <span className="text-emerald-400 font-bold">60 FPS</span>
           <span className="text-cyan-300 font-bold">ALL SYSTEMS NOMINAL</span>
         </div>
@@ -709,7 +709,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
 
       <div className="grid grid-cols-2 gap-3 my-3">
         <div className="bg-[#0a1224] rounded-xl p-3 border border-cyan-500/30 flex flex-col items-center justify-center">
-          <span className="text-[9px] text-cyan-400 font-bold">MAIN SYSTEM PRESSURE</span>
+          <span className="text-xs text-cyan-400 font-bold">MAIN SYSTEM PRESSURE</span>
           <div className="text-xl font-black text-white mt-1">842.0 <span className="text-xs text-cyan-400 font-normal">kPa</span></div>
           <div className="w-full h-2 bg-[#02050c] rounded-full mt-2 overflow-hidden border border-cyan-500/20">
             <div className="w-4/5 h-full bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full"></div>
@@ -717,7 +717,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
         </div>
 
         <div className="bg-[#0a1224] rounded-xl p-3 border border-cyan-500/30 flex flex-col items-center justify-center">
-          <span className="text-[9px] text-cyan-400 font-bold">SONAR STREAM (60Hz)</span>
+          <span className="text-xs text-cyan-400 font-bold">SONAR STREAM (60Hz)</span>
           <svg className="w-full h-9 mt-1" viewBox="0 0 50 20" preserveAspectRatio="none">
             <path d="M0,10 Q5,2 10,10 T20,10 T30,10 T40,10 T50,10" fill="none" stroke="#10b981" strokeWidth="2">
               <animate attributeName="d" values="M0,10 Q5,2 10,10 T20,10 T30,10 T40,10 T50,10; M0,10 Q5,18 10,10 T20,10 T30,10 T40,10 T50,10; M0,10 Q5,2 10,10 T20,10 T30,10 T40,10 T50,10" dur="1s" repeatCount="indefinite" />
@@ -726,7 +726,7 @@ export const ChapterVisualPreview: React.FC<ChapterVisualPreviewProps> = ({ chap
         </div>
       </div>
 
-      <div className="flex justify-between items-center bg-[#02050c] p-2 rounded-lg border border-slate-800 text-[10px]">
+      <div className="flex justify-between items-center bg-[#02050c] p-2 rounded-lg border border-slate-800 text-xs">
         <span className="text-emerald-400 font-bold flex items-center gap-1">
           <AlertTriangle className="w-3.5 h-3.5" /> All Systems Operational (No Warning)
         </span>

@@ -25,7 +25,7 @@ export const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({ isOpen, 
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-sans leading-tight">
                 プライバシーポリシー ＆ 免責事項
               </h2>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
                 シロクマQt×C++ラボにおける利用者情報の取扱い・広告配信・著作権指針
               </p>
             </div>

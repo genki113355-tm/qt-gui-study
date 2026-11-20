@@ -67,7 +67,7 @@ export const UmlDiagramViewer: React.FC<UmlDiagramViewerProps> = ({
         return {
           symbol: "───>",
           label: "関連 (単なる参照・利用)",
-          color: "bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700",
+          color: "bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700",
         };
     }
   };
@@ -114,7 +114,7 @@ export const UmlDiagramViewer: React.FC<UmlDiagramViewerProps> = ({
                 <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
                 <span>💡 クラス図内の属性・操作をクリックすると、画面左端（サイドメニュー上）にC++コードが並んでポップアップします</span>
               </span>
-              <span className="text-[11px] font-mono text-cyan-400/80 hidden sm:inline">UML ↔ Floating Inspector</span>
+              <span className="text-xs font-mono text-cyan-400/80 hidden sm:inline">UML ↔ Floating Inspector</span>
             </div>
 
             {/* 幾何座標計算によるSVGクラス図 */}
@@ -163,12 +163,12 @@ export const UmlDiagramViewer: React.FC<UmlDiagramViewerProps> = ({
                             {rel.to}
                           </span>
                         </div>
-                        <div className="text-[11px] text-slate-700 dark:text-slate-300 font-sans flex items-baseline justify-between gap-2">
+                        <div className="text-xs text-slate-700 dark:text-slate-300 font-sans flex items-baseline justify-between gap-2">
                           <span className="font-semibold text-cyan-300">{badge.label}</span>
                           {rel.label && <span className="text-slate-600 dark:text-slate-400">({rel.label})</span>}
                         </div>
                         {rel.cppMapping && (
-                          <div className="mt-1 p-2 rounded bg-slate-900 border border-slate-200 dark:border-slate-800 text-[11px] font-mono text-emerald-400">
+                          <div className="mt-1 p-2 rounded bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-emerald-400">
                             <code>{rel.cppMapping}</code>
                           </div>
                         )}

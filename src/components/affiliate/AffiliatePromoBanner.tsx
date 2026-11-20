@@ -130,7 +130,7 @@ export const AffiliatePromoBanner: React.FC<AffiliatePromoBannerProps> = ({
         <div className="flex items-center justify-between gap-3 flex-wrap">
           {/* PRラベル＆ジャンルバッジ */}
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-slate-600 dark:text-slate-400 px-2.5 py-1 rounded-full bg-slate-200/80 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 shadow-sm">
+            <span className="text-xs sm:text-xs font-mono font-bold tracking-wider text-slate-600 dark:text-slate-400 px-2.5 py-1 rounded-full bg-slate-200/80 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 shadow-sm">
               [PR] スポンサーリンク
             </span>
             <span
@@ -150,7 +150,7 @@ export const AffiliatePromoBanner: React.FC<AffiliatePromoBannerProps> = ({
             aria-label="広告セクションを閉じる"
           >
             <X className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400 group-hover:text-rose-500 transition-colors" />
-            <span className="text-[11px] group-hover:text-rose-600 dark:group-hover:text-rose-200 transition-colors">
+            <span className="text-xs group-hover:text-rose-600 dark:group-hover:text-rose-200 transition-colors">
               広告を閉じる
             </span>
           </button>
@@ -170,7 +170,7 @@ export const AffiliatePromoBanner: React.FC<AffiliatePromoBannerProps> = ({
             >
               <GraduationCap className="w-4 h-4 shrink-0" />
               <span>🎓 スクール・学習</span>
-              <span className="text-[10px] opacity-80 font-mono">(3)</span>
+              <span className="text-xs opacity-80 font-mono">(3)</span>
             </button>
 
             <button
@@ -184,7 +184,7 @@ export const AffiliatePromoBanner: React.FC<AffiliatePromoBannerProps> = ({
             >
               <Briefcase className="w-4 h-4 shrink-0" />
               <span>💼 転職・キャリア</span>
-              <span className="text-[10px] opacity-80 font-mono">(2)</span>
+              <span className="text-xs opacity-80 font-mono">(2)</span>
             </button>
 
             <button
@@ -198,7 +198,7 @@ export const AffiliatePromoBanner: React.FC<AffiliatePromoBannerProps> = ({
             >
               <Plane className="w-4 h-4 shrink-0" />
               <span>🏖️ 週末旅行・宿泊</span>
-              <span className="text-[10px] opacity-80 font-mono">(10)</span>
+              <span className="text-xs opacity-80 font-mono">(10)</span>
             </button>
           </div>
         )}
@@ -247,7 +247,7 @@ export const AffiliatePromoBanner: React.FC<AffiliatePromoBannerProps> = ({
                   {banner.name}
                 </span>
                 {banner.badge && (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shrink-0">
+                  <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shrink-0">
                     {banner.badge}
                   </span>
                 )}
@@ -282,10 +282,10 @@ export const AffiliatePromoBanner: React.FC<AffiliatePromoBannerProps> = ({
 
               {/* バナー説明文 ＆ リンク案内 */}
               <div className="w-full pt-2.5 px-1 space-y-1.5">
-                <p className="text-[11px] text-slate-600 dark:text-slate-400 font-sans leading-relaxed line-clamp-2">
+                <p className="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed line-clamp-2">
                   {banner.description}
                 </p>
-                <div className="flex items-center justify-between text-[11px] font-mono pt-1 border-t border-slate-100 dark:border-slate-800/80">
+                <div className="flex items-center justify-between text-xs font-mono pt-1 border-t border-slate-100 dark:border-slate-800/80">
                   <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">外部公式サイト</span>
                   <a
                     href={banner.linkUrl}
@@ -335,7 +335,7 @@ export const AffiliatePromoBanner: React.FC<AffiliatePromoBannerProps> = ({
             title="このセクションを閉じる"
           >
             <X className="w-3.5 h-3.5 group-hover:text-rose-500 transition-colors" />
-            <span className="text-[11px] group-hover:underline">広告枠を閉じる</span>
+            <span className="text-xs group-hover:underline">広告枠を閉じる</span>
           </button>
         </div>
       </div>

@@ -95,7 +95,7 @@ export const Avatar: React.FC<AvatarProps> = ({
 
       {/* 役職バッジ（右下） */}
       <span
-        className={`absolute -bottom-1 -right-1 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full shadow border z-10 ${
+        className={`absolute -bottom-1 -right-1 text-xs font-mono font-bold px-1.5 py-0.2 rounded-full shadow border z-10 ${
           character === 'shirokuma'
             ? 'bg-cyan-500 text-slate-950 border-cyan-300'
             : 'bg-amber-500 text-slate-950 border-amber-300'

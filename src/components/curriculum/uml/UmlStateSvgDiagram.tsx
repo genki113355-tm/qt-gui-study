@@ -282,7 +282,7 @@ export const UmlStateSvgDiagram: React.FC<UmlStateSvgDiagramProps> = ({
       {/* 状態遷移表（トランジションリスト）の付記 */}
       {transitions.length > 0 && (
         <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800/80">
-          <span className="text-[11px] font-mono font-bold text-slate-600 dark:text-slate-400 block mb-2 uppercase tracking-wider">
+          <span className="text-xs font-mono font-bold text-slate-600 dark:text-slate-400 block mb-2 uppercase tracking-wider">
             状態遷移仕様一覧 (Events &amp; Guards)
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-xs font-mono">
@@ -293,11 +293,11 @@ export const UmlStateSvgDiagram: React.FC<UmlStateSvgDiagramProps> = ({
                   <span className="text-slate-500">──&gt;</span>
                   <span className="text-emerald-400">{t.to}</span>
                 </div>
-                <div className="text-[11px] text-slate-700 dark:text-slate-300">
+                <div className="text-xs text-slate-700 dark:text-slate-300">
                   <span className="text-slate-500">Evt: </span>{t.event}
                 </div>
                 {t.guard && (
-                  <div className="text-[10px] text-amber-300">
+                  <div className="text-xs text-amber-300">
                     <span className="text-slate-500">Grd: </span>[{t.guard}]
                   </div>
                 )}

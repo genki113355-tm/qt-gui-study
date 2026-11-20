@@ -28,13 +28,13 @@ export const UmlClassBoxVisual: React.FC = () => {
         <div className="lg:col-span-7 bg-white/90 dark:bg-slate-900/90 rounded-2xl border-2 border-cyan-500/60 shadow-2xl overflow-hidden">
           {/* 1段目：クラス名ヘッダー */}
           <div className="p-4 bg-slate-800 text-center border-b-2 border-cyan-500/50 relative">
-            <span className="text-[11px] font-mono text-cyan-400 font-semibold block uppercase tracking-widest">
+            <span className="text-xs font-mono text-cyan-400 font-semibold block uppercase tracking-widest">
               &laquo;Entity&raquo;
             </span>
             <h4 className="text-lg sm:text-xl font-bold text-white font-mono">
               Player
             </h4>
-            <span className="absolute right-3 top-3 text-[10px] font-mono text-slate-600 dark:text-slate-400 bg-white/90 dark:bg-slate-950/80 px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700">
+            <span className="absolute right-3 top-3 text-xs font-mono text-slate-600 dark:text-slate-400 bg-white/90 dark:bg-slate-950/80 px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700">
               第1段：クラス名
             </span>
           </div>
@@ -42,10 +42,10 @@ export const UmlClassBoxVisual: React.FC = () => {
           {/* 2段目：属性コンパートメント (Attributes) */}
           <div className="p-4 bg-white/90 dark:bg-slate-950/70 border-b-2 border-cyan-500/50 space-y-2 relative">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+              <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
                 Attributes (属性 / メンバ変数)
               </span>
-              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-800">
+              <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-800">
                 第2段：属性
               </span>
             </div>
@@ -59,7 +59,7 @@ export const UmlClassBoxVisual: React.FC = () => {
                   <span className="text-slate-500">:</span>
                   <span className="text-cyan-400">int</span>
                 </div>
-                <span className="text-[11px] text-slate-600 dark:text-slate-400 font-sans hidden sm:inline">
+                <span className="text-xs text-slate-600 dark:text-slate-400 font-sans hidden sm:inline">
                   private HP残量
                 </span>
               </div>
@@ -72,7 +72,7 @@ export const UmlClassBoxVisual: React.FC = () => {
                   <span className="text-slate-500">:</span>
                   <span className="text-cyan-400">Vec2D</span>
                 </div>
-                <span className="text-[11px] text-slate-600 dark:text-slate-400 font-sans hidden sm:inline">
+                <span className="text-xs text-slate-600 dark:text-slate-400 font-sans hidden sm:inline">
                   private 現在座標
                 </span>
               </div>
@@ -82,10 +82,10 @@ export const UmlClassBoxVisual: React.FC = () => {
           {/* 3段目：操作コンパートメント (Operations) */}
           <div className="p-4 bg-white/70 dark:bg-slate-950/40 space-y-2 relative">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+              <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
                 Operations (操作 / メンバ関数)
               </span>
-              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-800">
+              <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-800">
                 第3段：操作
               </span>
             </div>
@@ -99,7 +99,7 @@ export const UmlClassBoxVisual: React.FC = () => {
                   <span className="text-slate-500">:</span>
                   <span className="text-cyan-400">void</span>
                 </div>
-                <span className="text-[11px] text-emerald-400 font-sans hidden sm:inline">
+                <span className="text-xs text-emerald-400 font-sans hidden sm:inline">
                   public 被弾処理
                 </span>
               </div>
@@ -112,7 +112,7 @@ export const UmlClassBoxVisual: React.FC = () => {
                   <span className="text-slate-500">:</span>
                   <span className="text-cyan-400">void</span>
                 </div>
-                <span className="text-[11px] text-emerald-400 font-sans hidden sm:inline">
+                <span className="text-xs text-emerald-400 font-sans hidden sm:inline">
                   public 移動命令
                 </span>
               </div>

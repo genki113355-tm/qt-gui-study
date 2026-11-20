@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/40">
+                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/40">
                       CAMPUS PORTAL
                     </span>
                     <span className="text-xs font-mono text-cyan-700 dark:text-cyan-400">shirokuma-tech.jp</span>
@@ -61,14 +61,14 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
+                      <span className="text-xs tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
                         C++
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition text-xs font-sans truncate block">
                       シロクマC++ラボ
                     </span>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
                       ゲームで学ぶC++設計
                     </p>
                   </div>
@@ -86,14 +86,14 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-amber-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700/50">
+                      <span className="text-xs tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-amber-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700/50">
                         AUTO
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition text-xs font-sans truncate block">
                       シロクマC++自動化ラボ
                     </span>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
                       Docker / CI / 自動評価
                     </p>
                   </div>
@@ -111,14 +111,14 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-blue-700 dark:text-blue-400 border border-slate-200 dark:border-slate-700/50">
+                      <span className="text-xs tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-blue-700 dark:text-blue-400 border border-slate-200 dark:border-slate-700/50">
                         SONAR
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition text-xs font-sans truncate block">
                       水中音響・ソナー入門
                     </span>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
                       波の物理 / FFT / 解析
                     </p>
                   </div>
@@ -136,14 +136,14 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
+                      <span className="text-xs tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
                         SONAR ADV
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition text-xs font-sans truncate block">
                       水中音響 ADVANCED
                     </span>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
                       数理物理 / 空間フィルタ / MVDR
                     </p>
                   </div>
@@ -161,14 +161,14 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-orange-700 dark:text-orange-400 border border-slate-200 dark:border-slate-700/50">
+                      <span className="text-xs tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-orange-700 dark:text-orange-400 border border-slate-200 dark:border-slate-700/50">
                         LINUX
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition text-xs font-sans truncate block">
                       Linux・Git実践ラボ
                     </span>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
                       LinuC &amp; Git実践マスター
                     </p>
                   </div>
@@ -186,14 +186,14 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-sky-700 dark:text-sky-400 border border-slate-200 dark:border-slate-700/50">
+                      <span className="text-xs tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-sky-700 dark:text-sky-400 border border-slate-200 dark:border-slate-700/50">
                         NW
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition text-xs font-sans truncate block">
                       ネスペ直前対策ナビ
                     </span>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
                       午後記述 / DNS / 要点まとめ
                     </p>
                   </div>
@@ -211,14 +211,14 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-teal-700 dark:text-teal-400 border border-slate-200 dark:border-slate-700/50">
+                      <span className="text-xs tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-teal-700 dark:text-teal-400 border border-slate-200 dark:border-slate-700/50">
                         ES
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition text-xs font-sans truncate block">
                       組込みES対策ラボ
                     </span>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
                       組込みスペシャリスト合格戦略
                     </p>
                   </div>
@@ -236,14 +236,14 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 mb-0.5">
-                      <span className="text-[9px] tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
+                      <span className="text-xs tracking-wider font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-400 border border-slate-200 dark:border-slate-700/50">
                         AI
                       </span>
                     </div>
                     <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition text-xs font-sans truncate block">
                       AIパスポートラボ
                     </span>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5 truncate">
                       生成AIシラバス / 400問演習
                     </p>
                   </div>
@@ -255,12 +255,12 @@ export const Footer: React.FC = () => {
           {/* 運営体制・技術監修 */}
           <div className="pt-2 pb-1 max-w-2xl mx-auto text-xs text-slate-600 dark:text-slate-400 font-sans space-y-1.5">
             <div className="flex items-center justify-center gap-2 text-slate-800 dark:text-slate-300 font-semibold flex-wrap">
-              <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-cyan-800 dark:text-cyan-300 border border-slate-300 dark:border-slate-700 text-[11px] font-mono">
+              <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-cyan-800 dark:text-cyan-300 border border-slate-300 dark:border-slate-700 text-xs font-mono">
                 技術監修・品質保証
               </span>
               <span>シロクマQt×C++ラボ 技術編集部</span>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed mt-2">
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-2">
               現役C++ソフトウェアエンジニア（組込み制御・システム開発実務経験）が全カリキュラムを設計・監修。<br className="hidden sm:inline" />
               Linux環境でのHMI・計器ソフトウェア開発のノウハウを体系化。Qt/QML/C++によるマルチスレッドとリアルタイム描画の実践知識を提供します。
             </p>

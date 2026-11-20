@@ -96,11 +96,11 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
             <div>
               <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-2 font-sans leading-tight">
                 <span>C++オンライン実行ラボ</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-500/30">
+                <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-500/30">
                   GCC C++23
                 </span>
               </h2>
-              <p className="text-[11px] text-slate-600 dark:text-slate-400 font-mono hidden sm:block">
+              <p className="text-xs text-slate-600 dark:text-slate-400 font-mono hidden sm:block">
                 ブラウザ上で即座にコンパイル・実行できる自由サンドボックス
               </p>
             </div>
@@ -149,7 +149,7 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
                   }`}
                   title={tmpl.description}
                 >
-                  <span className="text-[10px] opacity-75">[{tmpl.badge}]</span>
+                  <span className="text-xs opacity-75">[{tmpl.badge}]</span>
                   <span>{tmpl.name}</span>
                 </button>
               );
@@ -211,7 +211,7 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
             {/* 標準入力ボックス（展開時） */}
             {showStdin && (
               <div className="p-3 bg-slate-950 border-b border-slate-200 dark:border-slate-800">
-                <label className="block text-[11px] font-mono text-slate-600 dark:text-slate-400 mb-1">
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-400 mb-1">
                   標準入力（cin に渡す値）:
                 </label>
                 <textarea
@@ -232,7 +232,7 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
                   <span>コンソール出力</span>
                 </span>
                 {result && (
-                  <span className="text-[11px]">
+                  <span className="text-xs">
                     Status: <span className={result.status === 0 ? 'text-emerald-400' : 'text-rose-400'}>{result.status}</span>
                     {result.executionTimeMs !== undefined && ` (${result.executionTimeMs}ms)`}
                   </span>
@@ -252,7 +252,7 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
                     {/* コンパイルエラー */}
                     {result.compiler_error && (
                       <div className="text-rose-400 whitespace-pre-wrap pb-2">
-                        <span className="px-1.5 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-[10px] font-bold mr-1.5 text-rose-300">
+                        <span className="px-1.5 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-xs font-bold mr-1.5 text-rose-300">
                           COMPILE ERROR
                         </span>
                         {result.compiler_error}
@@ -261,7 +261,7 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
 
                     {/* 警告 */}
                     {result.compiler_output && !result.compiler_error && (
-                      <div className="text-amber-400 whitespace-pre-wrap opacity-75 text-[11px] pb-1">
+                      <div className="text-amber-400 whitespace-pre-wrap opacity-75 text-xs pb-1">
                         {result.compiler_output}
                       </div>
                     )}
@@ -282,7 +282,7 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
                     {/* 実行時エラー */}
                     {result.program_error && (
                       <div className="text-rose-400 whitespace-pre-wrap pt-2 border-t border-slate-200 dark:border-slate-800">
-                        <span className="px-1.5 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-[10px] font-bold mr-1.5 text-rose-300">
+                        <span className="px-1.5 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-xs font-bold mr-1.5 text-rose-300">
                           RUNTIME ERROR
                         </span>
                         {result.program_error}
@@ -303,7 +303,7 @@ export const OnlinePlaygroundModal: React.FC<OnlinePlaygroundModalProps> = ({
         </div>
 
         {/* モーダルフッター（シロクマ先生のひとこと） */}
-        <div className="px-4 sm:px-6 py-2.5 bg-slate-950 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 font-sans">
+        <div className="px-4 sm:px-6 py-2.5 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 font-sans">
           <div className="flex items-center gap-2">
             <img
               src="/images/characters/shirokuma_sensei.png"

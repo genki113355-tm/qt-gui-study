@@ -46,7 +46,7 @@ export const ParadigmComparisonView: React.FC<ParadigmComparisonViewProps> = ({ 
             <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-2.5 py-1 rounded-lg bg-rose-100 dark:bg-rose-950 border border-rose-300 dark:border-rose-700 text-rose-800 dark:text-rose-300 text-xs sm:text-sm font-bold font-mono">C言語</span>
-                <span className="px-2 py-0.5 rounded-full bg-rose-100/90 dark:bg-rose-950/90 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-500/60 text-[11px] font-bold font-mono flex items-center gap-1">
+                <span className="px-2 py-0.5 rounded-full bg-rose-100/90 dark:bg-rose-950/90 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-500/60 text-xs font-bold font-mono flex items-center gap-1">
                   <AlertTriangle className="w-3 h-3 text-rose-600 dark:text-rose-400" />
                   <span>実務コピペ厳禁</span>
                 </span>
@@ -78,8 +78,8 @@ export const ParadigmComparisonView: React.FC<ParadigmComparisonViewProps> = ({ 
             </div>
 
             {/* コードブロック */}
-            <div className="relative group my-3">
-              <pre className="p-4 rounded-xl bg-white/95 dark:bg-slate-900/95 dark:bg-slate-900/90 text-sm sm:text-base font-mono text-rose-100 overflow-x-auto border border-rose-900/50 leading-relaxed">
+            <div className="relative group my-3 min-w-0">
+              <pre className="p-4 rounded-xl bg-slate-900 dark:bg-slate-950 text-sm sm:text-base font-mono text-rose-200 w-full max-w-full overflow-x-auto border border-rose-500/30 leading-relaxed">
                 <code>{data.cApproach.code}</code>
               </pre>
             </div>
@@ -104,7 +104,7 @@ export const ParadigmComparisonView: React.FC<ParadigmComparisonViewProps> = ({ 
             <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-2.5 py-1 rounded-lg bg-cyan-100 dark:bg-cyan-950 border border-cyan-300 dark:border-cyan-700 text-cyan-800 dark:text-cyan-300 text-xs sm:text-sm font-bold font-mono">C++</span>
-                <span className="px-2 py-0.5 rounded-full bg-cyan-100/90 dark:bg-cyan-950/90 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/60 text-[11px] font-bold font-mono flex items-center gap-1">
+                <span className="px-2 py-0.5 rounded-full bg-cyan-100/90 dark:bg-cyan-950/90 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/60 text-xs font-bold font-mono flex items-center gap-1">
                   <CheckCircle2 className="w-3 h-3 text-cyan-600 dark:text-cyan-400" />
                   <span>推奨モダン設計</span>
                 </span>
@@ -136,8 +136,8 @@ export const ParadigmComparisonView: React.FC<ParadigmComparisonViewProps> = ({ 
             </div>
 
             {/* コードブロック */}
-            <div className="relative group my-3">
-              <pre className="p-4 rounded-xl bg-white/95 dark:bg-slate-900/95 dark:bg-slate-900/90 text-sm sm:text-base font-mono text-cyan-100 dark:text-cyan-200 overflow-x-auto border border-cyan-900/50 dark:border-cyan-500/35 leading-relaxed">
+            <div className="relative group my-3 min-w-0">
+              <pre className="p-4 rounded-xl bg-slate-900 dark:bg-slate-950 text-sm sm:text-base font-mono text-cyan-200 w-full max-w-full overflow-x-auto border border-cyan-500/35 leading-relaxed">
                 <code>{data.cppApproach.code}</code>
               </pre>
             </div>

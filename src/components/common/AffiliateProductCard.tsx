@@ -17,12 +17,12 @@ export const AffiliateProductCard: React.FC<AffiliateProductCardProps> = ({ prod
         <div className="bg-gradient-to-r from-emerald-500/10 via-teal-50 to-emerald-50 dark:from-emerald-950/40 dark:via-slate-800 dark:to-emerald-950/20 p-3.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-2xl">{product.icon}</span>
-            <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-600 text-white shadow-2xs font-mono">
+            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-600 text-white shadow-2xs font-mono">
               {product.category}
             </span>
           </div>
           {product.priceHint && (
-            <span className="text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 bg-white/80 dark:bg-slate-800 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
+            <span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 bg-white/80 dark:bg-slate-800 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
               {product.priceHint}
             </span>
           )}
@@ -30,7 +30,7 @@ export const AffiliateProductCard: React.FC<AffiliateProductCardProps> = ({ prod
 
         {/* 本文エリア */}
         <div className="p-4 space-y-2.5">
-          <div className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
+          <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
             <Tag className="w-3 h-3" />
             <span>{product.tag}</span>
           </div>
@@ -47,8 +47,8 @@ export const AffiliateProductCard: React.FC<AffiliateProductCardProps> = ({ prod
             {product.description}
           </p>
 
-          <div className="text-[11px] bg-amber-50 dark:bg-amber-950/30 p-2.5 rounded-xl border border-amber-200/80 dark:border-amber-800/60 text-amber-950 dark:text-amber-200 mt-2">
-            <span className="font-bold block text-[10px] text-amber-900 dark:text-amber-300 mb-0.5">💡 シロクマ推奨ポイント:</span>
+          <div className="text-xs bg-amber-50 dark:bg-amber-950/30 p-2.5 rounded-xl border border-amber-200/80 dark:border-amber-800/60 text-amber-950 dark:text-amber-200 mt-2">
+            <span className="font-bold block text-xs text-amber-900 dark:text-amber-300 mb-0.5">💡 シロクマ推奨ポイント:</span>
             {product.recommendPoint}
           </div>
         </div>

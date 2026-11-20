@@ -148,7 +148,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
   const previewHeader = getPreviewHeaderInfo();
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-12">
+    <div className="w-full max-w-5xl mx-auto px-3 sm:px-6 py-5 sm:py-7 space-y-8 min-w-0">
       {/* 章ヘッダーバナー（リアルタイムプレビュー付き） */}
       <div className={`relative rounded-3xl bg-gradient-to-br from-white via-sky-50/70 to-cyan-50/40 dark:from-slate-900 dark:via-[#0c121e] dark:to-slate-950 p-6 sm:p-8 md:p-10 border shadow-xl dark:shadow-2xl overflow-hidden transition-colors ${getBorderColor()}`}>
         {/* 背景の淡いグロー */}
@@ -305,7 +305,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                     className="mt-0.5 w-4 h-4 rounded text-cyan-600 focus:ring-cyan-400 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 cursor-pointer"
                     aria-label={p.term || p.title}
                   />
-                  <div className="text-sm leading-relaxed flex-1">
+                  <div className="text-sm leading-relaxed flex-1 min-w-0">
                     <span className={isChecked ? 'line-through opacity-75' : ''}>
                       {p.term ? (
                         <>
@@ -396,7 +396,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
             >
               <span>🧪 演習・クイズ</span>
               {chapter.quiz && chapter.quiz.length > 0 && (
-                <span className="text-[10px] opacity-75">(クイズ{chapter.quiz.length}問)</span>
+                <span className="text-xs opacity-75">(クイズ{chapter.quiz.length}問)</span>
               )}
             </button>
           </div>
@@ -435,7 +435,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
 
         return (
           <React.Fragment key={section.id}>
-            <section className="space-y-6 pt-12 pb-8 border-t border-slate-200 dark:border-slate-800/80">
+            <section className="space-y-5 pt-8 pb-5 border-t border-slate-200 dark:border-slate-800/80 min-w-0">
             <div>
               <div className="flex items-center gap-3.5 flex-wrap">
                 {sectionNum && (
@@ -748,23 +748,24 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
         </div>
       )}
 
-      {/* 🔗 関連ラボでさらに深める（クロスリンク） */}
+      {/* 🔗 関連ラボでさらに深める（折りたたみ） */}
       {chapter.relatedLabs && chapter.relatedLabs.length > 0 && (
-        <div className="rounded-3xl bg-white/95 dark:bg-gradient-to-br dark:from-slate-900/90 dark:via-[#0a1120] dark:to-slate-950 p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md dark:shadow-xl space-y-4 transition-colors">
-          <div className="flex items-center justify-between gap-3">
-            <h3 className="text-lg sm:text-xl font-bold font-mono text-slate-900 dark:text-white flex items-center gap-2">
+        <details className="rounded-2xl bg-white/95 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden group">
+          <summary className="list-none cursor-pointer p-4 sm:p-5 flex items-center justify-between gap-3 hover:bg-cyan-50/40 dark:hover:bg-slate-900/60 transition-colors">
+            <h3 className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-white flex items-center gap-2">
               <span>🔗</span>
               <span>関連ラボでさらに深める（シロクマ技術エコシステム）</span>
             </h3>
-            <span className="text-xs sm:text-sm font-mono text-cyan-800 dark:text-cyan-400 bg-cyan-100 dark:bg-cyan-950/60 px-2.5 py-1 rounded-full border border-cyan-300 dark:border-cyan-500/30 font-bold">
-              相乗効果
+            <span className="text-xs font-mono text-cyan-800 dark:text-cyan-400 bg-cyan-100 dark:bg-cyan-950/60 px-2.5 py-1 rounded-full border border-cyan-300 dark:border-cyan-500/30 font-bold shrink-0">
+              展開する ▼
             </span>
-          </div>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            本章のテーマ（マルチスレッド、CMake、ソケット、テスト等）と深く連動する姉妹ラボのカリキュラムです。併せて学ぶことで実務実装力が何倍にも跳ね上がります。
+          </summary>
+          <div className="p-5 sm:p-6 pt-2 border-t border-slate-200 dark:border-slate-800 space-y-4">
+          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            本章のテーマと連動する姉妹ラボのカリキュラムです。
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {chapter.relatedLabs.map((lab, lIdx) => (
               <a
                 key={lIdx}
@@ -795,11 +796,20 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
               </a>
             ))}
           </div>
-        </div>
+          </div>
+        </details>
       )}
 
-      {/* 関連おすすめ情報・PRプロモーションバナー（全デバイス共通・章末フォロー） */}
-      <AffiliatePromoBanner defaultCategory="school" limit={3} showTabs={true} />
+      {/* 関連おすすめ情報・PRプロモーションバナー（章末折りたたみ） */}
+      <details className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-sm overflow-hidden">
+        <summary className="list-none cursor-pointer px-4 py-3 flex items-center justify-between text-xs font-mono font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60">
+          <span>📚 おすすめ学習リソース・スクール [PR]</span>
+          <span>表示 ▼</span>
+        </summary>
+        <div className="p-4 pt-2 border-t border-slate-200 dark:border-slate-800">
+          <AffiliatePromoBanner defaultCategory="school" limit={3} showTabs={false} />
+        </div>
+      </details>
 
       {/* 章ナビゲーションフッター */}
       <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-4 flex-wrap">

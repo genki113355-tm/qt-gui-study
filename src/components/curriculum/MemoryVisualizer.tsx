@@ -72,7 +72,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                         <Layers className="w-4 h-4" />
                         <span>[スタック領域 (Stack)]</span>
                       </span>
-                      <span className="text-[11px] text-slate-500">0x7FFF0100〜</span>
+                      <span className="text-xs text-slate-500">0x7FFF0100〜</span>
                     </div>
 
                     <div className="p-3 rounded-lg bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono text-xs sm:text-sm space-y-2.5">
@@ -87,7 +87,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                           <span className="text-slate-600 dark:text-slate-400 font-bold">enemies[0] : </span>
                           <span className="text-cyan-300 font-mono">0x10A0</span>
                         </div>
-                        <span className="flex items-center gap-1 text-[11px] text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/30">
+                        <span className="flex items-center gap-1 text-xs text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/30">
                           Normal ──►
                         </span>
                       </div>
@@ -98,7 +98,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                           <span className="text-slate-600 dark:text-slate-400 font-bold">enemies[1] : </span>
                           <span className="text-cyan-300 font-mono">0x10F0</span>
                         </div>
-                        <span className="flex items-center gap-1 text-[11px] text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/30">
+                        <span className="flex items-center gap-1 text-xs text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/30">
                           Shield ──►
                         </span>
                       </div>
@@ -109,14 +109,14 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                           <span className="text-slate-600 dark:text-slate-400 font-bold">enemies[2] : </span>
                           <span className="text-cyan-300 font-mono">0x1140</span>
                         </div>
-                        <span className="flex items-center gap-1 text-[11px] text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/30">
+                        <span className="flex items-center gap-1 text-xs text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/30">
                           Ufo ──►
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="mt-3 text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
+                  <p className="mt-3 text-xs sm:text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
                     スタック上には8バイトのポインタ（アドレス値）だけが格納され、メモリ占有を最小限に抑えています。
                   </p>
                 </div>
@@ -128,14 +128,14 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                       <HardDrive className="w-4 h-4" />
                       <span>[ヒープ領域 (Heap) : 派生クラスのインスタンス実体]</span>
                     </span>
-                    <span className="text-[11px] text-slate-500">動的配置 (new / delete)</span>
+                    <span className="text-xs text-slate-500">動的配置 (new / delete)</span>
                   </div>
 
                   {/* NormalEnemy インスタンス */}
                   <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-emerald-500/40 font-mono text-xs sm:text-sm space-y-2">
                     <div className="flex items-center justify-between text-slate-800 dark:text-slate-200">
                       <div className="flex items-center gap-2">
-                        <span className="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-bold border border-blue-500/30 text-[11px]">V</span>
+                        <span className="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-bold border border-blue-500/30 text-xs">V</span>
                         <strong className="text-white">NormalEnemy</strong>
                       </div>
                       <span className="text-xs text-slate-500">Heap: 0x10A0</span>
@@ -143,9 +143,9 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                       <div className="p-1.5 rounded bg-purple-950/50 border border-purple-500/40 text-purple-300 flex items-center justify-between">
                         <span>void* __vptr</span>
-                        <span className="text-[10px] text-purple-400">─► &amp;vtable_Normal</span>
+                        <span className="text-xs text-purple-400">─► &amp;vtable_Normal</span>
                       </div>
-                      <div className="p-1.5 rounded bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between">
+                      <div className="p-1.5 rounded bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between">
                         <span>m_x, m_y</span>
                         <span className="text-emerald-400">HP: 1</span>
                       </div>
@@ -156,7 +156,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                   <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-emerald-500/40 font-mono text-xs sm:text-sm space-y-2">
                     <div className="flex items-center justify-between text-slate-800 dark:text-slate-200">
                       <div className="flex items-center gap-2">
-                        <span className="px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 font-bold border border-emerald-500/30 text-[11px]">S</span>
+                        <span className="px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 font-bold border border-emerald-500/30 text-xs">S</span>
                         <strong className="text-white">ShieldEnemy</strong>
                       </div>
                       <span className="text-xs text-slate-500">Heap: 0x10F0</span>
@@ -164,9 +164,9 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                       <div className="p-1.5 rounded bg-purple-950/50 border border-purple-500/40 text-purple-300 flex items-center justify-between">
                         <span>void* __vptr</span>
-                        <span className="text-[10px] text-purple-400">─► &amp;vtable_Shield</span>
+                        <span className="text-xs text-purple-400">─► &amp;vtable_Shield</span>
                       </div>
-                      <div className="p-1.5 rounded bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between">
+                      <div className="p-1.5 rounded bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between">
                         <span>m_x, m_y</span>
                         <span className="text-amber-400">m_shield: 2</span>
                       </div>
@@ -177,7 +177,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                   <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-emerald-500/40 font-mono text-xs sm:text-sm space-y-2">
                     <div className="flex items-center justify-between text-slate-800 dark:text-slate-200">
                       <div className="flex items-center gap-2">
-                        <span className="px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 font-bold border border-amber-500/30 text-[11px]">U</span>
+                        <span className="px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 font-bold border border-amber-500/30 text-xs">U</span>
                         <strong className="text-white">UfoEnemy</strong>
                       </div>
                       <span className="text-xs text-slate-500">Heap: 0x1140</span>
@@ -185,9 +185,9 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                       <div className="p-1.5 rounded bg-purple-950/50 border border-purple-500/40 text-purple-300 flex items-center justify-between">
                         <span>void* __vptr</span>
-                        <span className="text-[10px] text-purple-400">─► &amp;vtable_Ufo</span>
+                        <span className="text-xs text-purple-400">─► &amp;vtable_Ufo</span>
                       </div>
-                      <div className="p-1.5 rounded bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between">
+                      <div className="p-1.5 rounded bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between">
                         <span>m_x, m_y</span>
                         <span className="text-cyan-400">bonus: 500pts</span>
                       </div>
@@ -203,7 +203,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     <span className="w-2.5 h-2.5 rounded-full bg-purple-400 animate-pulse" />
                     <span>[静的データ領域 (Code/Data Section) : 各クラスの仮想関数テーブル群 (vtable)]</span>
                   </span>
-                  <span className="text-[11px] text-slate-600 dark:text-slate-400">実行時に関数アドレスを逆引き</span>
+                  <span className="text-xs text-slate-600 dark:text-slate-400">実行時に関数アドレスを逆引き</span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs">
@@ -214,8 +214,8 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     </div>
                     <div className="text-slate-700 dark:text-slate-300 space-y-1">
                       <div>[0] &amp;NormalEnemy::~NormalEnemy()</div>
-                      <div>[1] &amp;NormalEnemy::update() <span className="text-blue-400 font-sans text-[10px]">左右往復</span></div>
-                      <div>[2] &amp;NormalEnemy::draw() <span className="text-slate-600 dark:text-slate-400 font-sans text-[10px]">'V'</span></div>
+                      <div>[1] &amp;NormalEnemy::update() <span className="text-blue-400 font-sans text-xs">左右往復</span></div>
+                      <div>[2] &amp;NormalEnemy::draw() <span className="text-slate-600 dark:text-slate-400 font-sans text-xs">'V'</span></div>
                     </div>
                   </div>
 
@@ -226,8 +226,8 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     </div>
                     <div className="text-slate-700 dark:text-slate-300 space-y-1">
                       <div>[0] &amp;ShieldEnemy::~ShieldEnemy()</div>
-                      <div>[1] &amp;ShieldEnemy::update() <span className="text-emerald-400 font-sans text-[10px]">低速重装甲</span></div>
-                      <div>[2] &amp;ShieldEnemy::draw() <span className="text-emerald-400 font-sans text-[10px]">'S'/'s'</span></div>
+                      <div>[1] &amp;ShieldEnemy::update() <span className="text-emerald-400 font-sans text-xs">低速重装甲</span></div>
+                      <div>[2] &amp;ShieldEnemy::draw() <span className="text-emerald-400 font-sans text-xs">'S'/'s'</span></div>
                     </div>
                   </div>
 
@@ -238,8 +238,8 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     </div>
                     <div className="text-slate-700 dark:text-slate-300 space-y-1">
                       <div>[0] &amp;UfoEnemy::~UfoEnemy()</div>
-                      <div>[1] &amp;UfoEnemy::update() <span className="text-amber-400 font-sans text-[10px]">高速直進</span></div>
-                      <div>[2] &amp;UfoEnemy::draw() <span className="text-amber-400 font-sans text-[10px]">'U'</span></div>
+                      <div>[1] &amp;UfoEnemy::update() <span className="text-amber-400 font-sans text-xs">高速直進</span></div>
+                      <div>[2] &amp;UfoEnemy::draw() <span className="text-amber-400 font-sans text-xs">'U'</span></div>
                     </div>
                   </div>
                 </div>
@@ -255,7 +255,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     <Layers className="w-4 h-4" />
                     <span>[スタック領域 (Stack)]</span>
                   </span>
-                  <span className="text-[11px] text-slate-500">0x7ffd0000</span>
+                  <span className="text-xs text-slate-500">0x7ffd0000</span>
                 </div>
 
                 <div className="p-3 rounded-lg bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono text-xs sm:text-sm space-y-2">
@@ -263,7 +263,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     <span>Game game</span>
                     <span className="text-xs text-slate-600 dark:text-slate-400">main() 内ローカル変数</span>
                   </div>
-                  <div className="p-2 rounded bg-slate-950 text-slate-700 dark:text-slate-300">
+                  <div className="p-2 rounded bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300">
                     Player m_player (int m_x, m_y)
                   </div>
                   <div className="p-2.5 rounded bg-cyan-950/40 border border-cyan-500/30 text-cyan-200 space-y-1">
@@ -273,7 +273,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     <div className="text-xs text-slate-700 dark:text-slate-300 pl-2">└─ size_t    _cap  : 16 (容量)</div>
                   </div>
                 </div>
-                <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
+                <p className="text-xs sm:text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
                   std::vector 自体はスタック上にわずか24バイト（ポインタ3本）しか占有しません。
                 </p>
               </div>
@@ -285,7 +285,7 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
                     <HardDrive className="w-4 h-4" />
                     <span>[ヒープ領域 (Heap) : 連続動的バッファ]</span>
                   </span>
-                  <span className="text-[11px] text-slate-500">0x00a12000</span>
+                  <span className="text-xs text-slate-500">0x00a12000</span>
                 </div>
 
                 <div className="p-3 rounded-lg bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono text-xs space-y-2">
@@ -296,9 +296,9 @@ export const MemoryVisualizer: React.FC<MemoryVisualizerProps> = ({ memoryMap })
 
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {[0, 1, 2, 3, 4, 9].map((idx) => (
-                      <div key={idx} className="p-2 rounded bg-slate-950 border border-emerald-500/20 text-slate-700 dark:text-slate-300 text-[11px]">
+                      <div key={idx} className="p-2 rounded bg-slate-50 dark:bg-slate-950 border border-emerald-500/20 text-slate-700 dark:text-slate-300 text-xs">
                         <div className="text-emerald-400 font-bold">Particle[{idx === 9 ? '...' : idx}]</div>
-                        <div className="text-slate-600 dark:text-slate-400 text-[10px]">life: {8 - idx > 0 ? 8 - idx : 1}</div>
+                        <div className="text-slate-600 dark:text-slate-400 text-xs">life: {8 - idx > 0 ? 8 - idx : 1}</div>
                       </div>
                     ))}
                   </div>

@@ -80,7 +80,7 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
           aria-label="おすすめサイドバーを展開"
         >
           <ChevronLeft className="w-4 h-4 text-cyan-600 dark:text-cyan-400 group-hover:-translate-x-0.5 transition-transform" />
-          <span className="text-[10px] font-bold [writing-mode:vertical-rl] tracking-widest text-slate-500 dark:text-slate-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400">
+          <span className="text-xs font-bold [writing-mode:vertical-rl] tracking-widest text-slate-500 dark:text-slate-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400">
             おすすめ情報
           </span>
           <img
@@ -103,7 +103,7 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
         </div>
         <button
           onClick={() => setIsCollapsed(true)}
-          className="inline-flex items-center gap-0.5 px-2 py-1 rounded-lg text-[11px] text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
+          className="inline-flex items-center gap-0.5 px-2 py-1 rounded-lg text-xs text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
           title="サイドバーを折りたたむ"
           aria-label="サイドバーを折りたたむ"
         >
@@ -142,8 +142,8 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
                   : 'bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-cyan-50 dark:hover:bg-slate-700'
               }`}
             >
-              <span className="font-bold text-[11px] truncate">🔰 Chapter 0</span>
-              <span className="text-[10px] opacity-75 font-mono truncate">環境セットアップ</span>
+              <span className="font-bold text-xs truncate">🔰 Chapter 0</span>
+              <span className="text-xs opacity-75 font-mono truncate">環境セットアップ</span>
             </button>
             <button
               onClick={() => onSelectChapter('chapter-2')}
@@ -153,8 +153,8 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
                   : 'bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-cyan-50 dark:hover:bg-slate-700'
               }`}
             >
-              <span className="font-bold text-[11px] truncate">⚡ Chapter 2</span>
-              <span className="text-[10px] opacity-75 font-mono truncate">シグナル＆スロット</span>
+              <span className="font-bold text-xs truncate">⚡ Chapter 2</span>
+              <span className="text-xs opacity-75 font-mono truncate">シグナル＆スロット</span>
             </button>
           </div>
         )}
@@ -263,7 +263,7 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
               <span>{careerBanner.name}</span>
               <ExternalLink className="w-3 h-3 text-slate-600 dark:text-slate-400 shrink-0" />
             </a>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
               {careerBanner.description}
             </p>
           </div>
@@ -274,11 +274,11 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
       {onstudyBanner && (
         <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3 shadow-sm space-y-2 transition-all hover:border-emerald-300 dark:hover:border-emerald-500/40">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
+            <span className="text-xs font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
               <CalendarCheck2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
               <span>{onstudyBanner.badge || '定額スキルアップ'}</span>
             </span>
-            <span className="text-[10px] text-slate-600 dark:text-slate-400 font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
               PR
             </span>
           </div>
@@ -318,7 +318,7 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
               <span>{onstudyBanner.name}</span>
               <ExternalLink className="w-3 h-3 text-slate-600 dark:text-slate-400 shrink-0" />
             </a>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
               {onstudyBanner.description}
             </p>
           </div>
@@ -329,11 +329,11 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
       {travelBanner && (
         <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c121e]/90 p-3 shadow-sm space-y-2 transition-all hover:border-amber-300 dark:hover:border-amber-500/40">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
+            <span className="text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 px-2 py-0.5 rounded-full flex items-center gap-1">
               <Building2 className="w-3 h-3 text-amber-600 dark:text-amber-400" />
               <span>{travelBanner.badge || '宿泊・開発合宿'}</span>
             </span>
-            <span className="text-[10px] text-slate-600 dark:text-slate-400 font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
               PR
             </span>
           </div>
@@ -373,7 +373,7 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
               <span>{travelBanner.name}</span>
               <ExternalLink className="w-3 h-3 text-slate-600 dark:text-slate-400 shrink-0" />
             </a>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
               {travelBanner.description}
             </p>
           </div>
@@ -382,7 +382,7 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
 
       {/* 6. シロクマ キャンパスラボ 姉妹サイト */}
       <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/60 p-3.5 space-y-2.5">
-        <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+        <div className="flex items-center gap-1 text-xs font-mono font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
           <Layers className="w-3 h-3 text-cyan-600 dark:text-cyan-400" />
           <span>SHIROKUMA CAMPUS LABS</span>
         </div>
@@ -392,28 +392,28 @@ export const RightSidebarBanners: React.FC<RightSidebarBannersProps> = ({
             className="flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-cyan-300 dark:hover:border-cyan-500/50 hover:bg-cyan-50/50 dark:hover:bg-slate-700/50 transition-colors text-slate-700 dark:text-slate-300"
           >
             <span className="font-semibold">👾 C++設計ラボ</span>
-            <span className="text-[10px] text-cyan-700 dark:text-cyan-400 font-mono">OOP実践 ➔</span>
+            <span className="text-xs text-cyan-700 dark:text-cyan-400 font-mono">OOP実践 ➔</span>
           </a>
           <a
             href="/nw/"
             className="flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-emerald-300 dark:hover:border-emerald-500/50 hover:bg-emerald-50/50 dark:hover:bg-slate-700/50 transition-colors text-slate-700 dark:text-slate-300"
           >
             <span className="font-semibold">🌐 ネスペ特訓ラボ</span>
-            <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-mono">午後記述 ➔</span>
+            <span className="text-xs text-emerald-700 dark:text-emerald-400 font-mono">午後記述 ➔</span>
           </a>
           <a
             href="/sonar/"
             className="flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-blue-300 dark:hover:border-blue-500/50 hover:bg-blue-50/50 dark:hover:bg-slate-700/50 transition-colors text-slate-700 dark:text-slate-300"
           >
             <span className="font-semibold">🌊 水中音響ソナー</span>
-            <span className="text-[10px] text-blue-700 dark:text-blue-400 font-mono">FFT信号 ➔</span>
+            <span className="text-xs text-blue-700 dark:text-blue-400 font-mono">FFT信号 ➔</span>
           </a>
           <a
             href="/auto/"
             className="flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-amber-300 dark:hover:border-amber-500/50 hover:bg-amber-50/50 dark:hover:bg-slate-700/50 transition-colors text-slate-700 dark:text-slate-300"
           >
             <span className="font-semibold">⚡ 開発自動化ラボ</span>
-            <span className="text-[10px] text-amber-700 dark:text-amber-400 font-mono">CI/CD ➔</span>
+            <span className="text-xs text-amber-700 dark:text-amber-400 font-mono">CI/CD ➔</span>
           </a>
         </div>
       </div>

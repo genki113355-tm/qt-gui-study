@@ -151,7 +151,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       }`}
                     >
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                        <span className="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
                           {guide.badge || '特別付録'}
                         </span>
                       </div>
@@ -165,20 +165,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </div>
           </div>
 
-          {/* 総合ポータル ＆ 姉妹メディア・相互リンク */}
-          <div className="p-3 border-t border-slate-200 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-950/40 space-y-2 mt-2">
-            <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-bold mb-1.5 flex items-center justify-between">
-              <span className="flex items-center gap-1">
+          {/* 総合ポータル ＆ 姉妹メディア・相互リンク（折りたたみ整理） */}
+          <div className="p-3 border-t border-slate-200 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-950/40 mt-2">
+          <details className="group">
+            <summary className="list-none cursor-pointer flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900/60 hover:bg-sky-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
+              <span className="flex items-center gap-1.5">
                 <span>🔗</span>
-                <span>技術学習エコシステム</span>
+                <span>技術エコシステム ＆ PR</span>
               </span>
-            </div>
-
-            {/* 0. 総合トップ */}
-            <a
-              href="/"
-              className="group flex items-center justify-between p-2.5 rounded-xl bg-sky-100/60 dark:bg-cyan-950/40 hover:bg-sky-100 dark:hover:bg-cyan-900/50 border border-sky-200 dark:border-cyan-500/30 transition shadow-xs"
-            >
+              <span className="text-slate-500 group-open:hidden">▼</span>
+              <span className="text-slate-500 hidden group-open:inline">▲</span>
+            </summary>
+            <div className="mt-2 space-y-2">
+              <a
+                href="/"
+                className="group flex items-center justify-between p-2.5 rounded-xl bg-sky-100/60 dark:bg-cyan-950/40 hover:bg-sky-100 dark:hover:bg-cyan-900/50 border border-sky-200 dark:border-cyan-500/30 transition shadow-xs"
+              >
               <div className="min-w-0 pr-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-sm">🏛️</span>
@@ -205,7 +207,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     シロクマC++ラボ
                   </div>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   ゲーム開発で学ぶC++設計
                 </div>
               </div>
@@ -224,7 +226,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     シロクマC++自動化ラボ
                   </div>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   Docker / pybind11 / 自動評価
                 </div>
               </div>
@@ -243,7 +245,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     水中音響・ソナー入門
                   </div>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   波の物理 / FFT / 音響解析
                 </div>
               </div>
@@ -262,7 +264,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     水中音響 ADVANCED
                   </div>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   数理物理 / 空間フィルタ / MVDR
                 </div>
               </div>
@@ -281,7 +283,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     Linux・Git実践ラボ
                   </div>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   LinuC &amp; Git実践マスター
                 </div>
               </div>
@@ -300,7 +302,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     ネスペ直前対策ラボ
                   </div>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   NW試験対策 / 直前攻略
                 </div>
               </div>
@@ -319,7 +321,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     組込みES対策ラボ
                   </div>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   エンベデッドスペシャリスト対策
                 </div>
               </div>
@@ -338,17 +340,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     AIパスポートラボ
                   </div>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
+                    <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                   生成AI試験 / 厳選400問演習
                 </div>
               </div>
               <span className="text-xs text-slate-600 dark:text-slate-400 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 font-mono flex-shrink-0">↗</span>
             </a>
-          </div>
 
-                    {/* おすすめ・PRバナー（左サイドメニュー下） */}
-          <div className="px-3 mb-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
-            <SidebarBanners currentChapterSlug={currentChapterSlug} />
+            {/* おすすめ・PRバナー（左サイドメニュー下） */}
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-800/80">
+              <SidebarBanners currentChapterSlug={currentChapterSlug} />
+            </div>
+            </div>
+          </details>
           </div>
 
           {/* キャラクター紹介（シロクマ先生 & ペンギン生徒） */}
